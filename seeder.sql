@@ -3,6 +3,8 @@ CREATE DATABASE IF NOT EXISTS cleanPlate_db;
 
 USE cleanPlate_db;
 
+INSERT INTO user_info (user_name, user_password, isAdmin)
+VALUES ("testDonor", "testPassword", true);
 -- CREATE USER
 -- create user donor
 -- create user recipient
