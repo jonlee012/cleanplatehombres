@@ -50,19 +50,15 @@ public class ListingController {
     //edit controller
     @GetMapping("listings/edit/{id}")
     public String editListing(@PathVariable long id, Model model) {
-        Listing editListing = listingRepository.getById(id);
-        model.addAttribute("listingToEdit", editListing);
+        model.addAttribute("listing", listingRepository.getById(id));
         return "listings/edit";
     }
 
-//    @PostMapping("listings/edit/{id}")
-//    public String saveEditedListing(@PathVariable long id,
-//                                    @RequestParam(name="donation_description") String donation_description){
-//        Listing listingToEdit = listingRepository.getById(id);
-//        listingToEdit.setDonation_description(listingDonation_description);
-//        listingToEdit.setFood_name(listingFood_name);
-//        listingRepository.save(listingToEdit);
-//        return "redirect:/listings";
-//    }
-//
+    @PostMapping("listings/edit")
+   public String editListing(@ModelAttribute Listing listing){
+        listingRepository.save(listing);
+        return "redirect:/listings";
+    }
+
+
 }
