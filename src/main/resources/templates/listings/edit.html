@@ -20,6 +20,7 @@
             ></textarea>
         </div>
         <div class="form-group">
+            <input th:field="*{id}" th:value="${listing.getId()}" hidden>
             <button type="submit" class="btn btn-primary">
                 Submit
             </button>
