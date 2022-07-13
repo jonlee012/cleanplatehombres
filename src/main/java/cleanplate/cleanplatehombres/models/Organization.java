@@ -1,100 +1,112 @@
 package cleanplate.cleanplatehombres.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "org_info")
+@Table(name = "orgInfo")
 public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column
-    private String org_name;
+    private String orgName;
 
     @Column
-    private String org_description;
+    private String orgDescription;
 
     @Column
-    private String org_st_address;
+    private String orgStAddress;
 
     @Column
-    private String org_city;
+    private String orgCity;
 
     @Column
-    private String org_state;
+    private String orgState;
 
     @Column
-    private long org_zip;
+    private long orgZip;
 
     @Column
     private boolean isDonor;
 
     @ManyToOne
-    @JoinColumn(name="user_info", nullable = false)
+    @JoinColumn(name="userInfo", nullable = false)
     private User user;
+
+    @OneToMany
+    private List<Listing> listingList;
 
     public Organization() {
     }
 
-    public Organization(String org_name, String org_description, String org_st_address, String org_city, String org_state, long org_zip, boolean isDonor, User user) {
-        this.org_name = org_name;
-        this.org_description = org_description;
-        this.org_st_address = org_st_address;
-        this.org_city = org_city;
-        this.org_state = org_state;
-        this.org_zip = org_zip;
+    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip, boolean isDonor, User user) {
+        this.orgName = orgName;
+        this.orgDescription = orgDescription;
+        this.orgStAddress = orgStAddress;
+        this.orgCity = orgCity;
+        this.orgState = orgState;
+        this.orgZip = orgZip;
         this.isDonor = isDonor;
         this.user = user;
     }
 
-    public String getOrg_name() {
-        return org_name;
+    public Integer getId() {
+        return id;
     }
 
-    public void setOrg_name(String org_name) {
-        this.org_name = org_name;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getOrg_description() {
-        return org_description;
+    public String getOrgName() {
+        return orgName;
     }
 
-    public void setOrg_description(String org_description) {
-        this.org_description = org_description;
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
     }
 
-    public String getOrg_st_address() {
-        return org_st_address;
+    public String getOrgDescription() {
+        return orgDescription;
     }
 
-    public void setOrg_st_address(String org_st_address) {
-        this.org_st_address = org_st_address;
+    public void setOrgDescription(String orgDescription) {
+        this.orgDescription = orgDescription;
     }
 
-    public String getOrg_city() {
-        return org_city;
+    public String getOrgStAddress() {
+        return orgStAddress;
     }
 
-    public void setOrg_city(String org_city) {
-        this.org_city = org_city;
+    public void setOrgStAddress(String orgStAddress) {
+        this.orgStAddress = orgStAddress;
     }
 
-    public String getOrg_state() {
-        return org_state;
+    public String getOrgCity() {
+        return orgCity;
     }
 
-    public void setOrg_state(String org_state) {
-        this.org_state = org_state;
+    public void setOrgCity(String orgCity) {
+        this.orgCity = orgCity;
     }
 
-    public long getOrg_zip() {
-        return org_zip;
+    public String getOrgState() {
+        return orgState;
     }
 
-    public void setOrg_zip(long org_zip) {
-        this.org_zip = org_zip;
+    public void setOrgState(String orgState) {
+        this.orgState = orgState;
+    }
+
+    public long getOrgZip() {
+        return orgZip;
+    }
+
+    public void setOrgZip(long orgZip) {
+        this.orgZip = orgZip;
     }
 
     public boolean isDonor() {
