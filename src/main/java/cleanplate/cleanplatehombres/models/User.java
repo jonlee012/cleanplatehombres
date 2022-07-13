@@ -1,4 +1,4 @@
-package cleanplate.cleanplatehombres.models;
+package cleanplate.models;
 
 import javax.persistence.*;
 
