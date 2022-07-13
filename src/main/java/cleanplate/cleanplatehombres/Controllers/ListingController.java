@@ -31,7 +31,7 @@ public class ListingController {
 
     @PostMapping("listings/create")
     public String post(@ModelAttribute Listing listing) {
-        if(listing.getTitle().equals("") || listing.getBody().equals("")){
+        if(listing.getFood_name().equals("") || listing.getDonation_description().equals("")){
             return "listings/create";
         }
 
