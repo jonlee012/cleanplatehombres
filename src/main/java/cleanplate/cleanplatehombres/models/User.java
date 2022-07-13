@@ -1,7 +1,6 @@
-package main.java.cleanplate.models;
+package cleanplate.cleanplatehombres.models;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "user_info")
