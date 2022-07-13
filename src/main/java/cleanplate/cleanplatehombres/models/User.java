@@ -1,77 +1,70 @@
 package cleanplate.cleanplatehombres.models;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name = "userInfo")
+@Table(name = "user_info")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer userId;
+    private Long id;
 
     @Column
-    private String userName;
+    private String username;
 
     @Column
-    private String userEmail;
+    private String email;
 
     @Column
-    private String userPassword;
+    private String password;
 
     @Column
     private Boolean isAdmin;
 
-    @OneToMany
-    private List<Organization> organizationList;
+//    @OneToMany
+//    private List<Post> blogPost;
 
     public User() {}
 
-    public User(String userName, String userEmail, String userPassword, Boolean isAdmin) {
-        this.userName = userName;
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
-        this.isAdmin = isAdmin;
+    public User(User copy) { //this is called a Copy Constructor
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+        isAdmin = copy.isAdmin;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public Boolean getAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(Boolean admin) {
-        isAdmin = admin;
-    }
 }
