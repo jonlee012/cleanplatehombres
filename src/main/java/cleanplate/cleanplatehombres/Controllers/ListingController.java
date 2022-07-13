@@ -1,7 +1,7 @@
 package cleanplate.cleanplatehombres.Controllers;
 
 import cleanplate.cleanplatehombres.Repositories.ListingRepository;
-import cleanplate.models.Listing;
+import cleanplate.cleanplatehombres.models.Listing;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
