@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<!--<head>-->
+<head th:replace="listings/partials/head :: head">
     <meta charset="UTF-8">
     <title>Index</title>
 </head>
 <body>
+<nav th:replace="listings/partials/topnav :: navbar">
+</nav>
     <div class = "container">
         <div class = "row">
-            <div class = "col-lg-12">
+            <div class = "col">
                 <h1>Here are all of the listings</h1>
                 <br>
-                <div th:each="listing : ${listings}">
-
-
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+<!--                <div th:each="listing : ${listings}">-->
 <!--                    <h2>-->
 <!--                        <span th:text="${listings.food_name}"></span>-->
 <!--                    </h2>-->
 
 <!--                    <p><span th:text="${listings.donation_description}"></span></p>-->
-
             </div>
-
             </div>
-
-
-
         </div>
-
-
-
-
-
-
     </div>
 
-
+<footer th:replace="listings/partials/footer :: footer">
+</footer>
+<script th:replace="listings/partials/script :: script">
+</script>
 </body>
 </html>
