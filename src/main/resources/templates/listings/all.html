@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>All Listings</title>
 </head>
 <body>
     <div class = "container">
@@ -10,7 +10,7 @@
             <div class = "col-lg-12">
                 <h1>Here are all of the listings</h1>
                 <br>
-                <div th:each="listing : ${all}">
+                <div th:each="listing : ${listings}">
 
 
                     <h2>
