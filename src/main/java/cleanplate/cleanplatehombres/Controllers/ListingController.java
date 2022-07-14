@@ -38,7 +38,7 @@ public class ListingController {
         }
 
         listingRepository.save(listing);
-        return "redirect:/listings/all";
+        return "redirect:/listings";
     }
 
    //show controller
@@ -57,7 +57,7 @@ public class ListingController {
     @PostMapping("listings/edit")
    public String editListing(@ModelAttribute Listing listing){
         listingRepository.save(listing);
-        return "redirect:/listings/all";
+        return "redirect:/listings";
     }
 
 
