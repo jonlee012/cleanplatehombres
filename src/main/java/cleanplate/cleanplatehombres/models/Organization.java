@@ -39,8 +39,7 @@ public class Organization {
     @OneToMany
     private List<Listing> listingList;
 
-    public Organization() {
-    }
+    public Organization() {}
 
     public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip, boolean isDonor, User user) {
         this.orgName = orgName;
@@ -112,15 +111,12 @@ public class Organization {
     public boolean isDonor() {
         return isDonor;
     }
-
     public void setDonor(boolean donor) {
         isDonor = donor;
     }
-
     public User getUser() {
         return user;
     }
-
     public void setUser(User user) {
         this.user = user;
     }
