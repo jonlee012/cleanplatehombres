@@ -7,7 +7,11 @@
 <body>
     <h1>Edit Listing</h1>
     <br>
+
     <form th:action="@{/templates/all/edit}" th:method="post" th:object="${listing}">
+
+    <form th:action="@{/templates/listings/edit}" th:method="post" th:object="${listing}">
+
         <div class="form-group">
             <label id="title">Type of Food</label>
             <input th:field="*{foodName}" type="text" class="form-control"
