@@ -1,0 +1,1 @@
+const MAPBOX_KEY = 'pk.eyJ1Ijoiam9ubGVlMDEyIiwiYSI6ImNsNWw0dG5pNzBkbTYzanB4NWlnaDVwd2MifQ.eDtDtr7ygeb9fFyujvva2A';

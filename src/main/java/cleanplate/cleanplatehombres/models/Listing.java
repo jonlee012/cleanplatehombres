@@ -2,12 +2,12 @@ package cleanplate.cleanplatehombres.models;
 
 import javax.persistence.*;
 import java.util.Date;
-
+import java.util.List;
 
 //table creation
-    @Entity
-    @Table(name = "listing")
-    public class Listing {
+@Entity
+@Table(name = "listing")
+public class Listing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -46,17 +46,19 @@ import java.util.Date;
         this.isDonor = isDonor;
     }
 
-    //        @ManyToOne
-//        @JoinColumn(name = "user_info", nullable = false)
-//        private User user;
+    @ManyToOne
+    @JoinColumn(name="orgInfo", nullable = false)
+    private Organization organization;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name="listing_categories",
+            joinColumns={@JoinColumn(name="listingID")},
+            inverseJoinColumns={@JoinColumn(name="categoryID")}
+    )
+    private List<Category> categories;
 
-    public Listing() {
-
-    }
+    public Listing() {}
 
     public Integer getId() {
         return id;
@@ -122,6 +124,11 @@ import java.util.Date;
         isDonor = donor;
     }
 }
+
+
+
+
+
 
 
 

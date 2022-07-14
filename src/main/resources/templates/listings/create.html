@@ -8,16 +8,16 @@
     <div>
         <h1>Create Post</h1>
 
-        <form th:action="@{/templates/all/create}" method="POST" th:object="${listing}">
+        <form th:action="@{/templates/templates/create}" method="POST" th:object="${listing}">
 
             <div class="form-group">
                 <label id="title">Type of Food <span class="require">*</span></label>
-                <input th:field="*{foodName}" type="text" class="form-control" name="food_name" />
+                <input th:field="*{food_name}" type="text" class="form-control" name="food_name" />
             </div>
 
             <div class="form-group">
                 <label id="body">Donation Description</label>
-                <textarea th:field="*{donationDescription}" rows="5" class="form-control" name="donation_description"
+                <textarea th:field="*{donation_description}" rows="5" class="form-control" name="donation_description"
                 ></textarea>
             </div>
 
