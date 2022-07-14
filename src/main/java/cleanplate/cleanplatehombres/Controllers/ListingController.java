@@ -50,7 +50,7 @@ public class ListingController {
     //edit controller
     @GetMapping("listings/edit/{id}")
     public String editListing(@PathVariable long id, Model model) {
-        model.addAttribute("listing", listingRepository.getById(id));
+        model.addAttribute("listing", listingRepository.getById(Integer id)
         return "listings/edit";
     }
 

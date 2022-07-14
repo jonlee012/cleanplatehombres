@@ -11,7 +11,7 @@ import java.util.Date;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column
     private String foodName;
@@ -34,7 +34,8 @@ import java.util.Date;
     @Column
     private boolean isDonor;
 
-    public Listing(Long id, String foodName, String foodAmt, String donationDescription, boolean isDonation, Date expDate, boolean isFulfilled, boolean isDonor) {
+    public Listing(Integer id, String foodName, String foodAmt, String donationDescription, boolean isDonation,
+                   Date expDate, boolean isFulfilled, boolean isDonor) {
         this.id = id;
         this.foodName = foodName;
         this.foodAmt = foodAmt;
@@ -57,11 +58,11 @@ import java.util.Date;
 
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
