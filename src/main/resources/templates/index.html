@@ -5,14 +5,14 @@
     <title>Clean Plate Donations</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- CSS STYLE SHEET -->
-    <!--        <link href="/public/img/css/styles.css" rel="stylesheet" type="text/css">-->
     <link th:href="@{/styles/styles.css}" rel="stylesheet" />
-    <!-- GOOGLE FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    <head th:replace="partials/head :: head">
+    </head>
 </head>
 <body>
+<nav th:replace="partials/topnav :: navbar">
+</nav>
 <div class="hero-section">
     <img class="hero-img" th:src="@{/imgs/landingPage.jpg}">
     <div class="hero-wrapper">
@@ -23,7 +23,7 @@
                 <a href="shop.html" class="hero-button">I am a <br> charity</a>
             </div>
             <div class="hero-button-wrapper">
-                <a href="shop.html" class="hero-button">I am a restuarant</a>
+                <a href="shop.html" class="hero-button">I am a restaurant</a>
             </div>
         </div>
     </div>
@@ -135,5 +135,15 @@
         </li>
     </ul>
 </div>
+<footer th:replace="partials/footer :: footer">
+</footer>
+<script th:replace="partials/script :: script">
+</script>
 </body>
+
+
+
+
+
+
 </html>
