@@ -8,46 +8,44 @@ import java.util.Date;
     @Entity
     @Table(name = "listing")
     public class Listing {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "id")
-        private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
-        @Column
-        private String food_name;
+    @Column
+    private String foodName;
 
-        @Column
-        private String food_amt;
+    @Column
+    private String foodAmt;
 
-        @Column
-        private String donation_description;
+    @Column
+    private String donationDescription;
 
-        @Column
-        private boolean isDonation;
+    @Column
+    private boolean isDonation;
 
-        @Column
-        private Date exp_date;
+    @Column
+    private Date expDate;
 
-        @Column
-        private boolean isFulfilled;
+    @Column
+    private boolean isFulfilled;
 
-        @Column
-        private boolean isDonor;
+    @Column
+    private boolean isDonor;
 
-        public Listing(Long id, String food_name, String food_amt, String donation_description, boolean isDonation, Date exp_date, boolean isFulfilled, boolean isDonor) {
-            this.id = id;
-            this.food_name = food_name;
-            this.food_amt = food_amt;
-            this.donation_description = donation_description;
-            this.isDonation = isDonation;
-            this.exp_date = exp_date;
-            this.isFulfilled = isFulfilled;
-            this.isDonor = isDonor;
-        }
+    public Listing(Long id, String foodName, String foodAmt, String donationDescription, boolean isDonation, Date expDate, boolean isFulfilled, boolean isDonor) {
+        this.id = id;
+        this.foodName = foodName;
+        this.foodAmt = foodAmt;
+        this.donationDescription = donationDescription;
+        this.isDonation = isDonation;
+        this.expDate = expDate;
+        this.isFulfilled = isFulfilled;
+        this.isDonor = isDonor;
+    }
 
-
-
-//        @ManyToOne
+    //        @ManyToOne
 //        @JoinColumn(name = "user_info", nullable = false)
 //        private User user;
 
@@ -55,10 +53,9 @@ import java.util.Date;
 //    @JoinColumn(name = "user_id")
 //    private User user;
 
-    public Listing(){
+    public Listing() {
 
     }
-
 
     public Long getId() {
         return id;
@@ -68,28 +65,28 @@ import java.util.Date;
         this.id = id;
     }
 
-    public String getFood_name() {
-        return food_name;
+    public String getFoodName() {
+        return foodName;
     }
 
-    public void setFood_name(String food_name) {
-        this.food_name = food_name;
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
     }
 
-    public String getFood_amt() {
-        return food_amt;
+    public String getFoodAmt() {
+        return foodAmt;
     }
 
-    public void setFood_amt(String food_amt) {
-        this.food_amt = food_amt;
+    public void setFoodAmt(String foodAmt) {
+        this.foodAmt = foodAmt;
     }
 
-    public String getDonation_description() {
-        return donation_description;
+    public String getDonationDescription() {
+        return donationDescription;
     }
 
-    public void setDonation_description(String donation_description) {
-        this.donation_description = donation_description;
+    public void setDonationDescription(String donationDescription) {
+        this.donationDescription = donationDescription;
     }
 
     public boolean isDonation() {
@@ -100,12 +97,12 @@ import java.util.Date;
         isDonation = donation;
     }
 
-    public Date getExp_date() {
-        return exp_date;
+    public Date getExpDate() {
+        return expDate;
     }
 
-    public void setExp_date(Date exp_date) {
-        this.exp_date = exp_date;
+    public void setExpDate(Date expDate) {
+        this.expDate = expDate;
     }
 
     public boolean isFulfilled() {
@@ -124,7 +121,6 @@ import java.util.Date;
         isDonor = donor;
     }
 }
-
 
 
 
