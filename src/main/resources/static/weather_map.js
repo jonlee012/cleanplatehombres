@@ -143,44 +143,69 @@ function geocode(search, token) {
         });
 }
 
-function reverseGeocode(coordinates, token) {
-    var baseUrl = 'https://api.mapbox.com';
-    var endPoint = '/geocoding/v5/mapbox.places/';
-    return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
-        .then(function(res) {
-            return res.json();
-        })
-        // to get all the data from the request, comment out the following three lines...
-        .then(function(data) {
-            return data.features[2].place_name;
-        });
-}
+// function reverseGeocode(coordinates, token) {
+//     var baseUrl = 'https://api.mapbox.com';
+//     var endPoint = '/geocoding/v5/mapbox.places/';
+//     return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
+//         .then(function(res) {
+//             return res.json();
+//         })
+//         // to get all the data from the request, comment out the following three lines...
+//         .then(function(data) {
+//             return data.features[2].place_name;
+//         });
+// }
+var longitude = 98.4946
+var latitude = 29.4252
 
 
-
-
+mapboxgl.accessToken = MAPBOX_KEY
 var map = new mapboxgl.Map({
     container: 'map', // HTML container id
     style: 'mapbox://styles/mapbox/streets-v9', // style URL
     center: [-21.9270884, 64.1436456], // starting position as [lng, lat]
     zoom: 13
 });
+// Map Nav Controls
+map.addControl(new mapboxgl.NavigationControl());
 
-var marker = new mapboxgl.Marker()
-    .setLngLat([-21.9270884, 64.1436456])
-    .addTo(map);
-var map = new mapboxgl.Map({
-    container: 'map', // HTML container id
-    style: 'mapbox://styles/mapbox/streets-v9', // style URL
-    center: [-21.92661562, 64.14356426], // starting position as [lng, lat]
-    zoom: 13
-});
-
-var popup = new mapboxgl.Popup()
-    .setHTML('<h3>Reykjavik Roasters</h3><p>A good coffee shop</p>');
-
-var marker = new mapboxgl.Marker()
-    .setLngLat([-21.92661562, 64.14356426])
-    .setPopup(popup)
+//Starting Draggable Marker (default point)
+var marker = new mapboxgl.Marker({
+    draggable: true
+})
+    .setLngLat([longitude, latitude])
     .addTo(map);
 
+
+function onDragEnd() {
+    var lngLat = marker.getLngLat();
+    longitude = lngLat.lng;
+    latitude = lngLat.lat;
+    getData();
+}
+marker.on('dragend', onDragEnd);
+
+$(".btn").click(function (e) {
+    e.preventDefault()
+    let searchInput = $("#input").val();
+    geocode(searchInput, MAPBOX_KEY).then(function (data) {
+        longitude = data[0];
+        latitude = data[1];
+        getData();
+    })
+})
+// var map = new mapboxgl.Map({
+//     container: 'map', // HTML container id
+//     style: 'mapbox://styles/mapbox/streets-v9', // style URL
+//     center: [-21.92661562, 64.14356426], // starting position as [lng, lat]
+//     zoom: 13
+// });
+//
+// var popup = new mapboxgl.Popup()
+//     .setHTML('<h3>Reykjavik Roasters</h3><p>A good coffee shop</p>');
+//
+// var marker = new mapboxgl.Marker()
+//     .setLngLat([-21.92661562, 64.14356426])
+//     .setPopup(popup)
+//     .addTo(map);
+//
