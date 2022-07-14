@@ -14,8 +14,8 @@ public class Category {
     @Column
     private String categoryName;
 
-    @ManyToMany(mappedBy = "categories")
-    private List<Listing> listings;
+//    @ManyToMany(mappedBy = "categories")
+//    private List<Listing> listings;
 
     public Category(String categoryName) {
         this.categoryName = categoryName;
