@@ -17,10 +17,10 @@ public class ListingController {
 
 
     //listing index controller
-    @GetMapping("/listings/all")
+    @GetMapping("/listings")
     public String index(Model model) {
         model.addAttribute("listings", listingRepository.findAll());
-        return "listings/all";
+        return "listings/index";
     }
 
 
