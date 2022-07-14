@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+}
+body {
+    font-family: 'Bebas Neue', cursive;
+}
+.hero-section {
+     /*border: 2px solid purple;*/
+    width: 1080px;
+    height: 75vh;
+    margin: 0 auto;
+    position: relative;
+
+}
+.hero-img {
+    /*border: 2px solid purple;*/
+    width: 1080px;
+    height: 75vh;
+    margin: 0 auto;
+
+
+
+}
+
+.hero-wrapper {
+    /* border: 2px solid purple; */
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+.hero-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+
+}
+.text-span-2 {
+    /* border: 2px solid red; */
+    color: rgb(224, 62, 21);
+}
+.hero-paragraph {
+    /* border: 2px solid red; */
+}
+.hero-button-container {
+    display: flex;
+    justify-content: space-around;
+}
+.hero-button-wrapper{
+    /* border: 2px solid green; */
+    padding: 15px;
+    font-size: 12px;
+    width: 200px;
+}
+.hero-button {
+    color: #ffffff;
+    padding: 0.8rem;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgb(224, 62, 21);
+    transition: .5s;
+    text-decoration: none;
+}
+.hero-button:hover{
+    background-color: rgba(255, 255, 255, 0.12);
+}
+/* **************** */
+/* **************** */
+/* **************** */
+/* **************** */
+/* WAYS TO SUPPORT */
+/* **************** */
+/* **************** */
+/* **************** */
+.support-section {
+    /* border: 2px solid purple; */
+    margin: 0 auto;
+    max-width: 1080px;
+    height: auto;
+}
+.container {
+    /* border: 2px solid red; */
+
+}
+.support-top-wrapper {
+    /* border: 2px solid black; */
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    padding: 25px 20px;
+}
+.support-top-left {
+    /* border: 2px solid black; */
+    width: 75%;
+}
+.support-top-details-text {
+    /* background-color: pink; */
+}
+.support-top-heading {
+    /* background-color: pink; */
+}
+.support-top-right {
+    padding-left: 10px;
+}
+/* **************** */
+/* **************** */
+/* **************** */
+/* **************** */
+/* SUPPORT CARDS */
+/* **************** */
+/* **************** */
+/* **************** */
+.support-wrapper {
+    /* background-color: green; */
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* color: white; */
+    font-family: 'Montserrat', sans-serif;
+}
+.support-column {
+    /* background-color: pink; */
+    /* border: 2px solid red; */
+    margin: 10px;
+    max-width: 200px;
+    min-width: 200px;
+    height: auto;
+    padding: 10px;
+}
+.support-square {
+    /* border: 2px solid purple; */
+    height: 100px;
+    padding: 15px;
+    background-color: black;
+    color: white;
+}
+.support-square-number {
+    /* border: 2px solid green; */
+    text-align: right;
+    margin-bottom: 15px;
+    color: red;
+}
+.support-square-text{
+    font-size: 15px;
+    font-weight: bold;
+}
+.support-column>p{
+    padding: 10px;
+    font-size: 12px;
+}
+/* **************** */
+/* **************** */
+/* **************** */
+/* **************** */
+/* KEEPING YOU SAVE */
+/* **************** */
+/* **************** */
+/* **************** */
+.safe-section {
+    /* border: 2px solid red; */
+    margin: 0 auto;
+    max-width: 1080px;
+    height: 50vh;
+
+    position: relative;
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.safe-img {
+    width: 1080px;
+    height: 55vh;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.safe-wrapper {
+    /* border: 2px solid white; */
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    padding: 25px;
+}
+.container {
+    /* border: 2px solid purple; */
+}
+.safe-heading {
+    font-size: 25px;
+}
+.safe-paragraph {
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+.safe-button {
+    color: #ffffff;
+    padding: 0.8rem;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgb(224, 62, 21);
+    transition: .5s;
+    text-decoration: none;
+}
+.safe-button:hover{
+    background-color: rgba(255, 255, 255, 0.12);
+}
+/* **************** */
+/* **************** */
+/* **************** */
+/* **************** */
+/*     LISTINGS     */
+/* **************** */
+/* **************** */
+/* **************** */
+/* Design */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+.main{
+    max-width: 1080px;
+    margin: 0 auto;
+}
+h1 {
+    font-size: 24px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+img {
+    width: 350px;
+    height: 250px;
+    vertical-align: middle;
+}
+.btn {
+    color: #ffffff;
+    padding: 0.8rem;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgb(224, 62, 21);
+    transition: .5s;
+}
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.cards_item {
+    display: flex;
+    padding: 1rem;
+}
+@media (min-width: 40rem) {
+    .cards_item {
+        width: 50%;
+    }
+}
+@media (min-width: 56rem) {
+    .cards_item {
+        width: 33.3333%;
+    }
+}
+.card {
+    background-color: white;
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.card_content {
+    padding: 1rem;
+    background-color: black;
+}
+.card_title {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin: 0px;
+}
+.card_text {
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+}
