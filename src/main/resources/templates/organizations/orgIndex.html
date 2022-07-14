@@ -1,12 +1,12 @@
 <!DOCTYPE html>
         <html xmlns:th="http://www.thymeleaf.org">
         <!--<head>-->
-        <head th:replace="templates/partials/head.html :: head">
+        <head th:replace="partials/head.html :: head">
         <meta charset="UTF-8">
         <title>Organization Index</title>
 </head>
 <body>
-<nav th:replace="templates/partials/topnav.html :: navbar">
+<nav th:replace="partials/topnav.html :: navbar">
 </nav>
 <div class = "container">
     <div class = "row">
@@ -58,19 +58,19 @@
 
 
                 <h2>
-                    <span th:text="${organization.orgName}"></span>
+                    <span th:text="${organization.getOrgName()}"></span>
                 </h2>
 
-                <p><span th:text="${organization.orgDescription}"></span></p>
+                <p><span th:text="${organization.getOrgDescription()}"></span></p>
 
             </div>
         </div>
     </div>
 </div>
 
-<footer th:replace="templates/partials/footer.html :: footer">
+<footer th:replace="partials/footer.html :: footer">
 </footer>
-<script th:replace="templates/partials/script.html :: script">
+<script th:replace="partials/script.html :: script">
 </script>
 </body>
 </html></title>
