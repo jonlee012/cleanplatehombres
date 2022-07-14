@@ -30,7 +30,7 @@ public class Organization {
     private long orgZip;
 
     @Column
-    private boolean isDonor;
+    private Boolean isDonor;
 
     @ManyToOne
     @JoinColumn(name="userInfo", nullable = false)
@@ -108,10 +108,10 @@ public class Organization {
         this.orgZip = orgZip;
     }
 
-    public boolean isDonor() {
+    public Boolean isDonor() {
         return isDonor;
     }
-    public void setDonor(boolean donor) {
+    public void setDonor(Boolean donor) {
         isDonor = donor;
     }
     public User getUser() {
