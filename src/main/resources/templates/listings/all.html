@@ -10,14 +10,14 @@
             <div class = "col-lg-12">
                 <h1>Here are all of the listings</h1>
                 <br>
-                <div th:each="listing : ${listings}">
+                <div th:each="listing : ${all}">
 
 
                     <h2>
-                        <span th:field="${listing.foodName}"></span>
+                        <span th:text="${listing.foodName}"></span>
                     </h2>
 
-                    <p><span th:field="${listing.donationDescription}"></span></p>
+                    <p><span th:text="${listing.donationDescription}"></span></p>
 
             </div>
 
