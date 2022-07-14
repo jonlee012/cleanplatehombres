@@ -33,12 +33,12 @@ public class ListingController {
 
     @PostMapping("listings/create")
     public String post(@ModelAttribute Listing listing) {
-        if(listing.getFood_name().equals("") || listing.getDonation_description().equals("")){
+        if(listing.getFoodName().equals("") || listing.getDonationDescription().equals("")){
             return "listings/create";
         }
 
         listingRepository.save(listing);
-        return "redirect:/listings";
+        return "redirect:/listings/all";
     }
 
    //show controller
@@ -49,7 +49,7 @@ public class ListingController {
 
     //edit controller
     @GetMapping("listings/edit/{id}")
-    public String editListing(@PathVariable long id, Model model) {
+    public String editListing(@PathVariable Integer id, Model model) {
         model.addAttribute("listing", listingRepository.getById(id));
         return "listings/edit";
     }
@@ -57,7 +57,7 @@ public class ListingController {
     @PostMapping("listings/edit")
    public String editListing(@ModelAttribute Listing listing){
         listingRepository.save(listing);
-        return "redirect:/listings";
+        return "redirect:/listings/all";
     }
 
 
