@@ -8,7 +8,7 @@ public class HomeController {
 
     @GetMapping("/index")
     public String index(){
-        return "/listings/index";
+        return "index";
     }
 
 }
