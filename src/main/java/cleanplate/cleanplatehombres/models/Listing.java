@@ -40,10 +40,13 @@ public class Listing {
         this.isDonation = isDonation;
         this.expDate = expDate;
         this.isFulfilled = isFulfilled;
+
     }
 
+
+
     @ManyToOne
-    @JoinColumn(name="orgInfo", nullable = false)
+    @JoinColumn(name="org_info", nullable = false)
     private Organization organization;
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -110,6 +113,14 @@ public class Listing {
 
     public void setFulfilled(boolean fulfilled) {
         isFulfilled = fulfilled;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
 
 }

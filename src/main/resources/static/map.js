@@ -53,7 +53,7 @@ var marker = new mapboxgl.Marker({
 var weatherOptions = {
     lat: 29.4241,
     lon: -98.4936,
-    appid: "8dba1fe72474760cbb96da7c28d67b5e",
+    // appid: "8dba1fe72474760cbb96da7c28d67b5e",
     units: 'imperial'
 };
 
