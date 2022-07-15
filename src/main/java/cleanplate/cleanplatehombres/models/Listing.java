@@ -10,7 +10,7 @@ import java.util.List;
 public class Listing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "listingId")
     private Integer id;
 
     @Column
@@ -64,8 +64,7 @@ public class Listing {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer id) {this.id = id;
     }
 
     public String getFoodName() {

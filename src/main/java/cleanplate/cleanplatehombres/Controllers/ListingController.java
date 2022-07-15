@@ -20,7 +20,7 @@ public class ListingController {
     @GetMapping("/listings")
     public String index(Model model) {
         model.addAttribute("listings", listingRepository.findAll());
-        return "listings/index";
+        return "listings/listings";
     }
 
 
