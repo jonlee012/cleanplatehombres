@@ -10,7 +10,7 @@ import java.util.List;
 public class Listing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "listingId")
+    @Column(name = "id")
     private Integer id;
 
     @Column
@@ -31,7 +31,6 @@ public class Listing {
     @Column
     private boolean isFulfilled;
 
-
     public Listing(Integer id, String foodName, String foodAmt, String donationDescription, boolean isDonation,
                    Date expDate, boolean isFulfilled) {
         this.id = id;
@@ -41,7 +40,6 @@ public class Listing {
         this.isDonation = isDonation;
         this.expDate = expDate;
         this.isFulfilled = isFulfilled;
-
     }
 
     @ManyToOne
@@ -62,7 +60,8 @@ public class Listing {
         return id;
     }
 
-    public void setId(Integer id) {this.id = id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getFoodName() {
@@ -112,7 +111,6 @@ public class Listing {
     public void setFulfilled(boolean fulfilled) {
         isFulfilled = fulfilled;
     }
-
 
 }
 
