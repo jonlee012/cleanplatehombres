@@ -31,11 +31,8 @@ public class Listing {
     @Column
     private boolean isFulfilled;
 
-    @Column
-    private boolean isDonor;
-
     public Listing(Integer id, String foodName, String foodAmt, String donationDescription, boolean isDonation,
-                   Date expDate, boolean isFulfilled, boolean isDonor) {
+                   Date expDate, boolean isFulfilled) {
         this.id = id;
         this.foodName = foodName;
         this.foodAmt = foodAmt;
@@ -43,7 +40,6 @@ public class Listing {
         this.isDonation = isDonation;
         this.expDate = expDate;
         this.isFulfilled = isFulfilled;
-        this.isDonor = isDonor;
     }
 
     @ManyToOne
@@ -116,13 +112,6 @@ public class Listing {
         isFulfilled = fulfilled;
     }
 
-    public boolean isDonor() {
-        return isDonor;
-    }
-
-    public void setDonor(boolean donor) {
-        isDonor = donor;
-    }
 }
 
 
