@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -53,6 +54,19 @@ public class OrganizationController {
         return "organizations/show";
     }
 
+    @GetMapping("/organizations/{id}")
+    public String viewPost(@PathVariable Integer id, Model model) {
+        model.addAttribute("title", "Post Page");
+
+        //TODO: Inside the method that shows an individual post, create a new post object and pass it to the view.
+        model.addAttribute("orgProfile", organizationDao.findById(id));
+        Organization organization = organizationDao.getById(id);
+//        User user = userDao.getById(post.getUser().getId());
+        model.addAttribute("postTitle", post.getTitle());
+        model.addAttribute("postBody", post.getBody());
+        model.addAttribute("postID", post.getId());
+        model.addAttribute("user", user);
+        return
 
 
 }
