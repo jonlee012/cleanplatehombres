@@ -1,7 +1,7 @@
 # DROP DATABASE IF EXISTS cleanPlate_db;
 # CREATE DATABASE IF NOT EXISTS cleanPlate_db;
-#
-# USE cleanPlate_db;
+
+USE cleanPlate_db;
 #
 # CREATE TABLE userInfo (
 #                           userId INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -50,11 +50,9 @@
 # CREATE TABLE listing_categories (
 #                                     listingId INT UNSIGNED NOT NULL ,
 #                                     categoryId INT UNSIGNED NOT NULL,
-#                                     FOREIGN KEY (listingId) REFERENCES listing(listingId),
-#                                     FOREIGN KEY (categoryId) REFERENCES category(categoryId)
+#                                     FOREIGN KEY (listingId) REFERENCES listing(id),
+#                                     FOREIGN KEY (categoryId) REFERENCES category(id)
 # );
-
-USE cleanPlate_db;
 
 INSERT INTO user_info (user_name, user_email, user_password, is_admin)
 VALUES ('michael', 'michael@email.com', 'michael123', false),
@@ -100,3 +98,12 @@ VALUES (1, 1),
        (4, 1),
        (4, 2),
        (3, 3);
+
+
+
+
+
+
+
+
+
