@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Clean Plate Donations</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- CSS STYLE SHEET -->
+    <link th:href="@{/styles/styles.css}" rel="stylesheet" />
+
+    <head th:replace="partials/head :: head">
+    </head>
+</head>
+<body>
+<nav th:replace="partials/topnav :: navbar">
+</nav>
+<div class="hero-section">
+    <img class="hero-img" th:src="@{/imgs/landingPage.jpg}">
+    <div class="hero-wrapper">
+        <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>
+        <p class="hero-paragraph">ABOUT US</p>
+        <div class="hero-button-container">
+            <div class="hero-button-wrapper">
+                <a href="shop.html" class="hero-button">I am a <br> charity</a>
+            </div>
+            <div class="hero-button-wrapper">
+                <a href="shop.html" class="hero-button">I am a restaurant</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="partials/footer :: footer">
+</footer>
+<script th:replace="partials/script :: script">
+</script>
+</body>
+
+
+
+
+
+
+</html>

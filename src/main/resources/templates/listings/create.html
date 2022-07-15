@@ -8,7 +8,9 @@
     <div>
         <h1>Create Post</h1>
 
-        <form th:action="@{/listings/create}" method="POST" th:object="${listing}">
+
+        <form th:action="@{/templates/create}" method="POST" th:object="${listing}">
+
 
             <div class="form-group">
                 <label id="title">Type of Food <span class="require">*</span></label>
