@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <!--<head>-->
-<head th:replace="partials/head.html :: head">
-    <meta charset="UTF-8">
-    <title>Organization Index</title>
-</head>
+<!--<head th:replace="listings/partials/head :: head">-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Index</title>-->
+<!--</head>-->
+
+<head><title>listings</title></head>
 <body>
-<nav th:replace="partials/topnav.html :: navbar">
+<!--<nav th:replace="listings/partials/topnav :: navbar">-->
 </nav>
 <div class = "container">
     <div class = "row">
         <div class = "col">
-            <h1>Here are all of the Organizations</h1>
+            <h1>Here are all of the listings</h1>
             <!--                start-->
 
             <section class="container-fluid" style="margin-top: 40px">
@@ -54,28 +56,23 @@
 
             <!--                    <p><span th:text="${listings.donation_description}"></span></p>-->
 
-            <div th:each="organization : ${organizations}">
+            <div th:each="listing : ${listings}">
 
 
                 <h2>
-                    <span th:text="${organization.getOrgName()}"></span>
+                    <span th:text="${listing.getFoodName()}"></span>
                 </h2>
 
-                <p><span th:text="${organization.getOrgDescription()}"></span></p>
+                <p><span th:text="${listing.getDonationDescription()}"></span></p>
 
             </div>
         </div>
     </div>
 </div>
 
-<footer th:replace="partials/footer.html :: footer">
-</footer>
-<script th:replace="partials/script.html :: script">
-</script>
-</body>
-</html></title>
-</head>
-<body>
-
+<!--<footer th:replace="listings/partials/footer :: footer">-->
+<!--</footer>-->
+<!--<script th:replace="listings/partials/script :: script">-->
+<!--</script>-->
 </body>
 </html>
