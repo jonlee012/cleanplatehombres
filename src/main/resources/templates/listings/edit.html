@@ -14,10 +14,10 @@
             name="foodName" />
         </div>
 
-        div class="form-group">
-        <label id="org-info">Type of Food</label>
-        <input th:field="*{organization}" th:value="${listing.getOrganization}" type="text" class="form-control"
-               name="foodName" />
+        <div class="form-group">
+            <label id="org-info">Organization</label>
+            <input th:field="*{organization}" th:value="${listing.getOrganization()}" type="text" class="form-control"
+                   name="organization" />
         </div>
 
         <div class="form-group">
@@ -27,6 +27,21 @@
                       name="donationDescription"
             ></textarea>
         </div>
+
+        <div class="form-group">
+            <label id="food-amt">Amount</label>
+            <input th:field="*{foodAmt}" th:value="${listing.getFoodAmt()}" type="text" class="form-control"
+                   name="organization" />
+        </div>
+
+        <div class="form-group">
+            <label id="exp-date">Expiration Date</label>
+            <input th:field="*{expDate}" th:value="${listing.getExpDate()}" type="text" class="form-control"
+                   name="organization" />
+        </div>
+
+
+
         <div class="form-group">
             <input th:field="*{id}" th:value="${listing.getId()}" hidden>
             <button type="submit" class="btn btn-primary">
