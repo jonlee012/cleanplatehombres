@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
@@ -9,10 +9,12 @@
 
     <head th:replace="partials/head :: head">
     </head>
+
 </head>
 <body>
 <nav th:replace="partials/topnav :: navbar">
 </nav>
+
 <div class="hero-section">
     <img class="hero-img" th:src="@{/imgs/landingPage.jpg}">
     <div class="hero-wrapper">
@@ -139,6 +141,7 @@
 </footer>
 <script th:replace="partials/script :: script">
 </script>
+
 </body>
 
 
