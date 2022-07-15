@@ -84,7 +84,7 @@ VALUES ('meat'),
        ('baked goods'),
        ('vegan');
 
-INSERT INTO listing_categories (listingid, categoryid)
+INSERT INTO listing_categories (listingId, categoryId)
 VALUES (1, 1),
        (1, 4),
        (1, 5),

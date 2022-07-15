@@ -1,8 +1,6 @@
 package cleanplate.cleanplatehombres.Controllers;
 
-import cleanplate.cleanplatehombres.Repositories.ListingRepository;
 import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
-import cleanplate.cleanplatehombres.models.Listing;
 import cleanplate.cleanplatehombres.models.Organization;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,13 +38,14 @@ public class OrganizationController {
                 organization.getOrgStAddress().equals("") ||
                 organization.getOrgCity().equals("") ||
                 organization.getOrgState().equals("") ||
-                (organization.getOrgZip() == 0) ||
-                (organization.isDonor() == null)) {
-                return "organizations/create";
-            }
-                organizationRepository.save(organization);
-                return "redirect:/orgs/page"; //still need to build out this single-org-index-page
-            }
+                (organization.getOrgZip() == 0)) {
+//                ||
+//                (organization.isDonor() == null)) {
+            return "organizations/create";
+        }
+        organizationRepository.save(organization);
+        return "redirect:/orgs/page"; //still need to build out this single-org-index-page
+    }
 
     @GetMapping("organizations/show")
     public String showPage() {
