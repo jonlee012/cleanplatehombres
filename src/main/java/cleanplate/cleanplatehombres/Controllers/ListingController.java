@@ -20,7 +20,7 @@ public class ListingController {
     @GetMapping("/listings")
     public String index(Model model) {
         model.addAttribute("listings", listingRepository.findAll());
-        return "listings/index";
+        return "listings/listings";
     }
 
 
@@ -49,7 +49,7 @@ public class ListingController {
 
     //edit controller
     @GetMapping("listings/edit/{id}")
-    public String editListing(@PathVariable long id, Model model) {
+    public String editListing(@PathVariable Integer id, Model model) {
         model.addAttribute("listing", listingRepository.getById(id));
         return "listings/edit";
     }
