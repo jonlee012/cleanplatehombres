@@ -4,9 +4,7 @@ import cleanplate.cleanplatehombres.Repositories.ListingRepository;
 import cleanplate.cleanplatehombres.models.Listing;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ListingController {
@@ -17,12 +15,16 @@ public class ListingController {
         this.listingRepository = listingRepository;
     }
 
+
+    //listing index controller
     @GetMapping("/listings")
     public String index(Model model) {
         model.addAttribute("listings", listingRepository.findAll());
         return "listings/index";
     }
 
+
+   //create controller
     @GetMapping("/listings/create")
     public String create(Model model) {
         model.addAttribute("listing", new Listing());
@@ -39,11 +41,24 @@ public class ListingController {
         return "redirect:/listings";
     }
 
+   //show controller
     @GetMapping("listings/show")
     public String showPage() {
         return "listings/show";
     }
 
+    //edit controller
+    @GetMapping("listings/edit/{id}")
+    public String editListing(@PathVariable long id, Model model) {
+        model.addAttribute("listing", listingRepository.getById(id));
+        return "listings/edit";
+    }
+
+    @PostMapping("listings/edit")
+   public String editListing(@ModelAttribute Listing listing){
+        listingRepository.save(listing);
+        return "redirect:/listings";
+    }
 
 
 }
