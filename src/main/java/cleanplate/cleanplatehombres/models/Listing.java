@@ -49,6 +49,10 @@ public class Listing {
     @JoinColumn(name="org_info", nullable = false)
     private Organization organization;
 
+    public Listing(Organization organization) {
+        this.organization = organization;
+    }
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name="listing_categories",
