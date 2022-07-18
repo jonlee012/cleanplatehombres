@@ -55,8 +55,9 @@ public ListingController(ListingRepository listingRepository){
     }
 
    //show controller
-    @GetMapping("listings/show")
-    public String showPage() {
+    @GetMapping("listings/show/{id}")
+    public String showPage(@PathVariable Integer id, Model model) {
+        model.addAttribute("listing", listingRepository.getById(id));
         return "listings/show";
     }
 
