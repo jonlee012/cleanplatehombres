@@ -28,8 +28,10 @@ public class UserController {
 
     @PostMapping("/sign-up")
     public String saveUser(@ModelAttribute User user){
+        System.out.println(user.getPassword());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
+        System.out.println(user.getPassword());
         userDao.save(user);
         return "redirect:/login";
     }
