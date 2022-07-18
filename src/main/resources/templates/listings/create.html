@@ -22,9 +22,18 @@
             </div>
 
             <div class="form-group">
-                <label id="org">Type of Food <span class="require">*</span></label>
+                <label id="org">Organization Code <span class="require">*</span></label>
                 <input th:field="*{organization}" type="text" class="form-control" name="organization" />
             </div>
+
+                    <div class="form-group">
+                        <label id="exp-date">Expiration Date</label>
+                        <input th:field="*{expDate}" type="text" class="form-control"
+                               name="organization" />
+                    </div>
+
+
+
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">
