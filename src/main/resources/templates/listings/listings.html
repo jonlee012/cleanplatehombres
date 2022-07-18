@@ -1,67 +1,43 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<!--<head>-->
-<!--<head th:replace="listings/partials/head :: head">-->
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--<head th:replace="partials/head :: head">-->
 <!--    <meta charset="UTF-8">-->
 <!--    <title>Index</title>-->
 <!--</head>-->
 
-<head><title>listings</title></head>
-<body>
-<!--<nav th:replace="listings/partials/topnav :: navbar">-->
-</nav>
-<div class = "container">
-    <div class = "row">
-        <div class = "col">
-            <h1>Here are all of the listings</h1>
-            <!--                start-->
+<!--&lt;!&ndash;<head><title>listings</title></head>&ndash;&gt;-->
+<!--<body>-->
+<!--<nav th:replace="partials/topnav :: navbar">-->
+<!--</nav>-->
+<!--<div class = "container">-->
+<!--    <div class = "row">-->
+<!--        <div class = "col">-->
+<!--            <h1>Here are all of the listings</h1>-->
+<!--            &lt;!&ndash;                start&ndash;&gt;-->
 
-            <section class="container-fluid" style="margin-top: 40px">
-                <form>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-10">
-                                <input class="form-control" id="input" type="search" placeholder="Enter by City" aria-label="Search">
-                            </div>
-                            <div class="col-2">
-                                <button id="btn" class="form-control btn" type="submit">Search</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div style="margin-top: 10px">
-                    <div class='mx-1 mt-3' id='map' style='height: 400px; width: auto'></div>
-                    <pre id="coordinates" class="coordinates">
-            </pre>
-                </div>
-                <div style="margin-top: -10px"><em>Drag pin to find temperatures in other cities*</em>
-                </div>
-                <!--                    <div class="five"  style="padding: 20px; display: flex; justify-content: center;">-->
-                <!--                        <p>-->
-                <!--                        <h3>Five day forecast: </h3>-->
-                <!--                        <h3 id="locationPrinted" style="padding-left: 5px"></h3>-->
-                <!--                    </div>-->
-                <!--                    <div>-->
-                <!--                        <div class="weatherBox row" id="insertWeatherBoxes"></div>-->
-                <!--                    </div>-->
-            </section>
+<!--            <section th:replace="partials/mapbox :: mapbox">-->
+<!--            </section>-->
 
-            <!--                end-->
-            <br>
+<!--            &lt;!&ndash;                end&ndash;&gt;-->
+<!--            <br>-->
 
-            <!--                <div th:each="listing : ${listings}">-->
-            <!--                    <h2>-->
-            <!--                        <span th:text="${listings.food_name}"></span>-->
-            <!--                    </h2>-->
+<!--            &lt;!&ndash;                <div th:each="listing : ${listings}">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <h2>&ndash;&gt;-->
+<!--            &lt;!&ndash;                        <span th:text="${listings.food_name}"></span>&ndash;&gt;-->
+<!--            &lt;!&ndash;                    </h2>&ndash;&gt;-->
 
-            <!--                    <p><span th:text="${listings.donation_description}"></span></p>-->
+<!--            &lt;!&ndash;                    <p><span th:text="${listings.donation_description}"></span></p>&ndash;&gt;-->
 
-            <div th:each="listing : ${listings}">
+<!--            <div th:each="listing : ${listings}">-->
 
 
-                <h2>
-                    <span th:text="${listing.getFoodName()}"></span>
-                </h2>
+<!--                <h2>-->
+<!--                    <span th:text="${listing.getFoodName()}"></span>-->
+<!--                </h2>-->
+
+
+<!--                <p><span th:text="${listing.getDonationDescription()}"></span></p>-->
 
                 <p><span th:text="${listing.getFoodAmt()}"></span></p>
                 <p><span th:text="${listing.getExpDate()}"></span></p>
@@ -69,14 +45,60 @@
 
 
 
-            </div>
-        </div>
-    </div>
-</div>
 
-<!--<footer th:replace="listings/partials/footer :: footer">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<footer th:replace="partials/footer :: footer">-->
 <!--</footer>-->
-<!--<script th:replace="listings/partials/script :: script">-->
+<!--<script th:replace="partials/script :: script">-->
 <!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+<html>
+<head>
+    <title>Title of the document</title>
+</head>
+<body>
+<form action="path/to/server/script" method="post" id="my_form">
+    <label>Name</label>
+    <input type="text" name="name" />
+    <label>Email</label>
+    <input type="email" name="email" />
+    <label>Website</label>
+    <input type="url" name="website" />
+    <input type="submit" name="submit" value="Submit Form" />
+    <div id="server-results">
+        <!-- For server results -->
+    </div>
+</form>
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+
+<script>
+    $("#my_form").submit(function(event) {
+        event.preventDefault(); //prevent default action
+        let post_url = $(this).attr("action"); //get form action url
+        let form_data = $(this).serialize(); //Encode form elements for submission
+        $.post(post_url, form_data, function(response) {
+            $("#server-results").html(response);
+        });
+    });
+</script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>-->
+<!--&lt;!&ndash;<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>-->
+<!--&lt;!&ndash;<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.js'></script>&ndash;&gt;-->
+<!--<script src="https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js"></script>-->
+<!--<script src="https://kit.fontawesome.com/54ed633ccb.js" crossorigin="anonymous"></script>-->
+<!--<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>-->
+<!--<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>-->
+<!--<script src="keys.js"></script>-->
+<!--<script src="mapbox-geocoder-utils.js"></script>-->
+<!--<script src="map.js"></script>-->
 </body>
 </html>
