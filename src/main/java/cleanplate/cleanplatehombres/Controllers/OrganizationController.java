@@ -18,10 +18,16 @@ public class OrganizationController {
         this.organizationRepository = organizationRepository;
     }
 
-    @GetMapping("/orgs")
-    public String index(Model model) {
+    @GetMapping("/nonProfitIndex")
+    public String nonProfit(Model model) {
         model.addAttribute("organizations", organizationRepository.findAll());
-        return "organizations/orgIndex";
+        return "organizations/nonProfitIndex";
+    }
+
+    @GetMapping("/restaurant")
+    public String restaurant(Model model) {
+        model.addAttribute("organizations", organizationRepository.findAll());
+        return "organizations/restaurant";
     }
 
     @GetMapping("/orgs/create")
