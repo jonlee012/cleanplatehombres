@@ -47,7 +47,7 @@ public class ListingController {
         return "listings/show";
     }
 
-    //edit controller
+    //edit controllerid
     @GetMapping("listings/edit/{id}")
     public String editListing(@PathVariable Integer id, Model model) {
         model.addAttribute("listing", listingRepository.getById(id));
@@ -57,6 +57,12 @@ public class ListingController {
     @PostMapping("listings/edit")
    public String editListing(@ModelAttribute Listing listing){
         listingRepository.save(listing);
+        return "redirect:/listings";
+    }
+
+    @GetMapping("listings/delete/{id}")
+    public String delete(@ModelAttribute Listing listing) {
+       listingRepository.delete(listing);
         return "redirect:/listings";
     }
 
