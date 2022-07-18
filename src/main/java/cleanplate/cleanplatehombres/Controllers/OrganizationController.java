@@ -2,6 +2,8 @@ package cleanplate.cleanplatehombres.Controllers;
 
 import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
 import cleanplate.cleanplatehombres.models.Organization;
+import cleanplate.cleanplatehombres.models.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -73,5 +75,12 @@ public class OrganizationController {
 //        model.addAttribute("user", user);
 //        return
 
+
+    @GetMapping("/profile")
+    public String userProfilePage(Model model) {
+        model.addAttribute("organizations", organizationRepository.findAll());
+        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        return "users/profile";
+    }
 
 }

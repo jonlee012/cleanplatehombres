@@ -77,4 +77,12 @@ public class User {
     public void setAdmin(Boolean admin) {
         isAdmin = admin;
     }
+
+    public List<Organization> getOrganizationList() {
+        return organizationList;
+    }
+
+    public void setOrganizationList(List<Organization> organizationList) {
+        this.organizationList = organizationList;
+    }
 }

@@ -15,6 +15,52 @@
 <h1>Welcome <!--/*@thymesVar id="getUsername" type=""*/-->
 <span th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h1>
 
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Edit User Profile</h2>
+            <p>Username: <!--/*@thymesVar id="getUsername" type=""*/-->
+            <span th:text ="${#authentication.getPrincipal().getUsername()}"></span></p>
+            <p>Email: <!--/*@thymesVar id="getEmail" type=""*/-->
+            <span th:text ="${#authentication.getPrincipal().getEmail()}"></span></p>
+            <div th:if="${#authentication.getPrincipal().getAdmin()}">
+                <p>User Status: Admin</p>.
+            </div>
+
+        </div>
+        <div class="col">
+            <h2>Edit Your Organizations</h2>
+
+            <div th:each="organization : ${organizations}">
+                <!--/*@thymesVar id="getUser" type=""*/-->
+                <!--/*@thymesVar id="user" type=""*/-->
+<!--                <div th:if="${organization.getUser()} == ${user}">-->
+
+                    <p>Organization Name:
+                    <!--/*@thymesVar id="getOrgName" type=""*/--><span th:text="${organization.getOrgName()}"></span></p>
+
+                    <p>Description: <span th:text="${organization.getOrgDescription()}"></span></p>
+                    <p>Address:
+                        <!--/*@thymesVar id="getOrgStAddress" type=""*/-->
+                        <span th:text="${organization.getOrgStAddress()}"></span><br>
+                    </p>
+                    <p>
+
+                        <!--/*@thymesVar id="getOrgCity" type=""*/-->
+                        <span th:text="${organization.getOrgCity()}"></span>
+
+                        <!--/*@thymesVar id="orgState" type=""*/-->
+                        <span th:text="${organization.getOrgState()}"></span>
+
+                        <!--/*@thymesVar id="getOrgZip" type=""*/-->
+                        <span th:text="${organization.getOrgZip()}"></span>
+                    </p>
+
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+
 
 
 
