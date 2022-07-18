@@ -41,7 +41,7 @@ public class ListingController {
         return "redirect:/listings";
     }
 
-   //show controller
+   //show controller:
     @GetMapping("listings/show")
     public String showPage() {
         return "listings/show";
