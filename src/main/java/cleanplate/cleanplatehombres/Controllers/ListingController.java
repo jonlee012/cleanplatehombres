@@ -54,10 +54,12 @@ public ListingController(ListingRepository listingRepository){
         return "redirect:/listings";
     }
 
+
    //show controller
     @GetMapping("listings/show/{id}")
     public String showPage(@PathVariable Integer id, Model model) {
         model.addAttribute("listing", listingRepository.getById(id));
+
         return "listings/show";
     }
 

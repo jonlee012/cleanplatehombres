@@ -9,16 +9,16 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer userId;
+    private Integer id;
 
     @Column
-    private String userName;
+    private String username;
 
     @Column
-    private String userEmail;
+    private String email;
 
     @Column
-    private String userPassword;
+    private String password;
 
     @Column
     private Boolean isAdmin;
@@ -27,6 +27,7 @@ public class User {
     private List<Organization> organizationList;
 
     public User() {}
+
 
 //    public User(User copy) {
 //        userId = copy.userId; // This line is SUPER important! Many things won't work if it's absent
@@ -42,38 +43,53 @@ public class User {
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.isAdmin = isAdmin;
+
+//    public User(String userName, String userEmail, String userPassword) {
+//        this.userName = userName;
+//        this.userEmail = userEmail;
+//        this.userPassword = userPassword;
+//        this.isAdmin = false;
+//    }
+
+    public User(User copy) {
+        id = copy.id;
+        isAdmin = copy.isAdmin;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+
     }
 
     public Integer getUserId() {
-        return userId;
+        return id;
     }
 
     public void setUserId(Integer userId) {
-        this.userId = userId;
+        this.id = userId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Boolean getAdmin() {
