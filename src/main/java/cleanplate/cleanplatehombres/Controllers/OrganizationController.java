@@ -49,7 +49,7 @@ public class OrganizationController {
 
     @GetMapping("organizations/show")
     public String showPage() {
-        return "organizations/show";
+        return "organizations/orgShow";
     }
 
 
