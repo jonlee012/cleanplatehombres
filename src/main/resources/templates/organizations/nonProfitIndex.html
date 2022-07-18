@@ -11,9 +11,10 @@
 <div class = "container">
     <div class = "row">
         <div class = "col">
-            <h1>Filter Organizations: </h1>
-            <!--                start-->
 
+            <h1> These are the Non-Profit listings</h1>
+
+            <!--                start-->
             <section class="container-fluid" style="margin-top: 40px">
                 <form>
                     <div class="container">
@@ -54,14 +55,18 @@
 
             <!--                    <p><span th:text="${listings.donation_description}"></span></p>-->
 
+
+
             <div th:each="organization : ${organizations}">
+                <div th:if="${!organization.isDonor()}">
+                    <h2><span th:text="${organization.getOrgName()}"></span></h2>
+                    <p><span th:text="${organization.getOrgDescription()}"></span></p>
+                </div>
 
 
-                <h2>
-                    <span th:text="${organization.getOrgName()}"></span>
-                </h2>
 
-                <p><span th:text="${organization.getOrgDescription()}"></span></p>
+
+
 
             </div>
         </div>

@@ -17,10 +17,16 @@ public class OrganizationController {
         this.organizationRepository = organizationRepository;
     }
 
-    @GetMapping("/orgs")
-    public String index(Model model) {
+    @GetMapping("/nonProfitIndex")
+    public String nonProfit(Model model) {
         model.addAttribute("organizations", organizationRepository.findAll());
-        return "organizations/orgIndex";
+        return "organizations/nonProfitIndex";
+    }
+
+    @GetMapping("/restaurant")
+    public String restaurant(Model model) {
+        model.addAttribute("organizations", organizationRepository.findAll());
+        return "organizations/restaurant";
     }
 
     @GetMapping("/orgs/create")
@@ -52,6 +58,19 @@ public class OrganizationController {
         return "organizations/orgShow";
     }
 
+//    @GetMapping("/organizations/{id}")
+//    public String viewPost(@PathVariable Integer id, Model model) {
+//        model.addAttribute("title", "Post Page");
+//
+//        //TODO: Inside the method that shows an individual post, create a new post object and pass it to the view.
+//        model.addAttribute("orgProfile", organizationDao.findById(id));
+//        Organization organization = organizationDao.getById(id);
+////        User user = userDao.getById(post.getUser().getId());
+//        model.addAttribute("postTitle", organization.getTitle());
+//        model.addAttribute("postBody", post.getBody());
+//        model.addAttribute("postID", post.getId());
+//        model.addAttribute("user", user);
+//        return
 
 
 }
