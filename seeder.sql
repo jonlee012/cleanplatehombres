@@ -54,7 +54,7 @@ USE cleanPlate_db;
 #                                     FOREIGN KEY (categoryId) REFERENCES category(id)
 # );
 
-INSERT INTO user_info (user_name, user_email, user_password, is_admin)
+INSERT INTO user_info (username, email, password, is_admin)
 VALUES ('michael', 'michael@email.com', 'michael123', false),
        ('carlos', 'carlos@email.com', 'carlos123', false),
        ('jon', 'jon@email.com', 'jon123', false),
