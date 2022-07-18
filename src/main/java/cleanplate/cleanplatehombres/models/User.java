@@ -28,6 +28,22 @@ public class User {
 
     public User() {}
 
+
+//    public User(User copy) {
+//        userId = copy.userId; // This line is SUPER important! Many things won't work if it's absent
+//        userEmail = copy.userEmail;
+//        userName = copy.userName;
+//        Password = copy.Password;
+//    }
+
+
+
+    public User(String userName, String userEmail, String userPassword, Boolean isAdmin) {
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        this.isAdmin = isAdmin;
+
 //    public User(String userName, String userEmail, String userPassword) {
 //        this.userName = userName;
 //        this.userEmail = userEmail;
@@ -41,6 +57,7 @@ public class User {
         email = copy.email;
         username = copy.username;
         password = copy.password;
+
     }
 
     public Integer getUserId() {

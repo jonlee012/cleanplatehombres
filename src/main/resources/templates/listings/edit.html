@@ -7,6 +7,9 @@
 <body>
     <h1>Edit Listing</h1>
     <br>
+<!--    <h3><span th:text="${listing.getOrganization().getOrgName()}"></span></h3>-->
+<!--    <br>-->
+
     <form th:action="@{/listings/edit}" th:method="post" th:object="${listing}">
         <div class="form-group">
             <label id="food-name">Type of Food</label>
@@ -16,7 +19,8 @@
 
         <div class="form-group">
             <label id="org-info">Organization</label>
-            <input th:field="*{organization}" th:value="${listing.getOrganization()}" type="text" class="form-control"
+            <input th:field="*{organization}" th:value="${listing.getOrganization().getOrgName()}" type="text"
+                   class="form-control"
                    name="organization" />
         </div>
 
@@ -44,6 +48,7 @@
 
         <div class="form-group">
             <input th:field="*{id}" th:value="${listing.getId()}" hidden>
+<!--            <input th:field="*{organization}" th:value="${listing.getOrganization()}" hidden>-->
             <button type="submit" class="btn btn-primary">
                 Submit
             </button>
