@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +8,24 @@
 <body>
 
 <h1>This is the org show page</h1>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<head>-->
+<head th:replace="partials/head.html :: head">
+    <meta charset="UTF-8">
+    <title>Organization Profile</title>
+</head>
+<body>
+<nav th:replace="partials/topnav.html :: navbar">
+</nav>
+<div th:replace="partials/header.html :: site-header"></div>
+
+<h3 th:text="${orgTitle}"></h3>
+<p class="fs-6 text-muted">Written by: <span th:text="${user.getUsername()}" class="fst-italic"></span></p>
+<p th:text="${postBody}"></p>
+
+<div th:replace="partials/footer.html :: site-footer"></div>
+<div th:replace="partials/scripts.html :: site-scripts"></div>
 
 </body>
 </html>

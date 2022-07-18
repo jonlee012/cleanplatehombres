@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="partials/head :: head">
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+
+<body>
+
+<nav th:replace="partials/topnav :: navbar"></nav>
+
+
+<h1>Welcome <!--/*@thymesVar id="getUsername" type=""*/-->
+<span th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h1>
+
+
+
+
+<footer th:replace="partials/footer :: footer"></footer>
+<script th:replace="partials/script :: script"></script>
+
+</body>
+</html>
