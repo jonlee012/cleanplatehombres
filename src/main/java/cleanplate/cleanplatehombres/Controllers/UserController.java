@@ -7,16 +7,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
-    private UserRepository userDao;
+    private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder) {
-        this.userDao = userDao;
+    public UserController(UserRepository userRespository, PasswordEncoder passwordEncoder) {
+        this.userRepository= userRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -33,7 +32,7 @@ public class UserController {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         System.out.println(user.getPassword());
-        userDao.save(user);
+        userRepository.save(user);
         return "redirect:/login";
     }
 

@@ -31,8 +31,13 @@ public class Listing {
     @Column
     private boolean isFulfilled;
 
+    @ManyToOne
+    @JoinColumn(name = "user_info_id")
+    private User user;
+
+
     public Listing(Integer id, String foodName, String foodAmt, String donationDescription, boolean isDonation,
-                   Date expDate, boolean isFulfilled) {
+                   Date expDate, boolean isFulfilled, User user) {
         this.id = id;
         this.foodName = foodName;
         this.foodAmt = foodAmt;
@@ -40,6 +45,7 @@ public class Listing {
         this.isDonation = isDonation;
         this.expDate = expDate;
         this.isFulfilled = isFulfilled;
+        this.user = user;
 
     }
 
@@ -126,6 +132,15 @@ public class Listing {
     public void setOrganization(Organization organization) {
         this.organization = organization;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 
 }
 

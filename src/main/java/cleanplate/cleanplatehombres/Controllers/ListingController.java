@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ListingController {
 
     private final ListingRepository listingRepository;
-    private UserRepository userRepository;
-//    private final EmailService emailService;
+    private final UserRepository userRepository;
+    private final EmailService emailService;
+    //
 //
-//
-public ListingController(ListingRepository listingRepository){
+//public ListingController(ListingRepository listingRepository){
 
-//    public ListingController(ListingRepository listingRepository, UserRepository userRepository,
-//                             EmailService emailService) {
+    public ListingController(ListingRepository listingRepository, UserRepository userRepository,
+                             EmailService emailService) {
 
         this.listingRepository = listingRepository;
-//        this.userRepository = userRepository;
-//        this.emailService = emailService;
+        this.userRepository = userRepository;
+        this.emailService = emailService;
     }
 
 
@@ -51,6 +51,7 @@ public ListingController(ListingRepository listingRepository){
         }
 
         listingRepository.save(listing);
+        emailService.prepareAndSend(listing, "donation listing created", "Confirmation: your post has been created");
         return "redirect:/listings";
     }
 

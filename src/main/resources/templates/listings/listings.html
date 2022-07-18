@@ -1,19 +1,19 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--&lt;!&ndash;<head>&ndash;&gt;-->
-<!--<head th:replace="partials/head :: head">-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Index</title>-->
-<!--</head>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<head>-->
+<head th:replace="partials/head :: head">
+    <meta charset="UTF-8">
+    <title>List of All Donations</title>
+</head>
 
 <!--&lt;!&ndash;<head><title>listings</title></head>&ndash;&gt;-->
-<!--<body>-->
+<body>
 <!--<nav th:replace="partials/topnav :: navbar">-->
 <!--</nav>-->
 <!--<div class = "container">-->
 <!--    <div class = "row">-->
 <!--        <div class = "col">-->
-<!--            <h1>Here are all of the listings</h1>-->
+            <h1>Here are all of the listings</h1>
 <!--            &lt;!&ndash;                start&ndash;&gt;-->
 
 <!--            <section th:replace="partials/mapbox :: mapbox">-->
@@ -29,26 +29,26 @@
 
 <!--            &lt;!&ndash;                    <p><span th:text="${listings.donation_description}"></span></p>&ndash;&gt;-->
 
-<!--            <div th:each="listing : ${listings}">-->
+            <div th:each="listing : ${listings}">
 
 
-<!--                <h2>-->
-<!--                    <span th:text="${listing.getFoodName()}"></span>-->
-<!--                </h2>-->
+                <h2>
+                    <span th:text="${listing.getFoodName()}"></span>
+                </h2>
 
 
-<!--                <p><span th:text="${listing.getDonationDescription()}"></span></p>-->
+                <p><span th:text="${listing.getDonationDescription()}"></span></p>
 
                 <p><span th:text="${listing.getFoodAmt()}"></span></p>
-<!--                <p><span th:text="${listing.getExpDate()}"></span></p>-->
+                <p><span th:text="${listing.getExpDate()}"></span></p>
                 <p><span th:text="${listing.getOrganization().getOrgName()}"></span></p>
 
-<!--                <input th:text="${listing.getOrganization()}" hidden>-->
 
 
 
 
-<!--            </div>-->
+
+            </div>
 <!--        </div>-->
 <!--    </div>-->
 <!--</div>-->
@@ -60,11 +60,14 @@
 <!--</body>-->
 <!--</html>-->
 
-<html>
-<head>
-    <title>Title of the document</title>
-</head>
-<body>
+<
+
+
+
+
+
+
+
 <form action="path/to/server/script" method="post" id="my_form">
     <label>Name</label>
     <input type="text" name="name" />
