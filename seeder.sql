@@ -1,12 +1,13 @@
+
 USE cleanPlate_db;
 
 
 INSERT INTO user_info (username, email, password, is_admin)
-VALUES ('michael', 'michael@email.com', 'michael123', false),
-       ('carlos', 'carlos@email.com', 'carlos123', false),
-       ('jon', 'jon@email.com', 'jon123', false),
-       ('derek', 'derek@email.com', 'derek123', false),
-       ('bob', 'bob@email.com', 'bob123', true);
+VALUES ('michael', 'michael@email.com', '$2a$10$SxrR4P38ZE4DJiljwQCTr.N0UVOu2CcCZurS4RIyMeKkt3by0sRzS', false),
+       ('carlos', 'carlos@email.com', '$2a$10$vtZ5ov5Mq/GH7TQFj4rdp./5B66TZRO805fjg9.QmUm1p7f.VewYS', false),
+       ('jon', 'jon@email.com', '$2a$10$JfZRsgEcmBqwK5pxKLSg3ePAjOCGpJ6w..hkZBOoYuxmHsK1ogVIi', false),
+        ('derek', 'derek@email.com', '$2a$10$M6.1RYuRwX2EBVxyes7y/eP5nDE8.Eq7OmE9/sW.AvnxwbzmiZAAe', true),
+       ('bob', 'bob@email.com', '$2a$10$LmRTjwAk7MfkSYV9Axa/6utaIyQkk181Iacrq1tIUCC.s.CgSCvou', true);
 
 
 INSERT INTO org_info (org_name, org_description, org_st_address, org_city, org_state, org_zip, is_donor, user_info)
