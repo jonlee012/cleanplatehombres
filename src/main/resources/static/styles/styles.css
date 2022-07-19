@@ -409,3 +409,9 @@ img {
 
 }
 
+/* CREATE DONATION LISTING */
+.second-tier-container.form {
+    max-width: 500px;
+    margin: 0 auto;
+    justify-content: left;
+}
