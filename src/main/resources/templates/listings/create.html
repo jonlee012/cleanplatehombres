@@ -1,47 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Listing</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="partials/head :: head"></head>
 <body>
-    <div>
+<nav th:replace="partials/topnav :: navbar">
+</nav>
         <h1>Create Donation Listing</h1>
+        <form th:action="@{/listings/create}" method="POST" th:object="${listing}" class="second-tier-container form">
 
-        <form th:action="@{/listings/create}" method="POST" th:object="${listing}">
-
-            <div class="form-group">
                 <label id="title">Type of Food <span class="require">*</span></label>
                 <input th:field="*{foodName}" type="text" class="form-control" name="food_name" />
-            </div>
 
-            <div class="form-group">
                 <label id="body">Donation Description</label>
-                <textarea th:field="*{donationDescription}" rows="25" class="form-control" name="donation_description"
+                <textarea th:field="*{donationDescription}" rows="4" class="form-control" name="donation_description"
                 ></textarea>
-            </div>
 
-            <div class="form-group">
                 <label id="org">Organization Code <span class="require">*</span></label>
                 <input th:field="*{organization}" type="text" class="form-control" name="organization" />
-            </div>
 
-                    <div class="form-group">
-                        <label id="exp-date">Expiration Date</label>
-                        <input th:field="*{expDate}" type="text" class="form-control"
-                               name="organization" />
-                    </div>
+                <label id="exp-date">Expiration Date</label>
+                <input th:field="*{expDate}" type="text" class="form-control"
+                       name="organization" />
 
-
-
-
-            <div class="form-group">
                 <button type="submit" class="btn btn-primary">
                     Create
                 </button>
-            </div>
         </form>
-    </div>
+
+<footer th:replace="partials/footer :: footer">
+</footer>
+<script th:replace="partials/script :: script">
+</script>
 </body>
 </html>
 
