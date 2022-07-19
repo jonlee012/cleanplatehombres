@@ -1,22 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+
 
 <head th:replace="partials/head :: head"></head>
 <body>
-<nav th:replace="partials/topnav :: navbar">
-</nav>
 
-<h1>Here are all of the listings</h1>
-
-<div class="second-tier-container">
-    <div th:each="listing : ${listings}">
-    <div class="third-tier-container buffer">
-        <span th:text="${listing.getFoodName()}"></span>
-        <p><span th:text="${listing.getDonationDescription()}"></span></p>
-        <p><span th:text="${listing.getFoodAmt()}"></span></p>
-        <p><span th:text="${listing.getExpDate()}"></span></p>
-        <p><span th:text="${listing.getOrganization().getOrgName()}"></span></p>
-    </div>
 
 </div>
 </div>

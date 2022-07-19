@@ -16,15 +16,17 @@
 <h1>Contact Us</h1>
 
 <div id="after_submit"></div>
-<form id="contact_form" action="#" method="POST">
+<form th:action="@{/contact}" method="POST" th:object="${user}">
     <div>
         <label class="required" for="name">Your name:</label><br />
-        <input id="name" class="input" name="name" type="text" value="" size="30" /><br />
+        <input id="name" class="input" name="name" type="text" value=""
+               size="30" /><br />
         <span id="name_validation" class="error_message"></span>
     </div>
     <div>
         <label class="required" for="email">Your email:</label><br />
-        <input id="email" class="input" name="email" type="text" value="" size="30" /><br />
+        <input th:field="*{email}" th:value="${user.getEmail()}" id="email" class="input" name="email"
+               type="text" value="" size="30" /><br />
         <span id="email_validation" class="error_message"></span>
     </div>
     <div>
