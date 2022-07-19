@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<!--<head>-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
 <head th:replace="partials/head :: head">
     <meta charset="UTF-8">
     <title>List of All Donations</title>
@@ -28,6 +30,18 @@
 <!--            &lt;!&ndash;                    </h2>&ndash;&gt;-->
 
 <!--            &lt;!&ndash;                    <p><span th:text="${listings.donation_description}"></span></p>&ndash;&gt;-->
+
+<!--<div div sec:authorize="isAuthenticated()">-->
+
+
+
+
+
+<!--</div>-->
+
+
+
+
 
             <div th:each="listing : ${listings}">
 

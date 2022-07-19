@@ -30,10 +30,6 @@ public class ListingController {
         this.emailService = emailService;
     }
 
-
-
-
-
     @GetMapping("/users")
 
     public String users(Model model) {
