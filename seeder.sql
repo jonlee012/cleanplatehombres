@@ -1,58 +1,5 @@
-# DROP DATABASE IF EXISTS cleanPlate_db;
-# CREATE DATABASE IF NOT EXISTS cleanPlate_db;
-
 USE cleanPlate_db;
-#
-# CREATE TABLE userInfo (
-#                           userId INT UNSIGNED NOT NULL AUTO_INCREMENT,
-#                           userName VARCHAR(255) NOT NULL,
-#                           userEmail VARCHAR(255) NOT NULL,
-#                           userPassword VARCHAR(255) NOT NULL,
-#                           isAdmin BOOLEAN NOT NULL,
-#                           PRIMARY KEY (userId)
-# );
-#
-# CREATE TABLE orgInfo (
-#                          orgId INT UNSIGNED NOT NULL AUTO_INCREMENT,
-#                          orgName VARCHAR(255) NOT NULL,
-#                          orgDescription VARCHAR(1000) NOT NULL,
-#                          orgStAddress VARCHAR(255) NOT NULL,
-#                          orgCity VARCHAR(100) NOT NULL,
-#                          orgState VARCHAR(50) NOT NULL,
-#                          orgZip LONG NOT NULL,
-#                          isDonor BOOLEAN NOT NULL,
-#                          userId INT UNSIGNED NOT NULL,
-#                          PRIMARY KEY (orgId),
-#                          FOREIGN KEY (userId) REFERENCES userInfo(userId)
-#                              ON DELETE CASCADE
-# );
-#
-# CREATE TABLE listing (
-#                          listingId INT UNSIGNED NOT NULL AUTO_INCREMENT,
-#                          foodName VARCHAR(255) NOT NULL,
-#                          foodAmt VARCHAR(100) NOT NULL,
-#                          donationDescription VARCHAR(1000) NOT NULL,
-#                          isDonation BOOLEAN NOT NULL,
-#                          expDate DATE NOT NULL,
-#                          isFulfilled BOOLEAN NOT NULL,
-#                          orgId INT UNSIGNED NOT NULL,
-#                          PRIMARY KEY (listingId),
-#                          FOREIGN KEY (orgId) REFERENCES orgInfo(orgId)
-#                              ON DELETE CASCADE
-# );
-#
-# CREATE TABLE category (
-#                           categoryId INT UNSIGNED NOT NULL AUTO_INCREMENT,
-#                           categoryName VARCHAR(50) NOT NULL,
-#                           PRIMARY KEY (categoryId)
-# );
-#
-# CREATE TABLE listing_categories (
-#                                     listingId INT UNSIGNED NOT NULL ,
-#                                     categoryId INT UNSIGNED NOT NULL,
-#                                     FOREIGN KEY (listingId) REFERENCES listing(id),
-#                                     FOREIGN KEY (categoryId) REFERENCES category(id)
-# );
+
 
 INSERT INTO user_info (username, email, password, is_admin)
 VALUES ('michael', 'michael@email.com', 'michael123', false),

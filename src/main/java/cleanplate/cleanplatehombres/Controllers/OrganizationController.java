@@ -1,5 +1,6 @@
 package cleanplate.cleanplatehombres.Controllers;
 
+import cleanplate.cleanplatehombres.Repositories.ListingRepository;
 import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
 import cleanplate.cleanplatehombres.models.Organization;
 import cleanplate.cleanplatehombres.models.User;
@@ -15,9 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class OrganizationController {
 
     private final OrganizationRepository organizationRepository;
+    private final ListingRepository listingRepository;
 
-    public OrganizationController(OrganizationRepository organizationRepository) {
+    public OrganizationController(OrganizationRepository organizationRepository, ListingRepository listingRepository) {
         this.organizationRepository = organizationRepository;
+        this.listingRepository = listingRepository;
     }
 
     @GetMapping("/nonProfitIndex")
@@ -79,6 +82,7 @@ public class OrganizationController {
     @GetMapping("/profile")
     public String userProfilePage(Model model) {
         model.addAttribute("organizations", organizationRepository.findAll());
+        model.addAttribute("listings", listingRepository.findAll());
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "users/profile";
     }
