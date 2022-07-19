@@ -26,18 +26,19 @@
             <div th:if="${#authentication.getPrincipal().getAdmin()}">
                 <p>User Status: Admin</p>.
             </div>
+            <button type="button" class="btn btn-danger">Delete Profile</button>
 
         </div>
+
+        <div th:each="organization : ${organizations}">
+            <!--/*@thymesVar id="getUserId" type=""*/-->
+            <div th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}">
+
+    <div class="row">
         <div class="col">
             <h2>Edit Your Organizations</h2>
-
-            <div th:each="organization : ${organizations}">
-                <!--/*@thymesVar id="getUser" type=""*/-->
-                <!--/*@thymesVar id="user" type=""*/-->
-<!--                <div th:if="${organization.getUser()} == ${user}">-->
-
-                    <p>Organization Name:
-                    <!--/*@thymesVar id="getOrgName" type=""*/--><span th:text="${organization.getOrgName()}"></span></p>
+                    <!--/*@thymesVar id="getOrgName" type=""*/-->
+                    <h3>Organization Name: <span th:text="${organization.getOrgName()}"></span></h3>
 
                     <p>Description: <span th:text="${organization.getOrgDescription()}"></span></p>
                     <p>Address:
@@ -45,18 +46,35 @@
                         <span th:text="${organization.getOrgStAddress()}"></span><br>
                     </p>
                     <p>
-
                         <!--/*@thymesVar id="getOrgCity" type=""*/-->
                         <span th:text="${organization.getOrgCity()}"></span>
-
                         <!--/*@thymesVar id="orgState" type=""*/-->
                         <span th:text="${organization.getOrgState()}"></span>
-
                         <!--/*@thymesVar id="getOrgZip" type=""*/-->
                         <span th:text="${organization.getOrgZip()}"></span>
                     </p>
+                <button type="button" class="btn btn-primary">Edit Organization</button>
+                <button type="button" class="btn btn-danger">Delete Organization</button>
+                    <button type="button" class="btn btn-success">Create a Listing</button>
+            </div>
 
-<!--                </div>-->
+        <div class="col">
+            <h2>Edit Your Listings</h2>
+            <div th:each="listing : ${listings}">
+
+                <h2><span th:text="${listing.getFoodName()}"></span></h2>
+                <p><span th:text="${listing.getDonationDescription()}"></span></p>
+                <p><span th:text="${listing.getFoodAmt()}"></span></p>
+                <p><span th:text="${listing.getExpDate()}"></span></p>
+                <p><span th:text="${listing.getOrganization().getOrgName()}"></span></p>
+            </div>
+                    <button type="button" class="btn btn-primary">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+
+    </div>
+            </div>
+
             </div>
         </div>
     </div>
