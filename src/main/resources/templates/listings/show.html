@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<head>-->
+<head th:replace="partials/head.html :: head">
     <meta charset="UTF-8">
-    <title>View Donation</title>
+    <title>Organization Index</title>
 </head>
 <body>
+<nav th:replace="partials/topnav.html :: navbar">
+</nav>
+
+
 <h1>This is an individual donation</h1>
 
-
 <h3><span th:text="${listing.getOrganization().getOrgName()}"></span></h3>
-
 <h3><span th:text="${listing.getFoodName()}"></span></h3>
-
 <h3><span th:text="${listing.getFoodAmt()}"></span></h3>
-
 <h3><span th:text="${listing.getExpDate()}"></span></h3>
 
+    <footer th:replace="partials/footer.html :: footer"></footer>
+    <script th:replace="partials/script.html :: script"></script>
+</div>
 </body>
-
 </html>
 
 
