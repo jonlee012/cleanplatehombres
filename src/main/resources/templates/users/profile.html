@@ -33,6 +33,7 @@
         <div th:each="organization : ${organizations}">
             <!--/*@thymesVar id="getUserId" type=""*/-->
             <div th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}">
+                <div th:if="${organization.isDonor()}">
 
     <div class="row">
         <div class="col">
