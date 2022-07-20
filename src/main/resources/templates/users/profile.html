@@ -12,7 +12,8 @@
 <nav th:replace="partials/topnav :: navbar"></nav>
 
 
-<h1>Welcome <!--/*@thymesVar id="getUsername" type=""*/-->
+<h1>Welcome
+<!--/*@thymesVar id="getUsername" type=""*/-->
 <span th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h1>
 
 <div class="container">
@@ -20,7 +21,7 @@
         <div class="col">
             <h2>Edit User Profile</h2>
             <p>Username: <!--/*@thymesVar id="getUsername" type=""*/-->
-            <span th:text ="${#authentication.getPrincipal().getUsername()}"></span></p>
+            <span th:text ="*{#authentication.getPrincipal().getUsername()}"></span></p>
             <p>Email: <!--/*@thymesVar id="getEmail" type=""*/-->
             <span th:text ="${#authentication.getPrincipal().getEmail()}"></span></p>
             <div th:if="${#authentication.getPrincipal().getAdmin()}">
