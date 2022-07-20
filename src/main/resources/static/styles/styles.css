@@ -261,7 +261,7 @@ img {
     width: 100%;
     cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgb(224, 62, 21);
+    /*background: rgb(224, 62, 21);*/
     transition: .5s;
 }
 .btn:hover {
@@ -409,3 +409,9 @@ img {
 
 }
 
+/* CREATE DONATION LISTING */
+.second-tier-container.form {
+    max-width: 500px;
+    margin: 0 auto;
+    justify-content: left;
+}

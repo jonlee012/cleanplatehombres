@@ -2,6 +2,7 @@ package cleanplate.cleanplatehombres.Controllers;
 
 
 import cleanplate.cleanplatehombres.models.Listing;
+import cleanplate.cleanplatehombres.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
@@ -22,6 +23,23 @@ public class EmailService {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setFrom(from);
         msg.setTo(listing.getUser().getEmail());
+        msg.setSubject(subject);
+        msg.setText(body);
+
+        try {
+            this.emailSender.send(msg);
+        }
+        catch (MailException ex) {
+            //simply log it and go on...
+            System.err.println(ex.getMessage());
+        }
+
+    }
+
+    public void prepareAndSend(User user, String subject, String body) {
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setFrom(from);
+        msg.setTo(user.getEmail());
         msg.setSubject(subject);
         msg.setText(body);
 

@@ -3,6 +3,8 @@ package cleanplate.cleanplatehombres.Controllers;
 import cleanplate.cleanplatehombres.Repositories.ListingRepository;
 import cleanplate.cleanplatehombres.Repositories.UserRepository;
 import cleanplate.cleanplatehombres.models.Listing;
+import cleanplate.cleanplatehombres.models.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,18 +16,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ListingController {
 
     private final ListingRepository listingRepository;
-    private final UserRepository userRepository;
+    private final UserRepository userDao;
     private final EmailService emailService;
     //
 //
 //public ListingController(ListingRepository listingRepository){
 
-    public ListingController(ListingRepository listingRepository, UserRepository userRepository,
+    public ListingController(ListingRepository listingRepository, UserRepository userDao,
                              EmailService emailService) {
 
         this.listingRepository = listingRepository;
-        this.userRepository = userRepository;
+        this.userDao = userDao;
         this.emailService = emailService;
+    }
+
+    @GetMapping("/users")
+
+    public String users(Model model) {
+        model.addAttribute("users", userDao.findAll());
+        return "users";
     }
 
 
@@ -46,12 +55,14 @@ public class ListingController {
 
     @PostMapping("listings/create")
     public String post(@ModelAttribute Listing listing) {
+        listing.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         if(listing.getFoodName().equals("") || listing.getDonationDescription().equals("")){
             return "listings/create";
         }
 
         listingRepository.save(listing);
-        emailService.prepareAndSend(listing, "donation listing created", "Confirmation: your post has been created");
+        emailService.prepareAndSend(listing, "donation listing created", "Confirmation: your donation listing has " +
+                "been created");
         return "redirect:/listings";
     }
 
