@@ -7,27 +7,53 @@
 <body>
     <h1>Edit Listing</h1>
     <br>
+<!--    <h3><span th:text="${listing.getOrganization().getOrgName()}"></span></h3>-->
+<!--    <br>-->
 
-    <form th:action="@{/templates/all/edit}" th:method="post" th:object="${listing}">
-
-    <form th:action="@{/templates/listings/edit}" th:method="post" th:object="${listing}">
-
+    <form th:action="@{/listings/edit}" th:method="post" th:object="${listing}">
         <div class="form-group">
-            <label id="title">Type of Food</label>
-            <input th:field="*{foodName}" type="text" class="form-control"
+            <label id="food-name">Type of Food</label>
+            <input th:field="*{foodName}" th:value="${listing.getFoodName()}" type="text" class="form-control"
             name="foodName" />
         </div>
 
         <div class="form-group">
-            <label id="body">Donation Description</label>
-            <textarea th:field="*{donationDescription}" rows="25" class="form-control" name="donationDescription"
+            <label id="org-info">Organization</label>
+            <input th:field="*{organization}" th:value="${listing.getOrganization().getOrgName()}" type="text"
+                   class="form-control"
+                   name="organization" />
+        </div>
+
+        <div class="form-group">
+            <label id="description">Donation Description</label>
+            <textarea th:field="*{donationDescription}" th:value="${listing.getDonationDescription()}" rows="25"
+                      class="form-control"
+                      name="donationDescription"
             ></textarea>
         </div>
+
+        <div class="form-group">
+            <label id="food-amt">Amount</label>
+            <input th:field="*{foodAmt}" th:value="${listing.getFoodAmt()}" type="text" class="form-control"
+                   name="organization" />
+        </div>
+
+        <div class="form-group">
+            <label id="exp-date">Expiration Date</label>
+            <input th:field="*{expDate}" th:value="${listing.getExpDate()}" type="text" class="form-control"
+                   name="organization" />
+        </div>
+
+
+
         <div class="form-group">
             <input th:field="*{id}" th:value="${listing.getId()}" hidden>
+<!--            <input th:field="*{organization}" th:value="${listing.getOrganization()}" hidden>-->
             <button type="submit" class="btn btn-primary">
                 Submit
             </button>
+
+
         </div>
 
 

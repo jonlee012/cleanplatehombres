@@ -32,7 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 
-static/keys.js
+src/main/resources/static/keys.js
 src/main/resources/application.properties
 
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+ <html xmlns:th="http://www.thymeleaf.org">
+
+     <head th:replace="partials/head :: head"></head>
+<body>
+ <nav th:replace="partials/topnav :: navbar">
+</nav>
+<div class="hero-section">
+     <img class="hero-img" th:src="@{/imgs/landingPage.jpg}">
+<!--    <img class="hero-img" src="/img/burger.jpg">-->
+    <div class="hero-wrapper">
+        <h1 class="hero-heading">ABOUT  <span class="text-span-2">US</span></h1>
+        <p class="hero-paragraph"></p>
+    </div>
+</div>
+
+
+<div class="about">
+    <!-- second-tier-container: formerly m has flex, flexwrap, justify content center, gap -->
+    <div class="third-tier-container non-card"> <!-- formerly b. hold the heading, small text, paragraph, icons and or images. -->
+        <div class="content heading">Why our team chose this capstone?</div>
+        <div class="content small-text">(need to flesh out answer with team members.)</div>
+        <div class="content paragraph">(Should we come up with a paragraph talk about something about supporting shelters?)</div>
+    </div>
+
+    <!-- FOUR BY ONE -->
+    <div class="second-tier-container"> <!-- CARD / COLUMN CONTAINER -->
+        <div class="third-tier-container column buffer"> <!-- CARD / COLUMN CARD-->
+            <div class="content img-icon"><img src="" alt="Icon" class="image"></div>
+            <div class="content heading">Passion</div>
+            <div class="content paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit iure alias possimus similique libero! </div>
+        </div>
+
+        <div class="third-tier-container column buffer"> <!-- CARD / COLUMN CARD-->
+            <div class="content img-icon"><img src="" alt="Icon" class="image"></div>
+            <div class="content heading">Service</div>
+            <div class="content paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit iure alias possimus similique libero! </div>
+        </div>
+
+        <div class="third-tier-container column buffer"> <!-- CARD / COLUMN CARD-->
+            <div class="content img-icon"><img src="" alt="Icon" class="image"></div>
+            <div class="content  heading">Commitment</div>
+            <div class="content paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit iure alias possimus similique libero! </div>
+        </div>
+
+        <div class="third-tier-container column buffer"> <!-- CARD / COLUMN CARD-->
+            <div class="img-icon"><img src="" alt="Icon" class="image"></div>
+            <div class="content heading">Community</div>
+            <div class="content paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit iure alias possimus similique libero! </div>
+        </div>
+
+    </div>
+
+
+    <!-- THE TEAM -->
+    <div class="second-tier-container">
+
+        <div class="third-tier-container buffer">
+            <div class="content img-icon image"><img src="" alt="image" class="profile-image"></div>
+            <div class="content heading">Derek Berkley</div>
+            <div class="content paragraph">Responsibilities go here.</div>
+        </div>
+
+        <div class="third-tier-container buffer">
+            <div class="content img-icon image"><img src="" alt="image" class="profile-image"></div>
+            <div class="content heading">Michael Kestler</div>
+            <div class="content paragraph">Responsibilities go here.</div>
+        </div>
+
+        <div class="third-tier-container buffer">
+            <div class="content img-icon image"><img src="" alt="image" class="profile-image"></div>
+            <div class="content heading">Jon Lee</div>
+            <div class="content paragraph">Responsibilities go here.</div>
+        </div>
+
+        <div class="third-tier-container buffer">
+            <div class="content img-icon image"><img src="" alt="image" class="profile-image"></div>
+            <div class="content heading">Carlos Chavira</div>
+            <div class="content paragraph">Responsibilities go here.</div>
+        </div>
+    </div>
+</div>
+     <footer th:replace="partials/footer :: footer">
+    </footer>
+    <script th:replace="partials/script :: script">
+    </script>
+</body>
+</html>
+
+
+

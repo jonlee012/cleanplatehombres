@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="partials/head :: head">
+    <meta charset="UTF-8">
+    <title>User Login</title>
+</head>
+
+<body>
+
+    <nav th:replace="partials/topnav :: navbar"></nav>
+
+    <h1>Create an account</h1>
+
+    <form th:action="@{/sign-up}" method="POST" th:object="${user}">
+        <label for="username">Username</label>
+        <input id="username" th:field="*{username}" />
+
+        <label for="email">Email</label>
+        <input id="email" th:field="*{email}" />
+
+        <label for="password">Password</label>
+        <input id="password" type="password" th:field="*{password}" />
+
+        <label for="isAdmin">Are you Admin?</label>
+        <input id="isAdmin" type="checkbox" th:field="*{admin}" />
+
+        <input value="Sign me up!" type="submit" />
+    </form>
+
+
+    <footer th:replace="partials/footer :: footer"></footer>
+    <script th:replace="partials/script :: script"></script>
+
+</body>
+</html>

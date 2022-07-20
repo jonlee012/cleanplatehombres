@@ -2,12 +2,12 @@ package cleanplate.cleanplatehombres.models;
 
 import javax.persistence.*;
 import java.util.Date;
-
+import java.util.List;
 
 //table creation
-    @Entity
-    @Table(name = "listing")
-    public class Listing {
+@Entity
+@Table(name = "listing")
+public class Listing {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -31,11 +31,13 @@ import java.util.Date;
     @Column
     private boolean isFulfilled;
 
-    @Column
-    private boolean isDonor;
+    @ManyToOne
+    @JoinColumn(name = "user_info_id")
+    private User user;
+
 
     public Listing(Integer id, String foodName, String foodAmt, String donationDescription, boolean isDonation,
-                   Date expDate, boolean isFulfilled, boolean isDonor) {
+                   Date expDate, boolean isFulfilled, User user) {
         this.id = id;
         this.foodName = foodName;
         this.foodAmt = foodAmt;
@@ -43,20 +45,29 @@ import java.util.Date;
         this.isDonation = isDonation;
         this.expDate = expDate;
         this.isFulfilled = isFulfilled;
-        this.isDonor = isDonor;
-    }
-
-    //        @ManyToOne
-//        @JoinColumn(name = "user_info", nullable = false)
-//        private User user;
-
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
-
-    public Listing() {
+        this.user = user;
 
     }
+
+
+
+    @ManyToOne
+    @JoinColumn(name="org_info", nullable = false)
+    private Organization organization;
+
+    public Listing(Organization organization) {
+        this.organization = organization;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name="listing_categories",
+            joinColumns={@JoinColumn(name="listingID")},
+            inverseJoinColumns={@JoinColumn(name="categoryID")}
+    )
+    private List<Category> categories;
+
+    public Listing() {}
 
     public Integer getId() {
         return id;
@@ -114,14 +125,29 @@ import java.util.Date;
         isFulfilled = fulfilled;
     }
 
-    public boolean isDonor() {
-        return isDonor;
+    public Organization getOrganization() {
+        return organization;
     }
 
-    public void setDonor(boolean donor) {
-        isDonor = donor;
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
 }
+
+
+
+
+
 
 
 

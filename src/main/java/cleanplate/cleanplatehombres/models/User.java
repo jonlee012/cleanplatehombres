@@ -1,6 +1,7 @@
 package cleanplate.cleanplatehombres.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user_info")
@@ -8,7 +9,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column
     private String username;
@@ -22,25 +23,31 @@ public class User {
     @Column
     private Boolean isAdmin;
 
-//    @OneToMany
-//    private List<Post> blogPost;
+    @OneToMany
+    private List<Organization> organizationList;
 
     public User() {}
 
-    public User(User copy) { //this is called a Copy Constructor
+
+    public User(User copy) {
         id = copy.id;
+        isAdmin = copy.isAdmin;
         email = copy.email;
         username = copy.username;
         password = copy.password;
-        isAdmin = copy.isAdmin;
+
     }
 
-    public Long getId() {
+
+
+
+
+    public Integer getUserId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Integer userId) {
+        this.id = userId;
     }
 
     public String getUsername() {
@@ -67,4 +74,19 @@ public class User {
         this.password = password;
     }
 
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
+    }
+
+    public List<Organization> getOrganizationList() {
+        return organizationList;
+    }
+
+    public void setOrganizationList(List<Organization> organizationList) {
+        this.organizationList = organizationList;
+    }
 }

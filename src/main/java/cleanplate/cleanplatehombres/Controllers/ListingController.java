@@ -1,18 +1,40 @@
 package cleanplate.cleanplatehombres.Controllers;
 
 import cleanplate.cleanplatehombres.Repositories.ListingRepository;
+import cleanplate.cleanplatehombres.Repositories.UserRepository;
 import cleanplate.cleanplatehombres.models.Listing;
+import cleanplate.cleanplatehombres.models.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ListingController {
 
     private final ListingRepository listingRepository;
+    private final UserRepository userDao;
+    private final EmailService emailService;
+    //
+//
+//public ListingController(ListingRepository listingRepository){
 
-    public ListingController(ListingRepository listingRepository) {
+    public ListingController(ListingRepository listingRepository, UserRepository userDao,
+                             EmailService emailService) {
+
         this.listingRepository = listingRepository;
+        this.userDao = userDao;
+        this.emailService = emailService;
+    }
+
+    @GetMapping("/users")
+
+    public String users(Model model) {
+        model.addAttribute("users", userDao.findAll());
+        return "users";
     }
 
 
@@ -20,7 +42,7 @@ public class ListingController {
     @GetMapping("/listings")
     public String index(Model model) {
         model.addAttribute("listings", listingRepository.findAll());
-        return "listings/index";
+        return "listings/listings";
     }
 
 
@@ -33,21 +55,27 @@ public class ListingController {
 
     @PostMapping("listings/create")
     public String post(@ModelAttribute Listing listing) {
+        listing.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         if(listing.getFoodName().equals("") || listing.getDonationDescription().equals("")){
             return "listings/create";
         }
 
         listingRepository.save(listing);
-        return "redirect:/listings/all";
+        emailService.prepareAndSend(listing, "donation listing created", "Confirmation: your donation listing has " +
+                "been created");
+        return "redirect:/listings";
     }
 
+
    //show controller
-    @GetMapping("listings/show")
-    public String showPage() {
+    @GetMapping("listings/show/{id}")
+    public String showPage(@PathVariable Integer id, Model model) {
+        model.addAttribute("listing", listingRepository.getById(id));
+
         return "listings/show";
     }
 
-    //edit controller
+    //edit controllerid
     @GetMapping("listings/edit/{id}")
     public String editListing(@PathVariable Integer id, Model model) {
         model.addAttribute("listing", listingRepository.getById(id));
@@ -57,7 +85,13 @@ public class ListingController {
     @PostMapping("listings/edit")
    public String editListing(@ModelAttribute Listing listing){
         listingRepository.save(listing);
-        return "redirect:/listings/all";
+        return "redirect:/listings";
+    }
+
+    @GetMapping("listings/delete/{id}")
+    public String delete(@ModelAttribute Listing listing) {
+       listingRepository.delete(listing);
+        return "redirect:/listings";
     }
 
 

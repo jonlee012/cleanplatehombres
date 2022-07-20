@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "orgInfo")
+@Table(name="org_info")
 public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,19 +30,22 @@ public class Organization {
     private long orgZip;
 
     @Column
-    private boolean isDonor;
+    private Boolean isDonor;
 
     @ManyToOne
-    @JoinColumn(name="userInfo", nullable = false)
+    @JoinColumn(name="user_info", nullable = false)
     private User user;
 
     @OneToMany
     private List<Listing> listingList;
 
-    public Organization() {
-    }
+    public Organization() {}
 
-    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip, boolean isDonor, User user) {
+
+
+    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState,
+                        long orgZip, boolean isDonor, User user, List<Listing> listingList) {
+
         this.orgName = orgName;
         this.orgDescription = orgDescription;
         this.orgStAddress = orgStAddress;
@@ -51,6 +54,7 @@ public class Organization {
         this.orgZip = orgZip;
         this.isDonor = isDonor;
         this.user = user;
+        this.listingList = listingList;
     }
 
     public Integer getId() {
@@ -109,19 +113,28 @@ public class Organization {
         this.orgZip = orgZip;
     }
 
-    public boolean isDonor() {
+    public Boolean isDonor() {
         return isDonor;
     }
-
-    public void setDonor(boolean donor) {
+    public void setDonor(Boolean donor) {
         isDonor = donor;
     }
-
     public User getUser() {
         return user;
     }
-
     public void setUser(User user) {
         this.user = user;
     }
+
+    public List<Listing> getListingList() {
+        return listingList;
+    }
+
+    public void setListingList(List<Listing> listingList) {
+        this.listingList = listingList;
+    }
+
+
+
+
 }

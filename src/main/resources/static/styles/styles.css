@@ -5,7 +5,7 @@ body {
     font-family: 'Bebas Neue', cursive;
 }
 .hero-section {
-     /*border: 2px solid purple;*/
+    /*border: 2px solid purple;*/
     width: 1080px;
     height: 75vh;
     margin: 0 auto;
@@ -17,9 +17,6 @@ body {
     width: 1080px;
     height: 75vh;
     margin: 0 auto;
-
-
-
 }
 
 .hero-wrapper {
@@ -36,6 +33,7 @@ body {
 .hero-heading {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
+    background-color: pink;
 
 }
 .text-span-2 {
@@ -43,7 +41,7 @@ body {
     color: rgb(224, 62, 21);
 }
 .hero-paragraph {
-    /* border: 2px solid red; */
+    border: 2px solid red;
 }
 .hero-button-container {
     display: flex;
@@ -88,7 +86,7 @@ body {
     height: auto;
 }
 .container {
-    /* border: 2px solid red; */
+    border: 2px solid red;
 
 }
 .support-top-wrapper {
@@ -102,10 +100,10 @@ body {
     width: 75%;
 }
 .support-top-details-text {
-    /* background-color: pink; */
+    background-color: pink;
 }
 .support-top-heading {
-    /* background-color: pink; */
+    background-color: pink;
 }
 .support-top-right {
     padding-left: 10px;
@@ -197,7 +195,7 @@ body {
     padding: 25px;
 }
 .container {
-    /* border: 2px solid purple; */
+    border: 2px solid purple;
 }
 .safe-heading {
     font-size: 25px;
@@ -263,7 +261,7 @@ img {
     width: 100%;
     cursor: pointer;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgb(224, 62, 21);
+    /*background: rgb(224, 62, 21);*/
     transition: .5s;
 }
 .btn:hover {
@@ -316,4 +314,104 @@ img {
     line-height: 1.5;
     margin-bottom: 1.25rem;
     font-weight: 400;
+}
+
+
+
+
+/* **************** */
+/* **************** */
+/* **************** */
+/* **************** */
+/*     ABOUT US     */
+/* **************** */
+/* **************** */
+/* **************** */
+
+/* VISIAL AID */
+.border {
+    border: 1px solid black;
+}
+
+.fill {
+    background-color: red;
+}
+
+
+/* ABOUT CONTAINER */
+.about {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* FOUR BY ONE */
+/* TEAM */
+.second-tier-container {
+    border: 1px solid red;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 25px;
+
+}
+
+/* FOUR BY ONE */
+/* TEAM */
+.third-tier-container{
+    border: 1px solid orange;
+
+    overflow: hidden;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    text-align: center;
+}
+
+.third-tier-container.column {
+    width: 150px;
+}
+
+/* INFO BOX */
+.third-tier-container.non-card {
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+.buffer {
+    margin: 25px 5px;
+}
+
+.content {
+    padding: 5px 0;
+}
+
+.img-icon {
+
+}
+
+.heading {
+
+
+}
+
+
+.small-text {
+
+}
+
+
+
+.paragraph {
+
+}
+
+/* CREATE DONATION LISTING */
+.second-tier-container.form {
+    max-width: 500px;
+    margin: 0 auto;
+    justify-content: left;
 }
