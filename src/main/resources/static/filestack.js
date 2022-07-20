@@ -3,8 +3,8 @@
     const button = document.querySelector('.upload')
     const image = document.querySelector('.donorPic')
     button.addEventListener('click', () => {
-    const apiKey = 'AzWevRAKVQki1Rm9iW9CRz'
-    const client = filestack.init(apiKey)
+    // const apiKey = 'AzWevRAKVQki1Rm9iW9CRz'
+    const client = filestack.init(FSapiKey)
     const options = {
     accept: ['image/*'],
     onUploadDone: (uploadResponse) => {

@@ -32,6 +32,11 @@ public class Organization {
     @Column
     private Boolean isDonor;
 
+//    @Column()
+//    private String images;
+    @Column(nullable = false, length = 200)
+    private String images;
+
     @ManyToOne
     @JoinColumn(name="user_info", nullable = false)
     private User user;
@@ -39,13 +44,13 @@ public class Organization {
     @OneToMany
     private List<Listing> listingList;
 
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
+//    private List<OrganizationImage> organizationImages;
+
     public Organization() {}
 
 
-
-    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState,
-                        long orgZip, boolean isDonor, User user, List<Listing> listingList) {
-
+    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip, Boolean isDonor, String images, User user, List<Listing> listingList) {
         this.orgName = orgName;
         this.orgDescription = orgDescription;
         this.orgStAddress = orgStAddress;
@@ -53,6 +58,7 @@ public class Organization {
         this.orgState = orgState;
         this.orgZip = orgZip;
         this.isDonor = isDonor;
+        this.images = images;
         this.user = user;
         this.listingList = listingList;
     }
@@ -134,7 +140,20 @@ public class Organization {
         this.listingList = listingList;
     }
 
+//    public String getOrganizationImages() {
+//        return images;
+//    }
+//
+//    public void setOrganizationImages(String images) {
+//        this.images = images;
+//    }
 
 
+    public String getImages() {
+        return images;
+    }
 
+    public void setImages(String images) {
+        this.images = images;
+    }
 }
