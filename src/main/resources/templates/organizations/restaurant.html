@@ -57,19 +57,15 @@
                 <div th:if="${organization.isDonor()}">
                     <h2><span th:text="${organization.getOrgName()}"></span></h2>
                     <p><span th:text="${organization.getOrgDescription()}"></span></p>
+
+                    <a th:href="@{'/listings/show/' + ${organization.getId()}}">More Info</span></a>
                 </div>
         </div>
     </div>
 </div>
 
-<footer th:replace="partials/footer.html :: footer">
-</footer>
-<script th:replace="partials/script.html :: script">
-</script>
-</body>
-</html></title>
-</head>
-<body>
-
+<footer th:replace="partials/footer.html :: footer"></footer>
+<script th:replace="partials/script.html :: script"></script>
+</div>
 </body>
 </html>

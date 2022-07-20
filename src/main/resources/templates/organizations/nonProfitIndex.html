@@ -61,12 +61,8 @@
                 <div th:if="${!organization.isDonor()}">
                     <h2><span th:text="${organization.getOrgName()}"></span></h2>
                     <p><span th:text="${organization.getOrgDescription()}"></span></p>
+                    <a th:href="@{'/listings/show/' + ${organization.getId()}}">More Info</span></a>
                 </div>
-
-
-
-
-
 
             </div>
         </div>
