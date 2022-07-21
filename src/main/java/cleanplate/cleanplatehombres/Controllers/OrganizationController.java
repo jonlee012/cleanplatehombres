@@ -43,7 +43,7 @@ public class OrganizationController {
 
     //if any of the fields are empty in the registration form then return back to the create page
     //need to implement errors for which data point is not correct
-    @PostMapping("orgs/create")
+    @PostMapping("/orgs/create")
     public String post(@ModelAttribute Organization organization) {
         if(organization.getOrgName().equals("") ||
                 organization.getOrgDescription().equals("") ||
