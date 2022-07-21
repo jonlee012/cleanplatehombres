@@ -1,41 +1,41 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="partials/head :: head">
-    <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <title>User Login</title>
-</head>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org"-->
+<!--      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">-->
+<!--<head th:replace="partials/head :: head">-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+<!--    <title>User Login</title>-->
+<!--</head>-->
 
-<body>
+<!--<body>-->
 
-    <nav th:replace="partials/topnav :: navbar"></nav>
+<!--    <nav th:replace="partials/topnav :: navbar"></nav>-->
 
-    <h1 id="text" class="mb-3 text-white text-center display-4 w-100 mt-5">Create an Account</h1>
-
-
-        <form th:action="@{/sign-up}" method="post" th:object="${user}">
+<!--    <h1 id="text" class="mb-3 text-white text-center display-4 w-100 mt-5">Create an Account</h1>-->
 
 
-        <label for="username">Username</label>
-        <input id="username" th:field="*{username}" />
-
-        <label for="email">Email</label>
-        <input id="email" th:field="*{email}" />
-
-        <label for="password">Password</label>
-        <input id="password" type="password" th:field="*{password}" />
-
-        <label for="isAdmin">Are you Admin?</label>
-        <input id="isAdmin" type="checkbox" th:field="*{admin}" />
-
-        <input value="Sign me up!" type="submit" />
-    </form>
+<!--        <form th:action="@{/sign-up}" method="post" th:object="${user}">-->
 
 
-    <footer th:replace="partials/footer :: footer"></footer>
-    <script th:replace="partials/script :: script"></script>
+<!--        <label for="username">Username</label>-->
+<!--        <input id="username" th:field="*{username}" />-->
 
-</body>
-</html>
+<!--        <label for="email">Email</label>-->
+<!--        <input id="email" th:field="*{email}" />-->
+
+<!--        <label for="password">Password</label>-->
+<!--        <input id="password" type="password" th:field="*{password}" />-->
+
+<!--        <label for="isAdmin">Are you Admin?</label>-->
+<!--        <input id="isAdmin" type="checkbox" th:field="*{admin}" />-->
+
+<!--        <input value="Sign me up!" type="submit" />-->
+<!--    </form>-->
+
+
+<!--    <footer th:replace="partials/footer :: footer"></footer>-->
+<!--    <script th:replace="partials/script :: script"></script>-->
+
+<!--</body>-->
+<!--</html>-->
