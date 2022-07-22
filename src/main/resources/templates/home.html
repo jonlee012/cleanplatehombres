@@ -1,191 +1,262 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-
-
-
-
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="partials/head :: head">
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet'/>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>User Login</title>
 </head>
 <style>
-  body {
-    background-color: transparent;
+  .formCard {
+    background-color: #ea3c3c;
   }
 
+  #photoPicker {
+    width: 150px;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  /* The message box is shown when the user clicks on the password field */
+  #message {
+    display: none;
+    background-color: #1f1b24;
+    color: white;
+    position: absolute;
+    margin: 10px;
+    bottom: 70px;
+    height: 200px;
+    width: 400px;
+  }
+
+  #message h3 {
+    color: black;
+  }
+
+  #message p {
+    font-size: 18px;
+    padding: 0;
+    margin: 0
+  }
+
+  /* Add a green text color and a checkmark when the requirements are right */
+  .valid {
+    color: green;
+  }
+
+  .valid:before {
+    position: relative;
+    left: -35px;
+    content: & #10004;;
+  }
+
+  /* Add a red text color and an "x" icon when the requirements are wrong */
+  .invalid {
+    color: red;
+  }
+
+  .invalid:before {
+    position: relative;
+    left: -35px;
+    /*content: & #10006;;*/
+  }
 </style>
-
 <body>
-<nav th:include="partials/topnav :: topnav"></nav>
 
-<div class="map-container container-fluid">
-  <div class="mapbox">
-    <div class="container-fluid" id='map'>
-      <div class="zoom-container text-center justify-content-center align-items-center" id="menu">
+<nav th:replace="partials/topnav :: navbar"></nav>
 
+<h1 id="text" class="mb-3 text-white text-center display-4 w-100 mt-5">Create an Account</h1>
 
-      </div>
-    </div>
-    <link rel='stylesheet'
-          href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
-          type='text/css'/>
-  </div>
-  <div class="reviews ">
-    <div id="mapboxData" th:each="organization : ${organization}" class="flip-card card-item card-deck mt-2 my-2 m-lg-2">
-      <div class="flip-card-inner" th:each="organization : ${organization}">
-        <!--                <h5 th:text="${}" class="flip-card-front h3"></h5>-->
-        <p class="flip-card-front flex-column">
-          <span class="h3" th:text="${organization.getOrgName()}"></span>
-          <br>
-          <span class="h5"
-                th:text="${organization.getOrgStAddress  + ', ' + organization.getOrgCity + ', ' + organization.getOrgState + ', ' + organization.getOrgZip }"></span>
-        </p>
-        <div class="flip-card-back d-flex flex-column align-items-center" th:each="organization : ${organization}">
-          <button hidden class="btn w-75 " type="button" id="location"
+<div class="d-flex justify-content-center align-items-center mt-3">
+  <div class="card w-75 mt-3">
+    <div class="card-body formCard rounded-3">
+      <div class="container">
+        <div class="row">
+          <form th:action="@{/sign-up}" method="post" th:object="${user}">
+            <div class="container">
+              <div class="row g-3">
+                <div class="accountType col col-12 col-sm-12 col-md-6 col-lg-6">
+                  <label class="text-white h4 " for="accountType">Account Type</label>
+                  <select class="form-select" aria-label="Default select example"
+                          id="accountType">
+                    <option class="text-white" value="consumer" selected>User</option>
+                    <option class="text-white" value="organization">Organization</option>
+                  </select>
+                </div>
+                <div class="consumer col mt-lg-3 mt-sm-0">
+                  <div class="col" id="consumer">
+                    <div class="form-group">
+                      <label class="text-white h4 col-12 col-sm-12 col-md-6 col-lg-6"
+                             for="username">Username</label>
+                      <input class="form-control" name="username" type="text" id="username"
+                             th:field="*{username}" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row g-3">
+                <div class="col-md-6 email">
+                  <div class="form-group">
+                    <label class="text-white h4" for="email">Email</label>
+                    <input class="form-control" name="email" type="text" id="email"
+                           th:field="*{email}">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group password">
+                    <label class="text-white h4" for="password">Password</label><i
+                          class="text-white fa fa-eye"></i>
+                    <input class="form-control" id="password" name="password" type="password"
+                           required th:field="*{password}">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row g-3">
+                <div class="col-md-6 email">
+                  <div class="form-group">
+                    <label for="isAdmin">Are you Admin?</label>
+                    <input id="isAdmin" type="checkbox" th:field="*{admin}" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row text-white ">
+                <input id="isOwner" th:field="*{/orgs/create}" value="false" hidden>
+                <div id="organization" class="hide">
+                  <div class="row g-3" th:object="${organization}">
+                    <div class="organizationName col-md-6">
+                      <label for="name" class="form-label h4">Organization Name</label>
+                      <input id="name" type="text" class="form-control" th:field="*{org_name}">
+                    </div>
+                    <div class="address col-md-6 m-0">
+                      <label for="address" class="form-label h4">Address</label>
+                      <input id="address" type="text" class="form-control" th:field="*{org_st_address}">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="city" class="form-label h4">City</label>
+                      <input id="city" type="text" class="form-control" th:field="*{org_city}">
+                    </div>
+                    <div class="col-md-3">
+                      <label for="state" class="form-label h4">State</label>
+                      <select id="state" class="form-select h4" th:field="*{org_state}">
+                        <option selected disabled value="">Choose...</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="zip" class="form-label h4 ">Zip Code</label>
+                      <input id="zip" type="text" class="form-control mb-3"
+                             th:field="*{org_zip}">
+                    </div>
 
-                  th:text="${organization.getOrgStAddress  + ', ' + organization.getOrgCity + ', ' + organization.getOrgState + ', ' + organization.getOrgZip }"></button>
-          <div class="my-2">
-            <a th:href="@{'organization/{id}'(id=${organization.getId})}">
-              <button class="btn btn-outline-light">Check Us Out</button>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--</div>-->
-  <div hidden>
-    <div id="orgName" th:each="Organization : ${Organization}">
-      <div th:each="Organization : ${Organization}">
-        <h4 class="card-title" th:text="${Organization.getName()}"></h4>
-        <p id="orgAddress" class="mb-1 biz"><span th:text="${Organization.getOrgStAddress()}"></span></p>
-        <p id="orgCity" class="mb-1"><span th:text="${Organization.getOrgCity()}"></span> <span
-                th:text="${Organization.getOrgState()}"></span>, <span
-                th:text="${Organization.getOrgZip()}"></span></p>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="px-2.5">
+                      <button class="upload btn btn-outline-light hide p-0 mx-0 me-2 mt-4"
+                              name="Pick photo"
+                              id="photoPicker" onclick="openPhotoPicker()">Upload
+                        Photo
+                      </button>
+                      <button type="submit" class="btn btn-outline-light mt-4"
+                              value="Sign me up!" id="sub-btn">Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-row organizationImages">
+              </div>
+            </div>
 
-      </div>
-    </div>
-  </div>
-</div>
+          </form>
+        </div>  </div>  </div>  </div>  </div>
 
+<footer th:replace="partials/footer :: footer"></footer>
+<script th:replace="partials/script :: script"></script>
 <script src="keys.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script th:inline="javascript">
 
-
-  mapboxgl.accessToken = MAPBOX_KEY;
-  // const layerList = document.getElementById('menu');
-  const inputs = document.getElementsByTagName('input');
-
-  for (const input of inputs) {
-    input.onclick = (layer) => {
-      const layerId = layer.target.id;
-      map.setStyle('mapbox://styles/mapbox/' + layerId);
-    };
-  }
-  const nav = new mapboxgl.NavigationControl({
-    showZoom: true
-  });
-
-  $(document).ready(function () {
-    $('#zoom5').click(function (e) {
-      map.flyTo({zoom: 5});
-    });
-    $(document).ready(function () {
-      $('#zoom10').click(function (e) {
-        map.flyTo({zoom: 10});
-      });
-      $(document).ready(function () {
-        $('#zoom15').click(function (e) {
-          map.flyTo({zoom: 15});
-        })
-      });
-    });
-  });
-
-
-  $(document).ready(function () {
-    $(".removeMarkers").click(function () {
-      $('marker').toggle()
-    });
-  });
-
-  const geojson = {
-    'type': 'FeatureCollection',
-    'features': [
-      {
-        'type': 'Feature',
-        'properties': {
-          'description':
-          organizationName,
-          'icon': 'theatre-15'
-        },
-        'geometry': {
-          'type': 'Point',
-          'coordinates': [-98.4916, 29.4260]
-        }
-      }
-    ]
-  }
-
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-98.4916, 29.4252],
-    zoom: 10
-  });
-
-  const description = geojson.features[0].properties.description;
-  // Add markers to the map.
-
-  const geocode = (inputLocation, inputName, inputReviews) => {
-    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${inputLocation}.json?&access_token=${MAPBOX_KEY}`)
-            .then(res => res.json())
-            .then(data => {
-              console.log(data);
-              try {
-                map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
-
-              } catch (e) {
-                console.log(e);
-              }
-              for (const feature of geojson.features) {
-// create a HTML element for each feature
-
-                const el = document.createElement('div');
-                el.className = 'mapMarker';
-
-// make a marker for each feature and add it to the map
-
-                new mapboxgl.Marker(el)
-                        .setLngLat(data.features[0].center).addTo(map)
-                        .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
-                                // .setHTML(inputName  + inputLocation + inputHours + inputReviews)
-                                .setHTML(`
-${inputName} <br> ${inputLocation} <br>
-`)
-                                .addTo(map))
-                        .setLngLat(data.features[0].center).addTo(map);
-
-              }
-            })
-  }
-
-  // $(window).ready( function(){
-
-  $(document).on("mousemove", "#mapboxData", function () {
-    console.log(this)
-    let organizationLocation = this.querySelector('#location').innerText
-    let organizationName = this.getElementsByTagName("p")[0].innerText
-    console.log("organizationName", organizationName);
-    geocode(organizationLocation, organizationName)
-    // })
-  });
+<script>
+  // let organizationForm = '';
+  //
+  // let organization = $("#organization");
+  // let actType = $("#accountType");
+  // let isOwner = $("#isOwner");
+  // let upload = $("#photoPicker");
+  //
+  // $(actType).change(function () {
+  //   if (actType.val() === "organization") {
+  //     organization.removeClass("hide");
+  //     isOwner.val("true");
+  //     upload.removeClass("hide");
+  //   } else if (actType.val() === "consumer") {
+  //     organization.addClass("hide");
+  //     upload.addClass("hide");
+  //     isOwner.val("false");
+  //   }
+  // })
 
 
 </script>
-
 
 </body>
 </html>
