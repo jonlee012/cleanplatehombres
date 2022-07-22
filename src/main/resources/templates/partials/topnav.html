@@ -12,6 +12,7 @@
       <a href="/index">
         <img class="logo" src="logo.jpg" alt="logo">
       </a>
+
     </div>
 
     <!--    NAV LINKS-->
@@ -24,6 +25,76 @@
         <a class="nav-link-individual" href="/listings/create">Donate</a>
         <a class="nav-link-individual" href="/nonProfitIndex">Non-Profit</a>
         <a class="nav-link-individual" href="/restaurant">Restaurant</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <div sec:authorize="isAnonymous()">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sign-up">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/listings/create">Donate</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/nonProfitIndex">Non-Profit</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/restaurant">Restaurant</a>
+            </li>
+          </ul>
+        </div>
+
+            <div sec:authorize="isAuthenticated()">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="/listings/create">Donate</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="/nonProfitIndex">Non-Profit</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="/restaurant">Restaurant</a>
+                    </li>
+                    <li class="nav-item">
+                        <!--                      <a class="nav-link" href="/logout">Logout</a>-->
+                        <form th:action="@{/logout}" method="POST"><input type="submit" value="Logout"/></form>
+                    </li>
+                </ul>
+            </div>
+
+        <form class="d-flex">
+          <input class="form-control me-2" id="input" type="search" placeholder="Search" aria-label="Search by Zip Code">
+          <button class="btn btn-danger btn-outline-secondary" id="btn" type="submit">Submit</button>
+        </form>
+
       </div>
     </div>
     <!--        SEARCH BAR-->
