@@ -1,40 +1,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head th:replace="partials/head :: head">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <!-- CSS STYLE SHEET -->
   <link th:href="@{/styles/styles.css}" rel="stylesheet" />
 </head>
-
 <div th:fragment="navbar" >
-
   <nav class="nav-bar">
-<!--    LOGO-->
-    <div>
+    <!--    LOGO-->
+    <div class="logo-container">
       <a href="/index">
-          <img src="logo.png" width="10px" height="10px" alt="">
+        <img class="logo" src="logo.jpg" alt="logo">
       </a>
     </div>
 
-<!--    NAV LINKS-->
-      <div>
-        <ul>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/sign-up">Register</a></li>
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/listings/create">Donate</a></li>
-          <li><a href="/nonProfitIndex">Non-Profit</a></li>
-          <li><a href="/restaurant">Restaurant</a></li>
-        </ul>
-<!--        SEARCH BAR-->
-        <form>
-          <input type="search" placeholder="Search" aria-label="Search by Zip Code">
-          <button type="submit">Submit</button>
-        </form>
-
+    <!--    NAV LINKS-->
+    <div class="nav-links-container">
+      <div class="nav-links-ul">
+        <a class="nav-link-individual" href="/login">Login</a>
+        <a class="nav-link-individual" href="/sign-up">Register</a>
+        <a class="nav-link-individual" href="/about">About Us</a>
+        <a class="nav-link-individual" href="/contact">Contact</a>
+        <a class="nav-link-individual" href="/listings/create">Donate</a>
+        <a class="nav-link-individual" href="/nonProfitIndex">Non-Profit</a>
+        <a class="nav-link-individual" href="/restaurant">Restaurant</a>
+      </div>
+    </div>
+    <!--        SEARCH BAR-->
+    <div>
+      <form class="form-area">
+        <input class="search-area input" type="search" placeholder="Search">
+        <button class="search-area button" type="submit">Submit</button>
+      </form>
     </div>
   </nav>
+
 </div>
 </html>
