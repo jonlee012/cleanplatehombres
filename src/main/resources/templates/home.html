@@ -75,7 +75,7 @@
     <div class="card-body formCard rounded-3">
       <div class="container">
         <div class="row">
-          <form th:action="@{/sign-up}" method="post" th:object="${user}">
+          <form th:action="@{/home}" method="post" th:object="${user_info}">
             <div class="container">
               <div class="row g-3">
                 <div class="accountType col col-12 col-sm-12 col-md-6 col-lg-6">
@@ -92,7 +92,7 @@
                       <label class="text-white h4 col-12 col-sm-12 col-md-6 col-lg-6"
                              for="username">Username</label>
                       <input class="form-control" name="username" type="text" id="username"
-                             th:field="*{username}" required>
+                             th:field="*{user_info.username}" required>
                     </div>
                   </div>
                 </div>
