@@ -19,7 +19,11 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h2>Edit User Profile</h2>
+            <div class="row">
+                <h2>User Information</h2>
+            </div>
+            <div class="row">
+                <div class="col-10">
             <p>Username: <!--/*@thymesVar id="getUsername" type=""*/-->
             <span th:text ="*{#authentication.getPrincipal().getUsername()}"></span></p>
             <p>Email: <!--/*@thymesVar id="getEmail" type=""*/-->
@@ -27,7 +31,12 @@
             <div th:if="${#authentication.getPrincipal().getAdmin()}">
                 <p>User Status: Admin</p>.
             </div>
-            <button type="button" class="btn btn-danger">Delete Profile</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-primary">Edit Profile</button>
+                    <button type="button" class="btn btn-danger">Delete Profile</button>
+                </div>
+            </div>
 
         </div>
 
@@ -37,7 +46,10 @@
 
     <div class="row">
         <div class="col">
-            <h2>Edit Your Organizations</h2>
+            <div class="row">
+                <h2>Your Organizations</h2>
+            </div>
+            <div class="row">
                     <!--/*@thymesVar id="getOrgName" type=""*/-->
                     <h3>Organization Name: <span th:text="${organization.getOrgName()}"></span></h3>
 
@@ -54,13 +66,24 @@
                         <!--/*@thymesVar id="getOrgZip" type=""*/-->
                         <span th:text="${organization.getOrgZip()}"></span>
                     </p>
-                <button type="button" class="btn btn-primary">Edit Organization</button>
-                <button type="button" class="btn btn-danger">Delete Organization</button>
-                    <button type="button" class="btn btn-success">Create a Listing</button>
+            </div>
+
+            <div class="container">
+                <div class="row justify-content-around">
+                    <button type="button" class="btn btn-primary btn-sm d-inline">Edit</button>
+                    <button type="button" class="btn btn-danger btn-sm d-inline">Delete</button>
+                    <button type="button" class="btn btn-success btn-sm d-inline">New Listing</button>
+                </div>
+            </div>
+
+
             </div>
 
         <div class="col">
-            <h2>Edit Your Listings</h2>
+            <div class="row">
+                <h2>Your Listings</h2>
+            </div>
+
             <div th:each="listing : ${listings}">
 
                 <h2><span th:text="${listing.getFoodName()}"></span></h2>
@@ -69,8 +92,8 @@
                 <p><span th:text="${listing.getExpDate()}"></span></p>
                 <p><span th:text="${listing.getOrganization().getOrgName()}"></span></p>
             </div>
-                    <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
                 </div>
 
     </div>
