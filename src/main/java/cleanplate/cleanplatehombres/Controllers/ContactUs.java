@@ -32,7 +32,7 @@ public class ContactUs {
                 "been received");
 
 
-        return "contact;";
+        return "/contact";
 
 
     }

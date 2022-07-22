@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <!--<head>-->
-<head th:replace="partials/head.html :: head">
+<head th:replace="partials/head :: head">
     <meta charset="UTF-8">
     <title>Organization Index</title>
+
 </head>
 <body>
 <nav th:replace="partials/topnav.html :: navbar">
@@ -11,7 +12,7 @@
 <div class = "container">
     <div class = "row">
         <div class = "col">
-        <h1> These are the Restaurant listings</h1>
+<!--        <h1> These are the Restaurant listings</h1>-->
             <!--                start-->
             <section class="container-fluid" style="margin-top: 40px">
                 <form>
@@ -26,13 +27,45 @@
                         </div>
                     </div>
                 </form>
-                <div style="margin-top: 10px">
-                    <div class='mx-1 mt-3' id='map' style='height: 400px; width: auto'></div>
-                    <pre id="coordinates" class="coordinates">
-            </pre>
+<!--                <div style="margin-top: 10px">-->
+<!--                    <div class='mx-1 mt-3' id='map' style='height: 400px; width: auto'></div>-->
+<!--&lt;!&ndash;                    <pre id="coordinates" class="coordinates">&ndash;&gt;-->
+<!--&lt;!&ndash;            </pre>&ndash;&gt;-->
+<!--                </div>-->
+                <div class="mapbox">
+                    <div class="container-fluid" id='map' style='height: 400px; width: auto'>
+                        <div class="zoom-container text-center justify-content-center align-items-center" id="orgMark">
+
+
+<!--&lt;!&ndash;                                            <label class="zoom-label text-dark label">ZOOM</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <button id="zoom5" value="zoom x 5">X 5</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <button id="zoom10" value="zoom x 10">X 10</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <button id="zoom15" value="zoom x 15">X 15</button>&ndash;&gt;-->
+
+                        </div>
+                    </div>
+<!--&lt;!&ndash;                    <link rel='stylesheet'&ndash;&gt;-->
+<!--&lt;!&ndash;                          href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'&ndash;&gt;-->
+<!--&lt;!&ndash;                          type='text/css'/>&ndash;&gt;-->
+<!--                    &lt;!&ndash;            <pre id="coordinates" class="coordinates"></pre>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        <input class="search" id="userInput" type="text">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        <button id="button" type="button">Search</button>&ndash;&gt;-->
+
+
                 </div>
-                <div style="margin-top: -10px"><em>Drag pin to find temperatures in other cities*</em>
+                <div id="mapboxData" th:each="organization : ${organizations}" class="flip-card card-item card-deck mt-2 my-2 m-lg-2">
+                    <div class="flip-card-inner" th:each="organization : ${organizations}">
+                        <!--                <h5 th:text="${}" class="flip-card-front h3"></h5>-->
+                        <p class="flip-card-front flex-column">
+                            <span class="h3" th:text="${organization.getOrgName()}"></span>
+                            <br>
+                            <span class="h5"
+                                  th:text="${organization.getOrgStAddress  + ', ' + organization.getOrgCity + ', ' + organization.getOrgState + ', ' + organization.getOrgZip }"></span>
+                        </p>
+                    </div>
                 </div>
+<!--                <div style="margin-top: -10px"><em>Drag pin to find temperatures in other cities*</em>-->
+<!--                </div>-->
                 <!--                    <div class="five"  style="padding: 20px; display: flex; justify-content: center;">-->
                 <!--                        <p>-->
                 <!--                        <h3>Five day forecast: </h3>-->
@@ -57,19 +90,171 @@
                 <div th:if="${organization.isDonor()}">
                     <h2><span th:text="${organization.getOrgName()}"></span></h2>
                     <p><span th:text="${organization.getOrgDescription()}"></span></p>
+
+                    <a th:href="@{'/listings/show/' + ${organization.getId()}}">More Info</span></a>
                 </div>
-        </div>
+          </div>
+    </div>
     </div>
 </div>
 
-<footer th:replace="partials/footer.html :: footer">
-</footer>
-<script th:replace="partials/script.html :: script">
-</script>
-</body>
-</html></title>
-</head>
-<body>
+
+<footer th:replace="partials/footer.html :: footer"></footer>
+<script th:replace="partials/script.html :: script"></script>
+    <script>
+        mapboxgl.accessToken = MAPBOX_KEY;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-98.4916, 29.4252],
+            zoom: 10
+        });
+        // Map Nav Controls
+        map.addControl(new mapboxgl.NavigationControl());
+        // const nav = new mapboxgl.NavigationControl({
+        //     showZoom: true
+        // });
+
+
+        //Starting Draggable Marker (default point)
+        var marker = new mapboxgl.Marker({
+            draggable: true
+        })
+            .setLngLat([-98.4916, 29.4252])
+            .addTo(map);
+
+
+
+        const layerList = document.getElementById('orgMark');
+        const inputs = layerList.getElementsByTagName('input');
+        for (const input of inputs) {
+        input.onclick = (layer) => {
+            const layerId = layer.target.id;
+            map.setStyle('mapbox://styles/mapbox/' + layerId);
+        };
+    }
+        // starting point for weather
+        var weatherOptions = {
+            lat: 29.4241,
+            lon: -98.4936,
+            // appid: "8dba1fe72474760cbb96da7c28d67b5e",
+            units: 'imperial'
+        };
+
+        function onDragEnd() {
+            var lngLat = marker.getLngLat();
+            var lat = lngLat.lat
+            var lng = lngLat.lng
+
+            weatherOptions.lng = lng
+            weatherOptions.lat = lat
+            // renderWeather()
+
+        }
+
+        marker.on('dragend', onDragEnd);
+
+
+    // $(document).ready(function () {
+    //     $('#zoom5').click(function (e) {
+    //         map.flyTo({zoom: 5});
+    //     });
+    //     $(document).ready(function () {
+    //         $('#zoom10').click(function (e) {
+    //             map.flyTo({zoom: 10});
+    //         });
+    //         $(document).ready(function () {
+    //             $('#zoom15').click(function (e) {
+    //                 map.flyTo({zoom: 15});
+    //             })
+    //         });
+    //     });
+    // });
+
+
+    $(document).ready(function () {
+        $(".removeMarkers").click(function () {
+            $('marker').toggle()
+        });
+    });
+
+    const geojson = {
+        'type': 'FeatureCollection',
+        'features': [
+            {
+                'type': 'Feature',
+                'properties': {
+                    'description':
+                    organizationName,
+                    'icon': 'theatre-15'
+                },
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [-98.4916, 29.4260]
+                }
+            }
+        ]
+    }
+
+
+
+    const description = geojson.features[0].properties.description;
+    // Add markers to the map.
+
+    const geocode = (inputLocation, inputName) => {
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${inputLocation}.json?&access_token=${MAPBOX_KEY}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                try {
+                    map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
+
+                } catch (e) {
+                    console.log(e);
+                }
+                for (const feature of geojson.features) {
+// create a HTML element for each feature
+
+                    const el = document.createElement('div');
+                    el.className = 'mapMarker';
+
+// make a marker for each feature and add it to the map
+
+                    new mapboxgl.Marker(el)
+                        .setLngLat(data.features[0].center).addTo(map)
+                        .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
+                            // .setHTML(inputName  + inputLocation + inputHours + inputReviews)
+                            .setHTML(`${inputName} <br> ${inputLocation} <br>`)
+                            .addTo(map))
+                        .setLngLat(data.features[0].center).addTo(map);
+                }
+            })
+    }
+//
+//     // $(window).ready( function(){
+//
+    $(document).on("mousemove", "#mapboxData", function () {
+        console.log(this)
+        let organizationLocation = this.querySelector('#location').innerText
+        let organizationName = this.getElementsByTagName("p")[0].innerText
+        console.log("organizationName", organizationName);
+        geocode(organizationLocation, organizationName)
+        // })
+    });
+
+        function getData() {
+            $.get("organization : ${organizations}", {
+                id: OPEN_WEATHER_APPID,
+                org_st_address: latitude,
+                lon: longitude,
+                units: "imperial"
+            }).done(function (data) {
+                handleResponse(data)
+            });
+            // console.log(handleResponse);
+            console.log(data);
+        }
+    </script>
 
 </body>
 </html>
