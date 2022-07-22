@@ -95,7 +95,7 @@ public class BusinessController {
 //        } else {
 //
 //        }
-        return "listings/listings";
+        return "home";
     }
 
 
