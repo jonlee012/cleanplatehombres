@@ -10,7 +10,7 @@ import java.util.List;
 public interface OrganizationRepository extends JpaRepository<Organization, Integer> {
     Organization getById(Integer id);
     List<Organization> getOrganizationByUser(User user);
-//    Organization getOrganizationByUserId(Integer id);
+    Organization getOrganizationByUserId(Integer id);
 //    Organization getOrganizationById(Integer id);
 //    Organization getOrganizationByName(String orgName);
     List<Organization> getAllByOrgNameContaining(@Param("keyword") String orgName);

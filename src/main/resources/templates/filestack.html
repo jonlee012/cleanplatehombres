@@ -1,0 +1,99 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org"-->
+<!--      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">-->
+
+<!--<head th:replace="partials/head :: head">-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>User Profile</title>-->
+<!--</head>-->
+
+<!--<body>-->
+
+<!--<nav th:replace="partials/topnav :: navbar"></nav>-->
+
+
+<!--<h1>Welcome-->
+<!--    &lt;!&ndash;/*@thymesVar id="getUsername" type=""*/&ndash;&gt;-->
+<!--    <span th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h1>-->
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col">-->
+<!--            <h2>Edit User Profile</h2>-->
+<!--            <p>Username: &lt;!&ndash;/*@thymesVar id="getUsername" type=""*/&ndash;&gt;-->
+<!--                <span th:text ="*{#authentication.getPrincipal().getUsername()}"></span></p>-->
+<!--            <p>Email: &lt;!&ndash;/*@thymesVar id="getEmail" type=""*/&ndash;&gt;-->
+<!--                <span th:text ="${#authentication.getPrincipal().getEmail()}"></span></p>-->
+<!--            <p>Upload photo: &lt;!&ndash;/*@thymesVar id="getEmail" type=""*/&ndash;&gt;-->
+<!--                <input class="btn btn-outline-light" type="BUTTON" name="Pick photo" value="Upload Photo"-->
+<!--                       id="photoPicker" onclick="openPhotoPicker()">-->
+<!--                <button type="submit" class="btn btn-outline-light text-white h-110 mb-2 my-1 mx-2" style= "height: 42px" >Submit Changes</button>-->
+
+<!--            <div th:if="${#authentication.getPrincipal().getAdmin()}">-->
+<!--                <p>User Status: Admin</p>.-->
+<!--            </div>-->
+<!--            <button type="button" class="btn btn-danger">Delete Profile</button>-->
+<!--        </div>-->
+
+<!--        <div th:each="organization : ${organizations}">-->
+<!--            &lt;!&ndash;/*@thymesVar id="getUserId" type=""*/&ndash;&gt;-->
+<!--            <div th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}">-->
+
+<!--                <div class="row">-->
+<!--                    <div class="col">-->
+<!--                        <h2>Edit Your Organizations</h2>-->
+<!--                        &lt;!&ndash;/*@thymesVar id="getOrgName" type=""*/&ndash;&gt;-->
+<!--                        <h3>Organization Name: <span th:text="${organization.getOrgName()}"></span></h3>-->
+
+<!--                        <p>Description: <span th:text="${organization.getOrgDescription()}"></span></p>-->
+<!--                        <p>Address:-->
+<!--                            &lt;!&ndash;/*@thymesVar id="getOrgStAddress" type=""*/&ndash;&gt;-->
+<!--                            <span th:text="${organization.getOrgStAddress()}"></span><br>-->
+<!--                        </p>-->
+<!--                        <p>-->
+<!--                            &lt;!&ndash;/*@thymesVar id="getOrgCity" type=""*/&ndash;&gt;-->
+<!--                            <span th:text="${organization.getOrgCity()}"></span>-->
+<!--                            &lt;!&ndash;/*@thymesVar id="orgState" type=""*/&ndash;&gt;-->
+<!--                            <span th:text="${organization.getOrgState()}"></span>-->
+<!--                            &lt;!&ndash;/*@thymesVar id="getOrgZip" type=""*/&ndash;&gt;-->
+<!--                            <span th:text="${organization.getOrgZip()}"></span>-->
+<!--                        </p>-->
+<!--                        <button type="button" class="btn btn-primary">Edit Organization</button>-->
+<!--                        <button type="button" class="btn btn-danger">Delete Organization</button>-->
+<!--                        <button type="button" class="btn btn-success">Create a Listing</button>-->
+<!--                    </div>-->
+
+<!--                    <div class="col">-->
+<!--                        <h2>Edit Your Listings</h2>-->
+<!--                        <div th:each="listing : ${listings}">-->
+
+<!--                            <h2><span th:text="${listing.getFoodName()}"></span></h2>-->
+<!--                            <p><span th:text="${listing.getDonationDescription()}"></span></p>-->
+<!--                            <p><span th:text="${listing.getFoodAmt()}"></span></p>-->
+<!--                            <p><span th:text="${listing.getExpDate()}"></span></p>-->
+<!--                            <p><span th:text="${listing.getOrganization().getOrgName()}"></span></p>-->
+<!--                        </div>-->
+<!--                        <button type="button" class="btn btn-primary">Edit</button>-->
+<!--                        <button type="button" class="btn btn-danger">Delete</button>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+<!--<footer th:replace="partials/footer :: footer"></footer>-->
+<!--<script th:replace="partials/script :: script"></script>-->
+<!--<script>-->
+<!--    let upload = $("#photoPicker");-->
+
+
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
