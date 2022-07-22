@@ -86,114 +86,114 @@
 //
 //
 //
-
-
-// second try
-
-mapboxgl.accessToken = MAPBOX_KEY;
-const layerList = document.getElementById('orgMark');
-const inputs = layerList.getElementsByTagName('input');
-for (const input of inputs) {
-    input.onclick = (layer) => {
-        const layerId = layer.target.id;
-        map.setStyle('mapbox://styles/mapbox/' + layerId);
-    };
-}
-const nav = new mapboxgl.NavigationControl({
-    showZoom: true
-});
-
-$(document).ready(function () {
-    $('#zoom5').click(function (e) {
-        map.flyTo({zoom: 5});
-    });
-    $(document).ready(function () {
-        $('#zoom10').click(function (e) {
-            map.flyTo({zoom: 10});
-        });
-        $(document).ready(function () {
-            $('#zoom15').click(function (e) {
-                map.flyTo({zoom: 15});
-            })
-        });
-    });
-});
-
-
-$(document).ready(function () {
-    $(".removeMarkers").click(function () {
-        $('marker').toggle()
-    });
-});
-
-const geojson = {
-    'type': 'FeatureCollection',
-    'features': [
-        {
-            'type': 'Feature',
-            'properties': {
-                'description':
-                organizationName,
-                'icon': 'theatre-15'
-            },
-            'geometry': {
-                'type': 'Point',
-                'coordinates': [-98.4916, 29.4260]
-            }
-        }
-    ]
-}
-
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-98.4916, 29.4252],
-    zoom: 10
-});
-
-const description = geojson.features[0].properties.description;
-// Add markers to the map.
-
-const geocode = (inputLocation, inputName) => {
-    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${inputLocation}.json?&access_token=${MAPBOX_KEY}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            try {
-                map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
-
-            } catch (e) {
-                console.log(e);
-            }
-            for (const feature of geojson.features) {
-// create a HTML element for each feature
-
-                const el = document.createElement('div');
-                el.className = 'mapMarker';
-
-// make a marker for each feature and add it to the map
-
-                new mapboxgl.Marker(el)
-                    .setLngLat(data.features[0].center).addTo(map)
-                    .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
-                        // .setHTML(inputName  + inputLocation + inputHours + inputReviews)
-                        .setHTML(`
-${inputName} <br> ${inputLocation} <br>
-`)
-                        .addTo(map))
-                    .setLngLat(data.features[0].center).addTo(map);
-
-            }
-        })
-}
-
-// $(window).ready( function(){
-
-$(document).on("mousemove", "#mapboxData", function () {
-    console.log(this)
-    let organizationLocation = this.querySelector('#location').innerText
-    let organizationName = this.getElementsByTagName("p")[0].innerText
-    console.log("organizationName", organizationName);
-    geocode(organizationLocation, organizationName)
-    // })
-});
+//
+// //
+// // // second try
+// //
+// // mapboxgl.accessToken = MAPBOX_KEY;
+// // const layerList = document.getElementById('orgMark');
+// // const inputs = layerList.getElementsByTagName('input');
+// // for (const input of inputs) {
+// //     input.onclick = (layer) => {
+// //         const layerId = layer.target.id;
+// //         map.setStyle('mapbox://styles/mapbox/' + layerId);
+// //     };
+// // }
+// // const nav = new mapboxgl.NavigationControl({
+// //     showZoom: true
+// // });
+// //
+// // $(document).ready(function () {
+// //     $('#zoom5').click(function (e) {
+// //         map.flyTo({zoom: 5});
+// //     });
+// //     $(document).ready(function () {
+// //         $('#zoom10').click(function (e) {
+// //             map.flyTo({zoom: 10});
+// //         });
+// //         $(document).ready(function () {
+// //             $('#zoom15').click(function (e) {
+// //                 map.flyTo({zoom: 15});
+// //             })
+// //         });
+// //     });
+// // });
+// //
+// //
+// // $(document).ready(function () {
+// //     $(".removeMarkers").click(function () {
+// //         $('marker').toggle()
+// //     });
+// // });
+// //
+// // const geojson = {
+// //     'type': 'FeatureCollection',
+// //     'features': [
+// //         {
+// //             'type': 'Feature',
+// //             'properties': {
+// //                 'description':
+// //                 organizationName,
+// //                 'icon': 'theatre-15'
+// //             },
+// //             'geometry': {
+// //                 'type': 'Point',
+// //                 'coordinates': [-98.4916, 29.4260]
+// //             }
+// //         }
+// //     ]
+// // }
+// //
+// // var map = new mapboxgl.Map({
+// //     container: 'map',
+// //     style: 'mapbox://styles/mapbox/streets-v11',
+// //     center: [-98.4916, 29.4252],
+// //     zoom: 10
+// // });
+// //
+// // const description = geojson.features[0].properties.description;
+// // // Add markers to the map.
+// //
+// // const geocode = (inputLocation, inputName) => {
+// //     fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${inputLocation}.json?&access_token=${MAPBOX_KEY}`)
+// //         .then(res => res.json())
+// //         .then(data => {
+// //             console.log(data);
+// //             try {
+// //                 map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
+// //
+// //             } catch (e) {
+// //                 console.log(e);
+// //             }
+// //             for (const feature of geojson.features) {
+// // // create a HTML element for each feature
+// //
+// //                 const el = document.createElement('div');
+// //                 el.className = 'mapMarker';
+// //
+// // // make a marker for each feature and add it to the map
+// //
+// //                 new mapboxgl.Marker(el)
+// //                     .setLngLat(data.features[0].center).addTo(map)
+// //                     .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
+// //                         // .setHTML(inputName  + inputLocation + inputHours + inputReviews)
+// //                         .setHTML(`
+// // ${inputName} <br> ${inputLocation} <br>
+// // `)
+// //                         .addTo(map))
+// //                     .setLngLat(data.features[0].center).addTo(map);
+// //
+// //             }
+// //         })
+// // }
+// //
+// // // $(window).ready( function(){
+// //
+// // $(document).on("mousemove", "#mapboxData", function () {
+// //     console.log(this)
+// //     let organizationLocation = this.querySelector('#location').innerText
+// //     let organizationName = this.getElementsByTagName("p")[0].innerText
+// //     console.log("organizationName", organizationName);
+// //     geocode(organizationLocation, organizationName)
+// //     // })
+// // });
