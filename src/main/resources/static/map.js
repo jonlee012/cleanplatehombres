@@ -154,7 +154,7 @@ var map = new mapboxgl.Map({
 const description = geojson.features[0].properties.description;
 // Add markers to the map.
 
-const geocode = (inputLocation, inputName, inputReviews) => {
+const geocode = (inputLocation, inputName) => {
     fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${inputLocation}.json?&access_token=${MAPBOX_KEY}`)
         .then(res => res.json())
         .then(data => {

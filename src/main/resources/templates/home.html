@@ -236,38 +236,26 @@
 <script src="keys.js"></script>
 
 <script>
-  let organizationForm = '';
-
-  let organization = $("#organization");
-  let actType = $("#accountType");
-  let isOwner = $("#isOwner");
-  let upload = $("#photoPicker");
-
-  $(actType).change(function () {
-    if (actType.val() === "organization") {
-      organization.removeClass("hide");
-      isOwner.val("true");
-      upload.removeClass("hide");
-    } else if (actType.val() === "consumer") {
-      organization.addClass("hide");
-      upload.addClass("hide");
-      isOwner.val("false");
-    }
-  })
-
-
-  // var myInput = document.getElementById("password");
+  // let organizationForm = '';
   //
+  // let organization = $("#organization");
+  // let actType = $("#accountType");
+  // let isOwner = $("#isOwner");
+  // let upload = $("#photoPicker");
   //
-  // // When the user clicks on the password field, show the message box
-  // myInput.onfocus = function () {
-  //     document.getElementById("message").style.display = "block";
-  // }
-  //
-  // // When the user clicks outside of the password field, hide the message box
-  // myInput.onblur = function () {
-  //     document.getElementById("message").style.display = "none";
-  // }
+  // $(actType).change(function () {
+  //   if (actType.val() === "organization") {
+  //     organization.removeClass("hide");
+  //     isOwner.val("true");
+  //     upload.removeClass("hide");
+  //   } else if (actType.val() === "consumer") {
+  //     organization.addClass("hide");
+  //     upload.addClass("hide");
+  //     isOwner.val("false");
+  //   }
+  // })
+
+
 </script>
 
 </body>
