@@ -34,7 +34,7 @@ public class Organization {
 
 //    @Column()
 //    private String images;
-    @Column(nullable = false, length = 200)
+    @Column(length = 200)
     private String images;
 
     @ManyToOne

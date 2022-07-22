@@ -30,12 +30,12 @@ public class ListingController {
         this.emailService = emailService;
     }
 
-    @GetMapping("/users")
-
-    public String users(Model model) {
-        model.addAttribute("users", userDao.findAll());
-        return "users";
-    }
+//    @GetMapping("/users")
+//
+//    public String users(Model model) {
+//        model.addAttribute("users", userDao.findAll());
+//        return "users";
+//    }
 
 
     //listing index controller
