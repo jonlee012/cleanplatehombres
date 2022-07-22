@@ -2,8 +2,14 @@
     margin: 0;
 }
 body {
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Roboto', sans-serif;
 }
+
+.nav-bar {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
 .hero-section {
     /*border: 2px solid purple;*/
     width: 1080px;
