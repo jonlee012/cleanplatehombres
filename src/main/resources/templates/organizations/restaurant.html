@@ -76,15 +76,6 @@
                 <!--                    </div>-->
             </section>
 
-            <!--                end-->
-            <br>
-
-            <!--                <div th:each="listing : ${listings}">-->
-            <!--                    <h2>-->
-            <!--                        <span th:text="${listings.food_name}"></span>-->
-            <!--                    </h2>-->
-
-            <!--                    <p><span th:text="${listings.donation_description}"></span></p>-->
 
             <div th:each="organization : ${organizations}">
                 <div th:if="${organization.isDonor()}">
