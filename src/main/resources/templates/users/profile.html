@@ -78,6 +78,8 @@
 
                 <div class="col">
                     <div th:each="listing : ${listings}">
+<!--                        <p><span th:text="${organization.getUser()}"></span></p>-->
+<!--                        <p><span th:text="${listing.getUser()}"></span></p>-->
                         <div th:if="${organization.getUser()} == ${listing.getUser()}">
 
                             <div class="row">
