@@ -91,9 +91,9 @@ public class OrganizationController {
     }
 
     @GetMapping("organizations/delete/{id}")
-    public String delete(@ModelAttribute Listing listing) {
-        listingRepository.delete(listing);
-        return "redirect:/listings";
+    public String delete(@ModelAttribute Organization organization) {
+        organizationRepository.delete(organization);
+        return "redirect:/profile";
     }
 
 }
