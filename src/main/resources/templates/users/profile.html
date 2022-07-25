@@ -11,16 +11,13 @@
 
 <nav th:replace="partials/topnav :: navbar"></nav>
 
-
-
-
 <div class="user-profile">
 
     <div class="profile-left">
 
         <h1 class="profile-welcome heading">Welcome
             <!--/*@thymesVar id="getUsername" type=""*/-->
-            <span th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h1>
+            <span class="text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h1>
 
 
         <h2 class="heading">Edit User Profile</h2>
@@ -34,12 +31,6 @@
 
         <div><button type="button" class="profile-button">Delete Profile</button></div>
 
-
-        <div th:each="organization : ${organizations}">
-            <!--/*@thymesVar id="getUserId" type=""*/-->
-            <div th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}">
-            </div>
-        </div>
     </div>
 
 
@@ -59,11 +50,14 @@
                 </tr>
 
                 <div th:each="organization : ${organizations}">
+                    <!--/*@thymesVar id="getUserId" type=""*/-->
+                    <div th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}">
                     <tr>
                         <td><span th:text="${organization.getOrgName()}"></span></td>
                         <td><span th:text="${organization.getOrgDescription()}"></span></td>
                         <td><span th:text="${organization.getOrgStAddress()}"></span></td>
                         <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                        <td><a th:href="@{'/organizations/edit/' + ${organization.getId()}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
                         <td><a href="#"><i class="fa-solid fa-trash-can"></i></a></i></td>
                     </tr>
                 </div>
@@ -74,6 +68,7 @@
             <h2 class="heading">Edit Your Listings</h2>
             <table>
                 <tr>
+<!--                    <th>Org Name</th>-->
                     <th>Food Name</th>
                     <th>Description</th>
                     <th>Food Qty</th>
@@ -84,13 +79,15 @@
                 </tr>
 
                 <div th:each="listing : ${listings}">
+                    <div th:if="${organization.getUser()} == ${listing.getUser()}">
                     <tr>
+                        <td><span th:text="${listing.getOrganization().getOrgName()}"></span></td>
                         <td><span th:text="${listing.getFoodName()}"></span></td>
                         <td><span th:text="${listing.getDonationDescription()}"></span></td>
                         <td><span th:text="${listing.getFoodAmt()}"></span></td>
                         <td><span th:text="${listing.getExpDate()}"></span></td>
                         <td><span th:text="${listing.getOrganization().getOrgName()}"></span></td>
-                        <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                        <td><a th:href="@{'/listings/edit/' + ${listing.getId()}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
                         <td><a href="#"><i class="fa-solid fa-trash-can"></i></a></i></td>
                     </tr>
                 </div>
