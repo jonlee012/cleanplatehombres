@@ -12,6 +12,21 @@
         <input id="name" type="text" class="form-control" th:field="*{orgName}">
     </div>
 
+    <div class="organizationName col-md-6">
+        <label for="description" class="form-label h4">Organization Description</label>
+        <input id="description" type="text" class="form-control" th:field="*{orgDescription}">
+    </div>
+
+    <div class="organizationName col-md-6">
+        <label for="orgtype" class="form-label h4">Organization Type</label>
+        <select id="orgtype" type="text" class="form-control" th:field="*{isDonor}">
+            <option th:field="*{isDonor}" th:value="true">Restaurant</option>
+            <option th:field="*{isDonor}" th:value="false">Charity</option>
+        </select>
+    </div>
+
+
+
     <div class="row text-white ">
         <div class="address col-md-6 m-0">
             <label for="address" class="form-label h4">Address</label>
