@@ -1,5 +1,7 @@
 package cleanplate.cleanplatehombres.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -24,6 +26,7 @@ public class User {
     private Boolean isAdmin;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
+    @JsonManagedReference
     private List<Organization> organizationList;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="user")

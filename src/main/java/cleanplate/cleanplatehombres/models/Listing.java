@@ -1,5 +1,7 @@
 package cleanplate.cleanplatehombres.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -36,6 +38,7 @@ public class Listing {
     private User user;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name="ad_org_id", nullable = false)
     private Organization organization;
 
