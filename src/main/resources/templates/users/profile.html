@@ -70,11 +70,10 @@
                             </p>
                         </div>
                         <div class="row">
-                            <div class="col-4"><button type="button" class="btn btn-primary btn-sm d-inline">Edit</button></div>
-                            <div class="col-4"><button type="button" class="btn btn-danger btn-sm d-inline">Delete</button></div>
-                            <td><a th:href="@{'/organizations/edit/' + ${organization.getId()}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+
+                            <td><a th:href="@{'/organizations/create' + ${organization.getId()}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
                             <td><a th:href="@{'/organizations/delete/' + ${organization.getId()}}"><i class="fa-solid fa-trash-can"></i></a></i></td>
-                            <div class="col-4"><button type="button" class="btn btn-success btn-sm d-inline">New Listing</button></div>
+
                         </div>
                     </div>
 
@@ -92,11 +91,10 @@
                                     <p><span th:text="${listing.getOrganization().getOrgName()}"></span></p>
                                 </div>
                                 <div class="row">
-                                    <div class="col-4"><button type="button" class="btn btn-primary btn-sm d-inline">Edit</button></div>
-                                    <div class="col-4"><button type="button" class="btn btn-danger btn-sm d-inline">Delete</button></div>
+
                                     <td><a th:href="@{'/listings/edit/' + ${listing.getId()}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
                                     <td><a th:href="@{'/listings/delete/' + ${listing.getId()}}"><i class="fa-solid fa-trash-can"></i></a></i></td>
-                                    <div class="col-4"><button type="button" class="btn btn-success btn-sm d-inline">New Listing</button></div>
+
                                 </div>
                             </div>
 
@@ -107,6 +105,8 @@
             </div>
         </div> <!--end row 4-->
 
+        <div class="col-4"><button type="button" class="btn btn-success btn-sm d-inline">New Listing</button></div>
+        <div class="col-4"><button type="button" class="btn btn-success btn-sm d-inline">New Listing</button></div>
 
 
 <!--    <div class="profile-main">-->
