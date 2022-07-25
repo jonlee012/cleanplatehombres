@@ -311,10 +311,6 @@ button, input[type="submit"] {
     padding: 25px;
 }
 
-.container {
-    /*border: 2px solid purple;*/
-}
-
 .safe-heading {
     font-size: 25px;
 }
@@ -361,7 +357,8 @@ button, input[type="submit"] {
 
 .main {
     max-width: 1080px;
-    margin: 0 auto;
+    margin: 40px auto;
+    padding-top: 50px;
 }
 
 h1 {
@@ -370,7 +367,7 @@ h1 {
     font-family: 'Montserrat', sans-serif;
 }
 
-img {
+.card img {
     width: 350px;
     height: 250px;
     vertical-align: middle;
@@ -395,18 +392,19 @@ img {
     background-color: rgba(255, 255, 255, 0.12);
 }
 
-.cards {
+.listing-cards {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
+    height: auto;
 }
 
 .cards_item {
     display: flex;
-    padding: 1rem;
+    padding: 10px;
 }
 
 @media (min-width: 40rem) {
@@ -474,49 +472,78 @@ img {
     margin: 0 auto;
 }
 
-/* FOUR BY ONE */
+.about-project-container {
+    display: flex;
+    height: 40vh;
+
+}
+
+.ap-sub-container {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+
+}
+
+.about-project-left {
+    border: 1px solid red;
+
+    width: 50%;
+
+}
+
+.about-project-right {
+    width: 50%;
+}
+
 /* TEAM */
-.second-tier-container {
-    /*border: 1px solid red;*/
+
+.team-heading {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.team-line {
+    border: 1px solid red;
+    width: 30%;
+}
+
+.team-cards {
+    /*border: 1px solid purple;*/
+
+    margin-top: 30px;
+    margin-bottom: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
-    padding: 25px;
+    gap: 20px;
 }
 
-/* FOUR BY ONE */
-/* TEAM */
-.third-tier-container {
-    /*border: 1px solid orange;*/
-    overflow: hidden;
-    position: relative;
+.team-card {
     width: 200px;
-    height: 200px;
-    padding: 10px;
-    text-align: center;
+    height: 300px;
+    padding: 20px;
+    background-color: rgb(230, 230, 230);
+    color: rgb(100, 100, 100);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    align-content: flex-start;
 }
 
-.third-tier-container.column {
-    width: 150px;
+.p-img {
+    border: 3px solid gray;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
 }
 
-/* INFO BOX */
-.third-tier-container.non-card {
-    width: auto;
-    height: auto;
-    text-align: center;
-}
 
-.buffer {
-    margin: 25px 5px;
-}
 
-.content {
-    padding: 5px 0;
-}
-
-.img-icon {}
 
 .heading {
     font-size: 18px;
@@ -536,6 +563,115 @@ img {
     margin: 0 auto;
     justify-content: left;
 }
+
+/* **************** */
+/* **************** */
+/* **************** */
+/* **************** */
+/* USER PROFILE */
+/* **************** */
+/* **************** */
+/* **************** */
+
+.profile-welcome {
+    background-color: black;
+    color: white;
+}
+
+.user-profile {
+    /*border: 1px solid red;*/
+    max-width: 1080px;
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    /* flex-wrap: wrap; */
+
+}
+
+.profile-left {
+    /*border: 1px solid red;*/
+    padding: 25px;
+    height: auto;
+    background-color: black;
+    color: white;
+    flex: 0 0 30%;
+    max-width: 250px;
+    min-width: 250px;
+}
+
+.profile-main {
+    /*border: 1px solid red;*/
+    padding: 25px;
+    width: 75vw;
+    height: auto;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*gap: 20px;*/
+}
+
+.profile-main-edit-org {
+    /*border: 1px solid purple;*/
+    height: auto;
+    padding: 20px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #e3e3e3;
+}
+
+.profile-main a {
+    text-decoration: none;
+    color: black;
+    transition: .5s ease;
+}
+
+.profile-main a:hover {
+    color: red;
+}
+
+.profile-main-edit-listing {
+    /*border: 1px solid purple;*/
+    height: auto;
+    padding: 20px;
+}
+
+.profile-button {
+    color: #ffffff;
+    padding: 8px 10px;
+    margin-top: 20px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    transition: .5s;
+    text-decoration: none;
+}
+
+.profile-button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+
+
+
 /* FOOTER */
 
 .line {
@@ -545,7 +681,7 @@ img {
 }
 
 .footer-area {
-    border: 1px solid purple;
+    /*border: 1px solid purple;*/
 
     max-width: 1080px;
     margin: 0 auto;
@@ -688,4 +824,190 @@ img {
     color: red;
 }
 
+
+/* **************** */
+/* **************** */
+/* **************** */
+/* **************** */
+/* LOG IN */
+/* **************** */
+/* **************** */
+/* **************** */
+
+
+.login-register {
+    border: 1px solid red;
+
+    width: 400px;
+    height: 500px;
+    margin: 5% auto;
+    padding: 30px;
+}
+
+.conditional {
+    margin-top: 15px;
+}
+
+.login-register form {
+    /* background-color: purple; */
+
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-register label {
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+
+.login-register input {
+    border-radius: 5px;
+    border: 1px solid rgb(177, 177, 177);
+    padding: 5px;
+}
+
+.login-register-btn {
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    border: 1px solid red;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.login-register-btn:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    /* border: 1px solid red; */
+    color: red;
+}
+
+/*CONTACT US*/
+
+.contact-us {
+    /*border: 1px solid red;*/
+
+    width: 400px;
+    height: 500px;
+    margin: 5% auto;
+    padding: 30px;
+}
+
+.contact-us form {
+    /* background-color: purple; */
+
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-us label {
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+
+.contact-us input {
+    border-radius: 5px;
+    border: 1px solid rgb(177, 177, 177);
+    padding: 5px;
+}
+
+.contact-us-btn {
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    border: 1px solid red;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.contact-us-btn:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    /* border: 1px solid red; */
+    color: red;
+}
+
+/*DONATE*/
+
+.donate {
+    border: 1px solid red;
+
+    width: 400px;
+    height: 500px;
+    margin: 5% auto;
+    padding: 30px;
+}
+
+.conditional {
+    margin-top: 15px;
+}
+
+.donate form {
+    /* background-color: purple; */
+
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-register label {
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+
+.donate input {
+    border-radius: 5px;
+    border: 1px solid rgb(177, 177, 177);
+    padding: 5px;
+}
+
+.donate-btn {
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    border: 1px solid red;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.donate-btn:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    /* border: 1px solid red; */
+    color: red;
+}
+
+.container {
+    width: 1080px;
+    margin: 0 auto;
+}
 

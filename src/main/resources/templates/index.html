@@ -34,7 +34,7 @@
         <div class="support-top-wrapper">
             <div class="support-top-left">
                 <div class="support-top-details-text"></div>
-                <h2 class="support-top-heading">Get started in three steps.</h2>
+                <h2 class="support-top-heading">Ways to participate on <br>Clean Plate</h2>
             </div>
             <div class="support-top-right">
                 <p>Clean Plate is a non-profit organization that is a conduit between restaurants who have food to give and organizations that need food.</p>
@@ -86,10 +86,7 @@
         <!--                        <span th:text="${listings.food_name}"></span>-->
         <!--                    </h2>-->
         <!--                    <p><span th:text="${listings.donation_description}"></span></p>-->
-    </div>
-<h1>RECENT LISTINGS</h1>
-
-    <ul class="cards">
+    <ul class="listing-cards">
         <li class="cards_item">
             <div class="card">
                 <!--                    <div class="card_image"><img src="/img/burger.jpg"></div>-->
@@ -123,19 +120,9 @@
                 </div>
             </div>
         </li>
-        <li class="cards_item">
-            <div class="card">
-                <!--                    <div class="card_image"><img src="/img/spaghetti.jpg"></div>-->
-                <div class="card_image"><img th:src="@{/imgs/spaghetti.jpg}"></div>
-                <div class="card_content">
-                    <h2 class="card_title">PURE PASTA</h2>
-                    <p class="card_text">Location: downtown <br>Food donated: 5 gallons of spaghetti </p>
-                    <button class="btn card_btn">full description here</button>
-                </div>
-            </div>
-        </li>
     </ul>
 </div>
+
 <footer th:replace="partials/footer :: footer">
 </footer>
 <script th:replace="partials/script :: script">

@@ -12,12 +12,11 @@
 
     <nav th:replace="partials/topnav :: navbar"></nav>
 
-    <h1 id="text" class="mb-3 text-white text-center display-4 w-100 mt-5">Create an Account</h1>
+<div class="login-register">
 
+    <h1 id="text" class="">Create an Account</h1>
 
-        <form th:action="@{/sign-up}" method="post" th:object="${user}">
-
-
+    <form th:action="@{/sign-up}" method="post" th:object="${user}">
         <label for="username">Username</label>
         <input id="username" th:field="*{username}" />
 
@@ -27,11 +26,16 @@
         <label for="password">Password</label>
         <input id="password" type="password" th:field="*{password}" />
 
-        <label for="isAdmin">Are you Admin?</label>
-        <input id="isAdmin" type="checkbox" th:field="*{admin}" />
+        <div class="admin-q paragraph">
+            <label for="isAdmin">Are you Admin?</label>
+            <input id="isAdmin" class="paragraph" type="checkbox" th:field="*{admin}" />
+        </div>
 
-        <input value="Sign me up!" type="submit" />
+        <button class="login-register-btn" type="submit">Sign me up!</button>
+        <div class="small-text">Already registered? <a class="small-text" href="/login">Log-in </a>here</div>
     </form>
+
+</div>
 
 
     <footer th:replace="partials/footer :: footer"></footer>

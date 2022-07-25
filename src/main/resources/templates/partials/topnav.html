@@ -1,5 +1,3 @@
-
-
 <div th:fragment="navbar" >
   <nav class="nav-bar">
     <!--    LOGO-->
@@ -8,9 +6,6 @@
         <img class="logo" src="logo.png" alt="logo">
       </a>
     </div>
-
-
-
             <div class="nav-links-ul" sec:authorize="isAnonymous()">
                 <a class="nav-link-individual" href="/login">Login</a>
                 <a class="nav-link-individual" href="/sign-up">Register</a>
@@ -19,7 +14,6 @@
                 <a class="nav-link-individual" href="/listings/create">Donate</a>
                 <a class="nav-link-individual" href="/nonProfitIndex">Non-Profit</a>
                 <a class="nav-link-individual" href="/restaurant">Restaurant</a>
-
                 <div>
                     <form class="form-area">
                         <input class="search-area input" type="search" placeholder="Search">
@@ -33,6 +27,7 @@
       <div class="nav-links-ul" sec:authorize="isAuthenticated()">
           <a class="nav-link-individual" href="/about">About Us</a>
           <a class="nav-link-individual" href="/contact">Contact</a>
+          <a class="nav-link-individual" href="/profile">Profile</a>
           <a class="nav-link-individual" href="/listings/create">Donate</a>
           <a class="nav-link-individual" href="/nonProfitIndex">Non-Profit</a>
           <a class="nav-link-individual" href="/restaurant">Restaurant</a>
