@@ -1,10 +1,5 @@
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head">
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <!-- CSS STYLE SHEET -->
-  <link th:href="@{/styles/styles.css}" rel="stylesheet" />
-</head>
+
+
 <div th:fragment="navbar" >
   <nav class="nav-bar">
     <!--    LOGO-->
@@ -12,99 +7,139 @@
       <a href="/index">
         <img class="logo" src="logo.jpg" alt="logo">
       </a>
-
     </div>
 
     <!--    NAV LINKS-->
-    <div class="nav-links-container">
-      <div class="nav-links-ul">
-        <a class="nav-link-individual" href="/login">Login</a>
-        <a class="nav-link-individual" href="/sign-up">Register</a>
-        <a class="nav-link-individual" href="/about">About Us</a>
-        <a class="nav-link-individual" href="/contact">Contact</a>
-        <a class="nav-link-individual" href="/listings/create">Donate</a>
-        <a class="nav-link-individual" href="/nonProfitIndex">Non-Profit</a>
-        <a class="nav-link-individual" href="/restaurant">Restaurant</a>
+<!--    <div class="nav-links-container" sec:authorize="isAnonymous()">-->
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<!--      <div class="nav-links-ul">-->
+<!--        <a class="nav-link-individual" href="/login">Login</a>-->
+<!--        <a class="nav-link-individual" href="/sign-up">Register</a>-->
+<!--        <a class="nav-link-individual" href="/about">About Us</a>-->
+<!--        <a class="nav-link-individual" href="/contact">Contact</a>-->
+<!--        <a class="nav-link-individual" href="/listings/create">Donate</a>-->
+<!--        <a class="nav-link-individual" href="/nonProfitIndex">Non-Profit</a>-->
+<!--        <a class="nav-link-individual" href="/restaurant">Restaurant</a>-->
 
-        <div sec:authorize="isAnonymous()">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/sign-up">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact">Contact</a>
-            </li>
+<!--      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--      </button>-->
 
-            <li class="nav-item">
-              <a class="nav-link" href="/listings/create">Donate</a>
-            </li>
+<!--      </div>-->
 
-            <li class="nav-item">
-              <a class="nav-link" href="/nonProfitIndex">Non-Profit</a>
-            </li>
+<!--        <div class="nav-links-container" sec:authorize="isAuthenticated()">-->
 
-            <li class="nav-item">
-              <a class="nav-link" href="/restaurant">Restaurant</a>
-            </li>
-          </ul>
-        </div>
+            <div class="nav-links-ul" sec:authorize="isAnonymous()">
+                <a class="nav-link-individual" href="/login">Login</a>
+                <a class="nav-link-individual" href="/sign-up">Register</a>
+                <a class="nav-link-individual" href="/about">About Us</a>
+                <a class="nav-link-individual" href="/contact">Contact</a>
+                <a class="nav-link-individual" href="/listings/create">Donate</a>
+                <a class="nav-link-individual" href="/nonProfitIndex">Non-Profit</a>
+                <a class="nav-link-individual" href="/restaurant">Restaurant</a>
 
-            <div sec:authorize="isAuthenticated()">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link" href="/profile">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/contact">Contact</a>
-                    </li>
+                <div>
+                    <form class="form-area">
+                        <input class="search-area input" type="search" placeholder="Search">
+                        <button class="search-area button" type="submit">Submit</button>
+                    </form>
+                </div>
 
-                    <li class="nav-item">
-                      <a class="nav-link" href="/listings/create">Donate</a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a class="nav-link" href="/nonProfitIndex">Non-Profit</a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a class="nav-link" href="/restaurant">Restaurant</a>
-                    </li>
-                    <li class="nav-item">
-                        <!--                      <a class="nav-link" href="/logout">Logout</a>-->
-                        <form th:action="@{/logout}" method="POST"><input type="submit" value="Logout"/></form>
-                    </li>
-                </ul>
             </div>
 
-        <form class="d-flex">
-          <input class="form-control me-2" id="input" type="search" placeholder="Search" aria-label="Search by Zip Code">
-          <button class="btn btn-danger btn-outline-secondary" id="btn" type="submit">Submit</button>
-        </form>
+      <div class="nav-links-ul" sec:authorize="isAuthenticated()">
+          <a class="nav-link-individual" href="/about">About Us</a>
+          <a class="nav-link-individual" href="/contact">Contact</a>
+          <a class="nav-link-individual" href="/listings/create">Donate</a>
+          <a class="nav-link-individual" href="/nonProfitIndex">Non-Profit</a>
+          <a class="nav-link-individual" href="/restaurant">Restaurant</a>
+          <a class="nav-link-individual">
+<!--            <a class="nav-link" href="/logout">Logout</a>-->
+            <form class="logout-button" th:action="@{/logout}" method="POST"><input type="submit" value="Logout"/></form>
+          </a>
 
+          <div>
+              <form class="form-area">
+                  <input class="search-area input" type="search" placeholder="Search">
+                  <button class="search-area button" type="submit">Submit</button>
+              </form>
+          </div>
       </div>
-    </div>
-    <!--        SEARCH BAR-->
-    <div>
-      <form class="form-area">
-        <input class="search-area input" type="search" placeholder="Search">
-        <button class="search-area button" type="submit">Submit</button>
-      </form>
-    </div>
-  </nav>
 
+<!--      <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--        <div sec:authorize="isAnonymous()">-->
+<!--          <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="/login">Login</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="/sign-up">Register</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="/about">About Us</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="/contact">Contact</a>-->
+<!--            </li>-->
+
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="/listings/create">Donate</a>-->
+<!--            </li>-->
+
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="/nonProfitIndex">Non-Profit</a>-->
+<!--            </li>-->
+
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="/restaurant">Restaurant</a>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+
+<!--            <div sec:authorize="isAuthenticated()">-->
+<!--                <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--                    <li class="nav-item">-->
+<!--                      <a class="nav-link" href="/profile">Profile</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                      <a class="nav-link" href="/about">About Us</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                      <a class="nav-link" href="/contact">Contact</a>-->
+<!--                    </li>-->
+
+<!--                    <li class="nav-item">-->
+<!--                      <a class="nav-link" href="/listings/create">Donate</a>-->
+<!--                    </li>-->
+
+<!--                    <li class="nav-item">-->
+<!--                      <a class="nav-link" href="/nonProfitIndex">Non-Profit</a>-->
+<!--                    </li>-->
+
+<!--                    <li class="nav-item">-->
+<!--                      <a class="nav-link" href="/restaurant">Restaurant</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        &lt;!&ndash;                      <a class="nav-link" href="/logout">Logout</a>&ndash;&gt;-->
+<!--                        <form th:action="@{/logout}" method="POST"><input type="submit" value="Logout"/></form>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+
+<!--        <form class="d-flex">-->
+<!--          <input class="form-control me-2" id="input" type="search" placeholder="Search" aria-label="Search by Zip Code">-->
+<!--          <button class="btn btn-danger btn-outline-secondary" id="btn" type="submit">Submit</button>-->
+<!--        </form>-->
+
+
+  </nav>
+    <!--        SEARCH BAR-->
+<!--    <div>-->
+<!--      <form class="form-area">-->
+<!--        <input class="search-area input" type="search" placeholder="Search">-->
+<!--        <button class="search-area button" type="submit">Submit</button>-->
+<!--      </form>-->
+<!--    </div>-->
+
+  </nav>
 </div>
-</html>
