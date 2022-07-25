@@ -79,6 +79,7 @@ public class ListingController {
     @GetMapping("listings/edit/{id}")
     public String editListing(@PathVariable Integer id, Model model) {
         model.addAttribute("listing", listingRepository.getById(id));
+        model.addAttribute("currentUser", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "listings/edit";
     }
 

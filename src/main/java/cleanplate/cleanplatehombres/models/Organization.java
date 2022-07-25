@@ -122,6 +122,11 @@ public class Organization {
     public void setDonor(Boolean donor) {
         isDonor = donor;
     }
+    public Boolean getDonor() {
+        return isDonor;
+    }
+
+
     public User getUser() {
         return user;
     }
@@ -145,7 +150,5 @@ public class Organization {
         this.images = images;
     }
 
-    public Boolean getDonor() {
-        return isDonor;
-    }
+
 }

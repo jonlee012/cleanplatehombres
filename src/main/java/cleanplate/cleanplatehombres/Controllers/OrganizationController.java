@@ -2,6 +2,7 @@ package cleanplate.cleanplatehombres.Controllers;
 
 import cleanplate.cleanplatehombres.Repositories.ListingRepository;
 import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
+import cleanplate.cleanplatehombres.models.Listing;
 import cleanplate.cleanplatehombres.models.Organization;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -46,20 +47,19 @@ public class OrganizationController {
 //        organization.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 
         if(organization.getOrgName().equals("") ||
-//                organization.getOrgDescription().equals("") ||
+                organization.getOrgDescription().equals("") ||
                 organization.getOrgStAddress().equals("") ||
                 organization.getOrgCity().equals("") ||
-                organization.getOrgState().equals(""))
-//                (organization.getOrgZip() == 0))
+                organization.getOrgState().equals("") ||
+//                organization.isDonor() == false ||
+                (organization.getOrgZip() == 0))
         {
-            System.out.println("Testing");
-//                ||
-//                (organization.isDonor() == null)) {
+
             return "organizations/create";
         }
 
         organizationRepository.save(organization);
-        return "redirect:/organizations/orgShow"; //still need to build out this single-org-index-page
+        return "redirect:/organizations/nonProfitIndex"; //still need to build out this single-org-index-page
     }
 
     @GetMapping("organizations/orgShow")
@@ -88,6 +88,12 @@ public class OrganizationController {
         model.addAttribute("listings", listingRepository.findAll());
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "users/profile";
+    }
+
+    @GetMapping("organizations/delete/{id}")
+    public String delete(@ModelAttribute Listing listing) {
+        listingRepository.delete(listing);
+        return "redirect:/listings";
     }
 
 }
