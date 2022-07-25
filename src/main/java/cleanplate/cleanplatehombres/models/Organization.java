@@ -50,6 +50,8 @@ public class Organization {
     public Organization() {}
 
 
+
+
     public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip, Boolean isDonor, String images, User user, List<Listing> listingList) {
         this.orgName = orgName;
         this.orgDescription = orgDescription;
@@ -156,4 +158,9 @@ public class Organization {
     public void setImages(String images) {
         this.images = images;
     }
+
+//    public Boolean getDonor() {
+//        return isDonor;
+//    }
 }
+
