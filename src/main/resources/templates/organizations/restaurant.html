@@ -9,9 +9,8 @@
 <body>
 <nav th:replace="partials/topnav :: navbar">
 </nav>
+
 <div class = "container">
-    <div class = "row">
-        <div class = "col">
 <!--        <h1> These are the Restaurant listings</h1>-->
             <!--                start-->
             <section class="container-fluid" style="margin-top: 40px">
@@ -76,27 +75,35 @@
                 <!--                    </div>-->
             </section>
 
-            <!--                end-->
-            <br>
 
-            <!--                <div th:each="listing : ${listings}">-->
-            <!--                    <h2>-->
-            <!--                        <span th:text="${listings.food_name}"></span>-->
-            <!--                    </h2>-->
+    <div class="main">
 
-            <!--                    <p><span th:text="${listings.donation_description}"></span></p>-->
+                <ul class="listing-cards">
+                    <li class="cards_item">
 
-            <div th:each="organization : ${organizations}">
-                <div th:if="${organization.isDonor()}">
-                    <h2><span th:text="${organization.getOrgName()}"></span></h2>
-                    <p><span th:text="${organization.getOrgDescription()}"></span></p>
 
-                    <a th:href="@{'/listings/show/' + ${organization.getId()}}">More Info</span></a>
-                </div>
-          </div>
+                        <div class="card">
+                            <div th:each="organization : ${organizations}">
+                                <div th:if="${organization.isDonor()}">
+                            <div class="card_image"><img th:src="@{/imgs/burger.jpg}" /></div>
+                            <div class="card_content">
+                                <h2 class="card_title"><span th:text="${organization.getOrgName()}"></span></h2>
+                                <p class="card_text"><span th:text="${organization.getOrgDescription()}"></span></p>
+                                <p class="card_text"><span th:text="${organization.getOrgStAddress()}"></span></p>
+                                <p class="card_text"><span th:text="${organization.getOrgCity()}"></span></p>
+                                <p class="card_text"><span th:text="${organization.getOrgState()}"></span></p>
+                                <p class="card_text"><span th:text="${organization.getOrgZip()}"></span></p>
+                                <button class="btn card_btn">full description here</button>
+                            </div>
+                        </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
     </div>
-    </div>
-</div>
+
+
 
 
 <footer th:replace="partials/footer.html :: footer"></footer>
