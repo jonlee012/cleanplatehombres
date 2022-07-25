@@ -58,7 +58,7 @@
                         <td><span th:text="${organization.getOrgStAddress()}"></span></td>
                         <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
                         <td><a th:href="@{'/organizations/edit/' + ${organization.getId()}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                        <td><a href="#"><i class="fa-solid fa-trash-can"></i></a></i></td>
+                        <td><a th:href="@{'/organizations/delete/' + ${organization.getId()}}"><i class="fa-solid fa-trash-can"></i></a></i></td>
                     </tr>
                 </div>
             </table>
@@ -88,7 +88,7 @@
                         <td><span th:text="${listing.getExpDate()}"></span></td>
                         <td><span th:text="${listing.getOrganization().getOrgName()}"></span></td>
                         <td><a th:href="@{'/listings/edit/' + ${listing.getId()}}"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                        <td><a href="#"><i class="fa-solid fa-trash-can"></i></a></i></td>
+                        <td><a th:href="@{'/listings/delete/' + ${listing.getId()}}"><i class="fa-solid fa-trash-can"></i></a></i></td>
                     </tr>
                 </div>
             </table>

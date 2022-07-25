@@ -2,6 +2,7 @@ package cleanplate.cleanplatehombres.Controllers;
 
 import cleanplate.cleanplatehombres.Repositories.ListingRepository;
 import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
+import cleanplate.cleanplatehombres.models.Listing;
 import cleanplate.cleanplatehombres.models.Organization;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -87,6 +88,12 @@ public class OrganizationController {
         model.addAttribute("listings", listingRepository.findAll());
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "users/profile";
+    }
+
+    @GetMapping("organizations/delete/{id}")
+    public String delete(@ModelAttribute Listing listing) {
+        listingRepository.delete(listing);
+        return "redirect:/listings";
     }
 
 }
