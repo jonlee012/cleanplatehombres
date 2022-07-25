@@ -23,8 +23,11 @@ public class User {
     @Column
     private Boolean isAdmin;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
     private List<Organization> organizationList;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
+    private List<Listing> listingList;
 
     public User() {}
 

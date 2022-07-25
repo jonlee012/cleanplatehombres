@@ -1,111 +1,101 @@
+<div th:fragment="footer"> <!-- FOOTER FRAGMENT START -->
 
-
-
-<!-- Footer -->
-<div th:fragment="footer" >
-<footer class="text-center text-lg-start bg-light text-muted">
-
-    <!-- Section: Social media -->
-    <section class="d-flex justify-content-center ml-5 pt-5">
-        <!-- Left -->
-        <div class="me-5 d-none d-lg-block">
-            <span>Get connected with us on social networks:</span>
-        </div>
-    </section>
-    <section class="d-flex justify-content-center mt-2 mb-3">
-        <!-- Facebook -->
-        <a
-                class="btn btn-link btn-floating btn-lg text-dark"
-                href="https://facebook.com"
-                role="button"
-                data-mdb-ripple-color="dark"
-        ><i class="fab fa-facebook-f"></i
-        ></a>
-
-        <!-- Twitter -->
-        <a
-                class="btn btn-link btn-floating btn-lg text-dark"
-                href="https://twitter.com"
-                role="button"
-                data-mdb-ripple-color="dark"
-        ><i class="fab fa-twitter"></i
-        ></a>
-
-        <!-- Google -->
-        <a
-                class="btn btn-link btn-floating btn-lg text-dark"
-                href="https://gmail.com"
-                role="button"
-                data-mdb-ripple-color="dark"
-        ><i class="fab fa-google"></i
-        ></a>
-
-        <!-- Instagram -->
-        <a
-                class="btn btn-link btn-floating btn-lg text-dark"
-                href="https://instagram.com"
-                role="button"
-                data-mdb-ripple-color="dark"
-        ><i class="fab fa-instagram"></i
-        ></a>
-
-        <!-- Linkedin -->
-        <a
-                class="btn btn-link btn-floating btn-lg text-dark"
-                href="https://linkedin.com"
-                role="button"
-                data-mdb-ripple-color="dark"
-        ><i class="fab fa-linkedin"></i
-        ></a>
-        <!-- Github -->
-        <a
-                class="btn btn-link btn-floating btn-lg text-dark"
-                href="https://github.com"
-                role="button"
-                data-mdb-ripple-color="dark"
-        ><i class="fab fa-github"></i
-        ></a>
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Links  -->
-    <div class="container p-2">
-        <!--Grid row-->
-        <div class="row">
-            <!--Grid column-->
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Footer text</h5>
-
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                    aliquam voluptatem veniam, est atque cumque eum delectus sint!
-                </p>
+    <footer class="footer-area">
+        <div class="second-tier-container footer-tier">
+            <div class="third-tier-container footer-top">
+                <div class="footer-cta-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="cta-text">
+                    <div class="heading">Find us</div>
+                    <div class="small-text">123 Main St, San Antonio, TX</div>
+                </div>
             </div>
-            <!--Grid column-->
 
-            <!--Grid column-->
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Footer text</h5>
+            <div class="third-tier-container footer-top">
+                <div class="footer-cta-icon"><i class="fas fa-phone"></i></div>
 
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                    aliquam voluptatem veniam, est atque cumque eum delectus sint!
-                </p>
+                <div class="cta-text">
+                    <div class="heading">Call us</div>
+                    <div class="small-text">(210) 111-2222</div>
+                </div>
             </div>
-            <!--Grid column-->
-        </div>
-        <!--Grid row-->
-    </div>
-    <!-- Grid container -->
 
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2022 Copyright:
-        <a class="text-dark" href="https://mdbootstrap.com/">CleanPlateDonations.com</a>
-    </div>
-    <!-- Copyright -->
-</footer>
-<!-- Footer -->
-</div>
+            <div class="third-tier-container footer-top">
+                <div class="footer-cta-icon">
+                    <i class="far fa-envelope-open"></i>
+                </div>
+                <div class="cta-text">
+                    <div class="heading">Email us</div>
+                    <div class="small-text">donate@cleanplate.com</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="line"></div>
+        <div class="second-tier-container footer-tier">
+            <div class="third-tier-container footer-mid">
+                <div class="footer-logo">
+                    <a href="/index">
+                        <img class="logo" src="logo.png" alt="logo">
+                    </a>
+                </div>
+                <div class="small-text">
+                    <p>We connect restaurants who have food to give with non-profit organizations who need food.</p>
+                </div>
+                <div class="footer-social-icon">
+                    <span class="heading">Visit our Github: </span>
+                    <a href="https://github.com/CleanPlateGuys/cleanplatehombres" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="third-tier-container footer-mid">
+                <div class="useful-links">
+                    <div class="heading">Useful Links</div>
+                </div>
+                <div class="sm-line"></div>
+                <div class="useful-links-individual">
+                    <div class="uli-left">
+                        <div><a class="small-text" href="#">Home</a></div>
+                        <div><a class="small-text" href="#">About us</a></div>
+                        <div><a class="small-text" href="#">Donate</a></div>
+                        <div><a class="small-text" href="#">Non-Profit</a></div>
+                        <div><a class="small-text" href="#">Restaurant</a></div>
+                    </div>
+
+                    <div class="uli-right">
+                        <div><a class="small-text" href="#">Contact</a></div>
+                        <div><a class="small-text" href="#">Log in</a></div>
+                        <div><a class="small-text" href="#">Register</a></div>
+                        <div><a class="small-text" href="#">Learn more</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third-tier-container footer-mid">
+                <div class="about-project">
+                    <div class="heading">About our project</div>
+                </div>
+                <div class="sm-line"></div>
+
+                <div class="small-text">
+                    <p>
+                        A web application that uses Spring, Thymeleaf, and MySQL. Clean Plate Donations is the conduit between Restaurants who have food to donate and Non-Profit organizations who need food. Non-Profits will be able to post a
+                        listing requirement such as 10 loaves of bread and if a nearby restaurant is able to fulfill they will contact the Non-Profit. Technology utilized: Java EE, Spring Boot, Hibernate, HTML, CSS, and JavaScript.
+                    </p>
+                </div>
+            </div>
+
+            <div class="copyright-area">
+                <div class="small-text">
+                    <p>Copyright &copy; 2022, All Right Reserved <a href="https://cleanplatedonations.xyz">Clean Plate Donations</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+</div> <!-- FOOTER FRAGMENT END -->

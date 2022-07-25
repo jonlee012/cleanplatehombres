@@ -1,5 +1,6 @@
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="partials/head :: head">
     <meta charset="utf-8">
     <title>Clean Plate Donations</title>
@@ -18,7 +19,6 @@
     <img class="hero-img" th:src="@{/imgs/landingPage.jpg}">
     <div class="hero-wrapper">
         <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>
-        <p class="hero-paragraph">We bring food to those in need. Helping others when in need.</p>
         <div class="hero-button-container">
 
             <div class="hero-button-wrapper">
@@ -34,10 +34,10 @@
         <div class="support-top-wrapper">
             <div class="support-top-left">
                 <div class="support-top-details-text"></div>
-                <h2 class="support-top-heading">Support <br>Clean Plate</h2>
+                <h2 class="support-top-heading">Ways to participate on <br>Clean Plate</h2>
             </div>
             <div class="support-top-right">
-                <p>Clean Plate is a non-profit organization that is a conduit between restuarants who have food to give and organizations that need food.</p>
+                <p>Clean Plate is a non-profit organization that is a conduit between restaurants who have food to give and organizations that need food.</p>
             </div>
         </div>
         <!-- SUPPORT CARDS -->
@@ -45,23 +45,23 @@
             <div class="support-column">
                 <div class="support-square">
                     <div class="support-square-number">01</div>
-                    <div class="support-square-text">DONATE MONEY</div>
+                    <div class="support-square-text">REGISTER</div>
                 </div>
-                <p>Our full product line is still available online here on our site! Getting outside and hiking is still something you can do. Get your gear now!</p>
+                <p>Register for an account is easy. Get started with basic organization demographics.</p>
             </div>
             <div class="support-column">
                 <div class="support-square">
                     <div class="support-square-number">02</div>
-                    <div class="support-square-text">DONATE SERVICES</div>
+                    <div class="support-square-text">DONATE FOOD</div>
                 </div>
-                <p>Since we have changed the way we operate to online only, and to ensure your safety, not all our staff is working. Donate to keep them afloat.</p>
+                <p>Once logged in you will be able to create a single listing or multiple listings.</p>
             </div>
             <div class="support-column">
                 <div class="support-square">
                     <div class="support-square-number">03</div>
-                    <div class="support-square-text">VOLUNTEER</div>
+                    <div class="support-square-text">MANAGE</div>
                 </div>
-                <p>Have all the outdoor gear you need for now? Buy a gift card and use it later or share it with friends and family. </p>
+                <p>After placing your donation. You will be able to manage your listings from you organization profile. </p>
             </div>
         </div>
     </div>
@@ -81,14 +81,12 @@
 </div>
 <!-- MOST RECENT 3 LISTINGS (BASED ON ID, WORK BACKWARDS(DECREMENT) THE SORT) -->
 <div class="main">
-    <h1>RECENT LISTINGS</h1>
-    <div th:each="listing : ${listings}">
+<!--    <div th:each="listing : ${listings}">-->
         <!--                    <h2>-->
         <!--                        <span th:text="${listings.food_name}"></span>-->
         <!--                    </h2>-->
         <!--                    <p><span th:text="${listings.donation_description}"></span></p>-->
-    </div>
-    <ul class="cards">
+    <ul class="listing-cards">
         <li class="cards_item">
             <div class="card">
                 <!--                    <div class="card_image"><img src="/img/burger.jpg"></div>-->
@@ -122,19 +120,9 @@
                 </div>
             </div>
         </li>
-        <li class="cards_item">
-            <div class="card">
-                <!--                    <div class="card_image"><img src="/img/spaghetti.jpg"></div>-->
-                <div class="card_image"><img th:src="@{/imgs/spaghetti.jpg}"></div>
-                <div class="card_content">
-                    <h2 class="card_title">PURE PASTA</h2>
-                    <p class="card_text">Location: downtown <br>Food donated: 5 gallons of spaghetti </p>
-                    <button class="btn card_btn">full description here</button>
-                </div>
-            </div>
-        </li>
     </ul>
 </div>
+
 <footer th:replace="partials/footer :: footer">
 </footer>
 <script th:replace="partials/script :: script">

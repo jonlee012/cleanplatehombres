@@ -15,13 +15,14 @@ public class Category {
     private String categoryName;
 
     @ManyToMany(mappedBy = "categories")
-    private List<Listing> listings;
-
-    public Category(String categoryName) {
-        this.categoryName = categoryName;
-    }
+    private List<Listing> listingList;
 
     public Category(){}
+
+    public Category(String categoryName, List<Listing> listingList) {
+        this.categoryName = categoryName;
+        this.listingList = listingList;
+    }
 
     public Integer getCategoryId() {
         return categoryId;
@@ -37,5 +38,13 @@ public class Category {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public List<Listing> getListingList() {
+        return listingList;
+    }
+
+    public void setListingList(List<Listing> listingList) {
+        this.listingList = listingList;
     }
 };
