@@ -11,83 +11,6 @@
 
 <nav th:replace="partials/topnav :: navbar"></nav>
 
-
-
-
-<div class="user-profile">
-
-    <div class="profile-left">
-
-        <h1 class="profile-welcome heading">Welcome
-            <!--/*@thymesVar id="getUsername" type=""*/-->
-            <span th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h1>
-
-
-        <h2 class="heading">Edit User Profile</h2>
-        <p class="paragraph">Username: <!--/*@thymesVar id="getUsername" type=""*/-->
-            <span th:text ="*{#authentication.getPrincipal().getUsername()}"></span></p>
-        <p class="paragraph">Email: <!--/*@thymesVar id="getEmail" type=""*/-->
-            <span th:text ="${#authentication.getPrincipal().getEmail()}"></span></p>
-        <div th:if="${#authentication.getPrincipal().getAdmin()}">
-            <p class="paragraph">User Status: Admin</p>
-        </div>
-
-        <div><button type="button" class="profile-button">Delete Profile</button></div>
-
-
-        <div th:each="organization : ${organizations}">
-            <!--/*@thymesVar id="getUserId" type=""*/-->
-            <div th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}">
-            </div>
-        </div>
-    </div>
-
-    <div class="profile-main">
-        <div class="profile-main-edit-org">
-
-            <h2 class="heading">Edit Your Organizations</h2>
-            <!--/*@thymesVar id="getOrgName" type=""*/-->
-            <!-- <h3 class="paragraph">Organization Name: <span th:text="${organization.getOrgName()}"></span></h3> -->
-
-            <!-- <p class="paragraph">Description: <span th:text="${organization.getOrgDescription()}"></span></p> -->
-            <!-- <p class="paragraph">Address: -->
-            <!--/*@thymesVar id="getOrgStAddress" type=""*/-->
-            <!-- <span th:text="${organization.getOrgStAddress()}"></span><br> -->
-            <!-- </p> -->
-            <!-- <p class="paragraph"> -->
-            <!--/*@thymesVar id="getOrgCity" type=""*/-->
-            <!-- <span th:text="${organization.getOrgCity()}"></span> -->
-            <!--/*@thymesVar id="orgState" type=""*/-->
-            <!-- <span th:text="${organization.getOrgState()}"></span> -->
-            <!--/*@thymesVar id="getOrgZip" type=""*/-->
-            <!-- <span th:text="${organization.getOrgZip()}"></span> -->
-            <!-- </p> -->
-            <!-- <div><button type="button" class="profile-button">Edit Organization</button></div>
-            <div><button type="button" class="profile-button">Delete Organization</button></div>
-            <div><button type="button" class="profile-button">Create a Listing</button></div> -->
-
-            <table>
-                <div class="paragraph"><a href="#">create a listing</a></div>
-                <tr>
-                    <th>Organization Name</th>
-                    <th>Description</th>
-                    <th>Address</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-
-                <div th:each="organization : ${organizations}">
-                    <tr>
-                        <td><span th:text="${organization.getOrgName()}"></span></td>
-                        <td><span th:text="${organization.getOrgDescription()}"></span></td>
-                        <td><span th:text="${organization.getOrgStAddress()}"></span></td>
-                        <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></td>
-                        <td><a href="#"><i class="fa-solid fa-trash-can"></i></a></i></td>
-                    </tr>
-                </div>
-            </table>
-        </div>
-
         <div class="profile-main-edit-listing">
             <h2 class="heading">Edit Your Listings</h2>
             <!-- <div th:each="listing : ${listings}">
@@ -124,9 +47,6 @@
                 </div>
             </table>
         </div>
-    </div>
-</div>
-</div>
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>
