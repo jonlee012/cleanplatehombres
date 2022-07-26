@@ -16,7 +16,11 @@
 
     <h1 id="text" class="">Edit Your Information</h1>
 
-    <form th:action="@{/sign-up}" method="post" th:object="${user}">
+    <form th:action="@{/users/edit}" method="post" th:object="${user}">
+
+        <input th:field="*{userId}" th:value="${user.getUserId()}" hidden>
+        <input th:field="*{admin}" th:value="${user.getAdmin()}" hidden>
+
         <label for="username">Username</label>
         <input id="username" th:field="*{username}" />
 
@@ -26,13 +30,7 @@
         <label for="password">Password</label>
         <input id="password" type="password" th:field="*{password}" />
 
-        <div class="admin-q paragraph">
-            <label for="isAdmin">Are you Admin?</label>
-            <input id="isAdmin" class="paragraph" type="checkbox" th:field="*{admin}" />
-        </div>
-
-        <button class="login-register-btn" type="submit">Sign me up!</button>
-        <div class="small-text">Already registered? <a class="small-text" href="/login">Log-in </a>here</div>
+        <button type="submit" class="btn btn-danger">Submit</button>
     </form>
 
 </div>

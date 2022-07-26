@@ -12,7 +12,7 @@
 <nav th:replace="partials/topnav :: navbar"></nav>
 
 
-<div class="row">
+<div class="row" id="profile-body">
     <div class="col-3 profile-left">
         <h1 class="profile-welcome heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/--><span class="text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h1>
         <p class="paragraph">Username: <!--/*@thymesVar id="getUsername" type=""*/--><span th:text ="*{#authentication.getPrincipal().getUsername()}"></span></p>

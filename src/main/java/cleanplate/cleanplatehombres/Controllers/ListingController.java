@@ -18,9 +18,6 @@ public class ListingController {
     private final ListingRepository listingRepository;
     private final UserRepository userDao;
     private final EmailService emailService;
-    //
-//
-//public ListingController(ListingRepository listingRepository){
 
     public ListingController(ListingRepository listingRepository, UserRepository userDao,
                              EmailService emailService) {
@@ -30,21 +27,12 @@ public class ListingController {
         this.emailService = emailService;
     }
 
-//    @GetMapping("/users")
-//
-//    public String users(Model model) {
-//        model.addAttribute("users", userDao.findAll());
-//        return "users";
-//    }
-
-
     //listing index controller
     @GetMapping("/listings")
     public String index(Model model) {
         model.addAttribute("listings", listingRepository.findAll());
         return "listings/listings";
     }
-
 
    //create controller
     @GetMapping("/listings/create")
@@ -65,7 +53,6 @@ public class ListingController {
                 "been created");
         return "redirect:/listings";
     }
-
 
    //show controller
     @GetMapping("listings/show/{id}")
