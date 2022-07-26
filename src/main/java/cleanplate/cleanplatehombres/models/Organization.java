@@ -35,7 +35,7 @@ public class Organization {
     private long orgZip;
 
     @Column
-    private Boolean isDonor;
+    private boolean isDonor;
 
     @Column(length = 200)
     private String images;
@@ -56,6 +56,7 @@ public class Organization {
 
     public Organization() {
     }
+
     public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip) {
         this.orgName = orgName;
         this.orgDescription = orgDescription;
@@ -66,22 +67,14 @@ public class Organization {
 
 
     }
-    public Organization(Integer id, String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip, Boolean isDonor, String images, User user, List<Listing> listingList) {
-        this.id = id;
-        this.orgName = orgName;
-        this.orgDescription = orgDescription;
-        this.orgStAddress = orgStAddress;
-        this.orgCity = orgCity;
-        this.orgState = orgState;
-        this.orgZip = orgZip;
-        this.isDonor = isDonor;
-        this.images = images;
-        this.user = user;
-        this.listingList = listingList;
+  
+
+    public boolean getDonor() {
+        return isDonor;
     }
 
-
-    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip, Boolean isDonor, String images, User user, List<Listing> listingList) {
+    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState,
+                        long orgZip, boolean isDonor, String images, User user, List<Listing> listingList) {
         this.orgName = orgName;
         this.orgDescription = orgDescription;
         this.orgStAddress = orgStAddress;
@@ -150,9 +143,16 @@ public class Organization {
         this.orgZip = orgZip;
     }
 
-    public void setDonor(Boolean donor) {
+
+    public boolean isDonor() {
+        return isDonor;
+    }
+
+    public void setDonor(boolean donor) {
         isDonor = donor;
     }
+
+
 
 
     public String getImages() {
@@ -163,9 +163,7 @@ public class Organization {
         this.images = images;
     }
 
-    public Boolean getDonor() {
-        return isDonor;
-    }
+  
 
 
 
@@ -193,6 +191,7 @@ public class Organization {
     public void setImages(String images) {
         this.images = images;
     }
+}
 
 
 

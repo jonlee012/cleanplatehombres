@@ -74,7 +74,7 @@ public class OrganizationController {
                 organization.getOrgStAddress().equals("") ||
                 organization.getOrgCity().equals("") ||
                 organization.getOrgState().equals("") ||
-//                organization.isDonor() == false ||
+//                organization.getDonor() == true ||
                 (organization.getOrgZip() == 0))
         {
 
@@ -89,6 +89,20 @@ public class OrganizationController {
     public String showPage() {
         return "organizations/orgShow";
     }
+
+    @GetMapping("organizations/edit/{id}")
+    public String editOrganization(@PathVariable Integer id, Model model) {
+        model.addAttribute("organization", organizationRepository.getById(id));
+        return "organizations/edit";
+    }
+
+    @PostMapping("organizations/edit")
+    public String editOrganization(@ModelAttribute Organization organization){
+        organizationRepository.save(organization);
+        return "redirect:/nonProfitIndex";
+    }
+
+
 
 //    @GetMapping("/organizations/{id}")
 //    public String viewPost(@PathVariable Integer id, Model model) {
