@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="partials/head :: head">
     <meta charset="UTF-8">
     <title>Edit Listing</title>
 </head>
 <body>
+
+    <nav th:replace="partials/topnav :: navbar"></nav>
+
     <h1>Edit Listing</h1>
     <br>
-<!--    <h3><span th:text="${listing.getOrganization().getOrgName()}"></span></h3>-->
-<!--    <br>-->
 
     <form th:action="@{/listings/edit}" th:method="post" th:object="${listing}">
         <div class="form-group">
@@ -17,12 +20,6 @@
             name="foodName" />
         </div>
 
-        <div class="form-group">
-            <label id="org-info">Organization</label>
-            <input th:field="*{organization}" th:value="${listing.getOrganization().getOrgName()}" type="text"
-                   class="form-control"
-                   name="organization" />
-        </div>
 
         <div class="form-group">
             <label id="description">Donation Description</label>
@@ -45,19 +42,29 @@
         </div>
 
 
-
         <div class="form-group">
             <input th:field="*{id}" th:value="${listing.getId()}" hidden>
-<!--            <input th:field="*{organization}" th:value="${listing.getOrganization()}" hidden>-->
+            <!--/*@thymesVar id="getUserId" type=""*/-->
+            <input th:field="*{user}" th:value="${currentUser.getUserId()}" hidden>
+            <input th:field="*{organization}" th:value="${listing.getOrganization().getId()}" hidden>
+
+<!--            <div class="form-group">-->
+<!--                <label id="org-info">Organization</label>-->
+<!--                <input th:field="*{organization}" th:value="${listing.getOrganization().getOrgName()}" type="text"-->
+<!--                       class="form-control"-->
+<!--                       name="organization" />-->
+<!--            </div>-->
+
             <button type="submit" class="btn btn-primary">
                 Submit
             </button>
 
-
         </div>
 
-
     </form>
+
+    <footer th:replace="partials/footer :: footer"></footer>
+    <script th:replace="partials/script :: script"></script>
 
 </body>
 </html>

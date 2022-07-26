@@ -3,17 +3,17 @@
     <!--    LOGO-->
     <div class="logo-container">
       <a href="/index">
-        <img class="logo" src="logo.png" alt="logo">
+        <img class="logo" th:src="@{/imgs/logo.png}">
       </a>
     </div>
             <div class="nav-links-ul" sec:authorize="isAnonymous()">
                 <a class="nav-link-individual" href="/login">Login</a>
                 <a class="nav-link-individual" href="/sign-up">Register</a>
+                <a class="" href="/listings">Listings</a>
+                <a class="nav-link-individual" href="/restaurant">Donors</a>
+                <a class="nav-link-individual" href="/nonProfitIndex">Distributors</a>
                 <a class="nav-link-individual" href="/about">About Us</a>
                 <a class="nav-link-individual" href="/contact">Contact</a>
-                <a class="nav-link-individual" href="/listings/create">Donate</a>
-                <a class="nav-link-individual" href="/nonProfitIndex">Non-Profit</a>
-                <a class="nav-link-individual" href="/restaurant">Restaurant</a>
                 <div>
                     <form class="form-area">
                         <input class="search-area input" type="search" placeholder="Search">
@@ -24,22 +24,24 @@
             </div>
 
       <div class="nav-links-ul" sec:authorize="isAuthenticated()">
+
+
+          <a class="nav-link-individual" href="/profile">Profile</a>
+          <a class="nav-link-individual" href="/listings">Listings</a>
+          <a class="nav-link-individual" href="/restaurant">Donors</a>
+          <a class="nav-link-individual" href="/nonProfitIndex">Distributors</a>
           <a class="nav-link-individual" href="/about">About Us</a>
           <a class="nav-link-individual" href="/contact">Contact</a>
-          <a class="nav-link-individual" href="/profile">Profile</a>
-          <a class="nav-link-individual" href="/listings/create">Donate</a>
-          <a class="nav-link-individual" href="/nonProfitIndex">Non-Profit</a>
-          <a class="nav-link-individual" href="/restaurant">Restaurant</a>
           <a class="nav-link-individual">
             <form class="logout-button" th:action="@{/logout}" method="POST"><input type="submit" value="Logout"/></form>
           </a>
 
-          <div>
-              <form class="form-area">
-                  <input class="search-area input" type="search" placeholder="Search">
-                  <button class="search-area button" type="submit">Submit</button>
-              </form>
-          </div>
+<!--          <div>-->
+<!--              <form class="form-area">-->
+<!--                  <input class="search-area input" type="search" placeholder="Search">-->
+<!--                  <button class="search-area button" type="submit">Submit</button>-->
+<!--              </form>-->
+<!--          </div>-->
       </div>
   </nav>
   </nav>

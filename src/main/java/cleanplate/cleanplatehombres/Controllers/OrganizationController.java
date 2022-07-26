@@ -2,7 +2,11 @@ package cleanplate.cleanplatehombres.Controllers;
 
 import cleanplate.cleanplatehombres.Repositories.ListingRepository;
 import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
+import cleanplate.cleanplatehombres.models.Listing;
 import cleanplate.cleanplatehombres.models.Organization;
+import cleanplate.cleanplatehombres.models.User;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,11 +15,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.*;
+
+
 @Controller
 public class OrganizationController {
 
     private final OrganizationRepository organizationRepository;
     private final ListingRepository listingRepository;
+
 
     public OrganizationController(OrganizationRepository organizationRepository, ListingRepository listingRepository) {
         this.organizationRepository = organizationRepository;
@@ -30,7 +38,22 @@ public class OrganizationController {
 
     @GetMapping("/restaurant")
     public String restaurant(Model model) {
-        model.addAttribute("organizations", organizationRepository.findAll());
+        List<Organization> orgList = organizationRepository.findAll();
+//        model.addAttribute("orgAddress", organizationRepository.getOrganizationAddress(""));
+
+        ArrayList<Organization> orgListAL = new ArrayList<Organization>();
+//
+        orgListAL.add(organizationRepository.getById(1));
+        orgListAL.add(organizationRepository.getById(2));
+        System.out.println(orgListAL);
+
+        model.addAttribute("organizations", orgList);
+        model.addAttribute("organizationsForJS", orgListAL);
+        model.addAttribute("test", "Hello World");
+//        List<Organization> organizationList = organizationRepository.findAll();
+//        model.addAttribute("usersForJS", user);
+//        model.addAttribute("organizationsForJS", List<Organization> organizationList);
+        System.out.println(orgList);
         return "organizations/restaurant";
     }
 
@@ -59,7 +82,7 @@ public class OrganizationController {
         }
 
         organizationRepository.save(organization);
-        return "redirect:/organizations/nonProfitIndex"; //still need to build out this single-org-index-page
+        return "redirect:/users/profile"; //still need to build out this single-org-index-page
     }
 
     @GetMapping("organizations/orgShow")
@@ -103,5 +126,13 @@ public class OrganizationController {
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "users/profile";
     }
+
+
+    @GetMapping("organizations/delete/{id}")
+    public String delete(@ModelAttribute Organization organization) {
+        organizationRepository.delete(organization);
+        return "redirect:/profile";
+    }
+
 
 }
