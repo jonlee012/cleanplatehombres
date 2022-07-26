@@ -1,5 +1,5 @@
 // "use strict";
-//
+
 // function geocode(search, token) {
 //     var baseUrl = 'https://api.mapbox.com';
 //     var endPoint = '/geocoding/v5/mapbox.places/';
@@ -11,7 +11,7 @@
 //             return data.features[0].center;
 //         });
 // }
-//
+
 // function reverseGeocode(coordinates, token) {
 //     var baseUrl = 'https://api.mapbox.com';
 //     var endPoint = '/geocoding/v5/mapbox.places/';

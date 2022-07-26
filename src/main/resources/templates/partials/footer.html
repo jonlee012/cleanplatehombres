@@ -37,7 +37,7 @@
             <div class="third-tier-container footer-mid">
                 <div class="footer-logo">
                     <a href="/index">
-                        <img class="logo" src="logo.png" alt="logo">
+                        <img class="logo" th:src="@{/imgs/logo.png}">
                     </a>
                 </div>
                 <div class="small-text">
@@ -58,18 +58,18 @@
                 <div class="sm-line"></div>
                 <div class="useful-links-individual">
                     <div class="uli-left">
-                        <div><a class="small-text" href="#">Home</a></div>
-                        <div><a class="small-text" href="#">About us</a></div>
-                        <div><a class="small-text" href="#">Donate</a></div>
-                        <div><a class="small-text" href="#">Non-Profit</a></div>
-                        <div><a class="small-text" href="#">Restaurant</a></div>
+<!--                        <div><a class="small-text" href="#">Home</a></div>-->
+                        <div><a class="small-text" href="/about">About us</a></div>
+                        <div><a class="small-text" href="/listings/create">Donate</a></div>
+                        <div><a class="small-text" href="/organizations/nonProfitIndex">Non-Profit</a></div>
+                        <div><a class="small-text" href="/organizations/restaurant">Restaurant</a></div>
                     </div>
 
                     <div class="uli-right">
-                        <div><a class="small-text" href="#">Contact</a></div>
-                        <div><a class="small-text" href="#">Log in</a></div>
-                        <div><a class="small-text" href="#">Register</a></div>
-                        <div><a class="small-text" href="#">Learn more</a></div>
+                        <div><a class="small-text" href="/contact">Contact</a></div>
+                        <div><a class="small-text" href="/login">Log in</a></div>
+                        <div><a class="small-text" href="/users/sign-up">Register</a></div>
+                        <div><a class="small-text" href="/users/profile">Profile</a></div>
                     </div>
                 </div>
             </div>

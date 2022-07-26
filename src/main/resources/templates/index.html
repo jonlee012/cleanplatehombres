@@ -22,7 +22,15 @@
         <div class="hero-button-container">
 
             <div class="hero-button-wrapper">
-                <a href="/sign-up" class="hero-button">GET STARTED NOW</a>
+                <div class="nav-links-ul" sec:authorize="isAnonymous()">
+                    <a href="/sign-up" class="hero-button">GET STARTED NOW</a>
+                </div>
+
+                <div class="nav-links-ul" sec:authorize="isAuthenticated()">
+                    <h3 class="hero-heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/-->
+                        <span class="text-span-2 text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h3>
+                    <a href="/listings/create" class="hero-button">POST A DONATION</a>
+                </div>
             </div>
 
         </div>
@@ -34,7 +42,8 @@
         <div class="support-top-wrapper">
             <div class="support-top-left">
                 <div class="support-top-details-text"></div>
-                <h2 class="support-top-heading">Ways to participate on <br>Clean Plate</h2>
+<!--                <h2 class="support-top-heading">Ways to participate on <br>Clean Plate</h2>-->
+                <h2 class="support-top-heading">How it Works</h2>
             </div>
             <div class="support-top-right">
                 <p>Clean Plate is a non-profit organization that is a conduit between restaurants who have food to give and organizations that need food.</p>
@@ -74,7 +83,7 @@
             <h2 class="safe-heading">WORKING & STAYING SAFE DURING COVID-19<br><br></h2>
             <p class="safe-paragraph">Taking every safety precaution is our number one priority when working with our partners. </p>
             <div class="safe-button-wrapper">
-                <a href="/learn-more" class="safe-button">learn more</a>
+<!--                <a href="/learn-more" class="safe-button">learn more</a>-->
             </div>
         </div>
     </div>
