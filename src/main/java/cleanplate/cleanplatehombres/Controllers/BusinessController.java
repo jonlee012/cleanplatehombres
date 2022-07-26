@@ -22,7 +22,6 @@ import java.util.List;
 @Controller
 public class BusinessController {
 
-
     UserRepository userDao;
     OrganizationRepository organizationDao;
 

@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="partials/head :: head"></head>
+<!--<head th:replace="partials/head :: head"></head>-->
+<head>
+<!--    !&#45;&#45;    FILESTACK API&ndash;&gt;-->
+    <!-- This script tag includes the Filestack API into your HTML file -->
+    <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+</head>
 <body>
 <nav th:replace="partials/topnav :: navbar">
 </nav>
@@ -100,10 +105,23 @@
                    th:field="*{orgZip}">
         </div>
         <div class="col-md-3">
-            <label for="images" class="form-label h4 ">Zip Code</label>
+            <label for="images" class="form-label h4 ">Images</label>
             <input id="images" type="text" class="form-control mb-3"
                    th:field="*{images}">
         </div>
+
+        <div class="row">-->
+            <div class="px-2.5">
+              <button class="upload btn btn-outline-light hide p-0 mx-0 me-2 mt-4"
+                      name="Pick photo"
+                      id="photoPicker" onclick="openPhotoPicker()" style="color: black">Upload
+                Photo
+              </button>
+              <button type="submit" class="btn btn-outline-light mt-4"
+                      value="Sign me up!" id="sub-btn" style="color: black">Submit
+              </button>
+            </div>
+          </div>
 
         <div class="col-md-3">
             <label for="user_info" class="form-label h4 ">User Info</label>
@@ -114,12 +132,118 @@
     <button type="submit" class="btn btn-primary">
         Create
     </button>
+
 </form>
 
 <footer th:replace="partials/footer :: footer">
 </footer>
 <script th:replace="partials/script :: script">
 </script>
+<script>
+
+
+
+
+    //Instantiating dialog with Filestack
+    var client = filestack.init("AzWevRAKVQki1Rm9iW9CRz");
+    //Filestack API method 'pick()' that opens the file picker
+    // client.pick({});
+
+    // JS CODE FROM filestack.js
+
+    // const client = filestack.init(FSapiKey);
+    const options = {
+        fromSources: ['local_file_system'],
+        transformations: {
+            crop: true,
+            circle: true,
+            rotate: true
+        }
+    }
+    const picker = client.picker({
+        exposeOriginalFile: true,
+        onFileSelected: checkImgSize,
+    });
+    function openPhotoPicker() {
+        console.log("open Photo Picker");
+        client.pick({
+            accept: 'image/*',
+            maxFiles: 1,
+        }).then(function (result) {
+            console.log(JSON.stringify(result));
+            imageHandle = result.filesUploaded[0].url;
+            console.log(imageHandle);
+        }).then(function () {
+            $(".organizationImages").append("<input type='hidden' name='imageUrl' value='" + imageHandle + "'>");
+        })
+        json_data = {imageHandle}
+        var organizationImages = document.createElement("img");
+        organizationImages.onload = function () {
+            document.getElementById("organizationImages").appendChild(organizationImages);
+        }
+
+        organizationImages.src = imageHandle;
+        function checkImgSize (file) {
+            return new Promise(function (resolve, reject) {
+                const maxWidth = 300;
+                const maxHeight = 300;
+                const blob = file.originalFile;
+
+                // Get an object URL for the local file
+                const url = URL.createObjectURL(blob);
+
+                // Create an image and load the object URL
+                const img = new Image();
+                img.src = url;
+
+                img.onload = function () {
+                    URL.revokeObjectURL(url);
+
+                    if (this.naturalWidth > maxWidth) {
+                        reject('File is too wide');
+                    }
+
+                    if (this.naturalHeight > maxHeight) {
+                        reject('File is too tall');
+                    }
+
+                    // If we made it here then the file was approved
+                    resolve();
+                }
+            });
+        }
+
+
+    }
+
+</script>
+<script src="keys.js"></script>
+
+<!--<script>-->
+<!--  let organizationForm = '';-->
+
+<!--  let organization = $("#organization");-->
+<!--  let actType = $("#accountType");-->
+<!--  let isOwner = $("#isOwner");-->
+<!--  let upload = $("#photoPicker");-->
+
+<!--  $(actType).change(function () {-->
+<!--    if (actType.val() === "organization") {-->
+<!--      organization.removeClass("hide");-->
+<!--      isOwner.val("true");-->
+<!--      upload.removeClass("hide");-->
+<!--    } else if (actType.val() === "consumer") {-->
+<!--      organization.addClass("hide");-->
+<!--      upload.addClass("hide");-->
+<!--      isOwner.val("false");-->
+<!--    }-->
+<!--  })-->
+
+
+<!--</script>-->
+
+
+
 </body>
 </html>
 
