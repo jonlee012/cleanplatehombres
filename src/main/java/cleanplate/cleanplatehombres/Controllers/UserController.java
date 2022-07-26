@@ -43,4 +43,9 @@ public class UserController {
         return "redirect:/login";
     }
 
+    @GetMapping("/users/edit/{id}")
+    public String userEdit() {
+        return "redirect:/users/profile";
+    }
+
 }
