@@ -47,6 +47,13 @@ body {
 .nav-link-individual {
     font-size: 13px;
     padding: 7px;
+    text-decoration:none;
+}
+
+a.nav-link-individual:hover{
+    font-size: 13px;
+    padding: 7px;
+    text-decoration:none;
 }
 
 .nav-links-ul a {
@@ -816,8 +823,6 @@ tr:nth-child(even) {
     flex-direction: row;
     justify-content: space-around;
     padding: 5px;
-
-
 }
 
 .useful-links-individual a {
