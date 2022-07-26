@@ -64,6 +64,7 @@ public class Organization {
         this.orgState = orgState;
         this.orgZip = orgZip;
 
+
     }
     public Organization(Integer id, String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip, Boolean isDonor, String images, User user, List<Listing> listingList) {
         this.id = id;
@@ -78,6 +79,7 @@ public class Organization {
         this.user = user;
         this.listingList = listingList;
     }
+
 
     public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip, Boolean isDonor, String images, User user, List<Listing> listingList) {
         this.orgName = orgName;
@@ -152,6 +154,7 @@ public class Organization {
         isDonor = donor;
     }
 
+
     public String getImages() {
         return images;
     }
@@ -159,6 +162,12 @@ public class Organization {
     public void setImages(String images) {
         this.images = images;
     }
+
+    public Boolean getDonor() {
+        return isDonor;
+    }
+
+
 
     public User getUser() {
         return user;
@@ -175,4 +184,16 @@ public class Organization {
     public void setListingList(List<Listing> listingList) {
         this.listingList = listingList;
     }
+
+
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
+
+
+
 }

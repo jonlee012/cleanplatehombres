@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ListingRepository extends JpaRepository<Listing, Integer> {
     Listing getById(Integer id);
+    void deleteById(Integer id);
 
 //    List<Listing> getByUser(User user);
 

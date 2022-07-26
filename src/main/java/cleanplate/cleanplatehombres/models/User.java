@@ -25,7 +25,7 @@ public class User {
     private String password;
 
     @Column
-    private Boolean isAdmin;
+    private boolean isAdmin;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
     private List<Organization> organizationList;
@@ -81,7 +81,7 @@ public class User {
         this.password = password;
     }
 
-    public Boolean getAdmin() {
+    public boolean getAdmin() {
         return isAdmin;
     }
 

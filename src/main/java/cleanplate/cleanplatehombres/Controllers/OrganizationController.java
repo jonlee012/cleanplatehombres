@@ -82,7 +82,7 @@ public class OrganizationController {
         }
 
         organizationRepository.save(organization);
-        return "redirect:/organizations/nonProfitIndex"; //still need to build out this single-org-index-page
+        return "redirect:/users/profile"; //still need to build out this single-org-index-page
     }
 
     @GetMapping("organizations/orgShow")
@@ -111,6 +111,13 @@ public class OrganizationController {
         model.addAttribute("listings", listingRepository.findAll());
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "users/profile";
+    }
+
+
+    @GetMapping("organizations/delete/{id}")
+    public String delete(@ModelAttribute Organization organization) {
+        organizationRepository.delete(organization);
+        return "redirect:/profile";
     }
 
 
