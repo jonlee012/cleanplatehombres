@@ -9,7 +9,7 @@
             <div class="nav-links-ul" sec:authorize="isAnonymous()">
                 <a class="nav-link-individual" href="/login">Login</a>
                 <a class="nav-link-individual" href="/sign-up">Register</a>
-                <a class="" href="/listings">Listings</a>
+                <a class="nav-link-individual" href="/listings" title="All Active Food Donations">Listings</a>
                 <a class="nav-link-individual" href="/restaurant">Donors</a>
                 <a class="nav-link-individual" href="/nonProfitIndex">Distributors</a>
                 <a class="nav-link-individual" href="/about">About Us</a>
@@ -33,7 +33,7 @@
           <a class="nav-link-individual" href="/about">About Us</a>
           <a class="nav-link-individual" href="/contact">Contact</a>
           <a class="nav-link-individual">
-            <form class="logout-button" th:action="@{/logout}" method="POST"><input type="submit" value="Logout"/></form>
+            <form class="logout-button" th:action="@{/logout}" method="POST"><input type="submit" value="Logout" style="color:white"/></form>
           </a>
 
 <!--          <div>-->

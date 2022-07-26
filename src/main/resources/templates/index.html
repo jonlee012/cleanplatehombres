@@ -22,7 +22,15 @@
         <div class="hero-button-container">
 
             <div class="hero-button-wrapper">
-                <a href="/sign-up" class="hero-button">GET STARTED NOW</a>
+                <div class="nav-links-ul" sec:authorize="isAnonymous()">
+                    <a href="/sign-up" class="hero-button">GET STARTED NOW</a>
+                </div>
+
+                <div class="nav-links-ul" sec:authorize="isAuthenticated()">
+                    <h3 class="hero-heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/-->
+                        <span class="text-span-2 text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h3>
+                    <a href="/listings/create" class="hero-button">POST A DONATION</a>
+                </div>
             </div>
 
         </div>
