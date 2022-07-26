@@ -30,25 +30,31 @@ public class Organization {
     private long orgZip;
 
     @Column
-    private Boolean isDonor;
+    private boolean isDonor;
 
     @Column(length = 200)
     private String images;
 
     @ManyToOne
-    @JoinColumn(name="user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="organization")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
     private List<Listing> listingList;
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
 //    private List<OrganizationImage> organizationImages;
 
-    public Organization() {}
+    public Organization() {
+    }
 
 
-    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip, Boolean isDonor, String images, User user, List<Listing> listingList) {
+    public boolean getDonor() {
+        return isDonor;
+    }
+
+    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState,
+                        long orgZip, boolean isDonor, String images, User user, List<Listing> listingList) {
         this.orgName = orgName;
         this.orgDescription = orgDescription;
         this.orgStAddress = orgStAddress;
@@ -117,15 +123,18 @@ public class Organization {
         this.orgZip = orgZip;
     }
 
-    public Boolean isDonor() {
+    public boolean isDonor() {
         return isDonor;
     }
-    public void setDonor(Boolean donor) {
+
+    public void setDonor(boolean donor) {
         isDonor = donor;
     }
+
     public User getUser() {
         return user;
     }
+
     public void setUser(User user) {
         this.user = user;
     }
@@ -145,4 +154,5 @@ public class Organization {
     public void setImages(String images) {
         this.images = images;
     }
+}
 

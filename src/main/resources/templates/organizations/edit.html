@@ -5,8 +5,8 @@
 <body>
 <nav th:replace="partials/topnav :: navbar">
 </nav>
-<h1>Create Organization</h1>
-<form th:action="@{/organizations/create}" method="POST" th:object="${organization}" class="second-tier-container form">
+<h1>Edit Organization Info</h1>
+<form th:action="@{/organizations/edit}" method="POST" th:object="${organization}" class="second-tier-container form">
     <div class="organizationName col-md-6">
         <label for="name" class="form-label h4">Organization Name</label>
         <input id="name" type="text" class="form-control" th:field="*{orgName}">
@@ -28,13 +28,13 @@
 
 
 
-<!--    <div class="organizationName col-md-6">-->
-<!--        <label for="orgtype" class="form-label h4">Donor?</label>-->
-<!--        <select id="orgtype" type="checkbox" class="form-control" th:field="*{isDonor}">-->
-<!--            <option th:field="*{isDonor}" th:value="donor">Restaurant</option>-->
-<!--            <option th:field="*{isDonor}" th:value="!donor">Charity</option>-->
-<!--        </select>-->
-<!--    </div>-->
+    <!--    <div class="organizationName col-md-6">-->
+    <!--        <label for="orgtype" class="form-label h4">Donor?</label>-->
+    <!--        <select id="orgtype" type="checkbox" class="form-control" th:field="*{isDonor}">-->
+    <!--            <option th:field="*{isDonor}" th:value="donor">Restaurant</option>-->
+    <!--            <option th:field="*{isDonor}" th:value="!donor">Charity</option>-->
+    <!--        </select>-->
+    <!--    </div>-->
 
 
 
@@ -122,9 +122,9 @@
                    th:field="*{user}">
         </div>
 
-    <button type="submit" class="btn btn-primary">
-        Create
-    </button>
+        <button type="submit" class="btn btn-primary">
+            Submit
+        </button>
     </div>
 </form>
 
