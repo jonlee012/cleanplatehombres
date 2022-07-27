@@ -154,26 +154,26 @@
     //
     // // console.log(donorAddress[i]);
     //
-    // mapboxgl.accessToken = MAPBOX_KEY;
-    // var map = new mapboxgl.Map({
-    //     container: 'map',
-    //     style: 'mapbox://styles/mapbox/streets-v11',
-    //     center: [-98.4916, 29.4252],
-    //     zoom: 10
+    mapboxgl.accessToken = MAPBOX_KEY;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-98.4916, 29.4252],
+        zoom: 10
+    });
+    // Map Nav Controls
+    map.addControl(new mapboxgl.NavigationControl());
+    // const nav = new mapboxgl.NavigationControl({
+    //     showZoom: true
     // });
-    // // Map Nav Controls
-    // map.addControl(new mapboxgl.NavigationControl());
-    // // const nav = new mapboxgl.NavigationControl({
-    // //     showZoom: true
-    // // });
-    //
-    //
-    // //Starting Draggable Marker (default point)
-    // var marker = new mapboxgl.Marker({
-    //     draggable: true
-    // })
-    //     .setLngLat([-98.4916, 29.4252])
-    //     .addTo(map);
+
+
+    //Starting Draggable Marker (default point)
+    var marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([-98.4916, 29.4252])
+        .addTo(map);
     //
     // let myLocation = geocode(search, MAPBOX_KEY);
     // myLocation.then(function(data) {
@@ -226,137 +226,137 @@
         });
     });
 
-  const geojson = {
-        "features": [
-            {
-                "type": "Feature",
-                "properties": {
-                    "title": "Lincoln Park",
-                    "description": "A northside park that is home to the Lincoln Park Zoo"
-                },
-                "geometry": {
-                    "coordinates": [
-                        -87.637596,
-                        41.940403
-                    ],
-                    "type": "Point"
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "title": "Burnham Park",
-                    "description": "A lakefront park on Chicago's south side"
-                },
-                "geometry": {
-                    "coordinates": [
-                        -87.603735,
-                        41.829985
-                    ],
-                    "type": "Point"
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "title": "Millennium Park",
-                    "description": "A downtown park known for its art installations and unique architecture"
-                },
-                "geometry": {
-                    "coordinates": [
-                        -87.622554,
-                        41.882534
-                    ],
-                    "type": "Point"
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "title": "Grant Park",
-                    "description": "A downtown park that is the site of many of Chicago's favorite festivals and events"
-                },
-                "geometry": {
-                    "coordinates": [
-                        -87.619185,
-                        41.876367
-                    ],
-                    "type": "Point"
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "title": "Humboldt Park",
-                    "description": "A large park on Chicago's northwest side"
-                },
-                "geometry": {
-                    "coordinates": [
-                        -87.70199,
-                        41.905423
-                    ],
-                    "type": "Point"
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "title": "Douglas Park",
-                    "description": "A large park near in Chicago's North Lawndale neighborhood"
-                },
-                "geometry": {
-                    "coordinates": [
-                        -87.699329,
-                        41.860092
-                    ],
-                    "type": "Point"
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "title": "Calumet Park",
-                    "description": "A park on the Illinois-Indiana border featuring a historic fieldhouse"
-                },
-                "geometry": {
-                    "coordinates": [
-                        -87.530221,
-                        41.715515
-                    ],
-                    "type": "Point"
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "title": "Jackson Park",
-                    "description": "A lakeside park that was the site of the 1893 World's Fair"
-                },
-                "geometry": {
-                    "coordinates": [
-                        -87.580389,
-                        41.783185
-                    ],
-                    "type": "Point"
-                }
-            },
-            {
-                "type": "Feature",
-                "properties": {
-                    "title": "Columbus Park",
-                    "description": "A large park in Chicago's Austin neighborhood"
-                },
-                "geometry": {
-                    "coordinates": [
-                        -87.769775,
-                        41.873683
-                    ],
-                    "type": "Point"
-                }
-            }
-        ],
-        "type": "FeatureCollection"
-    }
+  // const geojson = {
+  //       "features": [
+  //           {
+  //               "type": "Feature",
+  //               "properties": {
+  //                   "title": "Lincoln Park",
+  //                   "description": "A northside park that is home to the Lincoln Park Zoo"
+  //               },
+  //               "geometry": {
+  //                   "coordinates": [
+  //                       -87.637596,
+  //                       41.940403
+  //                   ],
+  //                   "type": "Point"
+  //               }
+  //           },
+  //           {
+  //               "type": "Feature",
+  //               "properties": {
+  //                   "title": "Burnham Park",
+  //                   "description": "A lakefront park on Chicago's south side"
+  //               },
+  //               "geometry": {
+  //                   "coordinates": [
+  //                       -87.603735,
+  //                       41.829985
+  //                   ],
+  //                   "type": "Point"
+  //               }
+  //           },
+  //           {
+  //               "type": "Feature",
+  //               "properties": {
+  //                   "title": "Millennium Park",
+  //                   "description": "A downtown park known for its art installations and unique architecture"
+  //               },
+  //               "geometry": {
+  //                   "coordinates": [
+  //                       -87.622554,
+  //                       41.882534
+  //                   ],
+  //                   "type": "Point"
+  //               }
+  //           },
+  //           {
+  //               "type": "Feature",
+  //               "properties": {
+  //                   "title": "Grant Park",
+  //                   "description": "A downtown park that is the site of many of Chicago's favorite festivals and events"
+  //               },
+  //               "geometry": {
+  //                   "coordinates": [
+  //                       -87.619185,
+  //                       41.876367
+  //                   ],
+  //                   "type": "Point"
+  //               }
+  //           },
+  //           {
+  //               "type": "Feature",
+  //               "properties": {
+  //                   "title": "Humboldt Park",
+  //                   "description": "A large park on Chicago's northwest side"
+  //               },
+  //               "geometry": {
+  //                   "coordinates": [
+  //                       -87.70199,
+  //                       41.905423
+  //                   ],
+  //                   "type": "Point"
+  //               }
+  //           },
+  //           {
+  //               "type": "Feature",
+  //               "properties": {
+  //                   "title": "Douglas Park",
+  //                   "description": "A large park near in Chicago's North Lawndale neighborhood"
+  //               },
+  //               "geometry": {
+  //                   "coordinates": [
+  //                       -87.699329,
+  //                       41.860092
+  //                   ],
+  //                   "type": "Point"
+  //               }
+  //           },
+  //           {
+  //               "type": "Feature",
+  //               "properties": {
+  //                   "title": "Calumet Park",
+  //                   "description": "A park on the Illinois-Indiana border featuring a historic fieldhouse"
+  //               },
+  //               "geometry": {
+  //                   "coordinates": [
+  //                       -87.530221,
+  //                       41.715515
+  //                   ],
+  //                   "type": "Point"
+  //               }
+  //           },
+  //           {
+  //               "type": "Feature",
+  //               "properties": {
+  //                   "title": "Jackson Park",
+  //                   "description": "A lakeside park that was the site of the 1893 World's Fair"
+  //               },
+  //               "geometry": {
+  //                   "coordinates": [
+  //                       -87.580389,
+  //                       41.783185
+  //                   ],
+  //                   "type": "Point"
+  //               }
+  //           },
+  //           {
+  //               "type": "Feature",
+  //               "properties": {
+  //                   "title": "Columbus Park",
+  //                   "description": "A large park in Chicago's Austin neighborhood"
+  //               },
+  //               "geometry": {
+  //                   "coordinates": [
+  //                       -87.769775,
+  //                       41.873683
+  //                   ],
+  //                   "type": "Point"
+  //               }
+  //           }
+  //       ],
+  //       "type": "FeatureCollection"
+  //   }
 
     var map = new mapboxgl.Map({
         container: 'map',
@@ -368,62 +368,62 @@
     const description = geojson.features[0].properties.description;
     // Add markers to the map.
 
-    const geocode = (inputLocation, inputName) => {
-        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?&access_token=${MAPBOX_KEY}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                try {
-                    map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
-
-                } catch (e) {
-                    console.log(e);
-                }
-                for (const feature of geojson.features) {
-// create a HTML element for each feature
-
-                    const el = document.createElement('div');
-                    el.className = 'mapMarker';
-
-// make a marker for each feature and add it to the map
-
-
-                    new mapboxgl.Marker(el)
-                        .setLngLat(data.features[0].center).addTo(map)
-                        .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
-
-                            .setHTML(`
-<!--<div class="reviews "><div id="mapboxData" class="flip-card card-item card-deck">-->
-<!--            <div class="flip-card-inner"">-->
-<!--                <p class="flip-card-front h3"></p> + -->
-${inputName} <br> ${inputLocation}
-<!--</div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-`)
-
-                            .addTo(map))
-                        .setLngLat(data.features[0].center).addTo(map);
-
-
-                    // })
-                }
-            })
-    }
+//     const geocode = (inputLocation, inputName) => {
+//         fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${address[0]+city[0]+state[0]+zip[0]}.json?&access_token=${MAPBOX_KEY}`)
+//             .then(res => res.json())
+//             .then(data => {
+//                 console.log(data);
+//                 try {
+//                     map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
+//
+//                 } catch (e) {
+//                     console.log(e);
+//                 }
+//                 for (const feature of geojson.features) {
+// // create a HTML element for each feature
+//
+//                     const el = document.createElement('div');
+//                     el.className = 'mapMarker';
+//
+// // make a marker for each feature and add it to the map
+//
+//
+//                     new mapboxgl.Marker(el)
+//                         .setLngLat(data.features[0].center).addTo(map)
+//                         .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
+//
+//                             .setHTML(`
+// <!--<div class="reviews "><div id="mapboxData" class="flip-card card-item card-deck">-->
+// <!--            <div class="flip-card-inner"">-->
+// <!--                <p class="flip-card-front h3"></p> + -->
+// ${inputName} <br> ${inputLocation}
+// <!--</div>-->
+// <!--            </div>-->
+// <!--        </div>-->
+// <!--    </div>-->
+// <!--</div>-->
+// `)
+//
+//                             .addTo(map))
+//                         .setLngLat(data.features[0].center).addTo(map);
+//
+//
+//                     // })
+//                 }
+//             })
+//     }
 
     // $(window).ready( function(){
 
 
-    $(document).on("mousemove", "#mapboxData", function () {
-        console.log(this)
-        let orgLocation = this.querySelector('#location').innerText
-        let organizationName = this.getElementsByTagName("p")[0].innerText
-        console.log("organizationName", organizationName);
-        geocode(orgLocation, organizationName)
-        // })
-    });
+    // $(document).on("mousemove", "#mapboxData", function () {
+    //     console.log(this)
+    //     let orgLocation = this.querySelector('#location').innerText
+    //     let organizationName = this.getElementsByTagName("p")[0].innerText
+    //     console.log("organizationName", organizationName);
+    //     geocode(orgLocation, organizationName)
+    //     // })
+    // });
 
     /*]]>*/
 </script>
