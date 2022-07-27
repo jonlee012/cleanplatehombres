@@ -136,13 +136,16 @@
                       value="Sign me up!" id="sub-btn" style="color: black">Submit
               </button>
             </div>
-          </div>
-
-        <div class="col-md-3">
-            <label for="user_info" class="form-label h4 ">User Id</label>
-            <input id="user_info" type="text" class="form-control mb-3"
-                   th:field="*{user}">
         </div>
+
+
+<!--        <div class="col-md-3">-->
+<!--            <label for="user_info" class="form-label h4 ">User Id</label>-->
+<!--            <input id="user_info" type="text" class="form-control mb-3"-->
+<!--                   th:field="*{user}">-->
+<!--        </div>-->
+        <input th:field="*{user}" th:value="${organization.getUser()}" type="text" class="form-control"
+               name="user" hidden >
 
     <button type="submit" class="btn btn-primary">
         Create
@@ -150,7 +153,7 @@
 
     </div>
 
-
+    </div>
 
 </form>
 
