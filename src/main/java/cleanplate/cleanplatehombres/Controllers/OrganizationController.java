@@ -63,6 +63,16 @@ public class OrganizationController {
         return "organizations/create";
     }
 
+    // THIS IS A TESTING ENDPOINT FOR MY FILESTACK
+    @GetMapping("/organizations/create2")
+    public String create2(Model model) {
+        model.addAttribute("organization", new Organization());
+        return "organizations/create_filestackCodeBase";
+    }
+
+
+
+
     //if any of the fields are empty in the registration form then return back to the create page
     //need to implement errors for which data point is not correct
     @PostMapping("/organizations/create")
