@@ -35,9 +35,14 @@
                         </select>
                 </div>
 
+<!--                <input th:field="*{organization}" th:value="${listing.getOrganization()}" type="text"-->
+<!--                       class="form-control"-->
+<!--                       name="user" hidden >-->
 
-                <label id="user">User ID <span class="require">*</span></label>
-                <input th:field="*{user}" type="text" class="form-control" name="user" />
+
+<!--                <label id="user">User ID <span class="require">*</span></label>-->
+                <input th:field="*{user}" th:value="${listing.getUser()}" type="text" class="form-control"
+                       name="user" hidden >
 
                 <label id="exp-date">Expiration Date</label>
                 <input th:field="*{expDate}" type="text" class="form-control"
