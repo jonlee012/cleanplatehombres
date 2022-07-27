@@ -165,5 +165,15 @@ public class Organization {
     public void setListingList(List<Listing> listingList) {
         this.listingList = listingList;
     }
+
+
+
+//    public String getImages() {
+//        return images;
+//    }
+//
+//    public void setImages(String images) {
+//        this.images = images;
+//    }
 }
 

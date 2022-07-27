@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<body>
+
+<div>Add an Image</div>
+<button class="upload">Upload File</button>
+<div>
+    <img alt="" width="200" height="200" class="donorPic">
+</div>
+
+
+</body>
+
+
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script>
+    const button = document.querySelector('.upload')
+    const image = document.querySelector('.donorPic')
+    button.addEventListener('click', () => {
+        const apiKey = 'AzWevRAKVQki1Rm9iW9CRz'
+        const client = filestack.init(apiKey)
+        const options = {
+            accept: ['image/*'],
+            onUploadDone: (uploadResponse) => {
+                console.log("onUploadDone", uploadResponse);
+                image.setAttribute('src', uploadResponse.filesUploaded[0].url)
+            },
+        };
+        client.picker(options).open();
+    });
+</script>
+
+
+
+</html>
