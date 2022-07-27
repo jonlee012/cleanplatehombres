@@ -54,17 +54,17 @@
 
 
                 </div>
-                <div id="mapboxData" th:each="organization : ${organizations}" class="flip-card card-item card-deck mt-2 my-2 m-lg-2">
-                    <div class="flip-card-inner" th:each="organization : ${organizations}">
-                        <!--                <h5 th:text="${}" class="flip-card-front h3"></h5>-->
-                        <p class="flip-card-front flex-column">
-                            <span class="h3" th:text="${organization.getOrgName()}"></span>
-                            <br>
-                            <span class="h5"
-                                  th:text="${organization.getOrgStAddress  + ', ' + organization.getOrgCity + ', ' + organization.getOrgState + ', ' + organization.getOrgZip }"></span>
-                        </p>
-                    </div>
-                </div>
+<!--                <div id="mapboxData" th:each="organization : ${organizations}" class="flip-card card-item card-deck mt-2 my-2 m-lg-2">-->
+<!--                    <div class="flip-card-inner" th:each="organization : ${organizations}">-->
+<!--                        &lt;!&ndash;                <h5 th:text="${}" class="flip-card-front h3"></h5>&ndash;&gt;-->
+<!--                        <p class="flip-card-front flex-column">-->
+<!--                            <span class="h3" th:text="${organization.getOrgName()}"></span>-->
+<!--                            <br>-->
+<!--                            <span class="h5"-->
+<!--                                  th:text="${organization.getOrgStAddress  + ', ' + organization.getOrgCity + ', ' + organization.getOrgState + ', ' + organization.getOrgZip }"></span>-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                </div>-->
 <!--                <div style="margin-top: -10px"><em>Drag pin to find temperatures in other cities*</em>-->
 <!--                </div>-->
                 <!--                    <div class="five"  style="padding: 20px; display: flex; justify-content: center;">-->
@@ -368,62 +368,62 @@
     const description = geojson.features[0].properties.description;
     // Add markers to the map.
 
-    const geocode = (inputLocation, inputName) => {
-        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?&access_token=${MAPBOX_KEY}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                try {
-                    map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
-
-                } catch (e) {
-                    console.log(e);
-                }
-                for (const feature of geojson.features) {
-// create a HTML element for each feature
-
-                    const el = document.createElement('div');
-                    el.className = 'mapMarker';
-
-// make a marker for each feature and add it to the map
-
-
-                    new mapboxgl.Marker(el)
-                        .setLngLat(data.features[0].center).addTo(map)
-                        .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
-
-                            .setHTML(`
-<!--<div class="reviews "><div id="mapboxData" class="flip-card card-item card-deck">-->
-<!--            <div class="flip-card-inner"">-->
-<!--                <p class="flip-card-front h3"></p> + -->
-${inputName} <br> ${inputLocation}
-<!--</div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-`)
-
-                            .addTo(map))
-                        .setLngLat(data.features[0].center).addTo(map);
-
-
-                    // })
-                }
-            })
-    }
+//     const geocode = (inputLocation, inputName) => {
+//         fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${address[0]+city[0]+state[0]+zip[0]}.json?&access_token=${MAPBOX_KEY}`)
+//             .then(res => res.json())
+//             .then(data => {
+//                 console.log(data);
+//                 try {
+//                     map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
+//
+//                 } catch (e) {
+//                     console.log(e);
+//                 }
+//                 for (const feature of geojson.features) {
+// // create a HTML element for each feature
+//
+//                     const el = document.createElement('div');
+//                     el.className = 'mapMarker';
+//
+// // make a marker for each feature and add it to the map
+//
+//
+//                     new mapboxgl.Marker(el)
+//                         .setLngLat(data.features[0].center).addTo(map)
+//                         .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
+//
+//                             .setHTML(`
+// <!--<div class="reviews "><div id="mapboxData" class="flip-card card-item card-deck">-->
+// <!--            <div class="flip-card-inner"">-->
+// <!--                <p class="flip-card-front h3"></p> + -->
+// ${inputName} <br> ${inputLocation}
+// <!--</div>-->
+// <!--            </div>-->
+// <!--        </div>-->
+// <!--    </div>-->
+// <!--</div>-->
+// `)
+//
+//                             .addTo(map))
+//                         .setLngLat(data.features[0].center).addTo(map);
+//
+//
+//                     // })
+//                 }
+//             })
+//     }
 
     // $(window).ready( function(){
 
 
-    $(document).on("mousemove", "#mapboxData", function () {
-        console.log(this)
-        let orgLocation = this.querySelector('#location').innerText
-        let organizationName = this.getElementsByTagName("p")[0].innerText
-        console.log("organizationName", organizationName);
-        geocode(orgLocation, organizationName)
-        // })
-    });
+    // $(document).on("mousemove", "#mapboxData", function () {
+    //     console.log(this)
+    //     let orgLocation = this.querySelector('#location').innerText
+    //     let organizationName = this.getElementsByTagName("p")[0].innerText
+    //     console.log("organizationName", organizationName);
+    //     geocode(orgLocation, organizationName)
+    //     // })
+    // });
 
     /*]]>*/
 </script>
