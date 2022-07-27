@@ -15,72 +15,65 @@
 </div>
 
 
-<div class="about">
-    <!-- second-tier-container: formerly m has flex, flexwrap, justify content center, gap -->
-    <div class="third-tier-container non-card"> <!-- formerly b. hold the heading, small text, paragraph, icons and or images. -->
-        <div class="content heading">Why our team chose this capstone?</div>
-        <div class="content small-text">(need to flesh out answer with team members.)</div>
-        <div class="content paragraph">(Should we come up with a paragraph talk about something about supporting shelters?)</div>
-    </div>
+ <div class="about">
 
-    <!-- FOUR BY ONE -->
-    <div class="second-tier-container"> <!-- CARD / COLUMN CONTAINER -->
-        <div class="third-tier-container column buffer"> <!-- CARD / COLUMN CARD-->
-            <div class="content img-icon"><img src="" alt="Icon" class="image"></div>
-            <div class="content heading">Passion</div>
-            <div class="content paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit iure alias possimus similique libero! </div>
-        </div>
+     <div class="about-project-container">
 
-        <div class="third-tier-container column buffer"> <!-- CARD / COLUMN CARD-->
-            <div class="content img-icon"><img src="" alt="Icon" class="image"></div>
-            <div class="content heading">Service</div>
-            <div class="content paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit iure alias possimus similique libero! </div>
-        </div>
+         <div class="ap-sub-container">
+             <div class="about-project-left">
+                 <img src="" alt="about-us-img">
+             </div>
 
-        <div class="third-tier-container column buffer"> <!-- CARD / COLUMN CARD-->
-            <div class="content img-icon"><img src="" alt="Icon" class="image"></div>
-            <div class="content  heading">Commitment</div>
-            <div class="content paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit iure alias possimus similique libero! </div>
-        </div>
+             <div class="about-project-right">
+                 <div class="heading">About our project</div>
+                 <div class="team-line"></div>
+                 <div class="paragraph">A web application that uses Spring, Thymeleaf, and MySQL. Clean Plate Donations is the conduit between Restaurants who have food to donate and Non-Profit organizations who need food. Non-Profits will be able to post a listing requirement such as 10 loaves of bread and if a nearby restaurant is able to fulfill they will contact the Non-Profit. Technology utilized: Java EE, Spring Boot, Hibernate, HTML, CSS, and JavaScript.</div>
+             </div>
+         </div>
 
-        <div class="third-tier-container column buffer"> <!-- CARD / COLUMN CARD-->
-            <div class="img-icon"><img src="" alt="Icon" class="image"></div>
-            <div class="content heading">Community</div>
-            <div class="content paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi velit iure alias possimus similique libero! </div>
-        </div>
+     </div>
 
-    </div>
+     <!-- THE TEAM -->
+     <div class="team-heading">MEET THE CLEAN PLATE GUYS</div>
+     <div class="team-cards">
+
+         <div class="team-card">
+             <div class="p-img"><img src="" alt="image"></div>
+             <div class="heading">Derek Berkley</div>
+             <div class="team-line"></div>
+             <div class="paragraph">Responsibilities go here.</div>
+         </div>
+
+         <div class="team-card">
+             <div class="p-img"><img src="" alt="image"></div>
+             <div class="heading">Michael Kestler</div>
+             <div class="team-line"></div>
+             <div class="paragraph">Responsibilities go here.</div>
+         </div>
+
+         <div class="team-card">
+             <div class="p-img"><img src="" alt="image"></div>
+             <div class="heading">Jon Lee</div>
+             <div class="team-line"></div>
+             <div class="paragraph">Responsibilities go here.</div>
+         </div>
+
+         <div class="team-card">
+             <div class="p-img"><img src="" alt="image"></div>
+             <div class="heading">Carlos Chavira</div>
+             <div class="team-line"></div>
+             <div class="paragraph">Responsibilities go here.</div>
+         </div>
 
 
-    <!-- THE TEAM -->
-    <div class="second-tier-container">
 
-        <div class="third-tier-container buffer">
-            <div class="content img-icon image"><img src="" alt="image" class="profile-image"></div>
-            <div class="content heading">Derek Berkley</div>
-            <div class="content paragraph">Responsibilities go here.</div>
-        </div>
+     </div>
+ </div>
 
-        <div class="third-tier-container buffer">
-            <div class="content img-icon image"><img src="" alt="image" class="profile-image"></div>
-            <div class="content heading">Michael Kestler</div>
-            <div class="content paragraph">Responsibilities go here.</div>
-        </div>
 
-        <div class="third-tier-container buffer">
-            <div class="content img-icon image"><img src="" alt="image" class="profile-image"></div>
-            <div class="content heading">Jon Lee</div>
-            <div class="content paragraph">Responsibilities go here.</div>
-        </div>
 
-        <div class="third-tier-container buffer">
-            <div class="content img-icon image"><img src="" alt="image" class="profile-image"></div>
-            <div class="content heading">Carlos Chavira</div>
-            <div class="content paragraph">Responsibilities go here.</div>
-        </div>
-    </div>
-</div>
-     <footer th:replace="partials/footer :: footer">
+
+ <footer th:replace="partials/footer :: footer">
     </footer>
     <script th:replace="partials/script :: script">
     </script>

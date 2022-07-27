@@ -1,10 +1,14 @@
 package cleanplate.cleanplatehombres.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "user_info")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "organizationList"})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +25,13 @@ public class User {
     private String password;
 
     @Column
-    private Boolean isAdmin;
+    private boolean isAdmin;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
     private List<Organization> organizationList;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
+    private List<Listing> listingList;
 
     public User() {}
 
@@ -74,7 +81,7 @@ public class User {
         this.password = password;
     }
 
-    public Boolean getAdmin() {
+    public boolean getAdmin() {
         return isAdmin;
     }
 

@@ -10,17 +10,20 @@ VALUES ('michael', 'michael@email.com', '$2a$10$SxrR4P38ZE4DJiljwQCTr.N0UVOu2CcC
        ('bob', 'bob@email.com', '$2a$10$LmRTjwAk7MfkSYV9Axa/6utaIyQkk181Iacrq1tIUCC.s.CgSCvou', true);
 
 
-INSERT INTO org_info (org_name, org_description, org_st_address, org_city, org_state, org_zip, is_donor, user_info)
-VALUES ('Pinkerton BBQ', 'Best BBQ in San Antonio', '107 W Houston Street', 'San Antonio', 'Texas', 78205, true, 1),
-       ('Yard House', 'Soo many beers to choose from', '849 E Commerce Street', 'San Antonio', 'Texas', 78205, true, 2),
-       ('Carazon Ministries Inc.', 'Food Distribution Center', '230 E Travis Street', 'San Antonio', 'Texas', 78205, false, 3),
-       ('Salvation Army ARC', 'Food Distribution Center', '1324 S Flores Street', 'San Antonio', 'Texas', 78204, false, 4);
+INSERT INTO org_info (org_name, org_description, org_st_address, org_city, org_state, org_zip, is_donor, user_id, images)
+VALUES ('Pinkerton BBQ', 'Best BBQ in San Antonio', '107 W Houston Street', 'San Antonio', 'Texas', 78205, true, 1, 8),
+       ('Yard House', 'Soo many beers to choose from', '849 E Commerce Street', 'San Antonio', 'Texas', 78205, true, 2, 8),
+       ('Carazon Ministries Inc.', 'Food Distribution Center', '230 E Travis Street', 'San Antonio', 'Texas', 78205, false, 3, 8),
+       ('Salvation Army ARC', 'Food Distribution Center', '1324 S Flores Street', 'San Antonio', 'Texas', 78204, false, 4, 8);
 
-INSERT INTO listing (food_name, food_amt, donation_description, is_donation, exp_date, is_fulfilled, org_info)
-VALUES ('brisket and ribs', '50 lbs', 'Ready for pickup after 11:00 pm', true, '2022-08-06', false, 1),
-       ('meatloaf and mashed potatoes', '25 lbs', 'catering contract fell through last minute', true, '2022-08-06', false, 2),
-       ('canned vegetables', '250 cans', 'hoping to meet recommended macros for ready meals', false, '2022-08-06', false, 3),
-       ('hot meals', '50 meals', 'seeking to support local low income daycare', false, '2022-08-06', false, 4);
+INSERT INTO listing (food_name, food_amt, donation_description, is_donation, exp_date, is_fulfilled, ad_user_id, ad_org_id)
+VALUES ('brisket and ribs', '50 lbs', 'Ready for pickup after 11:00 pm', true, '08/06/2022', false, 1, 1),
+       ('meatloaf and mashed potatoes', '25 lbs', 'catering contract fell through last minute', true, '08/06/2022',
+        false, 2,
+        2),
+       ('canned vegetables', '250 cans', 'hoping to meet recommended macros for ready meals', false, '08/06/2022',
+        false, 3, 3),
+       ('hot meals', '50 meals', 'seeking to support local low income daycare', false, '08/06/2022', false, 4, 4);
 
 INSERT INTO category (category_name)
 VALUES ('meat'),
@@ -32,7 +35,7 @@ VALUES ('meat'),
        ('baked goods'),
        ('vegan');
 
-INSERT INTO listing_categories (listingId, categoryId)
+INSERT INTO listing_categories (listing_id, category_id)
 VALUES (1, 1),
        (1, 4),
        (1, 5),
