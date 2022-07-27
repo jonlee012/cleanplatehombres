@@ -3,13 +3,14 @@ package cleanplate.cleanplatehombres.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import java.util.Date;
+
 import java.util.List;
 
 //table creation
 @Entity
 @Table(name = "listing")
 public class Listing {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -28,7 +29,7 @@ public class Listing {
     private boolean isDonation;
 
     @Column
-    private Date expDate;
+    private String expDate;
 
     @Column
     private boolean isFulfilled;
@@ -56,7 +57,8 @@ public class Listing {
         this.organization = organization;
     }
 
-    public Listing(String foodName, String foodAmt, String donationDescription, boolean isDonation, Date expDate, boolean isFulfilled, User user, Organization organization, List<Category> categories) {
+    public Listing(String foodName, String foodAmt, String donationDescription, boolean isDonation, String expDate,
+                   boolean isFulfilled, User user, Organization organization, List<Category> categories) {
         this.foodName = foodName;
         this.foodAmt = foodAmt;
         this.donationDescription = donationDescription;
@@ -108,11 +110,11 @@ public class Listing {
         isDonation = donation;
     }
 
-    public Date getExpDate() {
+    public String getExpDate() {
         return expDate;
     }
 
-    public void setExpDate(Date expDate) {
+    public void setExpDate(String expDate) {
         this.expDate = expDate;
     }
 

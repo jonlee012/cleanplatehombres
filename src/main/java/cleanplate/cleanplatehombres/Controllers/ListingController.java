@@ -1,6 +1,7 @@
 package cleanplate.cleanplatehombres.Controllers;
 
 import cleanplate.cleanplatehombres.Repositories.ListingRepository;
+import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
 import cleanplate.cleanplatehombres.Repositories.UserRepository;
 import cleanplate.cleanplatehombres.models.Listing;
 import cleanplate.cleanplatehombres.models.User;
@@ -17,26 +18,18 @@ public class ListingController {
 
     private final ListingRepository listingRepository;
     private final UserRepository userDao;
+    private final OrganizationRepository organizationRepository;
     private final EmailService emailService;
-    //
-//
-//public ListingController(ListingRepository listingRepository){
 
     public ListingController(ListingRepository listingRepository, UserRepository userDao,
+                             OrganizationRepository organizationRepository,
                              EmailService emailService) {
 
         this.listingRepository = listingRepository;
         this.userDao = userDao;
+        this.organizationRepository = organizationRepository;
         this.emailService = emailService;
     }
-
-//    @GetMapping("/users")
-//
-//    public String users(Model model) {
-//        model.addAttribute("users", userDao.findAll());
-//        return "users";
-//    }
-
 
     //listing index controller
     @GetMapping("/listings")
@@ -45,11 +38,11 @@ public class ListingController {
         return "listings/listings";
     }
 
-
    //create controller
     @GetMapping("/listings/create")
     public String create(Model model) {
         model.addAttribute("listing", new Listing());
+        model.addAttribute("organizations", organizationRepository.findAll());
             return "listings/create";
     }
 
@@ -66,7 +59,6 @@ public class ListingController {
         return "redirect:/listings";
     }
 
-
    //show controller
     @GetMapping("listings/show/{id}")
     public String showPage(@PathVariable Integer id, Model model) {
@@ -79,6 +71,7 @@ public class ListingController {
     @GetMapping("listings/edit/{id}")
     public String editListing(@PathVariable Integer id, Model model) {
         model.addAttribute("listing", listingRepository.getById(id));
+        model.addAttribute("currentUser", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "listings/edit";
     }
 

@@ -1,8 +1,6 @@
 package cleanplate.cleanplatehombres.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -35,7 +33,7 @@ public class Organization {
     private long orgZip;
 
     @Column
-    private Boolean isDonor;
+    private boolean isDonor;
 
     @Column(length = 200)
     private String images;
@@ -47,15 +45,14 @@ public class Organization {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
     private List<Listing> listingList;
 
-    public Boolean isDonor() {
-        return isDonor;
-    }
+
 
     //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
 //    private List<OrganizationImage> organizationImages;
 
     public Organization() {
     }
+
     public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip) {
         this.orgName = orgName;
         this.orgDescription = orgDescription;
@@ -64,22 +61,16 @@ public class Organization {
         this.orgState = orgState;
         this.orgZip = orgZip;
 
+
     }
-    public Organization(Integer id, String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip, Boolean isDonor, String images, User user, List<Listing> listingList) {
-        this.id = id;
-        this.orgName = orgName;
-        this.orgDescription = orgDescription;
-        this.orgStAddress = orgStAddress;
-        this.orgCity = orgCity;
-        this.orgState = orgState;
-        this.orgZip = orgZip;
-        this.isDonor = isDonor;
-        this.images = images;
-        this.user = user;
-        this.listingList = listingList;
+  
+
+    public boolean getDonor() {
+        return isDonor;
     }
 
-    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip, Boolean isDonor, String images, User user, List<Listing> listingList) {
+    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState,
+                        long orgZip, boolean isDonor, String images, User user, List<Listing> listingList) {
         this.orgName = orgName;
         this.orgDescription = orgDescription;
         this.orgStAddress = orgStAddress;
@@ -148,17 +139,29 @@ public class Organization {
         this.orgZip = orgZip;
     }
 
-    public void setDonor(Boolean donor) {
+
+//    public boolean isDonor() {
+//        return isDonor;
+//    }
+
+    public void setDonor(boolean donor) {
         isDonor = donor;
     }
 
-    public String getImages() {
-        return images;
-    }
 
-    public void setImages(String images) {
-        this.images = images;
-    }
+
+
+//    public String getImages() {
+//        return images;
+//    }
+//
+//    public void setImages(String images) {
+//        this.images = images;
+//    }
+
+  
+
+
 
     public User getUser() {
         return user;
@@ -175,4 +178,16 @@ public class Organization {
     public void setListingList(List<Listing> listingList) {
         this.listingList = listingList;
     }
+
+
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
 }
+
+
+

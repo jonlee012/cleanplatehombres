@@ -14,27 +14,49 @@
                 <label id="title">Type of Food <span class="require">*</span></label>
                 <input th:field="*{foodName}" type="text" class="form-control" name="food_name" />
 
+                <label id="food_amt">Amount <span class="require">*</span></label>
+                <input th:field="*{foodAmt}" type="text" class="form-control" name="food_amt" />
+
+
                 <label id="body">Donation Description</label>
                 <textarea th:field="*{donationDescription}" rows="4" class="form-control" name="donation_description"
                 ></textarea>
 
-                <label id="org">Organization Code <span class="require">*</span></label>
-                <input th:field="*{organization}" type="text" class="form-control" name="organization" />
+
+
+
+                        <label id="organization">Organization<span class="require">*</span></label>
+                <div>
+                        <select th:field="*{organization}">
+                                <option th:each="organization : ${organizations}"
+                                        th:text="${organization.getOrgName()}"
+                                        th:value="${organization.getId()}">
+                                 </option>
+                        </select>
+                </div>
+
+
+                <label id="user">User ID <span class="require">*</span></label>
+                <input th:field="*{user}" type="text" class="form-control" name="user" />
 
                 <label id="exp-date">Expiration Date</label>
                 <input th:field="*{expDate}" type="text" class="form-control"
-                       name="organization" />
+                       placeholder="MM/DD/YYYY" name="organization" />
 
                 <button type="submit" class="donate-btn">
                         Create
                 </button>
+
         </form>
+        <br>
+        <br>
 
 </div>
 
 
-<footer th:replace="partials/footer :: footer">
-</footer>
+
+<!--<footer th:replace="partials/footer :: footer">-->
+<!--</footer>-->
 <script th:replace="partials/script :: script">
 </script>
 </body>

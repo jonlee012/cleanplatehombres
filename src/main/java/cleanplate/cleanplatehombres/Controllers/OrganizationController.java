@@ -74,7 +74,7 @@ public class OrganizationController {
                 organization.getOrgStAddress().equals("") ||
                 organization.getOrgCity().equals("") ||
                 organization.getOrgState().equals("") ||
-//                organization.isDonor() == false ||
+//                organization.getDonor() == true ||
                 (organization.getOrgZip() == 0))
         {
 
@@ -82,13 +82,27 @@ public class OrganizationController {
         }
 
         organizationRepository.save(organization);
-        return "redirect:/organizations/nonProfitIndex"; //still need to build out this single-org-index-page
+        return "redirect:/users/profile"; //still need to build out this single-org-index-page
     }
 
     @GetMapping("organizations/orgShow")
     public String showPage() {
         return "organizations/orgShow";
     }
+
+    @GetMapping("organizations/edit/{id}")
+    public String editOrganization(@PathVariable Integer id, Model model) {
+        model.addAttribute("organization", organizationRepository.getById(id));
+        return "organizations/edit";
+    }
+
+    @PostMapping("organizations/edit")
+    public String editOrganization(@ModelAttribute Organization organization){
+        organizationRepository.save(organization);
+        return "redirect:/nonProfitIndex";
+    }
+
+
 
 //    @GetMapping("/organizations/{id}")
 //    public String viewPost(@PathVariable Integer id, Model model) {
@@ -111,6 +125,13 @@ public class OrganizationController {
         model.addAttribute("listings", listingRepository.findAll());
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "users/profile";
+    }
+
+
+    @GetMapping("organizations/delete/{id}")
+    public String delete(@ModelAttribute Organization organization) {
+        organizationRepository.delete(organization);
+        return "redirect:/profile";
     }
 
 

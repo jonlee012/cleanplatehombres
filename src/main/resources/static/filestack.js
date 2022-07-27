@@ -31,6 +31,25 @@
 //     exposeOriginalFile: true,
 //     onFileSelected: checkImgSize,
 // });
+
+// const token = "pk.eyJ1Ijoiamhjb25nZXIiLCJhIjoiY2t5eGhicmV3MGlqZjJ1bXc1MXdzMnlubSJ9.53Uuao-kj-NGMyyhFNJTMA"
+// const weathertoken = "6450ed6396197087c7e503f463ddc13e"
+// const FSAPI = "A4TFVB6yBQSiutacj1pDnz"
+
+// const client = filestack.init(FSapiKey);
+// const options = {
+//     fromSources: ['local_file_system'],
+//     transformations: {
+//         crop: true,
+//         circle: true,
+//         rotate: true
+//     }
+// }
+// const picker = client.picker({
+//     exposeOriginalFile: true,
+//     onFileSelected: checkImgSize,
+// });
+
 // function openPhotoPicker() {
 //     console.log("open Photo Picker");
 //     client.pick({
@@ -82,4 +101,4 @@
 //
 //
 // }
-//
+
