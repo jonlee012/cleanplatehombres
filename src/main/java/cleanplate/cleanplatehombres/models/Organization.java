@@ -140,9 +140,9 @@ public class Organization {
     }
 
 
-    public boolean isDonor() {
-        return isDonor;
-    }
+//    public boolean isDonor() {
+//        return isDonor;
+//    }
 
     public void setDonor(boolean donor) {
         isDonor = donor;
