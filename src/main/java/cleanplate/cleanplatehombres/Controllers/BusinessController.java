@@ -76,32 +76,6 @@
 ////    public BusinessController(UserRepository userDao, OrganizationRepository organizationDao) {
 ////        this.userDao = userDao;
 ////        this.organizationDao = organizationDao;
-////    }
-////
-////
-////    @GetMapping("/profile/organization")
-////    public String organizationProfile(Model model) {
-////        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-////        List<Organization> organizations = organizationDao.getOrganizationByUser(user);
-////        model.addAttribute("organization", organizations);
-//////        model.addAttribute("images", organizations.getOrganizationImages());
-//////        if (organization.isDonor()) {
-//////
-//////        }
-////        return "organizationProfile";
-////    }
-////
-////
-////    @GetMapping("/updateOrganization")
-////    public String updateProfile(Model model) {
-////        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-////        List<Organization> organizations = organizationDao.getOrganizationByUser(user);
-////        model.addAttribute("user", user);
-////        model.addAttribute("organization", organizations);
-////        return "updateOrganization";
-////    }
-////
-////
 ////    @PostMapping(value = "/updateOrganization/{id}", params = {"imageUrl"})
 ////    public String postUpdateProfile(Model model, @ModelAttribute Organization organization, BindingResult result, @PathVariable Integer id, @RequestParam(value = "imageUrl", required = false) String imageUrl) {
 ////
@@ -144,7 +118,4 @@
 ////
 ////
 ////
-//}
-////
-////
-//
+

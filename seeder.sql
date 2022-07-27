@@ -17,10 +17,13 @@ VALUES ('Pinkerton BBQ', 'Best BBQ in San Antonio', '107 W Houston Street', 'San
        ('Salvation Army ARC', 'Food Distribution Center', '1324 S Flores Street', 'San Antonio', 'Texas', 78204, false, 4, 8);
 
 INSERT INTO listing (food_name, food_amt, donation_description, is_donation, exp_date, is_fulfilled, ad_user_id, ad_org_id)
-VALUES ('brisket and ribs', '50 lbs', 'Ready for pickup after 11:00 pm', true, '2022-08-06', false, 1, 1),
-       ('meatloaf and mashed potatoes', '25 lbs', 'catering contract fell through last minute', true, '2022-08-06', false, 2, 2),
-       ('canned vegetables', '250 cans', 'hoping to meet recommended macros for ready meals', false, '2022-08-06', false, 3, 3),
-       ('hot meals', '50 meals', 'seeking to support local low income daycare', false, '2022-08-06', false, 4, 4);
+VALUES ('brisket and ribs', '50 lbs', 'Ready for pickup after 11:00 pm', true, '08/06/2022', false, 1, 1),
+       ('meatloaf and mashed potatoes', '25 lbs', 'catering contract fell through last minute', true, '08/06/2022',
+        false, 2,
+        2),
+       ('canned vegetables', '250 cans', 'hoping to meet recommended macros for ready meals', false, '08/06/2022',
+        false, 3, 3),
+       ('hot meals', '50 meals', 'seeking to support local low income daycare', false, '08/06/2022', false, 4, 4);
 
 INSERT INTO category (category_name)
 VALUES ('meat'),

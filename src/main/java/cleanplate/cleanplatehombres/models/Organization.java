@@ -1,8 +1,6 @@
 package cleanplate.cleanplatehombres.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -47,9 +45,7 @@ public class Organization {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
     private List<Listing> listingList;
 
-    public Boolean isDonor() {
-        return isDonor;
-    }
+
 
     //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
 //    private List<OrganizationImage> organizationImages;
