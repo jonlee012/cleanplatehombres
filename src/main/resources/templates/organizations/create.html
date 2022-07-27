@@ -37,19 +37,6 @@
         </div>
     </div>
 
-
-
-
-<!--    <div class="organizationName col-md-6">-->
-<!--        <label for="orgtype" class="form-label h4">Donor?</label>-->
-<!--        <select id="orgtype" type="checkbox" class="form-control" th:field="*{isDonor}">-->
-<!--            <option th:field="*{isDonor}" th:value="donor">Restaurant</option>-->
-<!--            <option th:field="*{isDonor}" th:value="!donor">Charity</option>-->
-<!--        </select>-->
-<!--    </div>-->
-
-
-
         <div class="address col-md-6 m-0">
             <label for="address" class="form-label h4">Address</label>
             <input id="address" type="text" class="form-control" th:field="*{orgStAddress}">
@@ -122,17 +109,6 @@
                    th:field="*{orgZip}">
         </div>
 
-
-<!--    Commented out: Moved behavior to hidden input located down below this code area, reference #donorPicUrl-->
-<!--        <div class="col-md-3">-->
-<!--            <label for="images" class="form-label h4 ">Images</label>-->
-<!--            <input id="images" type="text" class="form-control mb-3"-->
-<!--                   th:field="*{images}">-->
-<!--        </div>-->
-
-
-
-
         <div class="row">-->
             <div class="px-2.5">
               <button type="submit" class="btn btn-outline-light mt-4"
@@ -150,9 +126,9 @@
     <input type="hidden" id="donorPicUrl" name="donorPicUrl" value="" th:field="*{images}">
     <button type="submit" class="btn btn-primary">Create</button>
 
+</form>
     </div>
 </div>
-</form>
 
 
 
