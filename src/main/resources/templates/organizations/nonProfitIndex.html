@@ -33,8 +33,8 @@
                     <pre id="coordinates" class="coordinates">
             </pre>
                 </div>
-                <div style="margin-top: -10px"><em>Drag pin to find temperatures in other cities*</em>
-                </div>
+<!--                <div style="margin-top: -10px"><em>Drag pin to find temperatures in other cities*</em>-->
+<!--                </div>-->
                 <!--                    <div class="five"  style="padding: 20px; display: flex; justify-content: center;">-->
                 <!--                        <p>-->
                 <!--                        <h3>Five day forecast: </h3>-->
@@ -72,6 +72,28 @@
 <footer th:replace="partials/footer.html :: footer">
 </footer>
 <script th:replace="partials/script.html :: script">
+</script>
+<script>
+    mapboxgl.accessToken = MAPBOX_KEY;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-98.4916, 29.4252],
+        zoom: 10
+    });
+    // Map Nav Controls
+    map.addControl(new mapboxgl.NavigationControl());
+    // const nav = new mapboxgl.NavigationControl({
+    //     showZoom: true
+    // });
+
+
+    //Starting Draggable Marker (default point)
+    var marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([-98.4916, 29.4252])
+        .addTo(map);
 </script>
 </body>
 </html>
