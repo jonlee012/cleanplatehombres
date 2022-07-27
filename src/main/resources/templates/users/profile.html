@@ -65,7 +65,7 @@
                 </div> <!--end col-6 left-->
 
             <th:block th:each="listing : ${listings}">
-                <div class="col-6" th:if="${organization.getUser()} == ${listing.getUser()}">
+                <div class="col-6" th:if="${organization.getId()} == ${listing.getOrganization().getId()}">
                     <div class="row">
                         <h4 class="text-uppercase"><span th:text="${listing.getFoodName()}"></span></h4>
                         <p><span th:text="${listing.getDonationDescription()}"></span></p>

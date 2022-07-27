@@ -47,31 +47,22 @@ public class Organization {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
     private List<Listing> listingList;
 
-    public Boolean isDonor() {
-        return isDonor;
-    }
-
     //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
 //    private List<OrganizationImage> organizationImages;
 
     public Organization() {
     }
 
-    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip) {
-        this.orgName = orgName;
-        this.orgDescription = orgDescription;
-        this.orgStAddress = orgStAddress;
-        this.orgCity = orgCity;
-        this.orgState = orgState;
-        this.orgZip = orgZip;
-
-
-    }
-  
-
-    public boolean getDonor() {
-        return isDonor;
-    }
+//    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip) {
+//        this.orgName = orgName;
+//        this.orgDescription = orgDescription;
+//        this.orgStAddress = orgStAddress;
+//        this.orgCity = orgCity;
+//        this.orgState = orgState;
+//        this.orgZip = orgZip;
+//
+//
+//    }
 
     public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState,
                         long orgZip, boolean isDonor, String images, User user, List<Listing> listingList) {
@@ -143,7 +134,6 @@ public class Organization {
         this.orgZip = orgZip;
     }
 
-
     public boolean isDonor() {
         return isDonor;
     }
@@ -152,9 +142,6 @@ public class Organization {
         isDonor = donor;
     }
 
-
-
-
     public String getImages() {
         return images;
     }
@@ -162,10 +149,6 @@ public class Organization {
     public void setImages(String images) {
         this.images = images;
     }
-
-  
-
-
 
     public User getUser() {
         return user;
@@ -182,17 +165,5 @@ public class Organization {
     public void setListingList(List<Listing> listingList) {
         this.listingList = listingList;
     }
-
-
-    public String getImages() {
-        return images;
-    }
-
-    public void setImages(String images) {
-        this.images = images;
-    }
 }
 
-
-
-}
