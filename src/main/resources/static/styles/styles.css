@@ -161,12 +161,6 @@ button, input[type="submit"] {
     padding: 15px;
     font-size: 12px;
     width: 200px;
-
-}
-
-.nav-links-ul.logged-in {
-    display: flex;
-    flex-direction: column;
 }
 
 .hero-button {
