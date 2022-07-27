@@ -47,9 +47,9 @@ public class Organization {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
     private List<Listing> listingList;
 
-    public Boolean isDonor() {
-        return isDonor;
-    }
+//    public Boolean isDonor() {
+//        return isDonor;
+//    }
 
     //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
 //    private List<OrganizationImage> organizationImages;
@@ -184,15 +184,14 @@ public class Organization {
     }
 
 
-    public String getImages() {
-        return images;
-    }
-
-    public void setImages(String images) {
-        this.images = images;
-    }
+//    public String getImages() {
+//        return images;
+//    }
+//
+//    public void setImages(String images) {
+//        this.images = images;
+//    }
 }
 
 
 
-}
