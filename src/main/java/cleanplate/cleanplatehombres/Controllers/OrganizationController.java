@@ -4,6 +4,7 @@ import cleanplate.cleanplatehombres.Repositories.ListingRepository;
 import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
 import cleanplate.cleanplatehombres.Repositories.UserRepository;
 import cleanplate.cleanplatehombres.models.Organization;
+import cleanplate.cleanplatehombres.models.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -68,7 +69,7 @@ public class OrganizationController {
     //need to implement errors for which data point is not correct
     @PostMapping("/organizations/create")
     public String post(@ModelAttribute Organization organization) {
-//        organization.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        organization.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 
         if(organization.getOrgName().equals("") ||
                 organization.getOrgDescription().equals("") ||
@@ -83,7 +84,7 @@ public class OrganizationController {
         }
 
         organizationRepository.save(organization);
-        return "redirect:/users/profile"; //still need to build out this single-org-index-page
+        return "redirect:/profile"; //still need to build out this single-org-index-page
     }
 
     @GetMapping("organizations/orgShow")
