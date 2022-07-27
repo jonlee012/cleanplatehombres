@@ -1,6 +1,7 @@
 package cleanplate.cleanplatehombres.Controllers;
 
 import cleanplate.cleanplatehombres.Repositories.ListingRepository;
+import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
 import cleanplate.cleanplatehombres.Repositories.UserRepository;
 import cleanplate.cleanplatehombres.models.Listing;
 import cleanplate.cleanplatehombres.models.User;
@@ -17,13 +18,16 @@ public class ListingController {
 
     private final ListingRepository listingRepository;
     private final UserRepository userDao;
+    private final OrganizationRepository organizationRepository;
     private final EmailService emailService;
 
     public ListingController(ListingRepository listingRepository, UserRepository userDao,
+                             OrganizationRepository organizationRepository,
                              EmailService emailService) {
 
         this.listingRepository = listingRepository;
         this.userDao = userDao;
+        this.organizationRepository = organizationRepository;
         this.emailService = emailService;
     }
 
@@ -38,6 +42,7 @@ public class ListingController {
     @GetMapping("/listings/create")
     public String create(Model model) {
         model.addAttribute("listing", new Listing());
+        model.addAttribute("organizations", organizationRepository.findAll());
             return "listings/create";
     }
 

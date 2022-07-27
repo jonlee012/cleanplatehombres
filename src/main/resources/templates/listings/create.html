@@ -18,11 +18,20 @@
                 <textarea th:field="*{donationDescription}" rows="4" class="form-control" name="donation_description"
                 ></textarea>
 
-                <label id="org">Organization ID <span class="require">*</span></label>
-                <input th:field="*{organization}" type="text" class="form-control" name="organization" />
+                <div>
+                        <label id="organization">Organization<span class="require">*</span></label>
+                <div>
+                        <select th:field="*{organization}">
+                                <option th:each="organization : ${organizations}"
+                                        th:text="${organization.getOrgName()}"
+                                        th:value="${organization.getId()}">
+                                 </option>
+                        </select>
+                </div>
+
 
                 <label id="user">User ID <span class="require">*</span></label>
-                <input th:field="*{user}" type="text" class="form-control" name="organization" />
+                <input th:field="*{user}" type="text" class="form-control" name="user" />
 
                 <label id="exp-date">Expiration Date</label>
                 <input th:field="*{expDate}" type="text" class="form-control"
@@ -31,6 +40,7 @@
                 <button type="submit" class="donate-btn">
                         Create
                 </button>
+                </div>
         </form>
         <br>
         <br>
@@ -39,8 +49,8 @@
 
 
 
-<footer th:replace="partials/footer :: footer">
-</footer>
+<!--<footer th:replace="partials/footer :: footer">-->
+<!--</footer>-->
 <script th:replace="partials/script :: script">
 </script>
 </body>
