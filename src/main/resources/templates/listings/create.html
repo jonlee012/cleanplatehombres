@@ -18,8 +18,11 @@
                 <textarea th:field="*{donationDescription}" rows="4" class="form-control" name="donation_description"
                 ></textarea>
 
-                <label id="org">Organization Code <span class="require">*</span></label>
+                <label id="org">Organization ID <span class="require">*</span></label>
                 <input th:field="*{organization}" type="text" class="form-control" name="organization" />
+
+                <label id="user">User ID <span class="require">*</span></label>
+                <input th:field="*{user}" type="text" class="form-control" name="organization" />
 
                 <label id="exp-date">Expiration Date</label>
                 <input th:field="*{expDate}" type="text" class="form-control"
@@ -29,8 +32,11 @@
                         Create
                 </button>
         </form>
+        <br>
+        <br>
 
 </div>
+
 
 
 <footer th:replace="partials/footer :: footer">
