@@ -2,11 +2,9 @@ package cleanplate.cleanplatehombres.Controllers;
 
 import cleanplate.cleanplatehombres.Repositories.ListingRepository;
 import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
-import cleanplate.cleanplatehombres.models.Listing;
+import cleanplate.cleanplatehombres.Repositories.UserRepository;
 import cleanplate.cleanplatehombres.models.Organization;
 import cleanplate.cleanplatehombres.models.User;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -23,11 +22,14 @@ public class OrganizationController {
 
     private final OrganizationRepository organizationRepository;
     private final ListingRepository listingRepository;
+    private final UserRepository userDao;
 
 
-    public OrganizationController(OrganizationRepository organizationRepository, ListingRepository listingRepository) {
+    public OrganizationController(OrganizationRepository organizationRepository, ListingRepository listingRepository,
+                                    UserRepository userDao) {
         this.organizationRepository = organizationRepository;
         this.listingRepository = listingRepository;
+        this.userDao = userDao;
     }
 
     @GetMapping("/nonProfitIndex")
@@ -63,11 +65,21 @@ public class OrganizationController {
         return "organizations/create";
     }
 
+    // THIS IS A TESTING ENDPOINT FOR MY FILESTACK
+    @GetMapping("/organizations/create2")
+    public String create2(Model model) {
+        model.addAttribute("organization", new Organization());
+        return "organizations/create_filestackCodeBase";
+    }
+
+
+
+
     //if any of the fields are empty in the registration form then return back to the create page
     //need to implement errors for which data point is not correct
     @PostMapping("/organizations/create")
     public String post(@ModelAttribute Organization organization) {
-//        organization.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        organization.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 
         if(organization.getOrgName().equals("") ||
                 organization.getOrgDescription().equals("") ||
@@ -82,7 +94,7 @@ public class OrganizationController {
         }
 
         organizationRepository.save(organization);
-        return "redirect:/users/profile"; //still need to build out this single-org-index-page
+        return "redirect:/profile"; //still need to build out this single-org-index-page
     }
 
     @GetMapping("organizations/orgShow")

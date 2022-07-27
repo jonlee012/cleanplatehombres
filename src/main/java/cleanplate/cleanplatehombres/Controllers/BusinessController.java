@@ -1,6 +1,50 @@
+
 //
 //package cleanplate.cleanplatehombres.Controllers;
 //
+//import cleanplate.cleanplatehombres.models.Organization;
+//import cleanplate.cleanplatehombres.models.User;
+//import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
+//import cleanplate.cleanplatehombres.Repositories.UserRepository;
+//import org.springframework.beans.factory.annotation.Value;
+//import org.springframework.data.repository.query.Param;
+//import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.stereotype.Controller;
+//import org.springframework.ui.Model;
+//
+//import org.springframework.validation.BindingResult;
+//import org.springframework.web.bind.annotation.*;
+//
+//import org.springframework.web.bind.annotation.GetMapping;
+//import org.springframework.web.bind.annotation.PathVariable;
+//
+//import java.util.List;
+//
+//
+//@Controller
+//public class BusinessController {
+//
+//    UserRepository userDao;
+//    OrganizationRepository organizationDao;
+//
+////    @Value("${pk.eyJ1Ijoiam9ubGVlMDEyIiwiYSI6ImNsNWw0dG5pNzBkbTYzanB4NWlnaDVwd2MifQ.eDtDtr7ygeb9fFyujvva2A}")
+////    private String apiKey;
+//
+//    public BusinessController(UserRepository userDao, OrganizationRepository organizationDao) {
+//        this.userDao = userDao;
+//        this.organizationDao = organizationDao;
+//    }
+//
+//
+//    @GetMapping("/profile/organization")
+//    public String organizationProfile(Model model) {
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        List<Organization> organizations = organizationDao.getOrganizationByUser(user);
+//        model.addAttribute("organization", organizations);
+////        model.addAttribute("images", organizations.getOrganizationImages());
+////        if (organization.isDonor()) {
+//    }
+//}
 //import cleanplate.cleanplatehombres.models.Organization;
 //import cleanplate.cleanplatehombres.models.User;
 //import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;

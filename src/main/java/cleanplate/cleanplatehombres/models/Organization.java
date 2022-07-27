@@ -1,6 +1,8 @@
 package cleanplate.cleanplatehombres.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -45,29 +47,22 @@ public class Organization {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
     private List<Listing> listingList;
 
-
-
     //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
 //    private List<OrganizationImage> organizationImages;
 
     public Organization() {
     }
 
-    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip) {
-        this.orgName = orgName;
-        this.orgDescription = orgDescription;
-        this.orgStAddress = orgStAddress;
-        this.orgCity = orgCity;
-        this.orgState = orgState;
-        this.orgZip = orgZip;
-
-
-    }
-  
-
-    public boolean getDonor() {
-        return isDonor;
-    }
+//    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip) {
+//        this.orgName = orgName;
+//        this.orgDescription = orgDescription;
+//        this.orgStAddress = orgStAddress;
+//        this.orgCity = orgCity;
+//        this.orgState = orgState;
+//        this.orgZip = orgZip;
+//
+//
+//    }
 
     public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState,
                         long orgZip, boolean isDonor, String images, User user, List<Listing> listingList) {
@@ -139,7 +134,6 @@ public class Organization {
         this.orgZip = orgZip;
     }
 
-
     public boolean isDonor() {
         return isDonor;
     }
@@ -148,20 +142,13 @@ public class Organization {
         isDonor = donor;
     }
 
+    public String getImages() {
+        return images;
+    }
 
-
-
-//    public String getImages() {
-//        return images;
-//    }
-//
-//    public void setImages(String images) {
-//        this.images = images;
-//    }
-
-  
-
-
+    public void setImages(String images) {
+        this.images = images;
+    }
 
     public User getUser() {
         return user;
@@ -180,14 +167,13 @@ public class Organization {
     }
 
 
-    public String getImages() {
-        return images;
-    }
 
-    public void setImages(String images) {
-        this.images = images;
-    }
+//    public String getImages() {
+//        return images;
+//    }
+//
+//    public void setImages(String images) {
+//        this.images = images;
+//    }
 }
-
-
 
