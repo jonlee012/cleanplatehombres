@@ -4,7 +4,16 @@
 <head th:replace="partials/head :: head">
     <meta charset="UTF-8">
     <title>Organization Index</title>
-
+    <style>
+        .mapMarker {
+            background-image: url('https://i.ibb.co/bJz3x34/H3-Map-Logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 65px;
+            height: 75px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <nav th:replace="partials/topnav :: navbar">
@@ -14,7 +23,6 @@
 <!--        <h1> These are the Restaurant listings</h1>-->
             <!--                start-->
             <section class="container-fluid" style="margin-top: 40px">
-                <form>
                     <div class="container">
                         <div class="row">
                             <div class="col-10">
@@ -25,7 +33,6 @@
                             </div>
                         </div>
                     </div>
-                </form>
 <!--                <div style="margin-top: 10px">-->
 <!--                    <div class='mx-1 mt-3' id='map' style='height: 400px; width: auto'></div>-->
 <!--&lt;!&ndash;                    <pre id="coordinates" class="coordinates">&ndash;&gt;-->
@@ -38,10 +45,7 @@
                                         </pre>
 
 
-<!--&lt;!&ndash;                                            <label class="zoom-label text-dark label">ZOOM</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <button id="zoom5" value="zoom x 5">X 5</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <button id="zoom10" value="zoom x 10">X 10</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <button id="zoom15" value="zoom x 15">X 15</button>&ndash;&gt;-->
+
 
                         </div>
                     </div>
@@ -53,6 +57,14 @@
 <!--                    &lt;!&ndash;                        <button id="button" type="button">Search</button>&ndash;&gt;-->
 
 
+                </div>
+<!--                <label class="zoom-label text-dark label">ZOOM</label>-->
+                <div class="container">
+                <div class="row">
+                <button type="button" class="btn btn-light col" id="zoom5" value="zoom x 5" >Zoom 5</button>
+                <button type="button" class="btn btn-light col"  id="zoom10" value="zoom x 10" >Zoom 10</button>
+                <button type="button" class="btn btn-light col"  id="zoom15" value="zoom x 15" >Zoom 15</button>
+                </div>
                 </div>
 <!--                <div id="mapboxData" th:each="organization : ${organizations}" class="flip-card card-item card-deck mt-2 my-2 m-lg-2">-->
 <!--                    <div class="flip-card-inner" th:each="organization : ${organizations}">-->
@@ -109,21 +121,29 @@
 
 <footer th:replace="partials/footer.html :: footer"></footer>
 <script th:replace="partials/script.html :: script"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=${GOOGLE_KEY}&libraries=places"></script>
 
 
 <script th:inline="javascript">
     /*<![CDATA[*/
-    console.log("Sanity confirmed");
+    // console.log("Sanity confirmed");
+    mapboxgl.accessToken = MAPBOX_KEY;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [-98.4916, 29.4252],
+        zoom: 7
+    });
     var test = /*[[${organizations}]]*/ 'Test Default';
-    console.log(test);
+    // console.log(test);
     var orgName = test.map(({ orgName }) => orgName)
 
     var address = test.map(({ orgStAddress }) => orgStAddress)
     var city = test.map(({ orgCity }) => orgCity)
     var state = test.map(({ orgState }) => orgState)
     var zip = test.map(({ orgZip }) => orgZip)
-    console.log(orgName);
+
+    var entireAddress = address + ", " + city + ", " + state + ", " + zip;
+    console.log(entireAddress);
 
     // console.log(address);
     // console.log(city);
@@ -131,36 +151,68 @@
     // console.log(zip);
     //
     // // var donorAddress = [];
-    //
-    // for (var i = 0; i < result.length; i++) {
-    //     // console.log(result[i]);
-    //     // donorAddress.push(result[i]);
-    //
-    // //     function geocode(result, MAPBOX_KEY) {
-    // // var baseUrl = 'https://api.mapbox.com';
-    // // var endPoint = '/geocoding/v5/mapbox.places/';
-    // // return fetch(baseUrl + endPoint + encodeURIComponent(result) + '.json' + "?" + 'access_token=' + MAPBOX_KEY)
-    // //     .then(function(res) {
-    // //         return res.json();
-    // //         // to get all the data from the request, comment out the following three lines...
-    // //     }).then(function(data) {
-    // //         return data.features[0].center;
-    // //     });
-    // //         console.log(data);
-    // //     }
-    //
+    function geocode(search, token) {
+    var baseUrl = 'https://api.mapbox.com';
+    var endPoint = '/geocoding/v5/mapbox.places/';
+    return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+        .then(function(res) {
+            return res.json();
+            // to get all the data from the request, comment out the following three lines...
+        }).then(function(data) {
+            return data.features[0].center;
+        });
+    }
+
+    //Reference for marker function : from curriculum under mapbox module
+    // function placeMarkerAndPopup(info, token, map) {
+    //     geocode(info.address, token).then(function(coordinates) {
+    //         var popup = new mapboxgl.Popup()
+    //             .setHTML(info.popupHTML);
+    //         var marker = new mapboxgl.Marker()
+    //             .setLngLat(coordinates)
+    //             .addTo(map)
+    //             .setPopup(popup);
+    //         popup.addTo(map);
+    //     });
     // }
-    // // console.log(data.features[0].center);
-    //
-    // // console.log(donorAddress[i]);
-    //
-    mapboxgl.accessToken = MAPBOX_KEY;
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-98.4916, 29.4252],
-        zoom: 10
-    });
+
+    function placeMarker(address, token, map){
+        geocode(address, token).then(function(coordinates) {
+                    var marker = new mapboxgl.Marker()
+                        .setLngLat(coordinates)
+                        .addTo(map)
+
+                });
+
+    }
+
+    function placeMarkerAndPopup(address, token, map){
+        geocode(address, token).then(function(coordinates) {
+            var popup = new mapboxgl.Popup()
+                .setHTML("<h1>" + address + "</h1>");
+            var marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map)
+                .setPopup(popup);
+            popup.addTo(map);
+
+                });
+
+    }
+
+
+    for (var i = 0; i < test.length; i++) {
+
+
+        var entireAddress = test[i].orgStAddress + ", " + test[i].orgCity + ", " + test[i].orgState + ", " + test[i].orgZip;
+        console.log(entireAddress);
+
+        // placeMarker(entireAddress, MAPBOX_KEY, map)
+        placeMarkerAndPopup(entireAddress, MAPBOX_KEY, map)
+
+        }
+
+
     // Map Nav Controls
     map.addControl(new mapboxgl.NavigationControl());
     // const nav = new mapboxgl.NavigationControl({
@@ -179,29 +231,26 @@
     // myLocation.then(function(data) {
     //     $('#locationPrinted').text(data);});
     // console.log(data);
-    // // $(".btn").click(function (e) {
-    // //     e.preventDefault()
-    // //     let searchInput = $("#input").val();
-    // //     geocode(searchInput, MAPBOX_KEY).then(function (data) {
-    // //         longitude = data[0];
-    // //         latitude = data[1];
-    // //         getData();
-    // //     })
-    // // })
-    // const MAPBOX_KEY = 'pk.eyJ1Ijoiam9ubGVlMDEyIiwiYSI6ImNsMnV5bDBkajA2bmkzcHJ0ZjFnMm1sNW4ifQ.lD5pxEB7qtXk2_A0eflZMw';
-    mapboxgl.accessToken = MAPBOX_KEY;
-    const layerList = document.getElementById('orgMark');
-    const inputs = layerList.getElementsByTagName('input');
 
-    for (const input of inputs) {
-        input.onclick = (layer) => {
-            const layerId = layer.target.id;
-            map.setStyle('mapbox://styles/mapbox/' + layerId);
-        };
-    }
-    const nav = new mapboxgl.NavigationControl({
-        showZoom: true
+
+    // }
+
+
+
+    $(document).ready(function () {
+        $(".removeMarkers").click(function () {
+            $('marker').toggle()
+        });
     });
+    // $(".btn").click(function (e) {
+    //     e.preventDefault()
+    //     let searchInput = $("#input").val();
+    //     geocode(searchInput, MAPBOX_KEY).then(function (data) {
+    //         longitude = data[0];
+    //         latitude = data[1];
+    //         // getData();
+    //     })
+    // })
 
     $(document).ready(function () {
         $('#zoom5').click(function (e) {
@@ -219,153 +268,22 @@
         });
     });
 
+// // pinkertons bbq
+//     const popup = new mapboxgl.Popup({ closeOnClick: false })
+//         .setLngLat([-98.494510, 29.426490])
+//         .setHTML('<h5>Pinkertons BBQ</h5>' + '<p>107 W Houston Street</p>')
+//         .addTo(map);
+//     // yardhouse
+//    new mapboxgl.Popup({ closeOnClick: false })
+//
+//             .setLngLat([-98.484879, 29.423950])
+//         .setHTML('<h5>Yardhouse</h5>' + '<p>107 W Houston Street</p>')
+//         .addTo(map);
 
-    $(document).ready(function () {
-        $(".removeMarkers").click(function () {
-            $('marker').toggle()
-        });
-    });
 
-  // const geojson = {
-  //       "features": [
-  //           {
-  //               "type": "Feature",
-  //               "properties": {
-  //                   "title": "Lincoln Park",
-  //                   "description": "A northside park that is home to the Lincoln Park Zoo"
-  //               },
-  //               "geometry": {
-  //                   "coordinates": [
-  //                       -87.637596,
-  //                       41.940403
-  //                   ],
-  //                   "type": "Point"
-  //               }
-  //           },
-  //           {
-  //               "type": "Feature",
-  //               "properties": {
-  //                   "title": "Burnham Park",
-  //                   "description": "A lakefront park on Chicago's south side"
-  //               },
-  //               "geometry": {
-  //                   "coordinates": [
-  //                       -87.603735,
-  //                       41.829985
-  //                   ],
-  //                   "type": "Point"
-  //               }
-  //           },
-  //           {
-  //               "type": "Feature",
-  //               "properties": {
-  //                   "title": "Millennium Park",
-  //                   "description": "A downtown park known for its art installations and unique architecture"
-  //               },
-  //               "geometry": {
-  //                   "coordinates": [
-  //                       -87.622554,
-  //                       41.882534
-  //                   ],
-  //                   "type": "Point"
-  //               }
-  //           },
-  //           {
-  //               "type": "Feature",
-  //               "properties": {
-  //                   "title": "Grant Park",
-  //                   "description": "A downtown park that is the site of many of Chicago's favorite festivals and events"
-  //               },
-  //               "geometry": {
-  //                   "coordinates": [
-  //                       -87.619185,
-  //                       41.876367
-  //                   ],
-  //                   "type": "Point"
-  //               }
-  //           },
-  //           {
-  //               "type": "Feature",
-  //               "properties": {
-  //                   "title": "Humboldt Park",
-  //                   "description": "A large park on Chicago's northwest side"
-  //               },
-  //               "geometry": {
-  //                   "coordinates": [
-  //                       -87.70199,
-  //                       41.905423
-  //                   ],
-  //                   "type": "Point"
-  //               }
-  //           },
-  //           {
-  //               "type": "Feature",
-  //               "properties": {
-  //                   "title": "Douglas Park",
-  //                   "description": "A large park near in Chicago's North Lawndale neighborhood"
-  //               },
-  //               "geometry": {
-  //                   "coordinates": [
-  //                       -87.699329,
-  //                       41.860092
-  //                   ],
-  //                   "type": "Point"
-  //               }
-  //           },
-  //           {
-  //               "type": "Feature",
-  //               "properties": {
-  //                   "title": "Calumet Park",
-  //                   "description": "A park on the Illinois-Indiana border featuring a historic fieldhouse"
-  //               },
-  //               "geometry": {
-  //                   "coordinates": [
-  //                       -87.530221,
-  //                       41.715515
-  //                   ],
-  //                   "type": "Point"
-  //               }
-  //           },
-  //           {
-  //               "type": "Feature",
-  //               "properties": {
-  //                   "title": "Jackson Park",
-  //                   "description": "A lakeside park that was the site of the 1893 World's Fair"
-  //               },
-  //               "geometry": {
-  //                   "coordinates": [
-  //                       -87.580389,
-  //                       41.783185
-  //                   ],
-  //                   "type": "Point"
-  //               }
-  //           },
-  //           {
-  //               "type": "Feature",
-  //               "properties": {
-  //                   "title": "Columbus Park",
-  //                   "description": "A large park in Chicago's Austin neighborhood"
-  //               },
-  //               "geometry": {
-  //                   "coordinates": [
-  //                       -87.769775,
-  //                       41.873683
-  //                   ],
-  //                   "type": "Point"
-  //               }
-  //           }
-  //       ],
-  //       "type": "FeatureCollection"
-  //   }
 
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-98.4916, 29.4252],
-        zoom: 10
-    });
 
-    const description = geojson.features[0].properties.description;
+    // const description = geojson.features[0].properties.description;
     // Add markers to the map.
 
 //     const geocode = (inputLocation, inputName) => {
@@ -379,7 +297,7 @@
 //                 } catch (e) {
 //                     console.log(e);
 //                 }
-//                 for (const feature of geojson.features) {
+//                 for (var i = 0; i < address.length; i++) {
 // // create a HTML element for each feature
 //
 //                     const el = document.createElement('div');
@@ -391,24 +309,10 @@
 //                     new mapboxgl.Marker(el)
 //                         .setLngLat(data.features[0].center).addTo(map)
 //                         .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
-//
-//                             .setHTML(`
-// <!--<div class="reviews "><div id="mapboxData" class="flip-card card-item card-deck">-->
-// <!--            <div class="flip-card-inner"">-->
-// <!--                <p class="flip-card-front h3"></p> + -->
-// ${inputName} <br> ${inputLocation}
-// <!--</div>-->
-// <!--            </div>-->
-// <!--        </div>-->
-// <!--    </div>-->
-// <!--</div>-->
-// `)
-//
-//                             .addTo(map))
+//                         .setHTML(`${orgName} <br> ${address}`)
+//                         .addTo(map))
 //                         .setLngLat(data.features[0].center).addTo(map);
 //
-//
-//                     // })
 //                 }
 //             })
 //     }

@@ -15,7 +15,6 @@
             <h1> These are the Non-Profit listings</h1>
 
             <!--                start-->
-            <section class="container-fluid" style="margin-top: 40px">
                 <form>
                     <div class="container">
                         <div class="row">
@@ -28,11 +27,15 @@
                         </div>
                     </div>
                 </form>
-                <div style="margin-top: 10px">
-                    <div class='mx-1 mt-3' id='map' style='height: 400px; width: auto'></div>
-                    <pre id="coordinates" class="coordinates">
-            </pre>
+
+            <div class="mapbox">
+                <div class="container-fluid" id='map' style='height: 400px; width: auto'>
+                    <div class="zoom-container text-center justify-content-center align-items-center" id="orgMark">
+                              <pre id="coordinates" class="coordinates"></pre>
+                    </div>
                 </div>
+            </div>
+
 <!--                <div style="margin-top: -10px"><em>Drag pin to find temperatures in other cities*</em>-->
 <!--                </div>-->
                 <!--                    <div class="five"  style="padding: 20px; display: flex; justify-content: center;">-->
@@ -43,7 +46,13 @@
                 <!--                    <div>-->
                 <!--                        <div class="weatherBox row" id="insertWeatherBoxes"></div>-->
                 <!--                    </div>-->
-            </section>
+            <div class="container">
+                <div class="row">
+                    <button type="button" class="btn btn-light col" id="zoom5" value="zoom x 5" >Zoom 5</button>
+                    <button type="button" class="btn btn-light col"  id="zoom10" value="zoom x 10" >Zoom 10</button>
+                    <button type="button" class="btn btn-light col"  id="zoom15" value="zoom x 15" >Zoom 15</button>
+                </div>
+            </div>
 
             <!--                end-->
             <br>
@@ -73,13 +82,49 @@
 </footer>
 <script th:replace="partials/script.html :: script">
 </script>
-<script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    console.log("Sanity confirmed");
+    var test = /*[[${organizations}]]*/ 'Test Default';
+    // console.log(test);
+    var orgName = test.map(({ orgName }) => orgName)
+
+    var address = test.map(({ orgStAddress }) => orgStAddress)
+    var city = test.map(({ orgCity }) => orgCity)
+    var state = test.map(({ orgState }) => orgState)
+    var zip = test.map(({ orgZip }) => orgZip)
+    // console.log(orgName);
+
+    // console.log(address);
+    // console.log(city);
+    // console.log(state);
+    // console.log(zip);
+    //
+    // // var donorAddress = [];
+    //
+    for (var i = 0; i < address.length; i++) {
+        console.log(address[i]);
+        // donorAddress.push(result[i]);
+
+        // $(".btn").click(function (e) {
+        //     e.preventDefault()
+        // let searchInput = $("#input").val();
+        // geocode(searchInput, MAPBOX_KEY).then(function (data) {
+        //     longitude = address[0];
+        //     latitude = address[1];
+        //
+        //     // getData();
+        // })
+        // })
+    }
+
+    //
     mapboxgl.accessToken = MAPBOX_KEY;
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/mapbox/light-v10',
         center: [-98.4916, 29.4252],
-        zoom: 10
+        zoom: 7
     });
     // Map Nav Controls
     map.addControl(new mapboxgl.NavigationControl());
@@ -94,6 +139,110 @@
     })
         .setLngLat([-98.4916, 29.4252])
         .addTo(map);
+    //
+    // let myLocation = geocode(search, MAPBOX_KEY);
+    // myLocation.then(function(data) {
+    //     $('#locationPrinted').text(data);});
+    // console.log(data);
+    // // $(".btn").click(function (e) {
+    // //     e.preventDefault()
+    // //     let searchInput = $("#input").val();
+    // //     geocode(searchInput, MAPBOX_KEY).then(function (data) {
+    // //         longitude = data[0];
+    // //         latitude = data[1];
+    // //         getData();
+    // //     })
+    // // })
+
+    // }
+
+
+
+    $(document).ready(function () {
+        $(".removeMarkers").click(function () {
+            $('marker').toggle()
+        });
+    });
+
+
+    $(document).ready(function () {
+        $('#zoom5').click(function (e) {
+            map.flyTo({zoom: 5});
+        });
+        $(document).ready(function () {
+            $('#zoom10').click(function (e) {
+                map.flyTo({zoom: 10});
+            });
+            $(document).ready(function () {
+                $('#zoom15').click(function (e) {
+                    map.flyTo({zoom: 15});
+                })
+            });
+        });
+    });
+
+    // // pinkertons bbq
+    //     const popup = new mapboxgl.Popup({ closeOnClick: false })
+    //         .setLngLat([-98.494510, 29.426490])
+    //         .setHTML('<h5>Pinkertons BBQ</h5>' + '<p>107 W Houston Street</p>')
+    //         .addTo(map);
+    //     // yardhouse
+    //    new mapboxgl.Popup({ closeOnClick: false })
+    //
+    //             .setLngLat([-98.484879, 29.423950])
+    //         .setHTML('<h5>Yardhouse</h5>' + '<p>107 W Houston Street</p>')
+    //         .addTo(map);
+
+
+
+
+    // const description = geojson.features[0].properties.description;
+    // Add markers to the map.
+
+    const geocode = (inputLocation, inputName) => {
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${address[0]+city[0]+state[0]+zip[0]}.json?&access_token=${MAPBOX_KEY}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                try {
+                    map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
+
+                } catch (e) {
+                    console.log(e);
+                }
+                for (const feature of geojson.features) {
+// create a HTML element for each feature
+
+                    const el = document.createElement('div');
+                    el.className = 'mapMarker';
+
+// make a marker for each feature and add it to the map
+
+
+                    new mapboxgl.Marker(el)
+                        .setLngLat(data.features[0].center).addTo(map)
+                        .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
+                            .setHTML(`${orgName} <br> ${address}`)
+                            .addTo(map))
+                        .setLngLat(data.features[0].center).addTo(map);
+
+                }
+            })
+    }
+
+    // $(window).ready( function(){
+
+
+    // $(document).on("mousemove", "#mapboxData", function () {
+    //     console.log(this)
+    //     let orgLocation = this.querySelector('#location').innerText
+    //     let organizationName = this.getElementsByTagName("p")[0].innerText
+    //     console.log("organizationName", organizationName);
+    //     geocode(orgLocation, organizationName)
+    //     // })
+    // });
+
+    /*]]>*/
 </script>
 </body>
 </html>
