@@ -144,9 +144,9 @@ public class Organization {
     }
 
 
-    public boolean isDonor() {
-        return isDonor;
-    }
+//    public boolean isDonor() {
+//        return isDonor;
+//    }
 
     public void setDonor(boolean donor) {
         isDonor = donor;
@@ -155,13 +155,13 @@ public class Organization {
 
 
 
-    public String getImages() {
-        return images;
-    }
-
-    public void setImages(String images) {
-        this.images = images;
-    }
+//    public String getImages() {
+//        return images;
+//    }
+//
+//    public void setImages(String images) {
+//        this.images = images;
+//    }
 
   
 
@@ -195,4 +195,3 @@ public class Organization {
 
 
 
-}
