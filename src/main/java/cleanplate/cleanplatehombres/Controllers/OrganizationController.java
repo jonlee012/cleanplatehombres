@@ -94,7 +94,7 @@ public class OrganizationController {
         }
 
         organizationRepository.save(organization);
-        return "redirect:/users/profile"; //still need to build out this single-org-index-page
+        return "redirect:/profile"; //still need to build out this single-org-index-page
     }
 
     @GetMapping("organizations/orgShow")

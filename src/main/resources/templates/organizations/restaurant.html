@@ -118,20 +118,15 @@
     }
 
     for (var i = 0; i < test.length; i++) {
-        if (test.donor === 'true') {
-
-        }
-
-        console.log(orgName);
         var isDonor = test[i].donor
-        console.log(isDonor);
-
         var orgName = test[i].orgName
         var entireAddress = test[i].orgStAddress + ", " + test[i].orgCity + ", " + test[i].orgState + ", " + test[i].orgZip;
-        console.log(entireAddress);
-
-        placeMarkerAndPopup(orgName, entireAddress, MAPBOX_KEY, map)
-
+        if (isDonor) {
+            console.log(orgName);
+            console.log(isDonor);
+            console.log(entireAddress);
+            placeMarkerAndPopup(orgName, entireAddress, MAPBOX_KEY, map)
+        }
     }
     // Map Nav Controls
     map.addControl(new mapboxgl.NavigationControl());
