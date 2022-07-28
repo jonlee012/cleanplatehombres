@@ -12,6 +12,8 @@
 
     <form th:action="@{/organizations/edit}" method="POST" th:object="${organization}" class="second-tier-container form">
 
+        <input th:field="*{id}" th:value="${organization.getId()}" hidden>
+
         <div class="organizationName col-md-6">
             <label for="name" class="form-label h4">Organization Name</label>
             <input id="name" type="text" class="form-control" th:field="*{orgName}">
