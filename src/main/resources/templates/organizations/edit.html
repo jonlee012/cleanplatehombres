@@ -2,29 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="partials/head :: head"></head>
+
 <body>
-<nav th:replace="partials/topnav :: navbar">
-</nav>
-<h1>Edit Organization Info</h1>
-<form th:action="@{/organizations/edit}" method="POST" th:object="${organization}" class="second-tier-container form">
-    <div class="organizationName col-md-6">
-        <label for="name" class="form-label h4">Organization Name</label>
-        <input id="name" type="text" class="form-control" th:field="*{orgName}">
-    </div>
 
-    <div class="organizationName col-md-6">
-        <label for="description" class="form-label h4">Organization Description</label>
-        <input id="description" type="text" class="form-control" th:field="*{orgDescription}">
-    </div>
+<nav th:replace="partials/topnav :: navbar"></nav>
 
-    <div class="col-md-6 form-group">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" th:field="*{donor}" id="isDonor">
-            <label class="form-check-label" for="isDonor">
-                Check if you are a donor
-            </label>
+<div class="login-register">
+    <h1>Edit Organization Info</h1>
+
+    <form th:action="@{/organizations/edit}" method="POST" th:object="${organization}" class="second-tier-container form">
+
+        <div class="organizationName col-md-6">
+            <label for="name" class="form-label h4">Organization Name</label>
+            <input id="name" type="text" class="form-control" th:field="*{orgName}">
         </div>
-    </div>
+
+        <div class="organizationName col-md-6">
+            <label for="description" class="form-label h4">Organization Description</label>
+            <input id="description" type="text" class="form-control" th:field="*{orgDescription}">
+        </div>
+
+        <div class="col-md-6 form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" th:field="*{donor}" id="isDonor">
+                <label class="form-check-label" for="isDonor">
+                    Check if you are a donor
+                </label>
+            </div>
+        </div>
+
+
+
+</div>
 
 
 
@@ -38,7 +47,7 @@
 
 
 
-    <div class="row text-white ">
+    <div class="row">
         <div class="address col-md-6 m-0">
             <label for="address" class="form-label h4">Address</label>
             <input id="address" type="text" class="form-control" th:field="*{orgStAddress}">
@@ -111,6 +120,7 @@
                    th:field="*{orgZip}">
         </div>
         <div class="col-md-3">
+            <input th:field="*{images}" th:value="${organization.getImages()}" hidden>
             <label for="images" class="form-label h4 ">Images</label>
             <input id="images" type="text" class="form-control mb-3"
                    th:field="*{images}">
