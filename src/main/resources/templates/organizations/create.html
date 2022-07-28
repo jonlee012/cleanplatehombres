@@ -11,44 +11,31 @@
 </nav>
 <h1>Create Organization</h1>
 
-<hr>
-<div>Add an Image</div>
+
+<div style="border: 2px solid black">Add an Image</div>
 <button class="upload">Upload File</button>
 <div>
-<hr>
 
-<form th:action="@{/organizations/create}" method="POST" th:object="${organization}" class="second-tier-container form">
-    <div class="organizationName col-md-6">
-        <label for="name" class="form-label h4">Organization Name</label>
-        <input id="name" type="text" class="form-control" th:field="*{orgName}">
-    </div>
 
-    <div class="organizationName col-md-6">
-        <label for="description" class="form-label h4">Organization Description</label>
-        <input id="description" type="text" class="form-control" th:field="*{orgDescription}">
-    </div>
-
-    <div class="col-md-6 form-group">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" th:field="*{donor}" id="isDonor">
-            <label class="form-check-label" for="isDonor">
-                Check if you are a donor
-            </label>
+    <form th:action="@{/organizations/create}" method="POST" th:object="${organization}" class="second-tier-container form">
+        <div class="organizationName col-md-6">
+            <label for="name" class="form-label h4">Organization Name</label>
+            <input id="name" type="text" class="form-control" th:field="*{orgName}">
         </div>
-    </div>
 
+        <div class="organizationName col-md-6">
+            <label for="description" class="form-label h4">Organization Description</label>
+            <input id="description" type="text" class="form-control" th:field="*{orgDescription}">
+        </div>
 
-
-
-<!--    <div class="organizationName col-md-6">-->
-<!--        <label for="orgtype" class="form-label h4">Donor?</label>-->
-<!--        <select id="orgtype" type="checkbox" class="form-control" th:field="*{isDonor}">-->
-<!--            <option th:field="*{isDonor}" th:value="donor">Restaurant</option>-->
-<!--            <option th:field="*{isDonor}" th:value="!donor">Charity</option>-->
-<!--        </select>-->
-<!--    </div>-->
-
-
+        <div class="col-md-6 form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" th:field="*{donor}" id="isDonor">
+                <label class="form-check-label" for="isDonor">
+                    Check if you are a donor
+                </label>
+            </div>
+        </div>
 
         <div class="address col-md-6 m-0">
             <label for="address" class="form-label h4">Address</label>
@@ -122,48 +109,30 @@
                    th:field="*{orgZip}">
         </div>
 
+        <!--        <div class="row">&ndash;&gt;-->
+        <!--            <div class="px-2.5">-->
+        <!--              <button type="submit" class="btn btn-outline-light mt-4"-->
+        <!--                      value="Sign me up!" id="sub-btn" style="color: black">Submit-->
+        <!--              </button>-->
+        <!--            </div>-->
+        <!--        </div>-->
 
-<!--    Commented out: Moved behavior to hidden input located down below this code area, reference #donorPicUrl-->
-<!--        <div class="col-md-3">-->
-<!--            <label for="images" class="form-label h4 ">Images</label>-->
-<!--            <input id="images" type="text" class="form-control mb-3"-->
-<!--                   th:field="*{images}">-->
-<!--        </div>-->
-
-
-
-
-        <div class="row">-->
-            <div class="px-2.5">
-              <button type="submit" class="btn btn-outline-light mt-4"
-                      value="Sign me up!" id="sub-btn" style="color: black">Submit
-              </button>
-            </div>
-        </div>
-
-
-
-<!--        <div class="col-md-3">-->
-<!--            <label for="user_info" class="form-label h4 ">User Id</label>-->
-<!--            <input id="user_info" type="text" class="form-control mb-3"-->
-<!--                   th:field="*{user}">-->
-<!--        </div>-->
         <input th:field="*{user}" th:value="${organization.getUser()}" type="text" class="form-control"
                name="user" hidden >
 
-    <button type="submit" class="btn btn-primary">
-        Create
-    </button>
+        <!--    <button type="submit" class="btn btn-primary">-->
+        <!--        Create </button>-->
 
-    <input type="hidden" id="donorPicUrl" name="donorPicUrl" value="" th:field="*{images}">
-    <button type="submit" class="btn btn-primary">Create</button>
+        <input type="hidden" id="donorPicUrl" name="donorPicUrl" value="" th:field="*{images}">
+        <button type="submit" class="btn btn-primary">Create</button>
+
+    </form>
+
+</body>
 
 
-    </div>
-</div>
-</form>
 
-    </div>
+
 
 
 <footer th:replace="partials/footer :: footer">
@@ -171,7 +140,6 @@
 <script th:replace="partials/script :: script">
 </script>
 
-</body>
 
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <script>
@@ -191,7 +159,6 @@
     });
 </script>
 </html>
-
 
 
 
