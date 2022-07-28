@@ -41,6 +41,9 @@
 
                 <div class="col-6">
                     <div class="row">
+<!--                        <div th:src="${organization.getImages()}"></div>-->
+
+                        <img th:src="@{${organization.getImages()}}" />
                         <!--/*@thymesVar id="getOrgName" type=""*/-->
                         <h4 class="text-uppercase"><span th:text="${organization.getOrgName()}"></span></h4>
                         <p>Description: <span th:text="${organization.getOrgDescription()}"></span></p>
