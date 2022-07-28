@@ -17,6 +17,7 @@
 <div>
 
 
+
 <form th:action="@{/organizations/create}" method="POST" th:object="${organization}" class="second-tier-container form">
     <div class="organizationName col-md-6">
         <label for="name" class="form-label h4">Organization Name</label>
@@ -36,6 +37,7 @@
             </label>
         </div>
     </div>
+
 
         <div class="address col-md-6 m-0">
             <label for="address" class="form-label h4">Address</label>
@@ -109,6 +111,28 @@
                    th:field="*{orgZip}">
         </div>
 
+
+        <!--        <div class="row">&ndash;&gt;-->
+        <!--            <div class="px-2.5">-->
+        <!--              <button type="submit" class="btn btn-outline-light mt-4"-->
+        <!--                      value="Sign me up!" id="sub-btn" style="color: black">Submit-->
+        <!--              </button>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+        <input th:field="*{user}" th:value="${organization.getUser()}" type="text" class="form-control"
+               name="user" hidden >
+
+        <!--    <button type="submit" class="btn btn-primary">-->
+        <!--        Create </button>-->
+
+        <input type="hidden" id="donorPicUrl" name="donorPicUrl" value="" th:field="*{images}">
+        <button type="submit" class="btn btn-primary">Create</button>
+
+    </form>
+
+</body>
+
 <!--        <div class="row">&ndash;&gt;-->
 <!--            <div class="px-2.5">-->
 <!--              <button type="submit" class="btn btn-outline-light mt-4"-->
@@ -122,9 +146,6 @@
 
 <!--    <button type="submit" class="btn btn-primary">-->
 <!--        Create </button>-->
-
-    <input type="hidden" id="donorPicUrl" name="donorPicUrl" value="" th:field="*{images}">
-    <button type="submit" class="btn btn-primary">Create</button>
 
 </form>
 
@@ -159,7 +180,6 @@
     });
 </script>
 </html>
-
 
 
 
