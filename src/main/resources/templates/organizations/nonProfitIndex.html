@@ -88,7 +88,9 @@
     function placeMarkerAndPopup(name, address, token, map) {
         geocode(address, token).then(function (coordinates) {
             var popup = new mapboxgl.Popup()
-                .setHTML("<h6 style='max-width: 150px'>" + name + "</h6>" + "<p>" + address + "</p>");
+                .setHTML(
+                    "<h6 style='max-width: 150px'>" + name + "</h6>" +
+                    "<p>" + address + "</p>");
             var marker = new mapboxgl.Marker()
                 .setLngLat(coordinates)
                 .addTo(map)
@@ -98,21 +100,15 @@
     }
 
     for (var i = 0; i < test.length; i++) {
-        // if(test.donor === 'true'){
-        //
-        // }
-
-        console.log(orgName);
         var isDonor = test[i].donor
-        console.log(isDonor);
-
         var orgName = test[i].orgName
         var entireAddress = test[i].orgStAddress + ", " + test[i].orgCity + ", " + test[i].orgState + ", " + test[i].orgZip;
-        console.log(entireAddress);
-
-        // placeMarker(entireAddress, MAPBOX_KEY, map)
-        placeMarkerAndPopup(orgName, entireAddress, MAPBOX_KEY, map)
-
+        if (!isDonor) {
+            console.log(orgName);
+            console.log(isDonor);
+            console.log(entireAddress);
+            placeMarkerAndPopup(orgName, entireAddress, MAPBOX_KEY, map)
+        }
     }
     // Map Nav Controls
     map.addControl(new mapboxgl.NavigationControl());

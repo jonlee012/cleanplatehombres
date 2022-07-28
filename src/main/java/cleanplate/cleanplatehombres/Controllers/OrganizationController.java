@@ -105,11 +105,13 @@ public class OrganizationController {
     @GetMapping("organizations/edit/{id}")
     public String editOrganization(@PathVariable Integer id, Model model) {
         model.addAttribute("organization", organizationRepository.getById(id));
+
         return "organizations/edit";
     }
 
     @PostMapping("organizations/edit")
-    public String editOrganization(@ModelAttribute Organization organization){
+    public String editOrganization(@ModelAttribute Organization organization, Integer id){
+        organizationRepository.deleteById(organization.getId());
         organizationRepository.save(organization);
         return "redirect:/nonProfitIndex";
     }
