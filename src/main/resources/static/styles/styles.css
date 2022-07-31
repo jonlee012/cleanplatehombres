@@ -501,19 +501,24 @@ h1 {
     display: flex;
     gap: 20px;
     padding: 30px;
-
 }
 
 .about-project-left {
-    border: 1px solid red;
-
+    /* border: 1px solid red; */
     width: 50%;
+}
 
+.about-project-left img {
+    height: 100%;
+    width: 100%;
 }
 
 .about-project-right {
     width: 50%;
+    padding: 25px;
 }
+
+
 
 /* TEAM */
 
@@ -533,7 +538,6 @@ h1 {
     /*border: 1px solid purple;*/
 
     margin-top: 30px;
-    margin-bottom: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -546,6 +550,7 @@ h1 {
     padding: 20px;
     background-color: rgb(230, 230, 230);
     color: rgb(100, 100, 100);
+    margin-bottom: 50px;
 
     display: flex;
     flex-direction: column;
