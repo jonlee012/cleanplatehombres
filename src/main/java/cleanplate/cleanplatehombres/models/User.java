@@ -27,10 +27,10 @@ public class User {
     @Column
     private boolean isAdmin;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="user", orphanRemoval = true)
     private List<Organization> organizationList;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="user", orphanRemoval = true)
     private List<Listing> listingList;
 
     public User() {}
@@ -44,10 +44,6 @@ public class User {
         password = copy.password;
 
     }
-
-
-
-
 
     public Integer getUserId() {
         return id;

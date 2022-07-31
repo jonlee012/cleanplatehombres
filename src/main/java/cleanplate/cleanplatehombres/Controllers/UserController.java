@@ -70,10 +70,12 @@ public class UserController {
     }
 
     @GetMapping("users/delete/{id}")
-    public String deleteUserProfile(@ModelAttribute Listing listing, Organization organization, User user) {
-        listingRepository.delete(listing);
-        organizationRepository.delete(organization);
-        userDao.delete(user);
-        return "redirect:/users/sign-up";
+    public String delete(@ModelAttribute User user, @PathVariable Integer id) {
+        userDao.deleteById(id);
+//        listingRepository.delete(listing);
+//        organizationRepository.delete(organization);
+//        userDao.deleteUserById(id);
+        return "redirect:/logout";
     }
+
 }
