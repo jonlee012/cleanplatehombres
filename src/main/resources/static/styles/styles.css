@@ -724,6 +724,250 @@ tr:nth-child(even) {
 
 
 
+
+
+
+
+
+/* **************** */
+/* **************** */
+/* **************** */
+/* **************** */
+/* LOG IN */
+/* **************** */
+/* **************** */
+/* **************** */
+
+
+.login-register {
+    border: 1px solid red;
+
+    width: 400px;
+    height: 500px;
+    margin: 5% auto;
+    padding: 30px;
+    background-color: white;
+}
+
+.conditional {
+    margin-top: 15px;
+}
+
+.login-register form {
+    /* background-color: purple; */
+
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-register label {
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+
+.login-register input {
+    border-radius: 5px;
+    border: 1px solid rgb(177, 177, 177);
+    padding: 5px;
+}
+
+.login-register-btn {
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    border: 1px solid red;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.login-register-btn:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    /* border: 1px solid red; */
+    color: red;
+}
+
+/*CONTACT US*/
+
+.contact-us {
+    /*border: 1px solid red;*/
+
+    width: 400px;
+    height: 500px;
+    margin: 5% auto;
+    padding: 30px;
+}
+
+.contact-us form {
+    /* background-color: purple; */
+
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-us label {
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+
+.contact-us input {
+    border-radius: 5px;
+    border: 1px solid rgb(177, 177, 177);
+    padding: 5px;
+}
+
+.contact-us-btn {
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    border: 1px solid red;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.contact-us-btn:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    /* border: 1px solid red; */
+    color: red;
+}
+
+/*CREATE A LISTING*/
+
+.donate {
+    border: 1px solid red;
+
+    width: 400px;
+    height: 700px;
+    margin: 5% auto;
+    padding: 30px;
+}
+
+.conditional {
+    margin-top: 15px;
+}
+
+.donate form {
+    /* background-color: purple; */
+
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-register label {
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+
+.donate input {
+    border-radius: 5px;
+    border: 1px solid rgb(177, 177, 177);
+    padding: 5px;
+}
+
+.donate-btn {
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    border: 1px solid red;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.donate-btn:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    /* border: 1px solid red; */
+    color: red;
+}
+
+.container {
+    width: 1080px;
+    margin: 0 auto;
+}
+
+
+
+/* CREATE ORG */
+
+.create-org-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    background-color: white;
+
+}
+
+.create-org-container-inner {
+    padding: 25px;
+    color: white;
+}
+
+
+.create-org {
+    /* border: 1px solid red; */
+
+    background-color: rgba(0, 0, 0, 0.637);
+    width: 500px;
+    height: 700px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+
+.add-img {
+    /* border: 1px solid red; */
+
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label-input {
+    margin: 10px 0;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.label-input button {
+    margin-top: 25px;
+}
+
+
+
+
+
 /* FOOTER */
 
 .line {
@@ -873,192 +1117,3 @@ tr:nth-child(even) {
 .copyright-area a:hover {
     color: red;
 }
-
-
-/* **************** */
-/* **************** */
-/* **************** */
-/* **************** */
-/* LOG IN */
-/* **************** */
-/* **************** */
-/* **************** */
-
-
-.login-register {
-    border: 1px solid red;
-
-    width: 400px;
-    height: 500px;
-    margin: 5% auto;
-    padding: 30px;
-    background-color: white;
-}
-
-.conditional {
-    margin-top: 15px;
-}
-
-.login-register form {
-    /* background-color: purple; */
-
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.login-register label {
-    margin-top: 10px;
-    font-weight: bold;
-
-}
-
-.login-register input {
-    border-radius: 5px;
-    border: 1px solid rgb(177, 177, 177);
-    padding: 5px;
-}
-
-.login-register-btn {
-    color: #ffffff;
-    margin-top: 10px;
-    padding: 8px 10px;
-    font-size: 11px;
-    text-transform: uppercase;
-    border-radius: 30px;
-    font-weight: 400;
-    display: block;
-    width: 100%;
-    cursor: pointer;
-    background: rgb(224, 62, 21);
-    border: 1px solid red;
-    transition: .5s;
-    text-decoration: none;
-}
-
-.login-register-btn:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-    /* border: 1px solid red; */
-    color: red;
-}
-
-/*CONTACT US*/
-
-.contact-us {
-    /*border: 1px solid red;*/
-
-    width: 400px;
-    height: 500px;
-    margin: 5% auto;
-    padding: 30px;
-}
-
-.contact-us form {
-    /* background-color: purple; */
-
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.contact-us label {
-    margin-top: 10px;
-    font-weight: bold;
-
-}
-
-.contact-us input {
-    border-radius: 5px;
-    border: 1px solid rgb(177, 177, 177);
-    padding: 5px;
-}
-
-.contact-us-btn {
-    color: #ffffff;
-    margin-top: 10px;
-    padding: 8px 10px;
-    font-size: 11px;
-    text-transform: uppercase;
-    border-radius: 30px;
-    font-weight: 400;
-    display: block;
-    width: 100%;
-    cursor: pointer;
-    background: rgb(224, 62, 21);
-    border: 1px solid red;
-    transition: .5s;
-    text-decoration: none;
-}
-
-.contact-us-btn:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-    /* border: 1px solid red; */
-    color: red;
-}
-
-/*DONATE*/
-
-.donate {
-    border: 1px solid red;
-
-    width: 400px;
-    height: 700px;
-    margin: 5% auto;
-    padding: 30px;
-}
-
-.conditional {
-    margin-top: 15px;
-}
-
-.donate form {
-    /* background-color: purple; */
-
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.login-register label {
-    margin-top: 10px;
-    font-weight: bold;
-
-}
-
-.donate input {
-    border-radius: 5px;
-    border: 1px solid rgb(177, 177, 177);
-    padding: 5px;
-}
-
-.donate-btn {
-    color: #ffffff;
-    margin-top: 10px;
-    padding: 8px 10px;
-    font-size: 11px;
-    text-transform: uppercase;
-    border-radius: 30px;
-    font-weight: 400;
-    display: block;
-    width: 100%;
-    cursor: pointer;
-    background: rgb(224, 62, 21);
-    border: 1px solid red;
-    transition: .5s;
-    text-decoration: none;
-}
-
-.donate-btn:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-    /* border: 1px solid red; */
-    color: red;
-}
-
-.container {
-    width: 1080px;
-    margin: 0 auto;
-}
-
