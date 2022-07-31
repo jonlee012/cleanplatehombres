@@ -44,7 +44,7 @@ public class Organization {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization", orphanRemoval = true)
     private List<Listing> listingList;
 
     //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "organization")
@@ -53,16 +53,6 @@ public class Organization {
     public Organization() {
     }
 
-//    public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState, long orgZip) {
-//        this.orgName = orgName;
-//        this.orgDescription = orgDescription;
-//        this.orgStAddress = orgStAddress;
-//        this.orgCity = orgCity;
-//        this.orgState = orgState;
-//        this.orgZip = orgZip;
-//
-//
-//    }
 
 //    for creating new organizations with auto incremented id
     public Organization(String orgName, String orgDescription, String orgStAddress, String orgCity, String orgState,
