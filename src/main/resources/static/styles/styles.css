@@ -4,6 +4,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #464646;
 }
 
 .nav-bar {
@@ -24,6 +25,11 @@ body {
         justify-content: center;
         gap: 15px;
     }
+}
+
+.gutter-image {
+    background-color: #3b3b3b;
+    z-index: -3;
 }
 
 .logo-container {
@@ -196,6 +202,7 @@ button, input[type="submit"] {
     margin: 0 auto;
     max-width: 1080px;
     height: auto;
+    background-color: white;
 }
 
 .container {
@@ -368,6 +375,10 @@ button, input[type="submit"] {
     padding-top: 50px;
 }
 
+.main-section {
+    background-color: white;
+}
+
 h1 {
     font-size: 24px;
     text-align: center;
@@ -477,6 +488,7 @@ h1 {
 .about {
     max-width: 1080px;
     margin: 0 auto;
+    background-color: white;
 }
 
 .about-project-container {
@@ -880,6 +892,7 @@ tr:nth-child(even) {
     height: 500px;
     margin: 5% auto;
     padding: 30px;
+    background-color: white;
 }
 
 .conditional {

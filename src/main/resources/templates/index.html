@@ -12,11 +12,12 @@
 
 </head>
 <body>
+
 <nav th:replace="partials/topnav :: navbar">
 </nav>
 
 <div class="hero-section">
-    <img class="hero-img" th:src="@{/imgs/landingPage.jpg}">
+    <img class="hero-img" th:src="@{/imgs/landing2a.png}">
     <div class="hero-wrapper">
         <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>
         <div class="hero-button-container">
@@ -89,54 +90,14 @@
     </div>
 </div>
 <!-- MOST RECENT 3 LISTINGS (BASED ON ID, WORK BACKWARDS(DECREMENT) THE SORT) -->
-<div class="main">
-<!--    <div th:each="listing : ${listings}">-->
-        <!--                    <h2>-->
-        <!--                        <span th:text="${listings.food_name}"></span>-->
-        <!--                    </h2>-->
-        <!--                    <p><span th:text="${listings.donation_description}"></span></p>-->
-    <ul class="listing-cards">
-        <li class="cards_item">
-            <div class="card">
-                <!--                    <div class="card_image"><img src="/img/burger.jpg"></div>-->
-                <div class="card_image"><img th:src="@{/imgs/burger.jpg}"></div>
-                <div class="card_content">
-                    <h2 class="card_title">BURGERS-R-US </h2>
-                    <p class="card_text">Location: north <br>Food donated: 15 meal boxes </p>
-                    <button class="btn card_btn">full description here</button>
-                </div>
-            </div>
-        </li>
-        <li class="cards_item">
-            <div class="card">
-                <!--                    <div class="card_image"><img src="/img/pizza.jpg"></div>-->
-                <div class="card_image"><img th:src="@{/imgs/pizza.jpg}"></div>
-                <div class="card_content">
-                    <h2 class="card_title">PIZZA BY FIRE</h2>
-                    <p class="card_text">Location: north west <br>Food donated: 50 pizza's (sm to large) </p>
-                    <button class="btn card_btn">full description here</button>
-                </div>
-            </div>
-        </li>
-        <li class="cards_item">
-            <div class="card">
-                <!--                    <div class="card_image"><img src="img/taco.jpg"></div>-->
-                <div class="card_image"><img th:src="@{/imgs/taco.jpg}"></div>
-                <div class="card_content">
-                    <h2 class="card_title">GRANDMA'S KITCHEN</h2>
-                    <p class="card_text">Location: downtown <br>Food donated: 75 taco's </p>
-                    <button class="btn card_btn">full description here</button>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
+
+
+
 
 <footer th:replace="partials/footer :: footer">
 </footer>
 <script th:replace="partials/script :: script">
 </script>
-
 </body>
 
 
