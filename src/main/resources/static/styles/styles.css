@@ -852,41 +852,47 @@ tr:nth-child(even) {
     color: red;
 }
 
-/*CREATE A LISTING*/
+/* CREATE LISTING */
 
-.donate {
-    border: 1px solid red;
-
-    width: 400px;
-    height: 700px;
-    margin: 5% auto;
-    padding: 30px;
+.create-lstg-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    background-color: white;
 }
 
-.conditional {
-    margin-top: 15px;
+.create-lstg-container-inner {
+    padding: 25px;
+    color: white;
 }
 
-.donate form {
-    /* background-color: purple; */
+.create-lstg {
+    background-color: rgba(0, 0, 0, 0.637);
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 25px;
+}
 
-    margin-top: 25px;
+
+.add-img {
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
 }
 
-.login-register label {
-    margin-top: 10px;
-    font-weight: bold;
-
+.label-input {
+    margin: 10px 0;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
 }
 
-.donate input {
-    border-radius: 5px;
-    border: 1px solid rgb(177, 177, 177);
-    padding: 5px;
+.label-input button {
+    margin-top: 25px;
 }
+
+
 
 .donate-btn {
     color: #ffffff;
@@ -924,7 +930,6 @@ tr:nth-child(even) {
     max-width: 1080px;
     margin: 0 auto;
     background-color: white;
-
 }
 
 .create-org-container-inner {
@@ -935,14 +940,12 @@ tr:nth-child(even) {
 
 .create-org {
     /* border: 1px solid red; */
-
     background-color: rgba(0, 0, 0, 0.637);
     width: 500px;
     height: 700px;
     margin: 0 auto;
     padding: 25px;
 }
-
 
 .add-img {
     /* border: 1px solid red; */
