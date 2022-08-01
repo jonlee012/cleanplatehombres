@@ -6,71 +6,73 @@
 <nav th:replace="partials/topnav :: navbar">
 </nav>
 
-<h1>Here are all of the listings (THIS IS listings.html)</h1>
-last
-<div class="second-tier-container">
-    <div th:each="listing : ${listings}">
-        <div class="third-tier-container buffer">
-            <span th:text="${listing.getFoodName()}"></span>
-            <p><span th:text="${listing.getDonationDescription()}"></span></p>
-            <p><span th:text="${listing.getFoodAmt()}"></span></p>
-            <p><span th:text="${listing.getExpDate()}"></span></p>
-            <p><span th:text="${listing.getOrganization().getOrgName()}"></span></p>
-            <a th:href="@{'/listings/show/' + ${listing.getId()}}">More Info</span></a>
-        </div>
-    </div>
-</div>
+<div class="card-container">
+    <h1>Here are all of the listings</h1>
 
-<h1>new code starts here</h1>
-<div class="map-container container-fluid">
-    <div class="mapbox">
-        <div class="container-fluid" id='map'>
-            <div class="zoom-container text-center justify-content-center align-items-center" id="orgMark">
-
-
-            </div>
-        </div>
-        <link rel='stylesheet'
-              href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
-              type='text/css'/>
-    </div>
-    <div class="reviews ">
-        <div id="mapboxData" th:each="organization : ${organization}" class="flip-card card-item card-deck mt-2 my-2 m-lg-2">
-            <div class="flip-card-inner" th:each="organization : ${organization}">
-                <!--                <h5 th:text="${}" class="flip-card-front h3"></h5>-->
-                <p class="flip-card-front flex-column">
-                    <span class="h3" th:text="${organization.getOrgName()}"></span>
-                    <br>
-                    <span class="h5"
-                          th:text="${organization.getOrgStAddress  + ', ' + organization.getOrgCity + ', ' + organization.getOrgState + ', ' + organization.getOrgZip }"></span>
-                </p>
-                <div class="flip-card-back d-flex flex-column align-items-center" th:each="organization : ${organization}">
-                    <button  class="btn w-75 " type="button" id="location"
-
-                            th:text="${organization.getOrgStAddress  + ', ' + organization.getOrgCity + ', ' + organization.getOrgState + ', ' + organization.getOrgZip }"></button>
-                    <div class="my-2">
-                        <a th:href="@{'organization/{id}'(id=${organization.getId})}">
-                            <button class="btn btn-outline-light">Check Us Out</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--</div>-->
-    <div hidden>
-        <div id="orgName" th:each="Organization : ${organization}">
-            <div th:each="Organization : ${organization}">
-                <h4 class="card-title" th:text="${organization.getOrgName()}"></h4>
-                <p id="orgAddress" class="mb-1 biz"><span th:text="${organization.getOrgStAddress()}"></span></p>
-                <p id="orgCity" class="mb-1"><span th:text="${organization.getOrgCity()}"></span> <span
-                        th:text="${organization.getOrgState()}"></span>, <span
-                        th:text="${organization.getOrgZip()}"></span></p>
-
+    <div class="card-container-inner">
+        <div th:each="listing : ${listings}">
+            <div class="lstg-card">
+                <p><span th:text="${listing.getFoodName()}">food name</span></p>
+                <p><span th:text="${listing.getDonationDescription()}">dontation description</span></p>
+                <p><span th:text="${listing.getFoodAmt()}"></span>food amount</p>
+                <p><span th:text="${listing.getExpDate()}"></span>expiration date</p>
+                <p><span th:text="${listing.getOrganization().getOrgName()}"></span>org name</p>
+                <p><a th:href="@{'/listings/show/' + ${listing.getId()}}">More Info</span></a></p>
             </div>
         </div>
     </div>
 </div>
+
+
+
+<!--<h1>new code starts here</h1>-->
+<!--<div class="map-container container-fluid">-->
+<!--    <div class="mapbox">-->
+<!--        <div class="container-fluid" id='map'>-->
+<!--            <div class="zoom-container text-center justify-content-center align-items-center" id="orgMark">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <link rel='stylesheet'-->
+<!--              href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'-->
+<!--              type='text/css'/>-->
+<!--    </div>-->
+<!--    <div class="reviews ">-->
+<!--        <div id="mapboxData" th:each="organization : ${organization}" class="flip-card card-item card-deck mt-2 my-2 m-lg-2">-->
+<!--            <div class="flip-card-inner" th:each="organization : ${organization}">-->
+<!--                &lt;!&ndash;                <h5 th:text="${}" class="flip-card-front h3"></h5>&ndash;&gt;-->
+<!--                <p class="flip-card-front flex-column">-->
+<!--                    <span class="h3" th:text="${organization.getOrgName()}"></span>-->
+<!--                    <br>-->
+<!--                    <span class="h5"-->
+<!--                          th:text="${organization.getOrgStAddress  + ', ' + organization.getOrgCity + ', ' + organization.getOrgState + ', ' + organization.getOrgZip }"></span>-->
+<!--                </p>-->
+<!--                <div class="flip-card-back d-flex flex-column align-items-center" th:each="organization : ${organization}">-->
+<!--                    <button  class="btn w-75 " type="button" id="location"-->
+
+<!--                            th:text="${organization.getOrgStAddress  + ', ' + organization.getOrgCity + ', ' + organization.getOrgState + ', ' + organization.getOrgZip }"></button>-->
+<!--                    <div class="my-2">-->
+<!--                        <a th:href="@{'organization/{id}'(id=${organization.getId})}">-->
+<!--                            <button class="btn btn-outline-light">Check Us Out</button>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash;</div>&ndash;&gt;-->
+<!--    <div hidden>-->
+<!--        <div id="orgName" th:each="Organization : ${organization}">-->
+<!--            <div th:each="Organization : ${organization}">-->
+<!--                <h4 class="card-title" th:text="${organization.getOrgName()}"></h4>-->
+<!--                <p id="orgAddress" class="mb-1 biz"><span th:text="${organization.getOrgStAddress()}"></span></p>-->
+<!--                <p id="orgCity" class="mb-1"><span th:text="${organization.getOrgCity()}"></span> <span-->
+<!--                        th:text="${organization.getOrgState()}"></span>, <span-->
+<!--                        th:text="${organization.getOrgZip()}"></span></p>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 
 
