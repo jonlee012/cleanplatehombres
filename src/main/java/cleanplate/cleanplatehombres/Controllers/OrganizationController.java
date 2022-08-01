@@ -138,6 +138,9 @@ public class OrganizationController {
     public String editOrganization(@ModelAttribute Organization organization) {
         organizationRepository.save(organization);
         return "redirect:/profile";
+    }
+
+
 
 //    public String editOrganization(@ModelAttribute Organization organization, Integer id){
 //        organizationRepository.updateOrg(id);
@@ -145,7 +148,7 @@ public class OrganizationController {
 //        organizationRepository.save(organization);
 //        return "redirect:/nonProfitIndex";
 
-    }
+
 
 
 
