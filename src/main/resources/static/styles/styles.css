@@ -793,12 +793,14 @@ tr:nth-child(even) {
     border-radius: 30px;
     font-weight: 400;
     display: block;
-    width: 100%;
+    width: 50%;
     cursor: pointer;
     background: rgb(224, 62, 21);
     border: 1px solid red;
     transition: .5s;
     text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .login-register-btn:hover {
@@ -816,6 +818,8 @@ tr:nth-child(even) {
     height: 500px;
     margin: 5% auto;
     padding: 30px;
+    border: 1px solid red;
+    background-color: white;
 }
 
 .contact-us form {
@@ -830,6 +834,7 @@ tr:nth-child(even) {
 .contact-us label {
     margin-top: 10px;
     font-weight: bold;
+    width: 100%;
 
 }
 
@@ -837,6 +842,11 @@ tr:nth-child(even) {
     border-radius: 5px;
     border: 1px solid rgb(177, 177, 177);
     padding: 5px;
+    width: 100%;
+}
+
+.contact-us textarea {
+    width: 100%
 }
 
 .contact-us-btn {
@@ -848,12 +858,14 @@ tr:nth-child(even) {
     border-radius: 30px;
     font-weight: 400;
     display: block;
-    width: 100%;
+    width: 50%;
     cursor: pointer;
     background: rgb(224, 62, 21);
     border: 1px solid red;
     transition: .5s;
     text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-us-btn:hover {
