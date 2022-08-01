@@ -19,7 +19,7 @@
 <nav th:replace="partials/topnav :: navbar">
 </nav>
 
-<div class="container">
+<div class="container main-section">
     <!--        <h1> These are the Restaurant listings</h1>-->
     <!--                start-->
 <section class="container-fluid" style="margin-top: 40px">
@@ -41,14 +41,13 @@
        
 
 
-    <div class="main">
-
+    <div class="main main-section">
         <ul class="listing-cards">
             <li class="cards_item">
                 <div class="card">
                     <div th:each="organization : ${organizations}">
                         <div th:if="${organization.isDonor()}">
-                            <div class="card_image"><img th:src="@{/imgs/burger.jpg}"/></div>
+                            <div class="card_image"><img th:src="@{${organization.getImages()}}" /></div>
                             <div class="card_content">
                                 <h2 class="card_title"><span th:text="${organization.getOrgName()}"></span></h2>
                                 <p class="card_text"><span th:text="${organization.getOrgDescription()}"></span></p>

@@ -4,6 +4,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #464646;
 }
 
 .nav-bar {
@@ -26,6 +27,11 @@ body {
     }
 }
 
+.gutter-image {
+    background-color: #3b3b3b;
+    z-index: -3;
+}
+
 .logo-container {
     /* border: 2px solid black; */
     width: 155px;
@@ -42,6 +48,11 @@ body {
     display: flex;
     list-style: none;
     /* justify-content: center; */
+}
+
+.nav-links-ul.logged-in {
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-link-individual {
@@ -196,6 +207,7 @@ button, input[type="submit"] {
     margin: 0 auto;
     max-width: 1080px;
     height: auto;
+    background-color: white;
 }
 
 .container {
@@ -368,6 +380,10 @@ button, input[type="submit"] {
     padding-top: 50px;
 }
 
+.main-section {
+    background-color: white;
+}
+
 h1 {
     font-size: 24px;
     text-align: center;
@@ -477,6 +493,7 @@ h1 {
 .about {
     max-width: 1080px;
     margin: 0 auto;
+    background-color: white;
 }
 
 .about-project-container {
@@ -489,19 +506,24 @@ h1 {
     display: flex;
     gap: 20px;
     padding: 30px;
-
 }
 
 .about-project-left {
-    border: 1px solid red;
-
+    /* border: 1px solid red; */
     width: 50%;
+}
 
+.about-project-left img {
+    height: 100%;
+    width: 100%;
 }
 
 .about-project-right {
     width: 50%;
+    padding: 25px;
 }
+
+
 
 /* TEAM */
 
@@ -521,7 +543,6 @@ h1 {
     /*border: 1px solid purple;*/
 
     margin-top: 30px;
-    margin-bottom: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -534,6 +555,7 @@ h1 {
     padding: 20px;
     background-color: rgb(230, 230, 230);
     color: rgb(100, 100, 100);
+    margin-bottom: 50px;
 
     display: flex;
     flex-direction: column;
@@ -712,6 +734,253 @@ tr:nth-child(even) {
 
 
 
+
+
+
+
+
+/* **************** */
+/* **************** */
+/* **************** */
+/* **************** */
+/* LOG IN */
+/* **************** */
+/* **************** */
+/* **************** */
+
+
+.login-register {
+    border: 1px solid red;
+
+    width: 400px;
+    height: 500px;
+    margin: 5% auto;
+    padding: 30px;
+    background-color: white;
+}
+
+.conditional {
+    margin-top: 15px;
+}
+
+.login-register form {
+    /* background-color: purple; */
+
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-register label {
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+
+.login-register input {
+    border-radius: 5px;
+    border: 1px solid rgb(177, 177, 177);
+    padding: 5px;
+}
+
+.login-register-btn {
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    border: 1px solid red;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.login-register-btn:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    /* border: 1px solid red; */
+    color: red;
+}
+
+/*CONTACT US*/
+
+.contact-us {
+    /*border: 1px solid red;*/
+
+    width: 400px;
+    height: 500px;
+    margin: 5% auto;
+    padding: 30px;
+}
+
+.contact-us form {
+    /* background-color: purple; */
+
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-us label {
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+
+.contact-us input {
+    border-radius: 5px;
+    border: 1px solid rgb(177, 177, 177);
+    padding: 5px;
+}
+
+.contact-us-btn {
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    border: 1px solid red;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.contact-us-btn:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    /* border: 1px solid red; */
+    color: red;
+}
+
+/* CREATE LISTING */
+
+.create-lstg-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.create-lstg-container-inner {
+    padding: 25px;
+    color: white;
+}
+
+.create-lstg {
+    background-color: rgba(0, 0, 0, 0.637);
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+
+.add-img {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label-input {
+    margin: 10px 0;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.label-input button {
+    margin-top: 25px;
+}
+
+
+
+.donate-btn {
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    border: 1px solid red;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.donate-btn:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    /* border: 1px solid red; */
+    color: red;
+}
+
+.container {
+    width: 1080px;
+    margin: 0 auto;
+}
+
+
+
+/* CREATE ORG */
+
+.create-org-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.create-org-container-inner {
+    padding: 25px;
+    color: white;
+}
+
+
+.create-org {
+    /* border: 1px solid red; */
+    background-color: rgba(0, 0, 0, 0.637);
+    width: 500px;
+    height: 700px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.add-img {
+    /* border: 1px solid red; */
+
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label-input {
+    margin: 10px 0;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.label-input button {
+    margin-top: 25px;
+}
+
+
+
+
+
 /* FOOTER */
 
 .line {
@@ -728,6 +997,7 @@ tr:nth-child(even) {
     color: white;
     background-color: black;
     height: auto;
+    padding-top: 20px;
 }
 
 
@@ -861,191 +1131,3 @@ tr:nth-child(even) {
 .copyright-area a:hover {
     color: red;
 }
-
-
-/* **************** */
-/* **************** */
-/* **************** */
-/* **************** */
-/* LOG IN */
-/* **************** */
-/* **************** */
-/* **************** */
-
-
-.login-register {
-    border: 1px solid red;
-
-    width: 400px;
-    height: 500px;
-    margin: 5% auto;
-    padding: 30px;
-}
-
-.conditional {
-    margin-top: 15px;
-}
-
-.login-register form {
-    /* background-color: purple; */
-
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.login-register label {
-    margin-top: 10px;
-    font-weight: bold;
-
-}
-
-.login-register input {
-    border-radius: 5px;
-    border: 1px solid rgb(177, 177, 177);
-    padding: 5px;
-}
-
-.login-register-btn {
-    color: #ffffff;
-    margin-top: 10px;
-    padding: 8px 10px;
-    font-size: 11px;
-    text-transform: uppercase;
-    border-radius: 30px;
-    font-weight: 400;
-    display: block;
-    width: 100%;
-    cursor: pointer;
-    background: rgb(224, 62, 21);
-    border: 1px solid red;
-    transition: .5s;
-    text-decoration: none;
-}
-
-.login-register-btn:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-    /* border: 1px solid red; */
-    color: red;
-}
-
-/*CONTACT US*/
-
-.contact-us {
-    /*border: 1px solid red;*/
-
-    width: 400px;
-    height: 500px;
-    margin: 5% auto;
-    padding: 30px;
-}
-
-.contact-us form {
-    /* background-color: purple; */
-
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.contact-us label {
-    margin-top: 10px;
-    font-weight: bold;
-
-}
-
-.contact-us input {
-    border-radius: 5px;
-    border: 1px solid rgb(177, 177, 177);
-    padding: 5px;
-}
-
-.contact-us-btn {
-    color: #ffffff;
-    margin-top: 10px;
-    padding: 8px 10px;
-    font-size: 11px;
-    text-transform: uppercase;
-    border-radius: 30px;
-    font-weight: 400;
-    display: block;
-    width: 100%;
-    cursor: pointer;
-    background: rgb(224, 62, 21);
-    border: 1px solid red;
-    transition: .5s;
-    text-decoration: none;
-}
-
-.contact-us-btn:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-    /* border: 1px solid red; */
-    color: red;
-}
-
-/*DONATE*/
-
-.donate {
-    border: 1px solid red;
-
-    width: 400px;
-    height: 700px;
-    margin: 5% auto;
-    padding: 30px;
-}
-
-.conditional {
-    margin-top: 15px;
-}
-
-.donate form {
-    /* background-color: purple; */
-
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.login-register label {
-    margin-top: 10px;
-    font-weight: bold;
-
-}
-
-.donate input {
-    border-radius: 5px;
-    border: 1px solid rgb(177, 177, 177);
-    padding: 5px;
-}
-
-.donate-btn {
-    color: #ffffff;
-    margin-top: 10px;
-    padding: 8px 10px;
-    font-size: 11px;
-    text-transform: uppercase;
-    border-radius: 30px;
-    font-weight: 400;
-    display: block;
-    width: 100%;
-    cursor: pointer;
-    background: rgb(224, 62, 21);
-    border: 1px solid red;
-    transition: .5s;
-    text-decoration: none;
-}
-
-.donate-btn:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-    /* border: 1px solid red; */
-    color: red;
-}
-
-.container {
-    width: 1080px;
-    margin: 0 auto;
-}
-

@@ -6,8 +6,8 @@
 <nav th:replace="partials/topnav :: navbar">
 </nav>
 
-<h1>Here are all of the listings</h1>
-
+<h1>Here are all of the listings (THIS IS listings.html)</h1>
+last
 <div class="second-tier-container">
     <div th:each="listing : ${listings}">
         <div class="third-tier-container buffer">
@@ -18,7 +18,6 @@
             <p><span th:text="${listing.getOrganization().getOrgName()}"></span></p>
             <a th:href="@{'/listings/show/' + ${listing.getId()}}">More Info</span></a>
         </div>
-
     </div>
 </div>
 

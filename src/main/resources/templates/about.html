@@ -1,84 +1,59 @@
 <!DOCTYPE html>
- <html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: head"></head>
 
-     <head th:replace="partials/head :: head"></head>
 <body>
- <nav th:replace="partials/topnav :: navbar">
-</nav>
-<div class="hero-section">
-     <img class="hero-img" th:src="@{/imgs/landingPage.jpg}">
-<!--    <img class="hero-img" src="/img/burger.jpg">-->
-    <div class="hero-wrapper">
-        <h1 class="hero-heading">ABOUT  <span class="text-span-2">US</span></h1>
-        <p class="hero-paragraph"></p>
+<nav th:replace="partials/topnav :: navbar"></nav>
+<div class="about">
+    <div class="about-project-container">
+        <div class="ap-sub-container">
+
+            <div class="about-project-left">
+                 <img class="safe-img" th:src="@{/imgs/stayingSafe.png}">
+<!--                <img src="/src/main/resources/static/imgs/stayingSafe.png" alt="">-->
+
+            </div>
+            <div class="about-project-right">
+                <div class="heading label-input">About our project</div>
+                <div class="team-line label-input"></div>
+                <div class="paragraph label-input">A web application that uses Spring, Thymeleaf, and MySQL. Clean Plate Donations is the conduit between Restaurants who have food to donate and Non-Profit organizations who need food. Non-Profits will be able to post a listing requirement such as 10 loaves of bread and if a nearby restaurant is able to fulfill they will contact the Non-Profit. Technology utilized: Java EE, Spring Boot, Hibernate, HTML, CSS, and JavaScript.</div>
+            </div>
+        </div>
+    </div>
+    <!-- THE TEAM -->
+    <div class="team-heading">MEET THE CLEAN PLATE GUYS</div>
+    <div class="team-cards">
+        <div class="team-card">
+            <div class="p-img"><img src="" alt="image"></div>
+            <div class="heading">Derek Berkley</div>
+            <div class="team-line"></div>
+            <div class="paragraph">Responsibilities go here.</div>
+        </div>
+        <div class="team-card">
+            <div class="p-img"><img src="" alt="image"></div>
+            <div class="heading">Michael Kestler</div>
+            <div class="team-line"></div>
+            <div class="paragraph">Responsibilities go here.</div>
+        </div>
+        <div class="team-card">
+            <div class="p-img"><img src="" alt="image"></div>
+            <div class="heading">Jon Lee</div>
+            <div class="team-line"></div>
+            <div class="paragraph">Responsibilities go here.</div>
+        </div>
+        <div class="team-card">
+            <div class="p-img"><img src="" alt="image"></div>
+            <div class="heading">Carlos Chavira</div>
+            <div class="team-line"></div>
+            <div class="paragraph">Responsibilities go here.</div>
+        </div>
     </div>
 </div>
-
-
- <div class="about">
-
-     <div class="about-project-container">
-
-         <div class="ap-sub-container">
-             <div class="about-project-left">
-                 <img src="" alt="about-us-img">
-             </div>
-
-             <div class="about-project-right">
-                 <div class="heading">About our project</div>
-                 <div class="team-line"></div>
-                 <div class="paragraph">A web application that uses Spring, Thymeleaf, and MySQL. Clean Plate Donations is the conduit between Restaurants who have food to donate and Non-Profit organizations who need food. Non-Profits will be able to post a listing requirement such as 10 loaves of bread and if a nearby restaurant is able to fulfill they will contact the Non-Profit. Technology utilized: Java EE, Spring Boot, Hibernate, HTML, CSS, and JavaScript.</div>
-             </div>
-         </div>
-
-     </div>
-
-     <!-- THE TEAM -->
-     <div class="team-heading">MEET THE CLEAN PLATE GUYS</div>
-     <div class="team-cards">
-
-         <div class="team-card">
-             <div class="p-img"><img src="" alt="image"></div>
-             <div class="heading">Derek Berkley</div>
-             <div class="team-line"></div>
-             <div class="paragraph">Responsibilities go here.</div>
-         </div>
-
-         <div class="team-card">
-             <div class="p-img"><img src="" alt="image"></div>
-             <div class="heading">Michael Kestler</div>
-             <div class="team-line"></div>
-             <div class="paragraph">Responsibilities go here.</div>
-         </div>
-
-         <div class="team-card">
-             <div class="p-img"><img src="" alt="image"></div>
-             <div class="heading">Jon Lee</div>
-             <div class="team-line"></div>
-             <div class="paragraph">Responsibilities go here.</div>
-         </div>
-
-         <div class="team-card">
-             <div class="p-img"><img src="" alt="image"></div>
-             <div class="heading">Carlos Chavira</div>
-             <div class="team-line"></div>
-             <div class="paragraph">Responsibilities go here.</div>
-         </div>
-
-
-
-     </div>
- </div>
-
-
-
-
- <footer th:replace="partials/footer :: footer">
-    </footer>
-    <script th:replace="partials/script :: script">
-    </script>
 </body>
+<footer th:replace="partials/footer :: footer"></footer>
+<script th:replace="partials/script :: script"></script>
 </html>
+
 
 
 
