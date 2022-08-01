@@ -8,10 +8,7 @@ import cleanplate.cleanplatehombres.models.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,16 +100,48 @@ public class OrganizationController {
     }
 
     @GetMapping("organizations/edit/{id}")
-    public String editOrganization(@PathVariable Integer id, Model model) {
+    public String updateOrgForm(@PathVariable Integer id, Model model) {
         model.addAttribute("organization", organizationRepository.getById(id));
+
         return "organizations/edit";
     }
 
-    @PostMapping("organizations/edit")
-    public String editOrganization(@ModelAttribute Organization organization){
+
+    @PostMapping("organizations/edit/{id}")
+    public String updateOrganization(@PathVariable Integer id, @ModelAttribute Organization organization) {
+        Organization org2update = organizationRepository.getById(id);
+//        org2update.setId(organization.getId());
+        org2update.setOrgName(organization.getOrgName());
+        org2update.setOrgDescription(organization.getOrgDescription());
+        org2update.setOrgStAddress(organization.getOrgStAddress());
+        org2update.setOrgCity(organization.getOrgCity());
+        org2update.setOrgState(organization.getOrgState());
+        org2update.setOrgZip(organization.getOrgZip());
+        org2update.setImages(organization.getImages());
+
+
+        User user = userDao.findAll().get(0);
+        organization.setUser(user);
+
         organizationRepository.save(organization);
-        return "redirect:/nonProfitIndex";
+        return "redirect:/profile";
     }
+
+
+    @PostMapping("organizations/edit")
+
+    public String editOrganization(@ModelAttribute Organization organization) {
+        organizationRepository.save(organization);
+        return "redirect:/profile";
+
+    public String editOrganization(@ModelAttribute Organization organization, Integer id){
+//        organizationRepository.updateOrg(id);
+//        organizationRepository.deleteById(organization.getId());
+//        organizationRepository.save(organization);
+        return "redirect:/nonProfitIndex";
+
+    }
+
 
 
 
@@ -135,13 +164,14 @@ public class OrganizationController {
     public String userProfilePage(Model model) {
         model.addAttribute("organizations", organizationRepository.findAll());
         model.addAttribute("listings", listingRepository.findAll());
+        model.addAttribute("users", userDao.findAll());
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "users/profile";
     }
 
 
     @GetMapping("organizations/delete/{id}")
-    public String delete(@ModelAttribute Organization organization) {
+    public String delete(@ModelAttribute Organization organization, Integer id) {
         organizationRepository.delete(organization);
         return "redirect:/profile";
     }

@@ -8,10 +8,7 @@ import cleanplate.cleanplatehombres.models.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ListingController {
@@ -75,11 +72,21 @@ public class ListingController {
         return "listings/edit";
     }
 
-    @PostMapping("listings/edit")
-   public String editListing(@ModelAttribute Listing listing){
+    @PostMapping("listings/edit/{id}")
+   public String editListing(@PathVariable Integer id, @RequestParam(name="foodName") String foodName,
+                             @RequestParam(name="foodAmt") String foodAmt,
+                             @RequestParam(name="donationDescription") String donationDescription){
+        Listing listing = listingRepository.getById(id);
+        listing.setFoodName(foodName);
+        listing.setFoodAmt(foodAmt);
+        listing.setDonationDescription(donationDescription);
         listingRepository.save(listing);
         return "redirect:/listings";
     }
+
+
+
+
 
     @GetMapping("listings/delete/{id}")
     public String delete(@ModelAttribute Listing listing) {
