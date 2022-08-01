@@ -2,157 +2,138 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="partials/head :: head"></head>
-<head>
 
-
-</head>
 <body>
 <nav th:replace="partials/topnav :: navbar">
 </nav>
-<h1>Create Organization</h1>
 
-
-<div style="border: 2px solid black">Add an Image</div>
-<button class="upload">Upload File</button>
-<div>
+<div th:style="'background: url(/imgs/stayingSafe.png) no-repeat center center fixed;'" class="create-org-container">
 
 
 
-<form th:action="@{/organizations/create}" method="POST" th:object="${organization}" class="second-tier-container form">
-    <div class="organizationName col-md-6">
-        <label for="name" class="form-label h4">Organization Name</label>
-        <input id="name" type="text" class="form-control" th:field="*{orgName}">
+    <div class="create-org-container-inner">
+
+        <div class="create-org">
+
+            <h1>Create Organization</h1>
+
+            <div class="add-img">
+                <div>Add an Image</div>
+                <img alt="" width="100" height="100" class="donorPic">
+                <button class="upload">Upload File</button>
+
+            </div>
+
+            <form th:action="@{/organizations/create}" method="POST" th:object="${organization}">
+
+                <div class="label-input">
+                    <label for="name">Organization Name</label>
+                    <input id="name" type="text" th:field="*{orgName}">
+                </div>
+
+                <div class="label-input">
+                    <label for="description">Organization Description</label>
+                    <input id="description" type="text" class="form-control" th:field="*{orgDescription}">
+                </div>
+
+                <div class="label-input">
+                    <div>
+                        <input type="checkbox" th:field="*{donor}" id="isDonor">
+                        <label for="isDonor">
+                            Check if you are a donor
+                        </label>
+                    </div>
+                </div>
+
+                <div class="label-input">
+                    <label for="address">Address</label>
+                    <input id="address" type="text" th:field="*{orgStAddress}">
+                </div>
+
+                <div class="label-input">
+                    <label for="city">City</label>
+                    <input id="city" type="text" th:field="*{orgCity}">
+                </div>
+
+                <div class="label-input">
+                    <label for="state">State</label>
+                    <select id="state" th:field="*{orgState}">
+                        <option selected disabled value="">Choose...</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+
+                <div class="label-input">
+                    <label for="zip">Zip Code</label>
+                    <input id="zip" type="text" th:field="*{orgZip}">
+                </div>
+
+
+                <input th:field="*{user}" th:value="${organization.getUser()}" type="text" name="user" hidden >
+
+                <input type="hidden" id="donorPicUrl" name="donorPicUrl" value="" th:field="*{images}">
+
+                <div class="label-input">
+                    <button class="donate-btn" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+
     </div>
 
-    <div class="organizationName col-md-6">
-        <label for="description" class="form-label h4">Organization Description</label>
-        <input id="description" type="text" class="form-control" th:field="*{orgDescription}">
-    </div>
-
-    <div class="col-md-6 form-group">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" th:field="*{donor}" id="isDonor">
-            <label class="form-check-label" for="isDonor">
-                Check if you are a donor
-            </label>
-        </div>
-    </div>
-
-
-        <div class="address col-md-6 m-0">
-            <label for="address" class="form-label h4">Address</label>
-            <input id="address" type="text" class="form-control" th:field="*{orgStAddress}">
-        </div>
-
-        <div class="col-md-6">
-            <label for="city" class="form-label h4">City</label>
-            <input id="city" type="text" class="form-control" th:field="*{orgCity}">
-        </div>
-        <div class="col-md-3">
-            <label for="state" class="form-label h4">State</label>
-            <select id="state" class="form-select h4" th:field="*{orgState}">
-                <option selected disabled value="">Choose...</option>
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="DC">District Of Columbia</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="IA">Iowa</option>
-                <option value="KS">Kansas</option>
-                <option value="KY">Kentucky</option>
-                <option value="LA">Louisiana</option>
-                <option value="ME">Maine</option>
-                <option value="MD">Maryland</option>
-                <option value="MA">Massachusetts</option>
-                <option value="MI">Michigan</option>
-                <option value="MN">Minnesota</option>
-                <option value="MS">Mississippi</option>
-                <option value="MO">Missouri</option>
-                <option value="MT">Montana</option>
-                <option value="NE">Nebraska</option>
-                <option value="NV">Nevada</option>
-                <option value="NH">New Hampshire</option>
-                <option value="NJ">New Jersey</option>
-                <option value="NM">New Mexico</option>
-                <option value="NY">New York</option>
-                <option value="NC">North Carolina</option>
-                <option value="ND">North Dakota</option>
-                <option value="OH">Ohio</option>
-                <option value="OK">Oklahoma</option>
-                <option value="OR">Oregon</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-                <option value="SD">South Dakota</option>
-                <option value="TN">Tennessee</option>
-                <option value="TX">Texas</option>
-                <option value="UT">Utah</option>
-                <option value="VT">Vermont</option>
-                <option value="VA">Virginia</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
-            </select>
-        </div>
-        <div class="col-md-3">
-            <label for="zip" class="form-label h4 ">Zip Code</label>
-            <input id="zip" type="text" class="form-control mb-3"
-                   th:field="*{orgZip}">
-        </div>
-
-
-        <!--        <div class="row">&ndash;&gt;-->
-        <!--            <div class="px-2.5">-->
-        <!--              <button type="submit" class="btn btn-outline-light mt-4"-->
-        <!--                      value="Sign me up!" id="sub-btn" style="color: black">Submit-->
-        <!--              </button>-->
-        <!--            </div>-->
-        <!--        </div>-->
-
-        <input th:field="*{user}" th:value="${organization.getUser()}" type="text" class="form-control"
-               name="user" hidden >
-
-        <!--    <button type="submit" class="btn btn-primary">-->
-        <!--        Create </button>-->
-
-        <input type="hidden" id="donorPicUrl" name="donorPicUrl" value="" th:field="*{images}">
-        <button type="submit" class="btn btn-primary">Create</button>
-
-    </form>
+</div>
 
 </body>
-
-<!--        <div class="row">&ndash;&gt;-->
-<!--            <div class="px-2.5">-->
-<!--              <button type="submit" class="btn btn-outline-light mt-4"-->
-<!--                      value="Sign me up!" id="sub-btn" style="color: black">Submit-->
-<!--              </button>-->
-<!--            </div>-->
-<!--        </div>-->
-
-
-
-<!--    <button type="submit" class="btn btn-primary">-->
-<!--        Create </button>-->
-
-</form>
-
-</body>
-
-
-
-
 
 
 <footer th:replace="partials/footer :: footer">
@@ -162,9 +143,12 @@
 
 
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+
 <script>
     const button = document.querySelector('.upload')
     const image = document.querySelector('#donorPicUrl')
+    const image2 = document.querySelector('.donorPic')
+
     button.addEventListener('click', () => {
         const apiKey = 'AqMAavFZuQkehL8KOovPCz'
         const client = filestack.init(apiKey)
@@ -173,22 +157,12 @@
             onUploadDone: (uploadResponse) => {
                 console.log("onUploadDone", uploadResponse);
                 image.setAttribute('value', uploadResponse.filesUploaded[0].url)
+                image2.setAttribute('src', uploadResponse.filesUploaded[0].url)
+
             },
         };
         client.picker(options).open();
     });
 </script>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
