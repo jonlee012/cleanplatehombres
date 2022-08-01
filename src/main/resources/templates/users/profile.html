@@ -14,14 +14,14 @@
 
 <div class="row flex-direction-row" id="profile-body">
     <div class="col-3 mx-0 profile-left">
-        <h1 class="profile-welcome heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/--><span class="text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h1>
+        <h1 class="profile-welcome heading text-capitalize">Welcome <!--/*@thymesVar id="getUsername" type=""*/--><span th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h1>
         <p class="paragraph">Username: <!--/*@thymesVar id="getUsername" type=""*/--><span th:text ="*{#authentication.getPrincipal().getUsername()}"></span></p>
         <p class="paragraph">Email: <!--/*@thymesVar id="getEmail" type=""*/--><span th:text ="${#authentication.getPrincipal().getEmail()}"></span></p>
         <div th:if="${#authentication.getPrincipal().getAdmin()}"><p class="paragraph">User Status: Admin</p></div>
         <!--User Profile Buttons-->
-        <div><a th:href="@{/organizations/create}"><button type="button" class="profile-button">Create New Organization</button></a></div>
-        <div><!--/*@thymesVar id="getUserId" type=""*/--><a th:href="@{'/users/edit/' + ${user.getUserId()}}"><button type="button" class="profile-button">Edit Profile</button></a></div>
-        <div><a th:href="@{'/users/delete/' + ${user.getUserId()}}"><button type="button" class="profile-button">Delete Profile</button></a></div>
+        <div><a style="text-decoration:none" th:href="@{/organizations/create}"><button type="button" class="profile-button">Create New Organization</button></a></div>
+        <div><!--/*@thymesVar id="getUserId" type=""*/--><a style="text-decoration:none" th:href="@{'/users/edit/' + ${user.getUserId()}}"><button type="button" class="profile-button">Edit Profile</button></a></div>
+        <div><a style="text-decoration:none" th:href="@{'/users/delete/' + ${user.getUserId()}}"><button type="button" class="profile-button">Delete Profile</button></a></div>
     </div>
 
     <div class="col-9 mx-0 profile-right" style="background-color:white"> <!--right side profile-->
