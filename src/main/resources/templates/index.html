@@ -28,8 +28,7 @@
                 </div>
 
                 <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">
-                    <h3 class="hero-heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/-->
-                        <span class="text-span-2 text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h3>
+                    <h3 class="hero-heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/--><span class="text-span-2 text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h3>
                     <a href="/listings/create" class="hero-button">POST A DONATION</a>
                 </div>
             </div>
@@ -66,6 +65,7 @@
                 </div>
                 <p>Once logged in you will be able to create a single listing or multiple listings.</p>
             </div>
+
             <div class="support-column">
                 <div class="support-square">
                     <div class="support-square-number">03</div>
@@ -73,6 +73,7 @@
                 </div>
                 <p>After placing your donation. You will be able to manage your listings from you organization profile. </p>
             </div>
+
         </div>
     </div>
 </div>

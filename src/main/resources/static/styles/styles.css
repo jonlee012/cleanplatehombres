@@ -50,6 +50,11 @@ body {
     /* justify-content: center; */
 }
 
+.nav-links-ul.logged-in {
+    display: flex;
+    flex-direction: column;
+}
+
 .nav-link-individual {
     font-size: 13px;
     padding: 7px;
@@ -992,6 +997,7 @@ tr:nth-child(even) {
     color: white;
     background-color: black;
     height: auto;
+    padding-top: 20px;
 }
 
 
