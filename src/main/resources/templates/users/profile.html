@@ -60,7 +60,8 @@
                         </p>
                     </div>
                     <div class="row"><!-- Org buttons-->
-                        <div class="col-3"><a th:href="@{'/organizations/edit/' + ${organization.getId()}}"><i
+                        <div class="col-3"><a th:href="@{'/organizations/edit/' + ${organization.getId()}}">
+                            <i
                                 class="fa-solid fa-pen-to-square"></i> Edit</a></div>
                         <div class="col-3"><a th:href="@{'/organizations/delete/' + ${organization.getId()}}"><i class="fa-solid fa-trash-can"></i> Delete</a></div>
                         <div class="col-4"><a th:href="@{/listings/create}" class="button"><i class="fa fa-plus" aria-hidden="true"></i> New Listing</a></div>
