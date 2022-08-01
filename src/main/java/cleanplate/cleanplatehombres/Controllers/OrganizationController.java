@@ -110,6 +110,7 @@ public class OrganizationController {
     @PostMapping("organizations/edit/{id}")
     public String updateOrganization(@PathVariable Integer id, @ModelAttribute Organization organization) {
         Organization org2update = organizationRepository.getById(id);
+        System.out.println(org2update + "org2Update");
 //        org2update.setId(organization.getId());
         org2update.setOrgName(organization.getOrgName());
         org2update.setOrgDescription(organization.getOrgDescription());
@@ -117,13 +118,17 @@ public class OrganizationController {
         org2update.setOrgCity(organization.getOrgCity());
         org2update.setOrgState(organization.getOrgState());
         org2update.setOrgZip(organization.getOrgZip());
+
+    org2update.getListingList().clear();
+    org2update.getListingList().addAll(listingRepository.findAllByOrganizationId(id));
+
         org2update.setImages(organization.getImages());
 
+//        User user = userDao.findAll().get(0);
+        org2update.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+//        organization.setUser(user);
 
-        User user = userDao.findAll().get(0);
-        organization.setUser(user);
-
-        organizationRepository.save(organization);
+        organizationRepository.save(org2update);
         return "redirect:/profile";
     }
 
@@ -134,11 +139,11 @@ public class OrganizationController {
         organizationRepository.save(organization);
         return "redirect:/profile";
 
-    public String editOrganization(@ModelAttribute Organization organization, Integer id){
+//    public String editOrganization(@ModelAttribute Organization organization, Integer id){
 //        organizationRepository.updateOrg(id);
 //        organizationRepository.deleteById(organization.getId());
 //        organizationRepository.save(organization);
-        return "redirect:/nonProfitIndex";
+//        return "redirect:/nonProfitIndex";
 
     }
 
