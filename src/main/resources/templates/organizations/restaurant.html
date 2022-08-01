@@ -105,7 +105,9 @@
     function placeMarkerAndPopup(name, address, token, map) {
         geocode(address, token).then(function (coordinates) {
             var popup = new mapboxgl.Popup()
-                .setHTML("<h6 style='max-width: 150px'>" + name + "</h6>" + "<p>" + address + "</p>");
+                .setHTML(
+                    "<h6 style='max-width: 150px'>" + name + "</h6>" +
+                    "<p>" + address + "</p>");
             var marker = new mapboxgl.Marker()
                 .setLngLat(coordinates)
                 .addTo(map)

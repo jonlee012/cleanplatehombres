@@ -105,12 +105,15 @@ public class OrganizationController {
     @GetMapping("organizations/edit/{id}")
     public String editOrganization(@PathVariable Integer id, Model model) {
         model.addAttribute("organization", organizationRepository.getById(id));
+
         return "organizations/edit";
     }
 
     @PostMapping("organizations/edit")
-    public String editOrganization(@ModelAttribute Organization organization){
-        organizationRepository.save(organization);
+    public String editOrganization(@ModelAttribute Organization organization, Integer id){
+//        organizationRepository.updateOrg(id);
+//        organizationRepository.deleteById(organization.getId());
+//        organizationRepository.save(organization);
         return "redirect:/nonProfitIndex";
     }
 
@@ -135,13 +138,14 @@ public class OrganizationController {
     public String userProfilePage(Model model) {
         model.addAttribute("organizations", organizationRepository.findAll());
         model.addAttribute("listings", listingRepository.findAll());
+        model.addAttribute("users", userDao.findAll());
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "users/profile";
     }
 
 
     @GetMapping("organizations/delete/{id}")
-    public String delete(@ModelAttribute Organization organization) {
+    public String delete(@ModelAttribute Organization organization, Integer id) {
         organizationRepository.delete(organization);
         return "redirect:/profile";
     }
