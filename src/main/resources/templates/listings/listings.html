@@ -3,6 +3,7 @@
 
 <head th:replace="partials/head :: head"></head>
 <body>
+<br>
 <nav th:replace="partials/topnav :: navbar">
 </nav>
 
@@ -11,14 +12,14 @@
 
     <div class="card-container-inner">
         <div th:each="listing : ${listings}">
-            <div class="lstg-card">
-                <p><span th:text="${listing.getFoodName()}">food name</span></p>
-                <p><span th:text="${listing.getDonationDescription()}">dontation description</span></p>
-                <p><span th:text="${listing.getFoodAmt()}"></span>food amount</p>
-                <p><span th:text="${listing.getExpDate()}"></span>expiration date</p>
-                <p><span th:text="${listing.getOrganization().getOrgName()}"></span>org name</p>
-<!--                <p><a th:href="@{'/listings/show/' + ${listing.getId()}}">More Info</span></a></p>-->
-                <p><span th:text="${listing.getOrganization().getOrgName()}"></span></p>
+            <div class="lstg-card-container">
+                <div class="lstg-card">
+                    <p><span th:text="${listing.getFoodName()}"></span></p>
+                    <p><span th:text="${listing.getDonationDescription()}"></span></p>
+                    <p><span th:text="${listing.getFoodAmt()}"></span></p>
+                    <p><span th:text="${listing.getExpDate()}"></span></p>
+                </div>
+                <div class="more-info" th:text="${listing.getOrganization().getOrgName()}"></div>
             </div>
         </div>
     </div>
