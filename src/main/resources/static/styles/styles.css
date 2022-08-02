@@ -982,16 +982,16 @@ tr:nth-child(even) {
     align-items: center;
 }
 
-.label-input {
-    margin: 10px 0;
-    display: flex;
-    gap: 15px;
-    justify-content: space-between;
-}
+/*.label-input {*/
+/*    margin: 10px 0;*/
+/*    display: flex;*/
+/*    gap: 15px;*/
+/*    justify-content: space-between;*/
+/*}*/
 
-.label-input button {
-    margin-top: 25px;
-}
+/*.label-input button {*/
+/*    margin-top: 25px;*/
+/*}*/
 
 
 /* CREATE ORG */
@@ -1011,7 +1011,6 @@ tr:nth-child(even) {
 
 .create-org {
     /* border: 1px solid red; */
-
     background-color: rgba(0, 0, 0, 0.637);
     width: 500px;
     height: 700px;
@@ -1021,6 +1020,7 @@ tr:nth-child(even) {
 
 #create_org_form {
     width: 75%;
+    margin: 0 auto;
 }
 
 
@@ -1041,11 +1041,30 @@ tr:nth-child(even) {
 }
 
 .label-input button {
-    margin-top: 25px;
+    margin: 25px auto;
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 400;
+    display: block;
+    width: 50%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    border: 1px solid red;
+    transition: .5s;
+    text-decoration: none;
 }
 
+#isDonor {
+    width: 146px;
+}
 
-
+#state {
+    width: 146px;
+}
 
 /* FOOTER */
 
