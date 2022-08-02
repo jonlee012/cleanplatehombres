@@ -18,14 +18,34 @@
 <div id="profile-body">
 
     <div class="profile-left">
-        <h1 class="profile-welcome heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/--><span class="text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h1>
-        <p class="paragraph">Username: <!--/*@thymesVar id="getUsername" type=""*/--><span th:text ="*{#authentication.getPrincipal().getUsername()}"></span></p>
-        <p class="paragraph">Email: <!--/*@thymesVar id="getEmail" type=""*/--><span th:text ="${#authentication.getPrincipal().getEmail()}"></span></p>
-        <div th:if="${#authentication.getPrincipal().getAdmin()}"><p class="paragraph">User Status: Admin</p></div>
+        <h1 class="profile-welcome heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/-->
+            <span class="text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!
+        </h1>
+        <p class="paragraph">Username: <!--/*@thymesVar id="getUsername" type=""*/-->
+            <span th:text ="*{#authentication.getPrincipal().getUsername()}"></span>
+        </p>
+        <p class="paragraph">Email: <!--/*@thymesVar id="getEmail" type=""*/-->
+            <span th:text ="${#authentication.getPrincipal().getEmail()}"></span>
+        </p>
+        <div th:if="${#authentication.getPrincipal().getAdmin()}">
+            <p class="paragraph">User Status: Admin</p>
+        </div>
         <!--User Profile Buttons-->
-        <div><a class="pro-btn-link" th:href="@{/organizations/create}"><button type="button" class="profile-button">Create New Organization</button></a></div>
-        <div><!--/*@thymesVar id="getUserId" type=""*/--><a class="pro-btn-link" th:href="@{'/users/edit/' + ${user.getUserId()}}"><button type="button" class="profile-button">Edit Profile</button></a></div>
-        <div><a class="pro-btn-link" th:href="@{'/users/delete/' + ${user.getUserId()}}"><button type="button" class="profile-button">Delete Profile</button></a></div>
+        <div>
+            <a class="pro-btn-link" th:href="@{/organizations/create}">
+                <button type="button" class="profile-button">Create New Organization</button>
+            </a>
+        </div>
+        <div><!--/*@thymesVar id="getUserId" type=""*/-->
+            <a class="pro-btn-link" th:href="@{'/users/edit/' + ${user.getUserId()}}">
+                <button type="button" class="profile-button">Edit Profile</button>
+            </a>
+        </div>
+        <div>
+            <a class="pro-btn-link" th:href="@{'/users/delete/' + ${user.getUserId()}}">
+                <button type="button" class="profile-button">Delete Profile</button>
+            </a><
+        /div>
     </div>
 
     <div class="profile-right"> <!--right side profile-->
@@ -68,10 +88,18 @@
 
 
                     <div><!-- Org buttons-->
-                        <div><a class="pro-btn-link pro-edit-link" th:href="@{'/organizations/edit/' + ${organization.getId()}}"><i
-                                class="fa-solid fa-pen-to-square"></i> Edit</a></div>
-                        <div><a class="pro-btn-link pro-edit-link" th:href="@{'/organizations/delete/' + ${organization.getId()}}"><i class="fa-solid fa-trash-can"></i> Delete</a></div>
-                        <div><a class="pro-btn-link pro-edit-link button" th:href="@{/listings/create}"><i class="fa fa-plus" aria-hidden="true"></i> New Listing</a></div>
+                        <div>
+                            <a class="pro-btn-link pro-edit-link" th:href="@{'/organizations/edit/' + ${organization.getId()}}"><i
+                                class="fa-solid fa-pen-to-square"></i> Edit</a>
+                        </div>
+                        <div>
+                            <a class="pro-btn-link pro-edit-link" th:href="@{'/organizations/delete/' + ${organization.getId()}}">
+                                <i class="fa-solid fa-trash-can"></i> Delete</a>
+                        </div>
+                        <div>
+                            <a class="pro-btn-link pro-edit-link button" th:href="@{/listings/create}" id="org_listing" th:value="${organization.getId()}">
+                                <i class="fa fa-plus" aria-hidden="true"></i> New Listing</a>
+                        </div>
                     </div>
 
                 </div> <!-- ORG CARD END -->
