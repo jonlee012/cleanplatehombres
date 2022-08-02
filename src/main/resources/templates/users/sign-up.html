@@ -26,10 +26,10 @@
         <label for="password">Password</label>
         <input id="password" type="password" th:field="*{password}" />
 
-        <div class="admin-q paragraph">
-            <label for="isAdmin">Are you Admin?</label>
-            <input id="isAdmin" class="paragraph" type="checkbox" th:field="*{admin}" />
-        </div>
+<!--        <div class="admin-q paragraph">-->
+<!--            <label for="isAdmin">Are you Admin?</label>-->
+            <input id="isAdmin" class="paragraph" type="checkbox" th:name="*{admin}" th:value="false" hidden/>
+<!--        </div>-->
 
         <button class="login-register-btn" type="submit">Sign me up!</button>
         <div class="small-text">Already registered? <a class="small-text" href="/login">Log-in </a>here</div>
