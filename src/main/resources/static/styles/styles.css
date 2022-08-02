@@ -1019,6 +1019,10 @@ tr:nth-child(even) {
     padding: 25px;
 }
 
+#create_org_form {
+    width: 75%;
+}
+
 
 .add-img {
     /* border: 1px solid red; */
