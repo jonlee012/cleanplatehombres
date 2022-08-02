@@ -549,6 +549,7 @@ h1 {
     font-size: 25px;
     font-weight: bold;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .team-line {
@@ -569,7 +570,7 @@ h1 {
 
 .team-card {
     width: 200px;
-    height: 300px;
+    height: 400px;
     padding: 20px;
     background-color: rgb(230, 230, 230);
     color: rgb(100, 100, 100);
@@ -583,8 +584,8 @@ h1 {
 
 .p-img {
     border: 3px solid gray;
-    height: 75px;
-    width: 75px;
+    height: 130px;
+    width: 130px;
     border-radius: 50%;
 }
 
@@ -1040,6 +1041,10 @@ tr:nth-child(even) {
     padding: 25px;
 }
 
+#create_org_form {
+    width: 75%;
+}
+
 
 .add-img {
     /* border: 1px solid red; */
@@ -1369,7 +1374,7 @@ tr:nth-child(even) {
     -webkit-user-select: none;
     touch-action: manipulation;
     white-space: nowrap;
-    width: 12em;
+    width: 8em;
 }
 .action_btn:active {
     border-bottom-color: #a2a6ac;
