@@ -549,6 +549,7 @@ h1 {
     font-size: 25px;
     font-weight: bold;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .team-line {
@@ -569,7 +570,7 @@ h1 {
 
 .team-card {
     width: 200px;
-    height: 300px;
+    height: 400px;
     padding: 20px;
     background-color: rgb(230, 230, 230);
     color: rgb(100, 100, 100);
@@ -583,8 +584,8 @@ h1 {
 
 .p-img {
     border: 3px solid gray;
-    height: 140px;
-    width: 140px;
+    height: 130px;
+    width: 130px;
     border-radius: 50%;
 }
 
