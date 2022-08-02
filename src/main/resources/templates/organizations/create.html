@@ -18,10 +18,35 @@
             <h1>Create Organization</h1>
 
             <div class="add-img">
-                <div>Add an Image</div>
-                <img alt="" width="100" height="100" class="donorPic">
-                <button class="upload">Upload File</button>
+                <div>
+                    <img alt="" width="200" height="200" class="donorPic">
+                </div>
+                <button class="upload">Upload Image</button>
             </div>
+
+
+
+
+</body>
+
+
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script>
+    const button = document.querySelector('.upload')
+    const image = document.querySelector('.donorPic')
+    button.addEventListener('click', () => {
+        const apiKey = 'AqMAavFZuQkehL8KOovPCz'
+        const client = filestack.init(apiKey)
+        const options = {
+            accept: ['image/*'],
+            onUploadDone: (uploadResponse) => {
+                console.log("onUploadDone", uploadResponse);
+                image.setAttribute('src', uploadResponse.filesUploaded[0].url)
+            },
+        };
+        client.picker(options).open();
+    });
+</script>
 
             <form th:action="@{/organizations/create}" method="POST" th:object="${organization}" id="create_org_form">
 
