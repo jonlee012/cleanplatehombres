@@ -17,7 +17,8 @@
                 <p><span th:text="${listing.getFoodAmt()}"></span>food amount</p>
                 <p><span th:text="${listing.getExpDate()}"></span>expiration date</p>
                 <p><span th:text="${listing.getOrganization().getOrgName()}"></span>org name</p>
-                <p><a th:href="@{'/listings/show/' + ${listing.getId()}}">More Info</span></a></p>
+<!--                <p><a th:href="@{'/listings/show/' + ${listing.getId()}}">More Info</span></a></p>-->
+                <p><span th:text="${listing.getOrganization().getOrgName()}"></span></p>
             </div>
         </div>
     </div>
