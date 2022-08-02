@@ -94,5 +94,11 @@ public class ListingController {
         return "redirect:/listings";
     }
 
+    @GetMapping("/error")
+    public String error(){
+        return "/error/500.html";
+    }
+
+
 
 }

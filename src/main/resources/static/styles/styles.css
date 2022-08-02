@@ -735,6 +735,18 @@ tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.12);
 }
 
+.pro-btn-link {
+    text-decoration: none;
+}
+
+.pro-edit-link {
+    color: black
+}
+
+.pro-edit-link:hover {
+    color: red
+}
+
 
 
 
