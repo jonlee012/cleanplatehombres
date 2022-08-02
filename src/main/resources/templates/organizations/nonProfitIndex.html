@@ -4,8 +4,8 @@
 <head th:replace="partials/head :: head">
     <meta charset="UTF-8">
     <title>Organization Index</title>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-                  integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<!--            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"-->
+<!--                  integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">-->
 </head>
 <body>
 <nav th:replace="partials/topnav :: navbar">
@@ -20,11 +20,13 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <button type="button" class="btn btn-light col" id="zoom15" value="zoom x 15">Zoom in</button>
-                <button type="button" class="btn btn-light col" id="zoom5" value="zoom x 5">Zoom out</button>
-<!--                <button type="button" class="btn btn-light col" id="zoom10" value="zoom x 10">Zoom 10</button>-->
+
+        <div class="buttons">
+            <div class="action_btn">
+            <button type="button" id="zoom15" value="zoom15">Zoom in</button>
+            </div>
+            <div class="action_btn">
+            <button type="button" id="zoom5" value="zoom5">Zoom out</button>
             </div>
         </div>
     </section>
