@@ -24,7 +24,7 @@
 
             </div>
 
-            <form th:action="@{/organizations/create}" method="POST" th:object="${organization}">
+            <form th:action="@{/organizations/create}" method="POST" th:object="${organization}" id="create_org_form">
 
                 <div class="label-input">
                     <label for="name">Organization Name</label>
@@ -38,10 +38,10 @@
 
                 <div class="label-input">
                     <div>
-                        <input type="checkbox" th:field="*{donor}" id="isDonor">
                         <label for="isDonor">
-                            Check if you are a donor
+                            Are you a restaurant?
                         </label>
+                        <input type="checkbox" th:field="*{donor}" id="isDonor">
                     </div>
                 </div>
 
@@ -115,7 +115,8 @@
 
                 <div class="label-input">
                     <label for="zip">Zip Code</label>
-                    <input th:field="*{orgZip}" type="text" class="form-control" placeholder="1" id="zip"/>
+<!--                    <input th:field="*{orgZip}" type="text" class="form-control" placeholder="1" id="zip"/>-->
+                    <input name="orgZip" type="text" class="form-control" id="zip"/>
                 </div>
 
 
