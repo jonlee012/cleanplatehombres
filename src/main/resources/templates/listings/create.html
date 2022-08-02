@@ -26,20 +26,28 @@
                                 <div class="label-input">
                                         <label id="organization">Organization<span class="require">*</span></label>
                                         <div>
+                                                <input th:field="*{foodName}" type="text" class="form-control" name="food_name" />
+
+
                                                 <select th:field="*{organization}">
-                                                        <option  th:each="organization : ${organizations}"
-                                                                 th:text="${organization.getOrgName()}"
-                                                                 th:value="${organization.getId()}">
-                                                        </option>
+                                                        <th:block th:each="organization : ${organizations}">
+                                                                      <!--/*@thymesVar id="getUserId" type=""*/-->
+                                                                      <option  th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}"
+                                                                              th:text="${organization.getOrgName()}"
+                                                                              th:value="${organization.getId()}">
+                                                                        </option>
+                                                        </th:block>
                                                 </select>
                                         </div>
                                 </div>
                                 <input th:field="*{user}" th:value="${listing.getUser()}" type="text" class="form-control" name="user" hidden >
+
                                 <div class="label-input">
                                         <label id="exp-date">Expiration Date</label>
                                         <input th:field="*{expDate}" type="text" class="form-control"
-                                               placeholder="MM/DD/YYYY" name="organization" />
+                                               placeholder="MM/DD/YYYY" name="organization"/>
                                 </div>
+
                                 <div class="label-input">
                                         <button type="submit" class="donate-btn">Create</button>
                                 </div>
