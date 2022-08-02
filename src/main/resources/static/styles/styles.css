@@ -398,7 +398,12 @@ h1 {
     height: 250px;
     vertical-align: middle;
 }
+.profileCardImg{
+    width: 350px;
+    height: 250px;
+    vertical-align: middle;
 
+}
 .btn {
     color: #ffffff;
     padding: 0.8rem;
@@ -935,10 +940,10 @@ tr:nth-child(even) {
     color: red;
 }
 
-.container {
-    width: 1080px;
-    margin: 0 auto;
-}
+/*.container {*/
+/*    width: 1080px;*/
+/*    margin: 0 auto;*/
+/*}*/
 
 
 /* CREATE LISTING */
