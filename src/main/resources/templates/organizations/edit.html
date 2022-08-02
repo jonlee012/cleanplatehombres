@@ -10,7 +10,7 @@
 <div class="login-register">
     <h1>Edit Organization Info</h1>
 
-    <form th:action="@{/organizations/edit}" method="POST" th:object="${organization}" class="second-tier-container form">
+    <form th:action="@{'/organizations/edit/' + ${organization.getId()}}" method="POST" th:object="${organization}" class="second-tier-container form">
 
         <input th:field="*{id}" th:value="${organization.getId()}" hidden>
 
@@ -122,7 +122,9 @@
                 Submit
             </button>
 
+
 </div>
+
 
 
 
@@ -139,12 +141,11 @@
 
 
 </form>
+</div>
 
 
-<footer th:replace="partials/footer :: footer">
-</footer>
-<script th:replace="partials/script :: script">
-</script>
+<footer th:replace="partials/footer :: footer"></footer>
+<script th:replace="partials/script :: script"></script>
 </body>
 </html>
 

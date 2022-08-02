@@ -15,45 +15,41 @@
 
 <div class="contact-us">
 
+    <h1>Contact Us</h1>
 
-<h1>Contact Us</h1>
+    <div id="after_submit"></div>
+        <form th:action="@{/contact}" method="POST" th:object="${user}">
+            <div>
+                <label class="required" for="name">Your name:</label><br />
+                <input id="name" class="input" name="name" type="text" value=""
+                       size="30" /><br />
+                <span id="name_validation" class="error_message"></span>
+            </div>
+            <div>
+                <label class="required" for="email">Your email:</label><br />
+                <input th:field="*{email}" th:value="${user.getEmail()}" id="email" class="input" name="email"
+                       type="text" value="" size="30" /><br />
+                <span id="email_validation" class="error_message"></span>
+            </div>
+            <div>
+                <label class="required" for="message">Your message:</label><br />
+                <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
+            </div>
 
-<div id="after_submit"></div>
-<form th:action="@{/contact}" method="POST" th:object="${user}">
-    <div>
-        <label class="required" for="name">Your name:</label><br />
-        <input id="name" class="input" name="name" type="text" value=""
-               size="30" /><br />
-        <span id="name_validation" class="error_message"></span>
+            <button id="submit_button" class="contact-us-btn" type="submit">Send email</button>
+        </form>
     </div>
-    <div>
-        <label class="required" for="email">Your email:</label><br />
-        <input th:field="*{email}" th:value="${user.getEmail()}" id="email" class="input" name="email"
-               type="text" value="" size="30" /><br />
-        <span id="email_validation" class="error_message"></span>
-    </div>
-    <div>
-        <label class="required" for="message">Your message:</label><br />
-        <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
-    </div>
 
-    <button id="submit_button" class="contact-us-btn" type="submit">Send email</button>
 
-</form>
+<footer th:replace="partials/footer :: footer"></footer>
 
-</div>
-
-<footer th:replace="partials/footer :: footer">
-</footer>
 <script>
-
 
     var listener = function (event) {
         alert('Your request has been submitted.');
     }
     document.getElementById('submit_button').addEventListener('click', listener);
-
-
 </script>
+
 </body>
 </html>
