@@ -578,7 +578,7 @@ h1 {
 
 .team-card {
     width: 200px;
-    height: 400px;
+    height: 450px;
     padding: 20px;
     background-color: rgb(230, 230, 230);
     color: rgb(100, 100, 100);
@@ -592,8 +592,8 @@ h1 {
 
 .p-img {
     border: 3px solid gray;
-    height: 130px;
-    width: 130px;
+    height: 115px;
+    width: 110px;
     border-radius: 50%;
 }
 
@@ -1559,12 +1559,12 @@ h1 {
 /*border: red;*/
     background-image: linear-gradient(to left, #fffefe, #9b989b);
     color: transparent;
-    background-clip: text;
+    /*background-clip: text;*/
     -webkit-background-clip: text;
     font-family: lato, arial, serif;
     line-height: 1.25;
     /*padding-bottom: -10px;*/
-
+    letter-spacing: 1px;
     /*margin: 0 0 10px;*/
     font-size: 30px;
     /*font-weight: bold;*/
@@ -1594,11 +1594,13 @@ h1 {
     justify-content: center;
     margin: 10px auto;
     font-size: .75em;
-
+}
 .underNav{
     background-color: white;
 
 }
+
+
 
 /*.listingsHeader {*/
 /*    !*margin-top: -10px;*!*/
