@@ -9,6 +9,10 @@ body {
     background-color: #464646;
 }
 
+textarea, input, select, option {
+    font-family: 'Roboto', sans-serif;
+}
+
 .nav-bar-container {
     background-color: black;
 
@@ -401,6 +405,8 @@ h1 {
     font-size: 24px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    /*font-family: 'Roboto', sans-serif;*/
+    /*font-weight: bolder;*/
 }
 
 .card img {
@@ -755,6 +761,24 @@ tr:nth-child(even) {
     text-decoration: none;
 }
 
+.cancel-btn {
+    color: black;
+    border: 1px solid black;
+    padding: 5px 1px;
+    margin: 10px;
+    float: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    /*border-radius: 30px;*/
+    font-weight: 400;
+    display: block;
+    width: 15%;
+    cursor: pointer;
+    background: white;
+    transition: .5s;
+    text-decoration: none;
+}
+
 .pro-edit-link {
     color: black
 }
@@ -783,9 +807,8 @@ tr:nth-child(even) {
 
 .login-register {
     border: 1px solid red;
-
-    width: 400px;
-    height: 500px;
+    width: 350px;
+    height: auto;
     margin: 5% auto;
     padding: 30px;
     background-color: white;
@@ -996,7 +1019,6 @@ tr:nth-child(even) {
     padding: 25px;
 }
 
-
 .add-img {
     padding: 10px;
     display: flex;
@@ -1004,40 +1026,42 @@ tr:nth-child(even) {
     align-items: center;
 }
 
-/*.label-input {*/
-/*    margin: 10px 0;*/
-/*    display: flex;*/
-/*    gap: 15px;*/
-/*    justify-content: space-between;*/
-/*}*/
-
-/*.label-input button {*/
-/*    margin-top: 25px;*/
-/*}*/
-
-
 /* CREATE ORG */
 
 .create-org-container {
     max-width: 100vw;
     margin: 0 auto;
     background-color: white;
-
 }
 
 .create-org-container-inner {
     padding: 25px;
-    color: white;
 }
-
 
 .create-org {
     /* border: 1px solid red; */
-    background-color: rgba(0, 0, 0, 0.637);
+    /*background-color: rgba(0, 0, 0, 0.637);*/
+    /*width: 500px;*/
+    /*height: 700px;*/
+    /*margin: 0 auto;*/
+    /*padding: 25px;*/
+    color: black;
+    border: 1px solid red;
     width: 500px;
-    height: 700px;
-    margin: 0 auto;
-    padding: 25px;
+    height: auto;
+    margin: 5% auto;
+    padding: 30px;
+    background-color: white;
+}
+
+.edit-listing {
+    color: black;
+    border: 1px solid red;
+    width: 450px;
+    height: auto;
+    margin: 5% auto;
+    padding: 30px;
+    background-color: white;
 }
 
 #create_org_form {
@@ -1048,11 +1072,14 @@ tr:nth-child(even) {
 
 .add-img {
     /* border: 1px solid red; */
-
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.donorPic {
+    background-color: lightgray;
 }
 
 .label-input {
@@ -1086,6 +1113,12 @@ tr:nth-child(even) {
 
 #state {
     width: 146px;
+}
+
+
+
+.listing_input {
+    width: 209px;
 }
 
 /* FOOTER */
