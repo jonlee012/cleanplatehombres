@@ -12,6 +12,11 @@
 
 <nav th:replace="partials/topnav :: navbar"></nav>
 
+<a class="pro-btn-link" th:href="@{/profile}">
+    <button type="button" class="cancel-btn">Cancel</button>
+</a>
+
+
 <div class="login-register">
 
     <h1 id="text" class="">Edit Your Information</h1>
@@ -30,8 +35,24 @@
         <label for="password">Password</label>
         <input id="password" type="password" th:field="*{password}" />
 
-        <button type="submit" class="btn btn-danger">Submit</button>
+        <div class="btn-pair">
+            <span class="label-input">
+                <button class="" type="submit">Submit</button>
+            </span>
+        </div>
+
     </form>
+
+<!--    <form th:action="@{/users/edit}" method="post" th:object="${user}">-->
+<!--        <input th:field="*{userId}" th:value="${user.getUserId()}" hidden>-->
+<!--        <input th:field="*{admin}" th:value="${user.getAdmin()}" hidden>-->
+<!--        <input th:field="*{username}" th:value="${user.getUsername}" hidden/>-->
+<!--        <input th:field="*{email}" th:value="${user.getEmail()}" hidden/>-->
+<!--        <input th:field="*{password}" type="password" th:value="${user.getPassword}" hidden/>-->
+<!--        <div class="label-input"><button class="" type="submit">Cancel</button></div>-->
+<!--    </form>-->
+
+
 
 </div>
 
