@@ -47,7 +47,8 @@
     </div>
     <footer th:replace="partials/footer :: footer"></footer>
     <script th:replace="partials/script :: script"></script>
-    <script>// When the user clicks on the password field, show the message box
+    <script>
+        // When the user clicks on the password field, show the message box
     myInput.onfocus = function () {
         document.getElementById("message").style.display = "block";
     }
