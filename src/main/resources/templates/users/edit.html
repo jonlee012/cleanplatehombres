@@ -14,9 +14,7 @@
 
 <div th:style="'background: url(/imgs/stayingSafe.png) no-repeat center center fixed;'" class="create-org-container">
 
-<a class="pro-btn-link" th:href="@{/profile}">
-    <button type="button" class="cancel-btn">Cancel</button>
-</a>
+
 
     <div class="create-org-container-inner">
         <div class="login-register">
@@ -37,13 +35,17 @@
         <label for="password">Password</label>
         <input id="password" type="password" th:field="*{password}" />
 
-        <div class="btn-pair">
             <span class="label-input">
                 <button class="" type="submit">Submit</button>
             </span>
-        </div>
 
     </form>
+
+            <div class="label-input">
+                <a class="cancel-link" th:href="@{/profile}">Cancel
+                    <!--    <button type="button" class="cancel-btn">Cancel</button>-->
+                </a>
+            </div>
 
     <!--    <form th:action="@{/users/edit}" method="post" th:object="${user}">-->
     <!--        <input th:field="*{userId}" th:value="${user.getUserId()}" hidden>-->
