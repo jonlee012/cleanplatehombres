@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
-    <title>Clean Plate Donations</title>
+    <title>Home</title>
     <div th:replace="partials/head :: head"></div>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- CSS STYLE SHEET -->
@@ -15,19 +15,18 @@
 
 <nav th:replace="partials/topnav :: navbar"></nav>
 
-
 <div class="support-section">
     <div class="container">
         <div class="support-top-wrapper">
             <div class="support-top-left">
                 <h2 class="support-top-heading">How it Works</h2>
             </div>
-<!--            <div class="support-top-right">-->
-<!--                <p>Clean Plate is a non-profit organization that is a conduit between restaurants who have food to give and organizations that need food.</p>-->
-<!--            </div>-->
+            <!--            <div class="support-top-right">-->
+            <!--                <p>Clean Plate is a non-profit organization that is a conduit between restaurants who have food to give and organizations that need food.</p>-->
+            <!--            </div>-->
         </div>
-
         <!-- SUPPORT CARDS -->
+        <div class="support-wrapper">
             <div class="support-column">
                 <div class="support-square">
                     <div class="support-square-number">01</div>
@@ -51,6 +50,8 @@
                 <p>After placing your donation. You will be able to manage your listings from you organization profile. </p>
             </div>
 
+        </div>
+    </div>
 </div>
 
 <!--Call to Action Section-->
@@ -60,8 +61,8 @@
 
     <div class="nav-links-ul" sec:authorize="isAnonymous()">
         <div class="hero-wrapper">
-                <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>
-<!--            <div class="nav-links-ul">-->
+            <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>
+            <!--            <div class="nav-links-ul">-->
             <div class="hero-button-container">
                 <a href="/sign-up" class="hero-button">GET STARTED NOW</a>
             </div>
@@ -70,7 +71,7 @@
 
     <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">
         <div class="hero-wrapper">
-                <h1 class="hero-heading">USE <span class="text-span-2">CLEAN PLATE</span> TO HELP YOU DONATE</h1>
+            <h1 class="hero-heading">USE <span class="text-span-2">CLEAN PLATE</span> TO HELP YOU DONATE</h1>
             <h3 class="hero-heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/-->
                 <span id="welcome-name" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!
             </h3>
@@ -88,12 +89,12 @@
 
 <!-- KEEPING SAFE SECTION -->
 <div class="safe-section">
-<!--    <img class="safe-img" th:src="@{/imgs/stayingSafe.png}">-->
+    <!--    <img class="safe-img" th:src="@{/imgs/stayingSafe.png}">-->
 
-        <div class="safe-wrapper">
-            <h2 class="safe-heading">WORKING & STAYING SAFE DURING COVID-19<br><br></h2>
-            <p class="safe-paragraph">Taking every safety precaution is our number one priority when working with our partners. </p>
-        </div>
+    <div class="safe-wrapper">
+        <h2 class="safe-heading">WORKING & STAYING SAFE DURING COVID-19<br><br></h2>
+        <p class="safe-paragraph">Taking every safety precaution is our number one priority when working with our partners. </p>
+    </div>
 
 </div>
 <!-- MOST RECENT 3 LISTINGS (BASED ON ID, WORK BACKWARDS(DECREMENT) THE SORT) -->
