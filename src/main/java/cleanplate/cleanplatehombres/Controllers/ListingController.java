@@ -53,7 +53,7 @@ public class ListingController {
         listingRepository.save(listing);
         emailService.prepareAndSend(listing, "donation listing created", "Confirmation: your donation listing has " +
                 "been created");
-        return "redirect:/listings";
+        return "redirect:/profile";
     }
 
    //show controller

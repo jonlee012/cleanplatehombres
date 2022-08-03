@@ -13,10 +13,6 @@
 
 <div th:style="'background: url(/imgs/stayingSafe.png) no-repeat center center fixed;'" class="create-org-container">
 
-    <a class="pro-btn-link" th:href="@{/profile}">
-        <button type="button" class="cancel-btn">Cancel</button>
-    </a>
-
     <div class="create-org-container-inner">
         <div class="edit-listing">
 
@@ -65,6 +61,12 @@
                     <button class="" type="submit">Submit</button>
                 </div>
             </form>
+
+            <div class="label-input">
+                <a class="cancel-link" th:href="@{/profile}">Cancel
+                    <!--    <button type="button" class="cancel-btn">Cancel</button>-->
+                </a>
+            </div>
 
         </div>
     </div>
