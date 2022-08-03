@@ -47,7 +47,8 @@
     </div>
     <footer th:replace="partials/footer :: footer"></footer>
     <script th:replace="partials/script :: script"></script>
-    <script>// When the user clicks on the password field, show the message box
+    <script>
+        // When the user clicks on the password field, show the message box
     myInput.onfocus = function () {
         document.getElementById("message").style.display = "block";
     }
@@ -100,12 +101,13 @@
     }
 
     function showPassword() {
-        let x = document.getElementById("psw");
+        let x = document.getElementById("password");
         if (x.type === "password") {
             x.type = "text";
         } else {
             x.type = "password";
         }
-    }</script>
+    }
+    </script>
 </body>
 </html>
