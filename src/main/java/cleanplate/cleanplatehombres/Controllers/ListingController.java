@@ -90,7 +90,7 @@ public class ListingController {
     @GetMapping("listings/delete/{id}")
     public String delete(@ModelAttribute Listing listing) {
        listingRepository.delete(listing);
-        return "redirect:/listings";
+        return "redirect:/profile";
     }
 
 //    @GetMapping("/error")

@@ -11,11 +11,11 @@
 <body>
 <nav th:replace="partials/topnav :: navbar">
 </nav>
-        <h1 class="headerStyles">Check out our restaurant donors!</h1>
+        <h1 class="headerStyles">Our Restaurant Partners</h1>
 
 <div class="container main-section">
     <!--                start-->
-<section class="container-fluid" style="margin-top: 40px">
+<section class="container-fluid" style="margin-top: 20px">
         <div class="mapbox">
             <div class="container-fluid" id='map' style='height: 400px; width: auto'>
                 <div class="zoom-container text-center justify-content-center align-items-center" id="orgMark">
@@ -32,32 +32,25 @@
     </div>
     </section>
 
-       
+    <div class="card-container">
+        <div class="card-container-inner">
+            <div th:each="organization : ${organizations}">
+                <div th:if="${organization.isDonor()}">
 
-
-    <div class="main main-section">
-        <ul class="listing-cards">
-            <li class="cards_item">
-                <div class="card">
-                    <div th:each="organization : ${organizations}">
-                        <div th:if="${organization.isDonor()}">
+                    <div class="lstg-card-container">
+                        <div class="lstg-card">
                             <div class="card_image"><img th:src="@{${organization.getImages()}}" /></div>
-                            <div class="card_content">
-                                <h2 class="card_title"><span th:text="${organization.getOrgName()}"></span></h2>
-                                <p class="card_text"><span th:text="${organization.getOrgDescription()}"></span></p>
-                                <p class="card_text"><span th:text="${organization.getOrgStAddress()}"></span></p>
-                                <p class="card_text"><span th:text="${organization.getOrgCity()}"></span></p>
-                                <p class="card_text"><span th:text="${organization.getOrgState()}"></span></p>
-                                <p class="card_text"><span th:text="${organization.getOrgZip()}"></span></p>
-                                <button class="btn card_btn">full description here</button>
-                            </div>
+                            <p><span th:text="${organization.getOrgName()}"></span></p>
+                            <p><span th:text="${organization.getOrgDescription()}"></span></p>
                         </div>
                     </div>
                 </div>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
-</div>
+
+
+
 
 <footer th:replace="partials/footer.html :: footer"></footer>
 <script th:replace="partials/script.html :: script"></script>
@@ -102,7 +95,7 @@
                 .setHTML(
                     "<h6 style='max-width: 150px'>" + name + "</h6>" +
                     "<p>" + address + "</p>");
-            var marker = new mapboxgl.Marker()
+            var marker = new mapboxgl.Marker({ "color": "#ea3c3c" })
                 .setLngLat(coordinates)
                 .addTo(map)
                 .setPopup(popup);

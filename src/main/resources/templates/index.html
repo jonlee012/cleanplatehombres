@@ -19,23 +19,56 @@
 <div class="hero-section">
     <img class="hero-img" th:src="@{/imgs/landing2a.png}">
     <div class="hero-wrapper">
-        <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>
-        <div class="hero-button-container">
 
+        <div class="nav-links-ul" sec:authorize="isAnonymous()">
+            <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>
+        </div>
+        <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">
+            <h1 class="hero-heading">THANKS FOR USING <span class="text-span-2">CLEAN PLATE</span> TO HELP YOU DONATE</h1>
+        </div>
+
+        <div class="hero-button-container">
             <div class="hero-button-wrapper">
+
                 <div class="nav-links-ul" sec:authorize="isAnonymous()">
                     <a href="/sign-up" class="hero-button">GET STARTED NOW</a>
                 </div>
 
                 <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">
-                    <h3 class="hero-heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/--><span class="text-span-2 text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h3>
-                    <a href="/listings/create" class="hero-button">POST A DONATION</a>
+                    <h3 class="hero-heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/--><span id="welcome-name" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h3>
+                    <br>
+                    <div><a href="/listings/create" class="hero-button">POST A DONATION</a></div>
                 </div>
             </div>
 
         </div>
     </div>
 </div>
+
+<!--<div class="hero-section">-->
+<!--    <img class="hero-img" th:src="@{/imgs/landing2a.png}">-->
+<!--    <div class="hero-wrapper">-->
+
+<!--        <div class="nav-links-ul" sec:authorize="isAnonymous()">-->
+<!--                    <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>-->
+<!--                    <div class="hero-button-container">-->
+<!--                    <div class="hero-button-wrapper">-->
+<!--                    <a href="/sign-up" class="hero-button">GET STARTED NOW</a>-->
+<!--        </div>-->
+
+<!--        <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">-->
+<!--            <h1 class="hero-heading">THANKS FOR USING <span class="text-span-2">CLEAN PLATE</span> TO HELP YOU DONATE</h1>-->
+<!--            <div class="hero-button-container">-->
+<!--                <div class="hero-button-wrapper">-->
+<!--            <h3 class="hero-heading">Welcome &lt;!&ndash;/*@thymesVar id="getUsername" type=""*/&ndash;&gt;<span class="text-span-2 text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h3>-->
+<!--            <a href="/listings/create" class="hero-button">POST A DONATION</a>-->
+<!--        </div>-->
+
+<!--            </div>-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <!-- SUPPORT SECTION -->
 <div class="support-section">
