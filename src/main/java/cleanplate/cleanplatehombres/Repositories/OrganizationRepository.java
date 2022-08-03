@@ -18,8 +18,6 @@ public interface OrganizationRepository extends JpaRepository<Organization, Inte
 //    Organization getOrganizationAddress(String orgStAddress);
     List<Organization> getAllByOrgNameContaining(@Param("keyword") String orgName);
 
-    void delete(Optional<Organization> byId);
-
 //    @Modifying
 //    @Query("UPDATE org_info AS o " +
 //            "set o.id = id, " +
