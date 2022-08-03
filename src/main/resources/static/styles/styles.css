@@ -1544,5 +1544,7 @@ h1 {
     /*-webkit-background-clip: text;*/
 }
 
-
+#welcome-name {
+    text-transform: capitalize;
+}
 
