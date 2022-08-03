@@ -11,10 +11,15 @@
 <body>
 <nav th:replace="partials/topnav :: navbar">
 </nav>
-<h1 class="headerStyles">Our Non-Profit Partners</h1>
+<div class="profile-header-holder underNav">
+    <h1 class="profile-header headerStyles">Our Non-Profit Partners</h1>
+</div>
+
 
 <div class="container main-section">
+
     <!--                start-->
+    <div>
     <section class="container-fluid" style="margin-top: 20px">
         <div class="mapbox">
             <div class="container-fluid" id='map' style='height: 400px; width: auto'>
@@ -23,36 +28,31 @@
             </div>
         </div>
 
-        <div class="buttons">
-            <div class="action_btn">
-            <button role="button" type="button" id="zoom15" value="zoom15">+</button>
-            </div>
-            <div class="action_btn">
-            <button role="button" type="button" id="zoom5" value="zoom5">-</button>
+<!--        <div class="buttons">-->
+<!--            <div class="action_btn">-->
+<!--            <button role="button" type="button" id="zoom15" value="zoom15">+</button>-->
+<!--            </div>-->
+<!--            <div class="action_btn">-->
+<!--            <button role="button" type="button" id="zoom5" value="zoom5">-</button>-->
+<!--            </div>-->
+<!--        </div>-->
+    </section>
+    </div>
+
+<div class="card-container">
+    <div class="card-container-inner">
+        <div th:each="organization : ${organizations}">
+            <div th:if="${!organization.isDonor()}">
+
+            <div class="lstg-card-container">
+                <div class="lstg-card">
+                    <div class="card_image"><img th:src="@{${organization.getImages()}}" /></div>
+                    <p><span th:text="${organization.getOrgName()}"></span></p>
+                    <p><span th:text="${organization.getOrgDescription()}"></span></p>
+                </div>
             </div>
         </div>
-    </section>
-
-    <div class="main main-section">
-        <ul class="listing-cards">
-            <li class="cards_item">
-                <div class="card">
-
-                    <div th:each="organization : ${organizations}">
-                        <div th:if="${!organization.isDonor()}">
-                                <div class="card_image"><img th:src="@{${organization.getImages()}}" /></div>
-                            <div class="card_content">
-
-                                <h2 class="card_title"><span th:text="${organization.getOrgName()}"></span></h2>
-                                <p class="card_text"><span th:text="${organization.getOrgDescription()}"></span></p>
-                                <a class="card_text" th:href="@{'/listings/show/' + ${organization.getId()}}">More
-                                    Info</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
+        </div>
     </div>
 </div>
 
@@ -97,8 +97,8 @@
                 .setHTML(
                     "<h6 style='max-width: 150px'>" + name + "</h6>" +
                     "<p>" + address + "</p>");
-            var marker = new mapboxgl.Marker()
-                .setLngLat(coordinates)
+            var marker = new mapboxgl.Marker({ "color": "#ea3c3c" })
+                    .setLngLat(coordinates)
                 .addTo(map)
                 .setPopup(popup);
             popup.addTo(map);
