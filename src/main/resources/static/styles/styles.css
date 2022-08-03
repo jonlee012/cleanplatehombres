@@ -1047,7 +1047,17 @@ tr:nth-child(even) {
     /*padding: 25px;*/
     color: black;
     border: 1px solid red;
-    width: 475px;
+    width: 450px;
+    height: auto;
+    margin: 5% auto;
+    padding: 30px;
+    background-color: white;
+}
+
+.edit-org {
+    color: black;
+    border: 1px solid red;
+    width: 450px;
     height: auto;
     margin: 5% auto;
     padding: 30px;
@@ -1065,7 +1075,7 @@ tr:nth-child(even) {
 }
 
 #create_org_form {
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
 }
 

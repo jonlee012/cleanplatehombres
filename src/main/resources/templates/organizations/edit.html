@@ -14,7 +14,7 @@
     </a>
 
     <div class="create-org-container-inner">
-        <div class="create-org">
+        <div class="edit-org">
 <!--<div class="login-register">-->
 
     <h1>Edit Organization</h1>
@@ -57,7 +57,8 @@
             <div class="label-input">
                 <label for="state">State</label>
                 <!--                    <select id="state" th:field="*{orgState}">-->
-                <select id="state" name="orgState">
+                <select id="state" class="form-select h4" th:field="*{orgState}">
+<!--                <select id="state" name="orgState">-->
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
