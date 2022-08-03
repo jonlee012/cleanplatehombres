@@ -6,11 +6,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #464646;
-}
-
-textarea, input, select, option {
-    font-family: 'Roboto', sans-serif;
+    background-color: black;
 }
 
 .nav-bar-container {
@@ -219,7 +215,7 @@ button, input[type="submit"] {
 /* **************** */
 /* **************** */
 .support-section {
-     /*border: 2px solid purple;*/
+    /*border: 2px solid purple;*/
     margin: 0 auto;
     max-width: 100vw;
     height: auto;
@@ -231,7 +227,7 @@ button, input[type="submit"] {
 
 
 .support-top-wrapper {
-     /*border: 2px solid red;*/
+    /*border: 2px solid red;*/
     font-family: 'Montserrat', sans-serif;
     padding: 25px 20px;
     display: flex;
@@ -405,8 +401,6 @@ h1 {
     font-size: 24px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    /*font-family: 'Roboto', sans-serif;*/
-    /*font-weight: bolder;*/
 }
 
 .card img {
@@ -626,10 +620,7 @@ h1 {
 /* **************** */
 /* **************** */
 
-.profile-welcome {
-    background-color: black;
-    color: white;
-}
+
 
 .user-profile {
     /*border: 1px solid red;*/
@@ -647,33 +638,68 @@ h1 {
     display: flex;
 }
 
+.profile-welcome {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.profile-left p {
+    padding: 5px 0;
+    font-size: 13px;
+
+}
+
 .profile-left {
-    /*border: 1px solid red;*/
+    /* border: 1px solid red; */
     padding: 25px;
     height: auto;
-    background-color: black;
-    color: white;
+    /* background-color: pink; */
+    color: black;
     flex: 0 0 30%;
     max-width: 250px;
     min-width: 250px;
 }
 
-.profile-main {
-    /*border: 1px solid red;*/
-    padding: 25px;
-    width: 75vw;
-    height: auto;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
-    /*gap: 20px;*/
+.profile-left a {
+    text-decoration: none;
 }
 
-.profile-main-edit-org {
-    /*border: 1px solid purple;*/
-    height: auto;
-    padding: 20px;
+.profile-right {
+    /* border: 2px solid green; */
+    width: 100%;
 }
+
+.profile-right h2 {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.profile-button {
+    color: #ffffff;
+    padding: 8px 10px;
+    /* margin-top: 20px; */
+    font-size: 10px;
+    text-transform: uppercase;
+    /* border-radius: 30px; */
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    text-decoration: none;
+    border: 1px solid red;
+    transition: 1s ease;
+
+}
+
+.profile-button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: black;
+    border: 1px solid red;
+}
+
+
+
 
 /* Tooltip container */
 .tooltip {
@@ -704,93 +730,6 @@ h1 {
     visibility: visible;
 }
 
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td,
-th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #e3e3e3;
-}
-
-.profile-main a {
-    text-decoration: none;
-    color: black;
-    transition: .5s ease;
-}
-
-.profile-main a:hover {
-    color: red;
-}
-
-.profile-main-edit-listing {
-    /*border: 1px solid purple;*/
-    height: auto;
-    padding: 20px;
-}
-
-.profile-button {
-    color: #ffffff;
-    padding: 8px 10px;
-    margin-top: 20px;
-    font-size: 11px;
-    text-transform: uppercase;
-    border-radius: 30px;
-    font-weight: 400;
-    display: block;
-    width: 100%;
-    cursor: pointer;
-    background: rgb(224, 62, 21);
-    transition: .5s;
-    text-decoration: none;
-}
-
-.profile-button:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-}
-
-.pro-btn-link {
-    text-decoration: none;
-}
-
-.cancel-btn {
-    color: black;
-    border: 1px solid black;
-    padding: 5px 1px;
-    margin: 10px;
-    float: left;
-    font-size: 11px;
-    text-transform: uppercase;
-    /*border-radius: 30px;*/
-    font-weight: 400;
-    display: block;
-    width: 15%;
-    cursor: pointer;
-    background: white;
-    transition: .5s;
-    text-decoration: none;
-}
-
-.pro-edit-link {
-    color: black
-}
-
-.pro-edit-link:hover {
-    color: red
-}
-
-
-
-
-
 
 
 
@@ -807,8 +746,9 @@ tr:nth-child(even) {
 
 .login-register {
     border: 1px solid red;
-    width: 350px;
-    height: auto;
+
+    width: 400px;
+    height: 500px;
     margin: 5% auto;
     padding: 30px;
     background-color: white;
@@ -932,35 +872,35 @@ tr:nth-child(even) {
 /*CREATE A LISTING*/
 
 /* .donate {
-    border: 1px solid red;
+  border: 1px solid red;
 
-    width: 400px;
-    height: 700px;
-    margin: 5% auto;
-    padding: 30px;
+  width: 400px;
+  height: 700px;
+  margin: 5% auto;
+  padding: 30px;
 }
 
 .conditional {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .donate form {
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .login-register label {
-    margin-top: 10px;
-    font-weight: bold;
+  margin-top: 10px;
+  font-weight: bold;
 
 }
 
 .donate input {
-    border-radius: 5px;
-    border: 1px solid rgb(177, 177, 177);
-    padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(177, 177, 177);
+  padding: 5px;
 } */
 
 .donate-btn {
@@ -1019,67 +959,12 @@ tr:nth-child(even) {
     padding: 25px;
 }
 
+
 .add-img {
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-/* CREATE ORG */
-
-.create-org-container {
-    max-width: 100vw;
-    margin: 0 auto;
-    background-color: white;
-}
-
-.create-org-container-inner {
-    padding: 25px;
-}
-
-.create-org {
-    /* border: 1px solid red; */
-    /*background-color: rgba(0, 0, 0, 0.637);*/
-    /*width: 500px;*/
-    /*height: 700px;*/
-    /*margin: 0 auto;*/
-    /*padding: 25px;*/
-    color: black;
-    border: 1px solid red;
-    width: 500px;
-    height: auto;
-    margin: 5% auto;
-    padding: 30px;
-    background-color: white;
-}
-
-.edit-listing {
-    color: black;
-    border: 1px solid red;
-    width: 450px;
-    height: auto;
-    margin: 5% auto;
-    padding: 30px;
-    background-color: white;
-}
-
-#create_org_form {
-    width: 75%;
-    margin: 0 auto;
-}
-
-
-.add-img {
-    /* border: 1px solid red; */
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.donorPic {
-    background-color: lightgray;
 }
 
 .label-input {
@@ -1090,36 +975,62 @@ tr:nth-child(even) {
 }
 
 .label-input button {
-    margin: 25px auto;
-    color: #ffffff;
-    margin-top: 10px;
-    padding: 8px 10px;
-    font-size: 11px;
-    text-transform: uppercase;
-    border-radius: 30px;
-    font-weight: 400;
-    display: block;
-    width: 50%;
-    cursor: pointer;
-    background: rgb(224, 62, 21);
-    border: 1px solid red;
-    transition: .5s;
-    text-decoration: none;
-}
-
-#isDonor {
-    width: 146px;
-}
-
-#state {
-    width: 146px;
+    margin-top: 25px;
 }
 
 
+/* CREATE ORG */
 
-.listing_input {
-    width: 209px;
+.create-org-container {
+    max-width: 100vw;
+    margin: 0 auto;
+    background-color: white;
+
 }
+
+.create-org-container-inner {
+    padding: 25px;
+    color: white;
+}
+
+
+.create-org {
+    /* border: 1px solid red; */
+
+    background-color: rgba(0, 0, 0, 0.637);
+    width: 500px;
+    height: 700px;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+#create_org_form {
+    width: 75%;
+}
+
+
+.add-img {
+    /* border: 1px solid red; */
+
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label-input {
+    margin: 10px 0;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.label-input button {
+    margin-top: 25px;
+}
+
+
+
 
 /* FOOTER */
 
@@ -1136,7 +1047,6 @@ tr:nth-child(even) {
     margin: 0 auto;
     color: white;
     background-color: black;
-    height: auto;
 }
 
 
@@ -1150,7 +1060,6 @@ tr:nth-child(even) {
     gap: 15px;
     padding-top: 0;
     padding-bottom: 0;
-    height: auto;
 
 }
 
@@ -1281,17 +1190,21 @@ tr:nth-child(even) {
 .card-container {
     /* border: 1px solid orange; */
 
-    max-width: 1500px;
+    max-width: 100vw;
     margin: 0 auto;
     background-color: white;
+    padding: 0 100px;
 }
 
 .card-container-inner {
+    /*border: 2px solid purple;*/
+
     display: flex;
     padding: 20px;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 
 
 }
@@ -1308,12 +1221,14 @@ tr:nth-child(even) {
     padding: 15px;
     width: 200px;
     height: 200px;
+    background-color: #efefef;
 }
 
 .more-info {
     color: white;
     background-color: red;
     text-align: center;
+    padding: 8px;
 }
 
 .more-info-link {
@@ -1342,28 +1257,82 @@ tr:nth-child(even) {
     display: flex;
     padding: 5px;
     font-size: 13px;
+    margin-top: 15px;
+}
+
+.org-card-container {
+    width: 30%;
+    /* background-color: purple; */
 }
 
 .org-card {
-    /*border: 2px solid red;*/
-    padding: 10px;
-    width: 30%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: pink; */
+    border-top: 2px solid red;
+    background-color: rgb(231, 231, 231);
+
 }
 
-.profile-listings-container {
-    /*border: 2px solid red;*/
-    padding: 25px;
+.org-info {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding: 15px;
+    min-width: 300px;
+}
+
+.org-info p {
+    padding: 3px 0;
+}
+
+.org-img {
+    height: 100px;
+    width: 100px;
+}
+
+.city-st-zip {
+    display: flex;
+    gap: 3px;
+}
+
+.icons-holder-orgs {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: red;
+    padding: 10px;
+    color: white;
+    font-size: 12px;
+    width: 100%;
+}
+
+.icons {
+    text-decoration: none;
+    color: white;
+    transition: 1s ease;
+}
+
+.icons:hover {
+    color: black;
+}
+
+/* .profile-listings-container {
+  border: 2px solid red;
+  padding: 25px;
 }
 
 .profile-listings-cards {
-    /*border: 1px solid blue;*/
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+  border: 1px solid blue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+} */
 
 .individual-listings-card {
-    /*border: 2px solid orange;*/
+    border: 2px solid orange;
     margin: 15px;
     width: 200px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -1378,19 +1347,13 @@ tr:nth-child(even) {
 
 .icons-holder {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 15px;
     background-color: red;
     padding: 10px;
-    color: white;
     font-size: 12px;
 }
 
-.profile-body a {
-    color: white;
-    text-decoration: none;
-
-}
 
 /*buttons for mapbox*/
 .buttons {
@@ -1445,3 +1408,8 @@ tr:nth-child(even) {
     box-shadow: rgba(228, 121, 17, .5) 0 0 3px 2px;
     outline: 0;
 }
+
+
+
+
+
