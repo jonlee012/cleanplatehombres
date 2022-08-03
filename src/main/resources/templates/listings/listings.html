@@ -9,10 +9,10 @@
 <br>
 <nav th:replace="partials/topnav :: navbar">
 </nav>
+<h1 class="headerStyles listingsPageHead">Our Listings</h1>
 
 <div class="card-container">
     <br>
-    <h1>Here are all of the listings</h1>
 
     <div class="card-container-inner">
         <div th:each="listing : ${listings}">
