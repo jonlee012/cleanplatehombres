@@ -11,6 +11,10 @@ body {
     background-color: black;
 }
 
+textarea, input, select, option {
+    font-family: 'Roboto', sans-serif;
+}
+
 .nav-bar-container {
     background-color: black;
 
@@ -760,11 +764,13 @@ h1 {
 
 .login-register {
     border: 1px solid red;
-    width: 400px;
-    height: 500px;
+    width: 375px;
+    height: auto;
     margin: 5% auto;
     padding: 30px;
     background-color: white;
+    color: black;
+
 }
 
 .conditional {
@@ -974,10 +980,15 @@ h1 {
 
 
 .add-img {
+    /* border: 1px solid red; */
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.donorPic {
+    background-color: lightgray;
 }
 
 .label-input {
@@ -988,9 +999,60 @@ h1 {
 }
 
 .label-input button {
-    margin-top: 25px;
+    margin: 25px auto;
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 8px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 400;
+    display: block;
+    width: 50%;
+    cursor: pointer;
+    background: rgb(224, 62, 21);
+    border: 1px solid red;
+    transition: .5s;
+    text-decoration: none;
 }
 
+#isDonor {
+    width: 146px;
+}
+
+#state {
+    width: 146px;
+}
+
+.listing_input {
+    width: 209px;
+}
+
+.cancel-btn {
+    color: black;
+    border: 1px solid black;
+    padding: 5px 1px;
+    margin: 10px;
+    float: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    /*border-radius: 30px;*/
+    font-weight: 400;
+    display: block;
+    width: 15%;
+    cursor: pointer;
+    background: white;
+    transition: .5s;
+    text-decoration: none;
+}
+
+.pro-edit-link {
+    color: black
+}
+
+.pro-edit-link:hover {
+    color: red
+}
 
 /* CREATE ORG */
 
@@ -1431,6 +1493,7 @@ h1 {
     touch-action: manipulation;
     white-space: nowrap;
     width: 8em;
+
 }
 .action_btn:active {
     border-bottom-color: #a2a6ac;
@@ -1460,6 +1523,7 @@ h1 {
     vertical-align: middle;
     padding: 3px;
     text-decoration:none;
+    color: #3b3b3b;
 
 }
 .tinted-image {
@@ -1471,7 +1535,14 @@ h1 {
             )
 }
 
-
+.headerStyles {
+    /*font-size: 70px;*/
+    /*font-weight: 600;*/
+    /*background-image: linear-gradient(to left, #553c9a, #b393d3);*/
+    /*color: transparent;*/
+    /*background-clip: text;*/
+    /*-webkit-background-clip: text;*/
+}
 
 
 

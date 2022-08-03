@@ -8,65 +8,82 @@
 
 
 <body>
+
 <nav th:replace="partials/topnav :: navbar"></nav>
+
 <div th:style="'background: url(/imgs/stayingSafe.png) no-repeat center center fixed;'" class="create-lstg-container">
-        <div class="create-lstg-container-inner">
-                <div class="create-lstg">
+
+        <a class="pro-btn-link" th:href="@{/profile}">
+                <button type="button" class="cancel-btn">Cancel</button>
+        </a>
+
+        <div class="create-org-container-inner">
+                <div class="edit-listing">
+
                         <h1>Create Donation Listing</h1>
-                        <form th:action="@{/listings/create}" method="POST" th:object="${listing}" class="second-tier-container form">
+                        <br>
+
+                        <form th:action="@{/listings/create}" method="POST" th:object="${listing}" class="">
                                 <div class="label-input">
                                         <label id="title">Type of Food <span class="require">*</span></label>
-                                        <input th:field="*{foodName}" type="text" class="form-control" name="food_name" />
+                                        <input th:field="*{foodName}" type="text" class="listing_input" name="food_name" />
                                 </div>
+
                                 <div class="label-input">
                                         <label id="food_amt">Amount <span class="require">*</span></label>
-                                        <input th:field="*{foodAmt}" type="text" class="form-control" name="food_amt" />
+                                        <input th:field="*{foodAmt}" type="text" class="listing_input" name="food_amt" />
                                 </div>
+
                                 <div class="label-input">
                                         <label id="body">Donation Description</label>
-                                        <textarea th:field="*{donationDescription}" rows="4" class="form-control" name="donation_description"></textarea>
+                                        <textarea th:field="*{donationDescription}" rows="6" cols="29" name="donation_description"></textarea>
                                 </div>
+
                                 <div class="label-input">
-                                        <label id="organization">Organization<span class="require">*</span></label>
-                                        <div>
-                                                <input th:field="*{foodName}" type="text" class="form-control" name="food_name" />
+                                        <label for="organization">Organization*</label>
+                                        <select id="organization" name="organization" class="listing_input">
+                                                <!--/*@thymesVar id="getUserId" type=""*/-->
+                                                <th:block th:each="organization : ${organizations}" th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}">
+                                                        <option  th:text="${organization.getOrgName()}" th:value="${organization.getId()}"></option>
+                                                </th:block>
+                                        </select>
 
+<!--                                    <input th:field="*{foodName}" type="text" class="form-control" name="food_name" />-->
+<!--                                        <select id="organization" th:field="*{organization}">-->
+<!--                                                <th:block th:each="organization : ${organizations}">-->
+<!--                                                              &lt;!&ndash;/*@thymesVar id="getUserId" type=""*/&ndash;&gt;-->
+<!--                                                              <option  th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}"-->
+<!--                                                                      th:text="${organization.getOrgName()}"-->
+<!--                                                                      th:value="${organization.getId()}">-->
+<!--                                                                </option>-->
+<!--                                                </th:block>-->
+<!--                                        </select>-->
 
-                                                <select th:field="*{organization}">
-                                                        <th:block th:each="organization : ${organizations}">
-                                                                      <!--/*@thymesVar id="getUserId" type=""*/-->
-                                                                      <option  th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}"
-                                                                              th:text="${organization.getOrgName()}"
-                                                                              th:value="${organization.getId()}">
-                                                                        </option>
-                                                        </th:block>
-                                                </select>
-                                        </div>
                                 </div>
-                                <input th:field="*{user}" th:value="${listing.getUser()}" type="text" class="form-control" name="user" hidden >
+
+                                <input th:field="*{user}" th:value="${listing.getUser()}" type="text" class="form-control" name="user" hidden />
 
                                 <div class="label-input">
                                         <label id="exp-date">Expiration Date</label>
-                                        <input th:field="*{expDate}" type="text" class="form-control"
-                                               placeholder="MM/DD/YYYY" name="organization"/>
+                                        <input th:field="*{expDate}" type="text" class="listing_input" placeholder="MM/DD/YYYY" name="organization"/>
                                 </div>
 
                                 <div class="label-input">
-                                        <button type="submit" class="donate-btn">Create</button>
+                                        <button type="submit" class="">Create</button>
                                 </div>
                         </form>
                 </div>
         </div>
 </div>
+
+
 </body>
 
 
 
 
-<footer th:replace="partials/footer :: footer">
-</footer>
-<script th:replace="partials/script :: script">
-</script>
+<footer th:replace="partials/footer :: footer"></footer>
+<script th:replace="partials/script :: script"></script>
 
 </html>
 
