@@ -62,9 +62,7 @@
 
                 <!--org display-->
                 <div class="org-card-container">
-
                     <div class="org-card">
-
                         <div class="org-info">
                             <!--<div th:src="${organization.getImages()}"></div>-->
                             <p><img class="org-img" th:src="@{${organization.getImages()}}" /></p>
@@ -74,18 +72,13 @@
                             <p><b>Address:</b></p>
                             <!--/*@thymesVar id="getOrgStAddress" type=""*/-->
                             <p><span th:text="${organization.getOrgStAddress()}"></span><br></p>
-
                             <div class="city-st-zip">
-
                                 <p><!--/*@thymesVar id="getOrgCity" type=""*/-->
                                     <span th:text="${organization.getOrgCity()}"></span></p>
-
                                 <p><!--/*@thymesVar id="orgState" type=""*/-->
                                     <span th:text="${organization.getOrgState()}"></span></p>
-
                                 <p><!--/*@thymesVar id="getOrgZip" type=""*/-->
                                     <span th:text="${organization.getOrgZip()}"></span></p>
-
                             </div>
                         </div>
                         <div class="icons-holder-orgs">
@@ -95,18 +88,16 @@
                             <div><a th:href="@{'/organizations/delete/' + ${organization.getId()}}"><i class="fa-solid fa-trash-can icons"></i></a></div>
                             <div><a th:href="@{/listings/create}" class="button"><i class="fa fa-plus icons" aria-hidden="true"></i> </a></div>
                         </div>
-
                     </div>
-
-
-
                 </div>
 
                 <!-- ORG CARD END -->
 
-                <div class="card-container-inner">
-                    <!--<div th:each="listing : ${listings}">-->
-                    <th:block th:each="listing : ${listings}">
+        <div class="card-container-inner">
+            <div th:each="listing : ${listings}">
+<!--            <th:block th:each="listing : ${listings}">-->
+<!--                <div th:if="${organization.getUser()} == ${listing.getUser()}">-->
+                    <div th:if="${organization} == ${listing.getOrganization()}">
                         <div class="lstg-card-container">
                             <div class="lstg-card">
                                 <p><span th:text="${listing.getFoodName()}"></span></p>
@@ -120,11 +111,12 @@
                             </div>
                         </div>
                 </div>
-        </th:block>
-    </div>
+<!--        </th:block>-->
+            </div>
     <!-- PROFILE-LISTINGS-CONTAINER END -->
-</div>
+        </div>
 <!--end conditional if User owns orgs-->
+        </div>
 </th:block><!--end foreach loop for all orgs-->
 </div>
 <!--end col-10-->
