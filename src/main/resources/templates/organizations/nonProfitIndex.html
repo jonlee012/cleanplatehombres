@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <!--<head>-->
-<head th:replace="partials/head :: head">
+<head>
     <meta charset="UTF-8">
-    <title>Organization Index</title>
+    <title>Non-Profits</title>
+    <div th:replace="partials/head :: head"></div>
 <!--            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"-->
 <!--                  integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">-->
 </head>
 <body>
 <nav th:replace="partials/topnav :: navbar">
 </nav>
-<div class="container">
-    <h1> Check out our participating partners!</h1>
+<h1 class="headerStyles"> Check out our participating partners!</h1>
+
+<div class="container main-section">
     <!--                start-->
     <section class="container-fluid" style="margin-top: 40px">
         <div class="mapbox">

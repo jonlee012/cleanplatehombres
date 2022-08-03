@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head"></head>
+<head>
+    <title>About Us</title>
+    <div th:replace="partials/head :: head"></div>
+</head>
 
 <body>
 <nav th:replace="partials/topnav :: navbar"></nav>
@@ -28,24 +31,40 @@
             <div class="heading">Derek Berkley</div>
             <div class="team-line"></div>
             <div class="paragraph">Responsible for database design, security configuration, and entity CRUD operations.</div>
+            <div class="profileIcons">
+            <a  href="https://github.com/derekberkley" class='fa fa-github profileIconsEach'></a>
+            <a  href="https://www.linkedin.com/in/derek-berkley/" class='fa fa-linkedin profileIconsEach'></a>
+            </div>
         </div>
         <div class="team-card">
             <div ><img class="p-img" th:src="@{/imgs/jon.jpeg}" alt="j_lee"></div>
             <div class="heading">Jon Lee</div>
             <div class="team-line"></div>
             <div class="paragraph">Responsible for implementing MapBox API, Filestack API, and partials for view pages.</div>
+            <div class="profileIcons">
+            <a  href="https://github.com/jonlee012" class='fa fa-github profileIconsEach'></a>
+            <a  href="https://www.linkedin.com/in/jonathan-lee-67044836/" class='fa fa-linkedin profileIconsEach'></a>
+            </div>
         </div>
         <div class="team-card">
             <div ><img class="p-img" th:src="@{/imgs/carlos.jpeg}" alt="c_chavira"></div>
             <div class="heading">Carlos Chavira</div>
             <div class="team-line"></div>
             <div class="paragraph">Responsible for Front-end, styling the user interface, and Filestack API. Utilized thymeleaf for front-end compatibility with the back-end. </div>
+            <div class="profileIcons">
+            <a  href="https://github.com/carloschavira333" class='fa fa-github profileIconsEach'></a>
+            <a href="https://www.linkedin.com/in/carlos-b-chavira/"  class='fa fa-linkedin profileIconsEach'></a>
+            </div>
         </div>
         <div class="team-card">
             <div ><img class="p-img" th:src="@{/imgs/michael.jpeg}" alt="m_kestler"></div>
             <div class="heading">Michael Kestler</div>
             <div class="team-line"></div>
             <div class="paragraph">Responsible for back-end elements fully ensuring functionality between Controllers, Models, and Repositories.</div>
+            <div class="profileIcons">
+            <a href="https://github.com/michael-kestler" class='fa fa-github profileIconsEach'></a>
+            <a href="https://www.linkedin.com/in/mskestler/" class='fa fa-linkedin profileIconsEach'></a>
+            </div>
         </div>
     </div>
 </div>
