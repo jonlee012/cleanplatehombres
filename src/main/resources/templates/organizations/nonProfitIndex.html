@@ -33,26 +33,20 @@
         </div>
     </section>
 
-    <div class="main main-section">
-        <ul class="listing-cards">
-            <li class="cards_item">
-                <div class="card">
+<div class="card-container">
+    <div class="card-container-inner">
+        <div th:each="organization : ${organizations}">
+            <div th:if="${!organization.isDonor()}">
 
-                    <div th:each="organization : ${organizations}">
-                        <div th:if="${!organization.isDonor()}">
-                                <div class="card_image"><img th:src="@{${organization.getImages()}}" /></div>
-                            <div class="card_content">
-
-                                <h2 class="card_title"><span th:text="${organization.getOrgName()}"></span></h2>
-                                <p class="card_text"><span th:text="${organization.getOrgDescription()}"></span></p>
-                                <a class="card_text" th:href="@{'/listings/show/' + ${organization.getId()}}">More
-                                    Info</span></a>
-                            </div>
-                        </div>
-                    </div>
+            <div class="lstg-card-container">
+                <div class="lstg-card">
+                    <div class="card_image"><img th:src="@{${organization.getImages()}}" /></div>
+                    <p><span th:text="${organization.getOrgName()}"></span></p>
+                    <p><span th:text="${organization.getOrgDescription()}"></span></p>
                 </div>
-            </li>
-        </ul>
+            </div>
+        </div>
+        </div>
     </div>
 </div>
 
