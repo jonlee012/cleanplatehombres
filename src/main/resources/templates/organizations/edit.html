@@ -18,6 +18,7 @@
 <!--<div class="login-register">-->
 
     <h1>Edit Organization</h1>
+            <br>
 
         <form th:action="@{'/organizations/edit/' + ${organization.getId()}}" method="POST" th:object="${organization}" class="second-tier-container form">
 
