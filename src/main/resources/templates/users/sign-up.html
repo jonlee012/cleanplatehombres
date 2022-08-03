@@ -12,6 +12,8 @@
 <body>
 
     <nav th:replace="partials/topnav :: navbar"></nav>
+    <div th:style="'background: url(/imgs/stayingSafe.png) no-repeat center center fixed;'" class="create-org-container">
+        <div class="create-org-container-inner">
 
 <div class="login-register">
 
@@ -35,10 +37,10 @@
         <button class="login-register-btn" type="submit">Sign me up!</button>
         <div class="small-text">Already registered? <a class="small-text" href="/login">Log-in </a>here</div>
     </form>
-
+</div>
 </div>
 
-
+    </div>
     <footer th:replace="partials/footer :: footer"></footer>
     <script th:replace="partials/script :: script"></script>
 

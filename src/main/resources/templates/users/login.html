@@ -11,6 +11,8 @@
 <body>
 
     <nav th:replace="partials/topnav :: navbar"></nav>
+    <div th:style="'background: url(/imgs/helpinghands.jpg) no-repeat center center fixed;'" class="tinted-image create-org-container">
+        <div class="create-org-container-inner">
 
     <div class="login-register">
         <h1>Log In</h1>
@@ -31,8 +33,8 @@
             <div class="small-text">Not yet registered? <a href="/sign-up">Register here</a></div>
         </form>
     </div>
-
-
+        </div>
+    </div>
 
     <footer th:replace="partials/footer :: footer"></footer>
     <script th:replace="partials/script :: script"></script>
