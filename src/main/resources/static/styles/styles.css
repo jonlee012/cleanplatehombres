@@ -1451,6 +1451,18 @@ h1 {
     outline: 0;
 }
 
+.profileIcons{
+
+    text-align: center;
+    margin-top: auto;
+}
+.profileIconsEach {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 3px;
+    text-decoration:none;
+
+}
 
 
 
