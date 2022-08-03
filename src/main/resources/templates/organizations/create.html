@@ -6,12 +6,13 @@
 </head>
 
 <body>
-<nav th:replace="partials/topnav :: navbar">
-</nav>
+<nav th:replace="partials/topnav :: navbar"></nav>
 
 <div th:style="'background: url(/imgs/stayingSafe.png) no-repeat center center fixed;'" class="create-org-container">
 
-
+    <a class="pro-btn-link" th:href="@{/profile}">
+        <button type="button" class="cancel-btn">Cancel</button>
+    </a>
 
     <div class="create-org-container-inner">
 
@@ -26,29 +27,26 @@
                 <button class="upload">Upload Image</button>
             </div>
 
+<!--</body>-->
+<!--<body>-->
 
-
-
-</body>
-
-
-<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
-<script>
-    const button = document.querySelector('.upload')
-    const image = document.querySelector('.donorPic')
-    button.addEventListener('click', () => {
-        const apiKey = 'AqMAavFZuQkehL8KOovPCz'
-        const client = filestack.init(apiKey)
-        const options = {
-            accept: ['image/*'],
-            onUploadDone: (uploadResponse) => {
-                console.log("onUploadDone", uploadResponse);
-                image.setAttribute('src', uploadResponse.filesUploaded[0].url)
-            },
-        };
-        client.picker(options).open();
-    });
-</script>
+<!--<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>-->
+<!--<script>-->
+<!--    const button = document.querySelector('.upload')-->
+<!--    const image = document.querySelector('.donorPic')-->
+<!--    button.addEventListener('click', () => {-->
+<!--        const apiKey = 'AqMAavFZuQkehL8KOovPCz'-->
+<!--        const client = filestack.init(apiKey)-->
+<!--        const options = {-->
+<!--            accept: ['image/*'],-->
+<!--            onUploadDone: (uploadResponse) => {-->
+<!--                console.log("onUploadDone", uploadResponse);-->
+<!--                image.setAttribute('src', uploadResponse.filesUploaded[0].url)-->
+<!--            },-->
+<!--        };-->
+<!--        client.picker(options).open();-->
+<!--    });-->
+<!--</script>-->
 
             <form th:action="@{/organizations/create}" method="POST" th:object="${organization}" id="create_org_form">
 
@@ -163,6 +161,7 @@
 
 </div>
 </div>
+
 </body>
 
 

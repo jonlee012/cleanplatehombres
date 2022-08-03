@@ -10,58 +10,66 @@
 
     <nav th:replace="partials/topnav :: navbar"></nav>
 
+    <div th:style="'background: url(/imgs/stayingSafe.png) no-repeat center center fixed;'" class="create-org-container">
+
+    <a class="pro-btn-link" th:href="@{/profile}">
+        <button type="button" class="cancel-btn">Cancel</button>
+    </a>
+
+    <div class="create-org-container-inner">
+        <div class="edit-listing">
+
     <h1>Edit Listing</h1>
-    <br>
+        <br>
 
     <form th:action="@{/listings/edit}" th:method="post" th:object="${listing}">
-        <div class="form-group">
+        <div class="label-input">
             <label id="food-name">Type of Food</label>
-            <input th:field="*{foodName}" th:value="${listing.getFoodName()}" type="text" class="form-control"
-            name="foodName" />
+            <input th:field="*{foodName}" th:value="${listing.getFoodName()}" type="text" name="foodName" class="listing_input"/>
         </div>
 
 
-        <div class="form-group">
+        <div class="label-input">
             <label id="description">Donation Description</label>
-            <textarea th:field="*{donationDescription}" th:value="${listing.getDonationDescription()}" rows="25"
-                      class="form-control"
-                      name="donationDescription"
-            ></textarea>
+            <textarea th:field="*{donationDescription}" th:value="${listing.getDonationDescription()}" rows="6" cols="29" name="donationDescription" id="donationDescription">
+            </textarea>
         </div>
 
-        <div class="form-group">
+        <div class="label-input">
             <label id="food-amt">Amount</label>
-            <input th:field="*{foodAmt}" th:value="${listing.getFoodAmt()}" type="text" class="form-control"
-                   name="organization" />
+            <input th:field="*{foodAmt}" th:value="${listing.getFoodAmt()}" type="text" class="listing_input" name="organization" />
         </div>
 
-        <div class="form-group">
+        <div class="label-input">
             <label id="exp-date">Expiration Date</label>
-            <input th:field="*{expDate}" th:value="${listing.getExpDate()}" type="text" class="form-control"
-                   name="organization" />
+            <input th:field="*{expDate}" th:value="${listing.getExpDate()}" type="text" class="listing_input" name="organization" />
         </div>
 
 
-        <div class="form-group">
+        <div class="label-input">
             <input th:field="*{id}" th:value="${listing.getId()}" hidden>
             <!--/*@thymesVar id="getUserId" type=""*/-->
             <input th:field="*{user}" th:value="${currentUser.getUserId()}" hidden>
             <input th:field="*{organization}" th:value="${listing.getOrganization().getId()}" hidden>
-
+        </div>
 <!--            <div class="form-group">-->
 <!--                <label id="org-info">Organization</label>-->
 <!--                <input th:field="*{organization}" th:value="${listing.getOrganization().getOrgName()}" type="text"-->
 <!--                       class="form-control"-->
 <!--                       name="organization" />-->
 <!--            </div>-->
-
-            <button type="submit" class="btn btn-primary">
-                Submit
-            </button>
+<!--            <button type="submit" class="btn btn-primary">-->
+<!--                Submit-->
+<!--            </button>-->
+            <div class="label-input">
+                <button class="" type="submit">Submit</button>
+            </div>
+    </form>
 
         </div>
+    </div>
 
-    </form>
+    </div><!--end background img-->
 
     <footer th:replace="partials/footer :: footer"></footer>
     <script th:replace="partials/script :: script"></script>
