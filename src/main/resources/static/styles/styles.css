@@ -1011,15 +1011,43 @@ h1 {
 .create-org {
     /* border: 1px solid red; */
 
-    background-color: rgba(0, 0, 0, 0.637);
-    width: 500px;
-    height: 700px;
-    margin: 0 auto;
-    padding: 25px;
+    /*background-color: rgba(0, 0, 0, 0.637);*/
+    /*width: 500px;*/
+    /*height: 700px;*/
+    /*margin: 0 auto;*/
+    /*padding: 25px;*/
+    color: black;
+    border: 1px solid red;
+    width: 450px;
+    height: auto;
+    margin: 5% auto;
+    padding: 30px;
+    background-color: white;
+}
+
+.edit-org {
+    color: black;
+    border: 1px solid red;
+    width: 450px;
+    height: auto;
+    margin: 5% auto;
+    padding: 30px;
+    background-color: white;
+}
+
+.edit-listing {
+    color: black;
+    border: 1px solid red;
+    width: 450px;
+    height: auto;
+    margin: 5% auto;
+    padding: 30px;
+    background-color: white;
 }
 
 #create_org_form {
-    width: 75%;
+    width: 100%;
+    margin: 0 auto;
 }
 
 
