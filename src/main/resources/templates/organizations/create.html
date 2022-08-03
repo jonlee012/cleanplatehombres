@@ -20,13 +20,48 @@
             <h1>Create Organization</h1>
 
             <div class="add-img">
-                <div>Add an Image</div>
-                <img alt="" width="100" height="100" class="donorPic">
-                <button class="upload">Upload File</button>
-
+                <div>
+                    <img alt="" width="200" height="200" class="donorPic">
+                </div>
+                <button class="upload">Upload Image</button>
             </div>
 
+
+
+
+</body>
+
+
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script>
+    const button = document.querySelector('.upload')
+    const image = document.querySelector('.donorPic')
+    button.addEventListener('click', () => {
+        const apiKey = 'AqMAavFZuQkehL8KOovPCz'
+        const client = filestack.init(apiKey)
+        const options = {
+            accept: ['image/*'],
+            onUploadDone: (uploadResponse) => {
+                console.log("onUploadDone", uploadResponse);
+                image.setAttribute('src', uploadResponse.filesUploaded[0].url)
+            },
+        };
+        client.picker(options).open();
+    });
+</script>
+
             <form th:action="@{/organizations/create}" method="POST" th:object="${organization}" id="create_org_form">
+
+                <div class="label-input">
+                    <label for="isDonor">
+                        Organization Type
+                    </label>
+                    <!--                        <input type="checkbox" th:field="*{donor}" id="isDonor">-->
+                    <select id="isDonor" name="donor">
+                        <option value="true">Restaurant</option>
+                        <option value="false">Non-Profit</option>
+                    </select>
+                </div>
 
                 <div class="label-input">
                     <label for="name">Organization Name</label>
@@ -38,14 +73,6 @@
                     <input id="description" type="text" class="form-control" th:field="*{orgDescription}">
                 </div>
 
-                <div class="label-input">
-                    <div>
-                        <label for="isDonor">
-                            Are you a restaurant?
-                        </label>
-                        <input type="checkbox" th:field="*{donor}" id="isDonor">
-                    </div>
-                </div>
 
                 <div class="label-input">
                     <label for="address">Address</label>
@@ -127,7 +154,7 @@
                 <input type="hidden" id="donorPicUrl" name="donorPicUrl" value="" th:field="*{images}">
 
                 <div class="label-input">
-                    <button class="donate-btn" type="submit">Create</button>
+                    <button class="" type="submit">Create</button>
                 </div>
             </form>
         </div>
