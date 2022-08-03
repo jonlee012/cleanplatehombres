@@ -944,9 +944,12 @@ h1 {
     width: 1080px;
     margin: 0 auto;
 }
-#mapbox{
+.mapbox{
     width: 80%;
     height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -1476,11 +1479,22 @@ h1 {
 .headerStyles {
     /*font-size: 70px;*/
     /*font-weight: 600;*/
-    /*background-image: linear-gradient(to left, #553c9a, #b393d3);*/
-    /*color: transparent;*/
-    /*background-clip: text;*/
-    /*-webkit-background-clip: text;*/
+    background-image: linear-gradient(to left, #ffffff, #c51f75);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: lato, arial, serif;
+    line-height: 1.25;
+    margin-bottom: -10px;
+
+    /*margin: 0 0 10px;*/
+    font-size: 35px;
+    /*font-weight: bold;*/
 }
 
+.listingsPageHead{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
 
 
