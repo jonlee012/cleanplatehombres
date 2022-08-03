@@ -10,7 +10,16 @@
 
 <body>
 <nav th:replace="partials/topnav :: navbar"></nav>
+
+<div class="profile-header-holder">
+
+    <h2 class="profile-header">Organizations & Listings</h2>
+
+</div>
+
+
 <div id="profile-body">
+
     <div class="profile-left">
 
         <div class="profile-welcome">
@@ -41,7 +50,6 @@
         <!--right side profile-->
         <!--org header-->
 
-        <h2>Organizations & Listings</h2>
 
         <th:block th:each="organization : ${organizations}">
             <!--/*@thymesVar id="getUserId" type=""*/-->
@@ -51,8 +59,6 @@
                 <div class="org-card-container">
 
                     <div class="org-card">
-
-
 
                         <div class="org-info">
                             <!--<div th:src="${organization.getImages()}"></div>-->
@@ -124,6 +130,12 @@
 <script th:replace="partials/script :: script"></script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 
