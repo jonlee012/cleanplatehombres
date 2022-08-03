@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
+<head th:replace="partials/head :: head">
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>User Profile Edit</title>
-    <div th:replace="partials/head :: head"></div>
 </head>
 
 <body>
@@ -44,14 +43,14 @@
 
     </form>
 
-<!--    <form th:action="@{/users/edit}" method="post" th:object="${user}">-->
-<!--        <input th:field="*{userId}" th:value="${user.getUserId()}" hidden>-->
-<!--        <input th:field="*{admin}" th:value="${user.getAdmin()}" hidden>-->
-<!--        <input th:field="*{username}" th:value="${user.getUsername}" hidden/>-->
-<!--        <input th:field="*{email}" th:value="${user.getEmail()}" hidden/>-->
-<!--        <input th:field="*{password}" type="password" th:value="${user.getPassword}" hidden/>-->
-<!--        <div class="label-input"><button class="" type="submit">Cancel</button></div>-->
-<!--    </form>-->
+    <!--    <form th:action="@{/users/edit}" method="post" th:object="${user}">-->
+    <!--        <input th:field="*{userId}" th:value="${user.getUserId()}" hidden>-->
+    <!--        <input th:field="*{admin}" th:value="${user.getAdmin()}" hidden>-->
+    <!--        <input th:field="*{username}" th:value="${user.getUsername}" hidden/>-->
+    <!--        <input th:field="*{email}" th:value="${user.getEmail()}" hidden/>-->
+    <!--        <input th:field="*{password}" type="password" th:value="${user.getPassword}" hidden/>-->
+    <!--        <div class="label-input"><button class="" type="submit">Cancel</button></div>-->
+    <!--    </form>-->
 
 
 
