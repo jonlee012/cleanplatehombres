@@ -7,46 +7,57 @@
 
 <nav th:replace="partials/topnav :: navbar"></nav>
 
-<div class="login-register">
-    <h1>Edit Organization Info</h1>
+<div th:style="'background: url(/imgs/stayingSafe.png) no-repeat center center fixed;'" class="create-org-container">
 
-    <form th:action="@{'/organizations/edit/' + ${organization.getId()}}" method="POST" th:object="${organization}" class="second-tier-container form">
+    <a class="pro-btn-link" th:href="@{/profile}">
+        <button type="button" class="cancel-btn">Cancel</button>
+    </a>
 
-        <input th:field="*{id}" th:value="${organization.getId()}" hidden>
+    <div class="create-org-container-inner">
+        <div class="create-org">
+<!--<div class="login-register">-->
 
-        <div class="organizationName col-md-6">
-            <label for="name" class="form-label h4">Organization Name</label>
-            <input id="name" type="text" class="form-control" th:field="*{orgName}">
-        </div>
+    <h1>Edit Organization</h1>
 
-        <div class="organizationName col-md-6">
-            <label for="description" class="form-label h4">Organization Description</label>
-            <input id="description" type="text" class="form-control" th:field="*{orgDescription}">
-        </div>
+        <form th:action="@{'/organizations/edit/' + ${organization.getId()}}" method="POST" th:object="${organization}" class="second-tier-container form">
 
-        <div class="col-md-6 form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" th:field="*{donor}" id="isDonor">
-                <label class="form-check-label" for="isDonor">
-                    Check if you are a donor
+            <input th:field="*{id}" th:value="${organization.getId()}" hidden>
+
+            <div class="label-input">
+                <label for="name" class="">Organization Name</label>
+                <input id="name" type="text" class="" th:field="*{orgName}">
+            </div>
+
+            <div class="label-input">
+                <label for="description" class="">Organization Description</label>
+                <input id="description" type="text" class="" th:field="*{orgDescription}">
+            </div>
+
+            <div class="label-input">
+                <label for="isDonor">
+                    Organization Type
                 </label>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="address col-md-6 m-0">
-                <label for="address" class="form-label h4">Address</label>
-                <input id="address" type="text" class="form-control" th:field="*{orgStAddress}">
+                <!--                        <input type="checkbox" th:field="*{donor}" id="isDonor">-->
+                <select id="isDonor" name="donor">
+                    <option value="true">Restaurant</option>
+                    <option value="false">Non-Profit</option>
+                </select>
             </div>
 
-            <div class="col-md-6">
-                <label for="city" class="form-label h4">City</label>
-                <input id="city" type="text" class="form-control" th:field="*{orgCity}">
+            <div class="label-input">
+                <label for="address">Address</label>
+                <input id="address" type="text" th:field="*{orgStAddress}">
             </div>
-            <div class="col-md-3">
-                <label for="state" class="form-label h4">State</label>
-                <select id="state" class="form-select h4" th:field="*{orgState}">
-                    <option selected disabled value="">Choose...</option>
+
+            <div class="label-input">
+                <label for="city">City</label>
+                <input id="city" type="text" th:field="*{orgCity}">
+            </div>
+
+            <div class="label-input">
+                <label for="state">State</label>
+                <!--                    <select id="state" th:field="*{orgState}">-->
+                <select id="state" name="orgState">
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
@@ -90,7 +101,7 @@
                     <option value="SC">South Carolina</option>
                     <option value="SD">South Dakota</option>
                     <option value="TN">Tennessee</option>
-                    <option value="TX">Texas</option>
+                    <option value="TX" >Texas</option>
                     <option value="UT">Utah</option>
                     <option value="VT">Vermont</option>
                     <option value="VA">Virginia</option>
@@ -100,50 +111,20 @@
                     <option value="WY">Wyoming</option>
                 </select>
             </div>
-            <div class="col-md-3">
-                <label for="zip" class="form-label h4 ">Zip Code</label>
-                <input id="zip" type="text" class="form-control mb-3"
-                       th:field="*{orgZip}">
+
+            <div class="label-input">
+                <label for="zip" class="">Zip Code</label>
+                <input id="zip" type="text" class="" th:field="*{orgZip}"/>
             </div>
 
-<!--            <div class="col-md-3">-->
-
-<!--                <label for="images" class="form-label h4 ">Images</label>-->
-<!--                <input id="images" type="text" class="form-control mb-3"-->
-<!--                       th:field="*{images}">-->
-<!--            </div>-->
-
-<!--            <div class="col-md-3">-->
-<!--                <label for="user_info" class="form-label h4 ">User Id</label>-->
-<!--                <input id="user_info" type="text" class="form-control mb-3"-->
-<!--                       th:field="*{user}">-->
-<!--            </div>-->
-
-            <button type="submit" class="btn btn-primary">
-                Submit
-            </button>
-
+            <div class="label-input">
+                <button class="" type="submit">Submit</button>
+            </div>
+        </form>
 
 </div>
 
-
-
-
-    <!--    <div class="organizationName col-md-6">-->
-    <!--        <label for="orgtype" class="form-label h4">Donor?</label>-->
-    <!--        <select id="orgtype" type="checkbox" class="form-control" th:field="*{isDonor}">-->
-    <!--            <option th:field="*{isDonor}" th:value="donor">Restaurant</option>-->
-    <!--            <option th:field="*{isDonor}" th:value="!donor">Charity</option>-->
-    <!--        </select>-->
-    <!--    </div>-->
-
-
-
-
-
-</form>
-</div>
-
+</div><!--end of background picture-->
 
 <footer th:replace="partials/footer :: footer"></footer>
 <script th:replace="partials/script :: script"></script>
