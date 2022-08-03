@@ -646,7 +646,7 @@ h1 {
 
 .profile-header {
     /* border: 2px solid red; */
-
+    margin-bottom: 20px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -657,7 +657,10 @@ h1 {
     height: 55px;
 }
 
+.profile-header-holder{
+    margin-bottom: 20px;
 
+}
 
 
 .profile-welcome {
@@ -1541,7 +1544,7 @@ h1 {
 .headerStyles {
     /*font-size: 70px;*/
     /*font-weight: 600;*/
-    background-image: linear-gradient(to left, #ffffff, #c51f75);
+    background-image: linear-gradient(to left, #f18c8c, #c51f75);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
