@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface OrganizationRepository extends JpaRepository<Organization, Integer> {
@@ -16,6 +17,8 @@ public interface OrganizationRepository extends JpaRepository<Organization, Inte
 //    Organization getOrganizationById(Integer id);
 //    Organization getOrganizationAddress(String orgStAddress);
     List<Organization> getAllByOrgNameContaining(@Param("keyword") String orgName);
+
+    void delete(Optional<Organization> byId);
 
 //    @Modifying
 //    @Query("UPDATE org_info AS o " +

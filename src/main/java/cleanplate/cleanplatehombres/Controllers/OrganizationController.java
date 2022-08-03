@@ -181,8 +181,8 @@ public class OrganizationController {
 
 
     @GetMapping("organizations/delete/{id}")
-    public String delete(@ModelAttribute Organization organization, Integer id) {
-        organizationRepository.delete(organization);
+    public String delete(@ModelAttribute Organization organization, @PathVariable Integer id) {
+        organizationRepository.delete(organizationRepository.findById(id));
         return "redirect:/profile";
     }
 
