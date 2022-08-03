@@ -11,6 +11,10 @@ body {
     background-color: black;
 }
 
+textarea, input, select, option {
+    font-family: 'Roboto', sans-serif;
+}
+
 .nav-bar-container {
     background-color: black;
 
@@ -711,37 +715,6 @@ h1 {
     color: black;
     border: 1px solid red;
 }
-
-.pro-btn-link {
-    text-decoration: none;
-}
-
-.cancel-btn {
-    color: black;
-    border: 1px solid black;
-    padding: 5px 1px;
-    margin: 10px;
-    float: left;
-    font-size: 11px;
-    text-transform: uppercase;
-    /*border-radius: 30px;*/
-    font-weight: 400;
-    display: block;
-    width: 15%;
-    cursor: pointer;
-    background: white;
-    transition: .5s;
-    text-decoration: none;
-}
-
-.pro-edit-link {
-    color: black
-}
-
-.pro-edit-link:hover {
-    color: red
-}
-
 
 
 
