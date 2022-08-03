@@ -1554,6 +1554,10 @@ h1 {
     /*font-weight: bold;*/
 }
 
+#welcome-name {
+    text-transform: capitalize;
+}
+
 .listingsPageHead{
     margin-bottom: 20px;
     margin-top: 20px;
