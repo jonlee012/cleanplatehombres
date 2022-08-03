@@ -8,9 +8,11 @@ import cleanplate.cleanplatehombres.models.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -40,19 +42,19 @@ public class OrganizationController {
         List<Organization> orgList = organizationRepository.findAll();
 //        model.addAttribute("orgAddress", organizationRepository.getOrganizationAddress(""));
 
-        ArrayList<Organization> orgListAL = new ArrayList<Organization>();
-//
-        orgListAL.add(organizationRepository.getById(1));
-        orgListAL.add(organizationRepository.getById(2));
-        System.out.println(orgListAL);
+//        ArrayList<Organization> orgListAL = new ArrayList<Organization>();
+////
+//        orgListAL.add(organizationRepository.getById(1));
+//        orgListAL.add(organizationRepository.getById(2));
+//        System.out.println(orgListAL);
 
         model.addAttribute("organizations", orgList);
-        model.addAttribute("organizationsForJS", orgListAL);
+//        model.addAttribute("organizationsForJS", orgListAL);
         model.addAttribute("test", "Hello World");
 //        List<Organization> organizationList = organizationRepository.findAll();
 //        model.addAttribute("usersForJS", user);
 //        model.addAttribute("organizationsForJS", List<Organization> organizationList);
-        System.out.println(orgList);
+//        System.out.println(orgList);
         return "organizations/restaurant";
     }
 

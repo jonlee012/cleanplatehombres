@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="partials/head :: head">
+<head>
     <meta charset="UTF-8">
     <title>User Profile</title>
+
+    <div th:replace="partials/head :: head"></div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 
@@ -27,14 +32,14 @@
         </div>
 
         <p class="paragraph">
-            Username: <!--/*@thymesVar id="getUsername" type=""*/--><span th:text ="*{#authentication.getPrincipal().getUsername()}"></span>
+            <i class="fa-solid fa-user"></i> :   <!--/*@thymesVar id="getUsername" type=""*/--><span th:text ="*{#authentication.getPrincipal().getUsername()}"></span>
         </p>
         <p class="paragraph">
-            Email: <!--/*@thymesVar id="getEmail" type=""*/--><span th:text ="${#authentication.getPrincipal().getEmail()}"></span>
+            <i class="fa fa-envelope"></i> :   <!--/*@thymesVar id="getEmail" type=""*/--><span th:text ="${#authentication.getPrincipal().getEmail()}"></span>
         </p>
-        <div th:if="${#authentication.getPrincipal().getAdmin()}">
-            <p class="paragraph">User Status: Admin</p>
-        </div>
+<!--        <div th:if="${#authentication.getPrincipal().getAdmin()}">-->
+<!--            <p class="paragraph">User Status: Admin</p>-->
+<!--        </div>-->
 
         <!--User Profile Buttons-->
         <p><a th:href="@{/organizations/create}"><button type="button" class="profile-button">Create Organization</button></a></p>
