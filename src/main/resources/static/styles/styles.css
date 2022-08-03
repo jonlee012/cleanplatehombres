@@ -1544,7 +1544,7 @@ h1 {
 .headerStyles {
     /*font-size: 70px;*/
     /*font-weight: 600;*/
-    background-image: linear-gradient(to left, #f18c8c, #c51f75);
+    background-image: linear-gradient(to left, #fffefe, #b6b4b6);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;

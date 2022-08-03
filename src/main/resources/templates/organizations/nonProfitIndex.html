@@ -97,8 +97,8 @@
                 .setHTML(
                     "<h6 style='max-width: 150px'>" + name + "</h6>" +
                     "<p>" + address + "</p>");
-            var marker = new mapboxgl.Marker()
-                .setLngLat(coordinates)
+            var marker = new mapboxgl.Marker({ "color": "#ea3c3c" })
+                    .setLngLat(coordinates)
                 .addTo(map)
                 .setPopup(popup);
             popup.addTo(map);
