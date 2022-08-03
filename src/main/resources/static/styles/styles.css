@@ -11,6 +11,10 @@ body {
     background-color: black;
 }
 
+textarea, input, select, option {
+    font-family: 'Roboto', sans-serif;
+}
+
 .nav-bar-container {
     background-color: black;
 
