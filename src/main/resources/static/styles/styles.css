@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
 }
@@ -638,6 +640,22 @@ h1 {
     display: flex;
 }
 
+.profile-header {
+    /* border: 2px solid red; */
+
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    /* padding-top: 20px; */
+    text-align: center;
+    height: 55px;
+}
+
+
+
+
 .profile-welcome {
     font-weight: bold;
     font-size: 20px;
@@ -651,7 +669,7 @@ h1 {
 
 .profile-left {
     /* border: 1px solid red; */
-    padding: 25px;
+    padding: 15px 25px 0 25px;
     height: auto;
     /* background-color: pink; */
     color: black;
@@ -669,10 +687,6 @@ h1 {
     width: 100%;
 }
 
-.profile-right h2 {
-    padding-top: 20px;
-    text-align: center;
-}
 
 .profile-button {
     color: #ffffff;
@@ -872,35 +886,35 @@ h1 {
 /*CREATE A LISTING*/
 
 /* .donate {
-  border: 1px solid red;
+ border: 1px solid red;
 
-  width: 400px;
-  height: 700px;
-  margin: 5% auto;
-  padding: 30px;
+ width: 400px;
+ height: 700px;
+ margin: 5% auto;
+ padding: 30px;
 }
 
 .conditional {
-  margin-top: 15px;
+ margin-top: 15px;
 }
 
 .donate form {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+ margin-top: 25px;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
 }
 
 .login-register label {
-  margin-top: 10px;
-  font-weight: bold;
+ margin-top: 10px;
+ font-weight: bold;
 
 }
 
 .donate input {
-  border-radius: 5px;
-  border: 1px solid rgb(177, 177, 177);
-  padding: 5px;
+ border-radius: 5px;
+ border: 1px solid rgb(177, 177, 177);
+ padding: 5px;
 } */
 
 .donate-btn {
@@ -1320,15 +1334,15 @@ h1 {
 }
 
 /* .profile-listings-container {
-  border: 2px solid red;
-  padding: 25px;
+ border: 2px solid red;
+ padding: 25px;
 }
 
 .profile-listings-cards {
-  border: 1px solid blue;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+ border: 1px solid blue;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
 } */
 
 .individual-listings-card {
@@ -1408,6 +1422,8 @@ h1 {
     box-shadow: rgba(228, 121, 17, .5) 0 0 3px 2px;
     outline: 0;
 }
+
+
 
 
 
