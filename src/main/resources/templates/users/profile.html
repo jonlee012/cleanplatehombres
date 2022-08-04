@@ -27,29 +27,34 @@
 
     <div class="profile-left">
 
-        <div class="profile-welcome">
-            Welcome <!--/*@thymesVar id="getUsername" type=""*/--><span class="text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>
-        </div>
+        <div class="profile-card">
 
-        <p class="paragraph">
-            <i class="fa-solid fa-user"></i> :   <!--/*@thymesVar id="getUsername" type=""*/--><span th:text ="*{#authentication.getPrincipal().getUsername()}"></span>
+            <div class="profile-welcome">
+                Welcome <!--/*@thymesVar id="getUsername" type=""*/--><span class="text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>
+            </div>
+
+            <p class="paragraph">
+                <i class="fa-solid fa-user"></i> :   <!--/*@thymesVar id="getUsername" type=""*/--><span th:text ="*{#authentication.getPrincipal().getUsername()}"></span>
+            </p>
+            <p class="paragraph">
+                <i class="fa fa-envelope"></i> :   <!--/*@thymesVar id="getEmail" type=""*/--><span th:text ="${#authentication.getPrincipal().getEmail()}"></span>
+            </p>
+            <!--        <div th:if="${#authentication.getPrincipal().getAdmin()}">-->
+            <!--            <p class="paragraph">User Status: Admin</p>-->
+            <!--        </div>-->
+
+            <!--User Profile Buttons-->
+            <p><a th:href="@{/organizations/create}"><button type="button" class="profile-button">Create Organization</button></a></p>
+
+            <p>
+                <!--/*@thymesVar id="getUserId" type=""*/--><a th:href="@{'/users/edit/' + ${user.getUserId()}}"><button type="button" class="profile-button">Edit Profile</button></a>
+            </p>
+
+            <p><a th:href="@{'/users/delete/' + ${user.getUserId()}}"><button type="button" class="profile-button">Delete Profile</button></a></div>
         </p>
-        <p class="paragraph">
-            <i class="fa fa-envelope"></i> :   <!--/*@thymesVar id="getEmail" type=""*/--><span th:text ="${#authentication.getPrincipal().getEmail()}"></span>
-        </p>
-<!--        <div th:if="${#authentication.getPrincipal().getAdmin()}">-->
-<!--            <p class="paragraph">User Status: Admin</p>-->
-<!--        </div>-->
 
-        <!--User Profile Buttons-->
-        <p><a th:href="@{/organizations/create}"><button type="button" class="profile-button">Create Organization</button></a></p>
 
-        <p>
-            <!--/*@thymesVar id="getUserId" type=""*/--><a th:href="@{'/users/edit/' + ${user.getUserId()}}"><button type="button" class="profile-button">Edit Profile</button></a>
-        </p>
-
-        <p><a th:href="@{'/users/delete/' + ${user.getUserId()}}"><button type="button" class="profile-button">Delete Profile</button></a></div>
-    </p>
+    </div>
 
     <div class="profile-right">
         <!--right side profile-->
@@ -94,21 +99,24 @@
                 <!-- ORG CARD END -->
 
         <div class="card-container-inner">
-            <div th:each="listing : ${listings}">
-<!--            <th:block th:each="listing : ${listings}">-->
-<!--                <div th:if="${organization.getUser()} == ${listing.getUser()}">-->
-                    <div th:if="${organization} == ${listing.getOrganization()}">
                         <div class="lstg-card-container">
-                            <div class="lstg-card">
-                                <p><span th:text="${listing.getFoodName()}"></span></p>
-                                <p><span th:text="${listing.getDonationDescription()}"></span></p>
-                                <p><span th:text="${listing.getFoodAmt()}"></span></p>
-                                <p><span th:text="${listing.getExpDate()}"></span></p>
+                            <div th:each="listing : ${listings}">
+                                <div th:if="${organization} == ${listing.getOrganization()}">
+
+                            <div class="lstg-card-test">
+
+                                <div class="lstg-card">
+                                    <p><span th:text="${listing.getFoodName()}"></span></p>
+                                    <p><span th:text="${listing.getDonationDescription()}"></span></p>
+                                    <p><span th:text="${listing.getFoodAmt()}"></span></p>
+                                    <p><span th:text="${listing.getExpDate()}"></span></p>
+                                </div>
+                                <div class="icons-holder">
+                                    <div><a th:href="@{'/listings/edit/' + ${listing.getId()}}"><i class="fa-solid fa-pen-to-square icons"></i> </a></div>
+                                    <div><a th:href="@{'/listings/delete/' + ${listing.getId()}}"><i class="fa-solid fa-trash-can icons"></i> </a></div>
+                                </div>
                             </div>
-                            <div class="icons-holder">
-                                <div><a th:href="@{'/listings/edit/' + ${listing.getId()}}"><i class="fa-solid fa-pen-to-square icons"></i> </a></div>
-                                <div><a th:href="@{'/listings/delete/' + ${listing.getId()}}"><i class="fa-solid fa-trash-can icons"></i> </a></div>
-                            </div>
+
                         </div>
                 </div>
 <!--        </th:block>-->
