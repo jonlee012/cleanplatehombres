@@ -40,8 +40,8 @@
         </section>
     </div>
 
-    <div class="card-container">
-        <div class="card-container-inner">
+    <div class="card-container-orgs">
+        <div class="card-container-inner-orgs">
             <div th:each="organization : ${organizations}" th:if="${organization.isDonor()}">
 
                     <div class="lstg-card-container">
@@ -51,7 +51,7 @@
                             <p><span th:text="${organization.getOrgDescription()}"></span></p>
                         </div>
                     </div>
-
+                </div>
             </div>
         </div>
     </div>
