@@ -42,8 +42,8 @@
 
     <div class="card-container">
         <div class="card-container-inner">
-            <div th:each="organization : ${organizations}">
-                <div th:if="${organization.isDonor()}">
+            <div th:each="organization : ${organizations}" th:if="${organization.isDonor()}">
+
                     <div class="lstg-card-container">
                         <div class="lstg-card">
                             <div class="card_image"><img th:src="@{${organization.getImages()}}" /></div>
@@ -51,7 +51,7 @@
                             <p><span th:text="${organization.getOrgDescription()}"></span></p>
                         </div>
                     </div>
-                </div>
+
             </div>
         </div>
     </div>
