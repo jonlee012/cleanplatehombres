@@ -3,16 +3,17 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
-    <title>Clean Plate Donations</title>
+    <title>Home</title>
     <div th:replace="partials/head :: head"></div>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- CSS STYLE SHEET -->
     <link th:href="@{/styles/styles.css}" rel="stylesheet" />
+
 </head>
+
 <body>
 
 <nav th:replace="partials/topnav :: navbar"></nav>
-
 
 <div class="support-section">
     <div class="container">
@@ -24,70 +25,90 @@
             <!--                <p>Clean Plate is a non-profit organization that is a conduit between restaurants who have food to give and organizations that need food.</p>-->
             <!--            </div>-->
         </div>
-
         <!-- SUPPORT CARDS -->
-        <div class="support-column">
-            <div class="support-square">
-                <div class="support-square-number">01</div>
-                <div class="support-square-text">REGISTER</div>
-            </div>
-            <p>Register for an account is easy. Get started with basic organization demographics.</p>
-        </div>
-        <div class="support-column">
-            <div class="support-square">
-                <div class="support-square-number">02</div>
-                <div class="support-square-text">DONATE FOOD</div>
-            </div>
-            <p>Once logged in you will be able to create a single listing or multiple listings.</p>
-        </div>
-        <div class="support-column">
-            <div class="support-square">
-                <div class="support-square-number">03</div>
-                <div class="support-square-text">MANAGE</div>
-            </div>
-            <p>After placing your donation. You will be able to manage your listings from you organization profile. </p>
-        </div>
-
-    </div>
-
-    <!--Call to Action Section-->
-    <div class="hero-section">
-        <img class="hero-img" th:src="@{/imgs/landing2a.png}">
-        <div class="nav-links-ul" sec:authorize="isAnonymous()">
-            <div class="hero-wrapper">
-                <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>
-                <!--            <div class="nav-links-ul">-->
-                <div class="hero-button-container">
-                    <a href="/sign-up" class="hero-button">GET STARTED NOW</a>
+        <div class="support-wrapper">
+            <div class="support-column">
+                <div class="support-square">
+                    <div class="support-square-number">01</div>
+                    <div class="support-square-text">REGISTER</div>
                 </div>
+                <p>Register for an account is easy. Get started with basic organization demographics.</p>
             </div>
-        </div>
-        <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">
-            <div class="hero-wrapper">
-                <h1 class="hero-heading">USE <span class="text-span-2">CLEAN PLATE</span> TO HELP YOU DONATE</h1>
-                <h3 class="hero-heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/-->
-                    <span id="welcome-name" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!
-                </h3>
-                <br>
-                <div class="hero-button-container">
-                    <a href="/listings/create" class="hero-button">POST A DONATION</a>
+            <div class="support-column">
+                <div class="support-square">
+                    <div class="support-square-number">02</div>
+                    <div class="support-square-text">DONATE FOOD</div>
                 </div>
+                <p>Once logged in you will be able to create a single listing or multiple listings.</p>
+            </div>
+
+            <div class="support-column">
+                <div class="support-square">
+                    <div class="support-square-number">03</div>
+                    <div class="support-square-text">MANAGE</div>
+                </div>
+                <p>After placing your donation. You will be able to manage your listings from you organization profile. </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Call to Action Section-->
+<div class="hero-section">
+
+    <img class="hero-img" th:src="@{/imgs/landing2a.png}">
+
+    <div class="nav-links-ul" sec:authorize="isAnonymous()">
+        <div class="hero-wrapper">
+            <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>
+            <!--            <div class="nav-links-ul">-->
+            <div class="hero-button-container">
+                <a href="/sign-up" class="hero-button">GET STARTED NOW</a>
             </div>
         </div>
     </div>
-    <!--End Call to Action Section-->
-    <!-- KEEPING SAFE SECTION -->
-    <div class="safe-section">
-        <!--    <img class="safe-img" th:src="@{/imgs/stayingSafe.png}">-->
-        <div class="safe-wrapper">
-            <h2 class="safe-heading">WORKING & STAYING SAFE DURING COVID-19<br><br></h2>
-            <p class="safe-paragraph">Taking every safety precaution is our number one priority when working with our partners. </p>
+
+    <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">
+        <div class="hero-wrapper">
+            <h1 class="hero-heading">USE <span class="text-span-2">CLEAN PLATE</span> TO HELP YOU DONATE</h1>
+            <h3 class="hero-heading">Welcome
+                <!--/*@thymesVar id="getUsername" type=""*/-->
+                <span id="welcome-name" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!
+            </h3>
+            <br>
+            <div class="hero-button-container">
+                <a href="/listings/create" class="hero-button">POST A DONATION</a>
+            </div>
+
         </div>
     </div>
-    <!-- MOST RECENT 3 LISTINGS (BASED ON ID, WORK BACKWARDS(DECREMENT) THE SORT) -->
-    <footer th:replace="partials/footer :: footer">
-    </footer>
-    <script th:replace="partials/script :: script">
-    </script>
+</div>
+<!--End Call to Action Section-->
+
+
+
+<!-- KEEPING SAFE SECTION -->
+<div class="safe-section">
+    <!--    <img class="safe-img" th:src="@{/imgs/stayingSafe.png}">-->
+
+    <div class="safe-wrapper">
+        <h2 class="safe-heading">WORKING & STAYING SAFE DURING COVID-19<br><br></h2>
+        <p class="safe-paragraph">Taking every safety precaution is our number one priority when working with our partners. </p>
+    </div>
+
+</div>
+<!-- MOST RECENT 3 LISTINGS (BASED ON ID, WORK BACKWARDS(DECREMENT) THE SORT) -->
+
+<footer th:replace="partials/footer :: footer">
+</footer>
+<script th:replace="partials/script :: script">
+</script>
 </body>
+
+
+
+
+
+
 </html>
