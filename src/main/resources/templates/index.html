@@ -19,7 +19,7 @@
     <div class="container">
         <div class="support-top-wrapper">
             <div class="support-top-left">
-                <h2 class="support-top-heading">HOW IT WORKS</h2>
+                <h1  class="support-top-heading">HOW IT WORKS</h1>
             </div>
             <!--            <div class="support-top-right">-->
             <!--                <p>Clean Plate is a non-profit organization that is a conduit between restaurants who have food to give and organizations that need food.</p>-->
@@ -32,14 +32,14 @@
                     <div class="support-square-number">01</div>
                     <div class="support-square-text">REGISTER</div>
                 </div>
-                <p>Register for an account is easy. Get started with basic organization demographics.</p>
+                <p  style="font-size: 16px; margin-bottom: 20px">Register for an account is easy. Get started with basic organization demographics.</p>
             </div>
             <div class="support-column">
                 <div class="support-square">
                     <div class="support-square-number">02</div>
                     <div class="support-square-text">DONATE FOOD</div>
                 </div>
-                <p>Once logged in you will be able to create a single listing or multiple listings.</p>
+                <p  style="font-size: 16px; margin-bottom: 20px">Once logged in you will be able to create a single listing or multiple listings.</p>
             </div>
 
             <div class="support-column">
@@ -47,7 +47,7 @@
                     <div class="support-square-number">03</div>
                     <div class="support-square-text">MANAGE</div>
                 </div>
-                <p>After placing your donation. You will be able to manage your listings from you organization profile. </p>
+                <p style="font-size: 16px; margin-bottom: 20px"> After placing your donation. You will be able to manage your listings from you organization profile. </p>
             </div>
 
         </div>
@@ -72,7 +72,7 @@
     <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">
         <div class="hero-wrapper">
             <h1 class="hero-heading">USE <span class="text-span-2">CLEAN PLATE</span> TO HELP YOU DONATE</h1>
-            <h3 class="hero-heading">Welcome
+            <h3 class="hero-heading">Welcome,
                 <!--/*@thymesVar id="getUsername" type=""*/-->
                 <span id="welcome-name" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!
             </h3>
