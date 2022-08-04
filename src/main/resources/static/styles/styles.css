@@ -380,7 +380,7 @@ button, input[type="submit"] {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     padding: 7px;
-    /*border: 1px solid black;*/
+    border: 1px solid black;
 }
 
 .safe-heading {
@@ -1328,7 +1328,7 @@ h1 {
 /* CARDS FOR LISTINGS VIEW */
 
 .card-container {
-     /*border: 1px solid orange;*/
+    /*border: 1px solid orange;*/
 
     max-width: 100vw;
     margin: 0 auto;
@@ -1589,7 +1589,7 @@ h1 {
 }
 
 .headerStyles {
-/*border: red;*/
+    /*border: red;*/
     background-image: linear-gradient(to left, #fffefe, #9b989b);
     color: transparent;
     /*background-clip: text;*/
