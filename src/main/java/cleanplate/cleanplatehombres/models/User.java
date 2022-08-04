@@ -92,4 +92,12 @@ public class User {
     public void setOrganizationList(List<Organization> organizationList) {
         this.organizationList = organizationList;
     }
+
+    public List<Listing> getListingList() {
+        return listingList;
+    }
+
+    public void setListingList(List<Listing> listingList) {
+        this.listingList = listingList;
+    }
 }

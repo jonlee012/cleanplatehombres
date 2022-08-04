@@ -72,13 +72,13 @@ textarea, input, select, option {
 }
 
 .nav-link-individual {
-    font-size: 13px;
+    font-size: 18px;
     padding: 7px;
     text-decoration:none;
 }
 
 a.nav-link-individual:hover{
-    font-size: 13px;
+    font-size: 18px;
     padding: 7px;
     text-decoration:none;
 }
@@ -242,7 +242,9 @@ button, input[type="submit"] {
     /*background-color: pink;*/
     text-align: center;
     background-color: white;
-    padding: 20px 0;
+    padding-top: 40px;
+    /*padding-bottom: 5px;*/
+    font-size: 35px;
 }
 
 .support-section {
@@ -310,15 +312,17 @@ button, input[type="submit"] {
     /* background-color: pink; */
     /* border: 2px solid red; */
     /*margin: 10px;*/
-    max-width: 200px;
-    min-width: 200px;
+    height: 300px;
+    width: 300px;
     height: auto;
     padding: 10px;
 }
 
 .support-square {
     /* border: 2px solid purple; */
-    height: 100px;
+
+    height: 150px;
+
     padding: 15px;
     background-color: black;
     color: white;
@@ -327,18 +331,20 @@ button, input[type="submit"] {
 .support-square-number {
     /* border: 2px solid green; */
     text-align: right;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: red;
+
 }
 
 .support-square-text {
-    font-size: 15px;
+  font-size: 23px;
     font-weight: bold;
+    margin-top: 30px;
 }
 
 .support-column>p {
     padding: 10px;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 /* **************** */
@@ -389,7 +395,7 @@ button, input[type="submit"] {
 }
 
 .safe-paragraph {
-    font-size: 13px;
+    font-size: 15px;
     margin-bottom: 20px;
     color:red;
 }
@@ -726,7 +732,7 @@ h1 {
 }
 
 .profile-card {
-    border: 1px solid #cbcbcb;
+    /*border: 1px solid #cbcbcb;*/
     height: auto;
     padding: 5px;
 }
@@ -741,6 +747,24 @@ h1 {
     min-height: auto;
     /*height: 100vh;*/
     min-width: 500px;
+}
+
+.area-titles {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Roboto', sans-serif;
+}
+
+.org-area {
+    /*width: 30%;*/
+    font-size: 15px;
+    text-align: left;
+}
+
+.listings-area {
+    width: 70%;
+    font-size: 15px;
+    text-align: left;
 }
 
 
@@ -1357,6 +1381,16 @@ h1 {
     width: 100%;
     padding: 0 20px 20px;
 }
+.card-container-inner-listings {
+    /*border: 2px solid purple;*/
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0 20px 20px;
+}
+
 
 .card-container-orgs {
     /*border: 1px solid orange;*/
@@ -1682,3 +1716,4 @@ h1 {
 /*    !*margin-top: -10px;*!*/
 /*    padding-top: 5px;*/
 /*}*/
+
