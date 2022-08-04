@@ -380,7 +380,7 @@ button, input[type="submit"] {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     padding: 7px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 .safe-heading {
@@ -684,7 +684,7 @@ h1 {
 
 .profile-header {
     /* border: 2px solid red; */
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     background-color: white;
     display: flex;
     justify-content: center;
@@ -696,7 +696,8 @@ h1 {
 }
 
 .profile-header-holder{
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
+    background-color: white;
 
 }
 
@@ -998,10 +999,10 @@ h1 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-
-    padding-top: 20px;
+    border: 1px solid black;
+    /*padding-top: 20px;*/
     margin-top: -20px;
-
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 
@@ -1046,6 +1047,7 @@ h1 {
     justify-content: space-between;
 }
 
+
 .label-input button {
     margin: auto;
     color: #ffffff;
@@ -1065,15 +1067,15 @@ h1 {
 }
 
 #isDonor {
-    width: 146px;
+    width: 143px;
 }
 
 #state {
-    width: 146px;
+    width: 143px;
 }
 
 .listing_input {
-    width: 209px;
+    width: 213px;
 }
 
 .cancel-btn {
@@ -1360,9 +1362,9 @@ h1 {
     border-top: 3px solid red;
     padding: 15px;
     width: 200px;
-    height: 200px;
+    height: auto;
     background-color: #efefef;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -1608,7 +1610,7 @@ h1 {
 }
 
 .listingsPageHead{
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     margin-top: 20px;
 }
 
