@@ -242,7 +242,9 @@ button, input[type="submit"] {
     /*background-color: pink;*/
     text-align: center;
     background-color: white;
-    padding: 20px 0;
+    padding-top: 40px;
+    /*padding-bottom: 5px;*/
+    font-size: 35px;
 }
 
 .support-section {
@@ -310,16 +312,17 @@ button, input[type="submit"] {
     /* background-color: pink; */
     /* border: 2px solid red; */
     /*margin: 10px;*/
-    max-width: 200px;
-    min-width: 200px;
+    height: 300px;
+    width: 300px;
     height: auto;
     padding: 10px;
 }
 
 .support-square {
     /* border: 2px solid purple; */
-    font-size: 18px;
-    height: 100px;
+
+    height: 150px;
+
     padding: 15px;
     background-color: black;
     color: white;
@@ -328,13 +331,15 @@ button, input[type="submit"] {
 .support-square-number {
     /* border: 2px solid green; */
     text-align: right;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: red;
+
 }
 
 .support-square-text {
-    font-size: 18px;
+  font-size: 23px;
     font-weight: bold;
+    margin-top: 30px;
 }
 
 .support-column>p {
@@ -1683,3 +1688,4 @@ h1 {
 /*    !*margin-top: -10px;*!*/
 /*    padding-top: 5px;*/
 /*}*/
+
