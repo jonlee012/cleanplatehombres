@@ -728,6 +728,7 @@ h1 {
 .profile-card {
     border: 1px solid #cbcbcb;
     height: auto;
+    padding: 5px;
 }
 
 .profile-left a {
