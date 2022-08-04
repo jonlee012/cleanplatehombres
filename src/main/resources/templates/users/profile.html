@@ -31,7 +31,7 @@
 
             <div class="profile-welcome">
                 Welcome, <!--/*@thymesVar id="getUsername" type=""*/--><span class="text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>
-            </div>
+            !</div>
 
             <p class="paragraph">
                 <i class="fa-solid fa-user"></i> :   <!--/*@thymesVar id="getUsername" type=""*/--><span th:text ="*{#authentication.getPrincipal().getUsername()}"></span>
@@ -59,7 +59,10 @@
     <div class="profile-right">
         <!--right side profile-->
         <!--org header-->
-
+        <div class="area-titles">
+            <h1 class="org-area">ORGANIZATION AREA</h1>
+            <h1 class="listings-area">LISTINGS AREA</h1>
+        </div>
 
         <th:block th:each="organization : ${organizations}" th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}">
             <!--/*@thymesVar id="getUserId" type=""*/-->
