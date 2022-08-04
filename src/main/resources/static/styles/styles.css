@@ -726,7 +726,7 @@ h1 {
 }
 
 .profile-card {
-    border: 1px solid #cbcbcb;
+    /*border: 1px solid #cbcbcb;*/
     height: auto;
     padding: 5px;
 }
@@ -741,6 +741,24 @@ h1 {
     min-height: auto;
     /*height: 100vh;*/
     min-width: 500px;
+}
+
+.area-titles {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Roboto', sans-serif;
+}
+
+.org-area {
+    /*width: 30%;*/
+    font-size: 15px;
+    text-align: left;
+}
+
+.listings-area {
+    width: 70%;
+    font-size: 15px;
+    text-align: left;
 }
 
 
@@ -1357,6 +1375,16 @@ h1 {
     width: 100%;
     padding: 0 20px 20px;
 }
+.card-container-inner-listings {
+    /*border: 2px solid purple;*/
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0 20px 20px;
+}
+
 
 .card-container-orgs {
     /*border: 1px solid orange;*/
