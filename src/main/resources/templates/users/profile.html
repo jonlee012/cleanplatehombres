@@ -30,8 +30,8 @@
         <div class="profile-card">
 
             <div class="profile-welcome">
-                Welcome, <!--/*@thymesVar id="getUsername" type=""*/--><span class="text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"!></span>
-            </div>
+                Welcome, <!--/*@thymesVar id="getUsername" type=""*/--><span class="text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>
+            !</div>
 
             <p class="paragraph">
                 <i class="fa-solid fa-user"></i> :   <!--/*@thymesVar id="getUsername" type=""*/--><span th:text ="*{#authentication.getPrincipal().getUsername()}"></span>
