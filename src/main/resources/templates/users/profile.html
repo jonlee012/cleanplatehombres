@@ -59,10 +59,10 @@
     <div class="profile-right">
         <!--right side profile-->
         <!--org header-->
-        <div class="area-titles">
-            <h1 class="org-area">ORGANIZATION AREA</h1>
-            <h1 class="listings-area">LISTINGS AREA</h1>
-        </div>
+<!--        <div class="area-titles">-->
+<!--            <h1 class="org-area" style="font-family: 'Roboto'">ORGANIZATIONS</h1>-->
+<!--            <h1 class="listings-area" style="font-family: 'Roboto'">LISTINGS</h1>-->
+<!--        </div>-->
 
         <th:block th:each="organization : ${organizations}" th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}">
             <!--/*@thymesVar id="getUserId" type=""*/-->

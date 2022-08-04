@@ -72,7 +72,7 @@
     <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">
         <div class="hero-wrapper">
             <h1 class="hero-heading">USE <span class="text-span-2">CLEAN PLATE</span> TO HELP YOU DONATE</h1>
-            <h3 class="hero-heading">Welcome
+            <h3 class="hero-heading">Welcome,
                 <!--/*@thymesVar id="getUsername" type=""*/-->
                 <span id="welcome-name" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!
             </h3>
