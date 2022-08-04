@@ -7,6 +7,9 @@
 
 <body>
 <nav th:replace="partials/topnav :: navbar"></nav>
+<div class="profile-header-holder underNav">
+    <h1 class="profile-header headerStyles">ABOUT US</h1>
+</div>
 <div class="about">
     <div class="about-project-container">
         <div class="ap-sub-container">
@@ -19,8 +22,9 @@
             <div class="about-project-right">
                 <div class="heading label-input">About our project</div>
                 <div class="team-line label-input"></div>
-                <div class="paragraph label-input">
-                    1 in 8 Americans experience food insecurity while $200 billion is being spent on food that will never be eaten. Clean Plate Donations was created by four web developers seeking to find a solution to the increasing levels of food insecurity in America.</div>
+                <div class="paragraph label-input"> A web application that uses Spring, Thymeleaf, and MySQL. Clean Plate Donations is the conduit between Restaurants who have food to donate and Non-Profit organizations who need food. Non-Profits will be able to post a
+                    listing requirement such as 10 loaves of bread and if a nearby restaurant is able to fulfill they will contact the Non-Profit. Technology utilized: Java EE, Spring Boot, Hibernate, HTML, CSS, and JavaScript.
+                    </div>
             </div>
         </div>
     </div>
@@ -30,44 +34,56 @@
         <div class="team-heading">MEET THE CLEAN PLATE GUYS</div>
         <div class="team-cards">
             <div class="team-card">
-                <div ><img class="p-img" th:src="@{/imgs/derek.jpeg}" alt="d_berkley"></div>
+                <div ><img class="p-img" th:src="@{/imgs/derek1.jpeg}" alt="d_berkley"></div>
                 <div class="heading">Derek Berkley</div>
                 <div class="team-line"></div>
                 <div class="paragraph">Responsible for database design, security configuration, and entity CRUD operations.</div>
-                <div class="profileIcons">
+                <div style="margin-bottom: -10px" class="profileIcons">
                     <a  href="https://github.com/derekberkley" class='fa fa-github profileIconsEach'></a>
                     <a  href="https://www.linkedin.com/in/derek-berkley/" class='fa fa-linkedin profileIconsEach'></a>
+                    <div style="font-size: small"  class="openToWork">#OpenToWork</div>
                 </div>
+
             </div>
             <div class="team-card">
                 <div ><img class="p-img" th:src="@{/imgs/jon.jpeg}" alt="j_lee"></div>
                 <div class="heading">Jon Lee</div>
                 <div class="team-line"></div>
                 <div class="paragraph">Responsible for implementing MapBox API, Filestack API, and partials for view pages.</div>
-                <div class="profileIcons">
+                <div style="margin-bottom: -10px" class="profileIcons">
                     <a  href="https://github.com/jonlee012" class='fa fa-github profileIconsEach'></a>
                     <a  href="https://www.linkedin.com/in/jonathan-lee-67044836/" class='fa fa-linkedin profileIconsEach'></a>
+                    <div style="font-size: small"  class="openToWork">#OpenToNetwork</div>
+
                 </div>
+
             </div>
             <div class="team-card">
-                <div ><img class="p-img" th:src="@{/imgs/carlos.jpeg}" alt="c_chavira"></div>
+                <div ><img class="p-img" th:src="@{/imgs/carlos1.jpeg}" alt="c_chavira"></div>
                 <div class="heading">Carlos Chavira</div>
                 <div class="team-line"></div>
                 <div class="paragraph">Responsible for Front-end, styling the user interface, and Filestack API. Utilized thymeleaf for front-end compatibility with the back-end. </div>
-                <div class="profileIcons">
+
+                <div style="margin-bottom: -10px" class="profileIcons">
                     <a  href="https://github.com/carloschavira333" class='fa fa-github profileIconsEach'></a>
                     <a href="https://www.linkedin.com/in/carlos-b-chavira/"  class='fa fa-linkedin profileIconsEach'></a>
+                    <div style="font-size: small" class="openToWork">#OpenToWork</div>
+
                 </div>
+
             </div>
             <div class="team-card">
-                <div ><img class="p-img" th:src="@{/imgs/michael.jpeg}" alt="m_kestler"></div>
+                <div ><img class="p-img" th:src="@{/imgs/michael1.jpg}" alt="m_kestler"></div>
                 <div class="heading">Michael Kestler</div>
                 <div class="team-line"></div>
                 <div class="paragraph">Responsible for back-end elements fully ensuring functionality between Controllers, Models, and Repositories.</div>
-                <div class="profileIcons">
+                <div style="margin-bottom: -10px" class="profileIcons">
                     <a href="https://github.com/michael-kestler" class='fa fa-github profileIconsEach'></a>
                     <a href="https://www.linkedin.com/in/mskestler/" class='fa fa-linkedin profileIconsEach'></a>
+                    <div style="font-size: small"  class="openToWork">#OpenToWork</div>
+
                 </div>
+
             </div>
         </div>
 

@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
-    <title>Clean Plate Donations</title>
+    <title>Home</title>
     <div th:replace="partials/head :: head"></div>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- CSS STYLE SHEET -->
@@ -11,77 +11,19 @@
 
 </head>
 
-
 <body>
 
 <nav th:replace="partials/topnav :: navbar"></nav>
 
-<div class="hero-section">
-    <img class="hero-img" th:src="@{/imgs/landing2a.png}">
-    <div class="hero-wrapper">
-
-        <div class="nav-links-ul" sec:authorize="isAnonymous()">
-            <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>
-        </div>
-        <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">
-            <h1 class="hero-heading">THANKS FOR USING <span class="text-span-2">CLEAN PLATE</span> TO HELP YOU DONATE</h1>
-        </div>
-
-        <div class="hero-button-container">
-            <div class="hero-button-wrapper">
-
-                <div class="nav-links-ul" sec:authorize="isAnonymous()">
-                    <a href="/sign-up" class="hero-button">GET STARTED NOW</a>
-                </div>
-
-                <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">
-                    <h3 class="hero-heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/--><span id="welcome-name" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h3>
-                    <br>
-                    <div><a href="/listings/create" class="hero-button">POST A DONATION</a></div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!--<div class="hero-section">-->
-<!--    <img class="hero-img" th:src="@{/imgs/landing2a.png}">-->
-<!--    <div class="hero-wrapper">-->
-
-<!--        <div class="nav-links-ul" sec:authorize="isAnonymous()">-->
-<!--                    <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>-->
-<!--                    <div class="hero-button-container">-->
-<!--                    <div class="hero-button-wrapper">-->
-<!--                    <a href="/sign-up" class="hero-button">GET STARTED NOW</a>-->
-<!--        </div>-->
-
-<!--        <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">-->
-<!--            <h1 class="hero-heading">THANKS FOR USING <span class="text-span-2">CLEAN PLATE</span> TO HELP YOU DONATE</h1>-->
-<!--            <div class="hero-button-container">-->
-<!--                <div class="hero-button-wrapper">-->
-<!--            <h3 class="hero-heading">Welcome &lt;!&ndash;/*@thymesVar id="getUsername" type=""*/&ndash;&gt;<span class="text-span-2 text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!</h3>-->
-<!--            <a href="/listings/create" class="hero-button">POST A DONATION</a>-->
-<!--        </div>-->
-
-<!--            </div>-->
-
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!-- SUPPORT SECTION -->
 <div class="support-section">
     <div class="container">
         <div class="support-top-wrapper">
             <div class="support-top-left">
-                <div class="support-top-details-text"></div>
-<!--                <h2 class="support-top-heading">Ways to participate on <br>Clean Plate</h2>-->
-                <h2 class="support-top-heading">How it Works</h2>
+                <h2 class="support-top-heading">HOW IT WORKS</h2>
             </div>
-            <div class="support-top-right">
-                <p>Clean Plate is a non-profit organization that is a conduit between restaurants who have food to give and organizations that need food.</p>
-            </div>
+            <!--            <div class="support-top-right">-->
+            <!--                <p>Clean Plate is a non-profit organization that is a conduit between restaurants who have food to give and organizations that need food.</p>-->
+            <!--            </div>-->
         </div>
         <!-- SUPPORT CARDS -->
         <div class="support-wrapper">
@@ -112,18 +54,48 @@
     </div>
 </div>
 
-<!-- KEEPING SAFE SECTION -->
-<div class="safe-section">
-    <img class="safe-img" th:src="@{/imgs/stayingSafe.png}">
-    <div class="container">
-        <div class="safe-wrapper">
-            <h2 class="safe-heading">WORKING & STAYING SAFE DURING COVID-19<br><br></h2>
-            <p class="safe-paragraph">Taking every safety precaution is our number one priority when working with our partners. </p>
-            <div class="safe-button-wrapper">
-<!--                <a href="/learn-more" class="safe-button">learn more</a>-->
+<!--Call to Action Section-->
+<div class="hero-section">
+
+    <img class="hero-img" th:src="@{/imgs/landing2a.png}">
+
+    <div class="nav-links-ul" sec:authorize="isAnonymous()">
+        <div class="hero-wrapper">
+            <h1 class="hero-heading">BECOME A <span class="text-span-2">CLEAN PLATE</span> PARTNER</h1>
+            <!--            <div class="nav-links-ul">-->
+            <div class="hero-button-container">
+                <a href="/sign-up" class="hero-button">GET STARTED NOW</a>
             </div>
         </div>
     </div>
+
+    <div class="nav-links-ul logged-in" sec:authorize="isAuthenticated()">
+        <div class="hero-wrapper">
+            <h1 class="hero-heading">USE <span class="text-span-2">CLEAN PLATE</span> TO HELP YOU DONATE</h1>
+            <h3 class="hero-heading">Welcome <!--/*@thymesVar id="getUsername" type=""*/-->
+                <span id="welcome-name" th:text ="${#authentication.getPrincipal().getUsername()}"></span>!
+            </h3>
+            <br>
+            <div class="hero-button-container">
+                <a href="/listings/create" class="hero-button">POST A DONATION</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--End Call to Action Section-->
+
+
+
+<!-- KEEPING SAFE SECTION -->
+<div class="safe-section">
+    <!--    <img class="safe-img" th:src="@{/imgs/stayingSafe.png}">-->
+
+    <div class="safe-wrapper">
+        <h2 class="safe-heading">WORKING & STAYING SAFE DURING COVID-19<br><br></h2>
+        <p class="safe-paragraph">Taking every safety precaution is our number one priority when working with our partners. </p>
+    </div>
+
 </div>
 <!-- MOST RECENT 3 LISTINGS (BASED ON ID, WORK BACKWARDS(DECREMENT) THE SORT) -->
 
