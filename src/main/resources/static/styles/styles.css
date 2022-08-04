@@ -728,6 +728,7 @@ h1 {
 .profile-card {
     border: 1px solid #cbcbcb;
     height: auto;
+    padding: 5px;
 }
 
 .profile-left a {
@@ -1378,10 +1379,10 @@ h1 {
     margin-left: 5px;
 }
 
-.lstg-card-container {
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*flex-wrap: wrap;*/
+.lstg-card-container-profile {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 
 }
 
