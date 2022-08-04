@@ -30,7 +30,7 @@
         <div class="profile-card">
 
             <div class="profile-welcome">
-                Welcome, <!--/*@thymesVar id="getUsername" type=""*/--><span class="text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"></span>
+                Welcome, <!--/*@thymesVar id="getUsername" type=""*/--><span class="text-capitalize" th:text ="${#authentication.getPrincipal().getUsername()}"!></span>
             </div>
 
             <p class="paragraph">
