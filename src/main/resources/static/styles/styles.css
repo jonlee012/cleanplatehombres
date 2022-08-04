@@ -320,7 +320,9 @@ button, input[type="submit"] {
 
 .support-square {
     /* border: 2px solid purple; */
+
     height: 150px;
+
     padding: 15px;
     background-color: black;
     color: white;
@@ -335,14 +337,14 @@ button, input[type="submit"] {
 }
 
 .support-square-text {
-    font-size: 23px;
+  font-size: 23px;
     font-weight: bold;
     margin-top: 30px;
 }
 
 .support-column>p {
     padding: 10px;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 /* **************** */
@@ -393,7 +395,7 @@ button, input[type="submit"] {
 }
 
 .safe-paragraph {
-    font-size: 13px;
+    font-size: 15px;
     margin-bottom: 20px;
     color:red;
 }

@@ -66,7 +66,7 @@ public class UserController {
         user.setPassword(hash);
         System.out.println(user.getPassword());
         userDao.save(user);
-        return "redirect:/profile";
+        return "redirect:/logout";
     }
 
     @GetMapping("users/delete/{id}")
