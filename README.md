@@ -1,7 +1,7 @@
-  <a  href="https://cleanplatedonations.xyz/about"><h2>Clean Plate Donations</h2></a><br>
+  <a  href="https://cleanplatedonations.xyz/"><h2>Clean Plate Donations</h2></a><br>
 1 in 8 Americans experience food insecurity while up to $200 billion is spent annually on producing food that will never be eaten. That amounts to billions of pounds of food wasted, and many missed opportunities to share with those who need it. More specifically, a recent report found that about 50 lbs of food is wasted per 100 meals. Virtually all restaurants throw out their food waste rather than donate. Clean Plate Donations was created by four web developers with varying experiences in the restaurant industry offering a solution to the increasing levels of food insecurity in America. Clean Plate Donations is a web application that bridges the gap between restaurants with excess food and non-profit organizations that serve the community's needs.  This web application provides restaurants the ability to list food as donations and non-profit organizations to make requests and facilitate the donations to the community.
 
-<p align="center"><a  href="https://cleanplatedonations.xyz/about">
+<p align="center"><a  href="https://cleanplatedonations.xyz/">
 <img width="900" alt="Screen Shot 2022-08-04 at 11 22 52" src="https://user-images.githubusercontent.com/99042983/182902253-b8452ed1-568a-46f7-9988-2729662aeace.png"></a>
 </p>
 
