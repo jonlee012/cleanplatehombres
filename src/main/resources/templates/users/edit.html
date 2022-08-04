@@ -25,6 +25,8 @@
 
         <input th:field="*{userId}" th:value="${user.getUserId()}" hidden>
         <input th:field="*{admin}" th:value="${user.getAdmin()}" hidden>
+        <input th:field="*{organizationList}" th:value="${user.getOrganizationList()}" hidden>
+        <input th:field="*{listingList}" th:value="${user.getListingList()}" hidden>
 
         <label for="username">Username</label>
         <input id="username" th:field="*{username}" />
