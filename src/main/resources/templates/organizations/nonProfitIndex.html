@@ -95,7 +95,7 @@
         geocode(address, token).then(function (coordinates) {
             var popup = new mapboxgl.Popup()
                 .setHTML(
-                    "<div style='max-width: 120px; display: flex;flex-wrap: wrap'> "+
+                    "<div style='max-width: 130px; display: flex;flex-wrap: wrap'> "+
                     "<h6 style='font-size: 15px'>" + name + "</h6>" +
                     "<p style='font-size: 10px'>" + address + "</p>"+ "</div>");
             var marker = new mapboxgl.Marker({ "color": "#ea3c3c" })
