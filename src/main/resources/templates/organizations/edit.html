@@ -23,6 +23,7 @@
         <form th:action="@{'/organizations/edit/' + ${organization.getId()}}" method="POST" th:object="${organization}" class="second-tier-container form">
 
             <input th:field="*{id}" th:value="${organization.getId()}" hidden>
+            <input th:field="*{images}" th:value="${organization.getImages()}" hidden>
 
             <div class="label-input">
                 <label for="name" class="">Organization Name</label>
