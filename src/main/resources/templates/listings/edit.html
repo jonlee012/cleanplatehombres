@@ -19,7 +19,7 @@
             <h1>Edit Listing</h1>
             <br>
 
-            <form th:action="@{/listings/edit}" th:method="post" th:object="${listing}">
+            <form th:action="@{'/listings/edit/' + ${listing.getId()}}" th:method="post" th:object="${listing}">
                 <div class="label-input">
                     <label id="food-name">Type of Food</label>
                     <input th:field="*{foodName}" th:value="${listing.getFoodName()}" type="text" name="foodName" class="listing_input"/>

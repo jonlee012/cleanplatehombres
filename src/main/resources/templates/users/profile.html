@@ -61,9 +61,9 @@
         <!--org header-->
 
 
-        <th:block th:each="organization : ${organizations}">
+        <th:block th:each="organization : ${organizations}" th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}">
             <!--/*@thymesVar id="getUserId" type=""*/-->
-            <div class="org-listings-container" th:if="${organization.getUser().getUserId()} == ${#authentication.getPrincipal().getUserId()}">
+            <div class="org-listings-container">
 
                 <!--org display-->
                 <div class="org-card-container">
@@ -99,9 +99,9 @@
                 <!-- ORG CARD END -->
 
         <div class="card-container-inner">
-                        <div class="lstg-card-container-profile">
-                            <div th:each="listing : ${listings}">
-                                <div th:if="${organization} == ${listing.getOrganization()}">
+
+                        <div class="lstg-card-container">
+                            <th:block th:each="listing : ${listings}" th:if="${organization} == ${listing.getOrganization()}">
 
                             <div class="lstg-card-test">
 
@@ -117,8 +117,7 @@
                                 </div>
                             </div>
 
-                        </div>
-                </div>
+                </th:block>
 <!--        </th:block>-->
             </div>
     <!-- PROFILE-LISTINGS-CONTAINER END -->
