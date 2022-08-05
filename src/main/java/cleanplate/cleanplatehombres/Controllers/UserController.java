@@ -3,8 +3,6 @@ package cleanplate.cleanplatehombres.Controllers;
 import cleanplate.cleanplatehombres.Repositories.ListingRepository;
 import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
 import cleanplate.cleanplatehombres.Repositories.UserRepository;
-import cleanplate.cleanplatehombres.models.Listing;
-import cleanplate.cleanplatehombres.models.Organization;
 import cleanplate.cleanplatehombres.models.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -79,7 +77,7 @@ public class UserController {
         newUser.getOrganizationList().addAll(organizationRepository.findAllByUserId(user.getUserId()));
 
         newUser.getListingList().clear();
-        newUser.getListingList().addAll(listingRepository.findAllByOrganizationId(user.getUserId()));
+        newUser.getListingList().addAll(listingRepository.findAllByUserId(user.getUserId()));
 
         userDao.save(newUser);
 
