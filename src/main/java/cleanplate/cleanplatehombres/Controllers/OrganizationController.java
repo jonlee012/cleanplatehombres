@@ -136,6 +136,7 @@ public class OrganizationController {
 
 
     @PostMapping("organizations/edit")
+
     public String editOrganization(@ModelAttribute Organization organization) {
         organizationRepository.save(organization);
         return "redirect:/profile";
@@ -148,6 +149,12 @@ public class OrganizationController {
 //        organizationRepository.deleteById(organization.getId());
 //        organizationRepository.save(organization);
 //        return "redirect:/nonProfitIndex";
+
+
+
+
+
+
 //    @GetMapping("/organizations/{id}")
 //    public String viewPost(@PathVariable Integer id, Model model) {
 //        model.addAttribute("title", "Post Page");
@@ -174,30 +181,8 @@ public class OrganizationController {
 
 
     @GetMapping("organizations/delete/{id}")
-    public String delete(@ModelAttribute Organization organization, @PathVariable Integer id) {
-        Organization org2update = organizationRepository.getById(id);
-        System.out.println(org2update + "org2Update");
-//        org2update.setId(organization.getId());
-        org2update.setOrgName(organization.getOrgName());
-        org2update.setOrgDescription(organization.getOrgDescription());
-        org2update.setOrgStAddress(organization.getOrgStAddress());
-        org2update.setOrgCity(organization.getOrgCity());
-        org2update.setOrgState(organization.getOrgState());
-        org2update.setOrgZip(organization.getOrgZip());
-
-        org2update.getListingList().clear();
-        org2update.getListingList().addAll(listingRepository.findAllByOrganizationId(id));
-
-        org2update.setImages(organization.getImages());
-
-//        User user = userDao.findAll().get(0);
-        org2update.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-//        organization.setUser(user);
-
-        organizationRepository.delete(org2update);
-//        Organization org2update = organizationRepository.getById(id);
-//        organization.getListingList().clear();
-//        organizationRepository.delete(organization);
+    public String delete(@ModelAttribute Organization organization, Integer id) {
+        organizationRepository.delete(organization);
         return "redirect:/profile";
     }
 

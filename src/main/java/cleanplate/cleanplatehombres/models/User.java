@@ -49,14 +49,6 @@ public class User {
         return id;
     }
 
-    public List<Listing> getListingList() {
-        return listingList;
-    }
-
-    public void setListingList(List<Listing> listingList) {
-        this.listingList = listingList;
-    }
-
     public void setUserId(Integer userId) {
         this.id = userId;
     }
