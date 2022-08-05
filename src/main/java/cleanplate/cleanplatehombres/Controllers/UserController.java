@@ -3,6 +3,8 @@ package cleanplate.cleanplatehombres.Controllers;
 import cleanplate.cleanplatehombres.Repositories.ListingRepository;
 import cleanplate.cleanplatehombres.Repositories.OrganizationRepository;
 import cleanplate.cleanplatehombres.Repositories.UserRepository;
+import cleanplate.cleanplatehombres.models.Listing;
+import cleanplate.cleanplatehombres.models.Organization;
 import cleanplate.cleanplatehombres.models.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -60,28 +62,11 @@ public class UserController {
 
     @PostMapping("users/edit")
     public String editListing(@ModelAttribute User user){
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
-//        userDao.save(user);
-
-        User newUser = userDao.getById(user.getUserId());
-        System.out.println(newUser + "newUser");
-//        org2update.setId(organization.getId());
-        newUser.setEmail(user.getEmail());
-        newUser.setAdmin(user.getAdmin());
         String hash = passwordEncoder.encode(user.getPassword());
-        newUser.setPassword(hash);
-        newUser.setUsername(user.getUsername());
-
-        newUser.getOrganizationList().clear();
-        newUser.getOrganizationList().addAll(organizationRepository.findAllByUserId(user.getUserId()));
-
-        newUser.getListingList().clear();
-        newUser.getListingList().addAll(listingRepository.findAllByUserId(user.getUserId()));
-
-        userDao.save(newUser);
-
-        return "redirect:/logout";
+        user.setPassword(hash);
+        System.out.println(user.getPassword());
+        userDao.save(user);
+        return "redirect:/profile";
     }
 
     @GetMapping("users/delete/{id}")
