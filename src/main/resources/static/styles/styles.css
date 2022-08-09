@@ -1680,7 +1680,9 @@ h1 {
 
 .listingsPageHead{
     /*margin-bottom: 20px;*/
-    margin-top: 20px;
+    /*margin-top: 20px;*/
+    min-height: 600px;
+
 }
 
 
